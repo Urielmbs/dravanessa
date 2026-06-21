@@ -1,0 +1,121 @@
+---
+// src/components/PraQuem.astro
+---
+<section id="pra-quem" class="vs-section vs-praquem" aria-label="Para quem é este tratamento">
+  <div class="vs-praquem__inner">
+    <div class="vs-praquem__content">
+      <p class="vs-praquem__overline vs-reveal">Para quem é este tratamento</p>
+      <h2 class="vs-praquem__title vs-reveal" data-delay="1">Você sente que já tentou de tudo, mas a dor sempre volta?
+      </h2>
+      <p class="vs-praquem__text vs-reveal" data-delay="2">
+        Esta mensagem é para você que já peregrinou por diversos consultórios, usou placas de bruxismo que não
+        aliviaram o desconforto, depende de analgésicos quase todos os dias e já começou a acreditar que <em>"ter dor
+          de cabeça diariamente é normal"</em>.
+      </p>
+      <p class="vs-praquem__text vs-reveal" data-delay="3">
+        Se você deixou de mastigar os alimentos que gosta, tem medo de bocejar e a mandíbula travar, ou simplesmente
+        acorda mais cansado(a) do que quando foi dormir: existe um caminho diferente.
+      </p>
+      <div class="vs-praquem__highlight vs-reveal" data-delay="4">
+        Você não precisa, e nem deve, se acostumar a viver com dor.
+      </div>
+      <div class="vs-praquem__cta vs-reveal" data-delay="5">
+        <a href="#sinais" class="vs-btn vs-btn--primary">Quero descobrir a causa da minha dor</a>
+      </div>
+    </div>
+    <div class="vs-praquem__image-wrap vs-reveal" data-delay="2">
+      <img src="https://zaidansilveira.com.br/wp-content/uploads/2025/04/8-1.png" alt="Pessoa com dor na mandíbula">
+    </div>
+  </div>
+</section>
+
+<style>
+  .vs-praquem {
+    background: var(--color-cream-dark);
+    padding: var(--space-20) 0 var(--space-16);
+  }
+
+  .vs-praquem__inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 var(--side-padding);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-10);
+    align-items: center;
+  }
+
+  .vs-praquem__image-wrap {
+    position: relative;
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    aspect-ratio: 1/1;
+    background: var(--color-warm-gray);
+  }
+
+  .vs-praquem__image-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.8;
+    mix-blend-mode: multiply;
+  }
+
+  .vs-praquem__content {
+    max-width: 540px;
+  }
+
+  .vs-praquem__overline {
+    font-size: var(--text-xs);
+    font-weight: 600;
+    letter-spacing: var(--tracking-wider);
+    text-transform: uppercase;
+    color: var(--color-amber);
+    margin-bottom: var(--space-4);
+  }
+
+  .vs-praquem__title {
+    font-family: var(--font-display);
+    font-size: var(--text-4xl);
+    line-height: var(--leading-tight);
+    letter-spacing: var(--tracking-tight);
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-6);
+  }
+
+  .vs-praquem__text {
+    font-size: var(--text-lg);
+    font-weight: 300;
+    line-height: var(--leading-normal);
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-4);
+  }
+
+  .vs-praquem__highlight {
+    margin-top: var(--space-6);
+    padding-left: var(--space-4);
+    border-left: 2px solid var(--color-amber);
+    font-size: var(--text-base);
+    font-weight: 500;
+    color: var(--color-text-primary);
+    font-style: italic;
+  }
+
+  .vs-praquem__cta {
+    margin-top: var(--space-8);
+  }
+
+  @media (max-width: 768px) {
+    .vs-praquem__inner {
+      grid-template-columns: 1fr;
+    }
+
+    .vs-praquem__image-wrap {
+      display: none;
+    }
+
+    .vs-praquem__title {
+      font-size: var(--text-3xl);
+    }
+  }
+</style>

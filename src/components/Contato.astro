@@ -1,0 +1,299 @@
+---
+// src/components/Contato.astro
+---
+<section class="vs-section vs-contato" id="contato" aria-label="Contato e agendamento">
+  <div class="vs-contato__bg" aria-hidden="true"></div>
+
+  <div class="vs-contato__inner">
+    <div class="vs-contato__header">
+      <p class="vs-contato__overline vs-reveal">Fale com a gente</p>
+      <h2 class="vs-contato__title vs-reveal" data-delay="1">Pronta para cuidar de você</h2>
+      <p class="vs-contato__desc vs-reveal" data-delay="2">
+        Entre em contato e agende sua avaliação. O primeiro passo
+        para viver sem dor começa aqui.
+      </p>
+    </div>
+
+    <div class="vs-contato__grid">
+      <!-- Contact info -->
+      <div class="vs-contato__info">
+        <!-- WhatsApp -->
+        <div class="vs-contato__item vs-reveal" data-delay="1">
+          <div class="vs-contato__item-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <use href="#icon-whatsapp" />
+            </svg>
+          </div>
+          <div>
+            <p class="vs-contato__item-label">WhatsApp</p>
+            <p class="vs-contato__item-value">
+              <a href="https://wa.me/5532998513101">(32) 99851-3101</a>
+            </p>
+          </div>
+        </div>
+
+        <!-- Telefone -->
+        <div class="vs-contato__item vs-reveal" data-delay="2">
+          <div class="vs-contato__item-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path
+                d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" />
+            </svg>
+          </div>
+          <div>
+            <p class="vs-contato__item-label">Telefone</p>
+            <p class="vs-contato__item-value">
+              <a href="tel:+553232128916">(32) 3212-8916</a>
+            </p>
+          </div>
+        </div>
+
+        <!-- E-mail -->
+        <div class="vs-contato__item vs-reveal" data-delay="3">
+          <div class="vs-contato__item-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+              <polyline points="22,6 12,13 2,6" />
+            </svg>
+          </div>
+          <div>
+            <p class="vs-contato__item-label">E-mail</p>
+            <p class="vs-contato__item-value">
+              <a href="mailto:vanessa@zaidansilveira.com.br">vanessa@zaidansilveira.com.br</a>
+            </p>
+          </div>
+        </div>
+
+        <!-- Endereço -->
+        <div class="vs-contato__item vs-reveal" data-delay="4">
+          <div class="vs-contato__item-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+              <circle cx="12" cy="10" r="3" />
+            </svg>
+          </div>
+          <div>
+            <p class="vs-contato__item-label">Endereço</p>
+            <p class="vs-contato__item-value">
+              SINPLA Odontologia
+              <br>Av. Presidente Itamar Franco, 1545, Sala 1<br>
+              Centro, Juiz de Fora - MG
+            </p>
+          </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="vs-contato__cta vs-reveal" data-delay="4">
+          <a href="https://wa.me/5532998513101" target="_blank" rel="noopener" class="vs-btn vs-btn--primary">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <use href="#icon-whatsapp" />
+            </svg>
+            Agendar pelo WhatsApp
+          </a>
+        </div>
+      </div>
+
+      <!-- Map -->
+      <div class="vs-contato__map-wrap vs-reveal" data-delay="2">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3705.410218612151!2d-43.3486767!3d-21.764378999999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x69114eb777782f23%3A0x770d8b475353570a!2sVanessa%20Zaidan%20Silveira%20%7C%20Bucomaxilo%20%26%20DTM!5e0!3m2!1spt-BR!2sbr!4v1775234261310!5m2!1spt-BR!2sbr"
+          width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .vs-contato {
+    background: var(--color-cream-dark);
+    padding: var(--space-16) 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Subtle warm gradient overlay */
+  .vs-contato__bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 50% at 20% 80%, rgba(232, 122, 47, 0.06) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 40% at 80% 20%, rgba(232, 240, 242, 0.3) 0%, transparent 50%);
+    z-index: 1;
+  }
+
+  .vs-contato__inner {
+    position: relative;
+    z-index: 2;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 var(--side-padding);
+  }
+
+  .vs-contato__header {
+    text-align: center;
+    margin-bottom: var(--space-10);
+    max-width: var(--max-width-text);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .vs-contato__overline {
+    font-family: var(--font-body);
+    font-size: var(--text-xs);
+    font-weight: 600;
+    letter-spacing: var(--tracking-wider);
+    text-transform: uppercase;
+    color: var(--color-amber);
+    margin-bottom: var(--space-4);
+  }
+
+  .vs-contato__title {
+    font-family: var(--font-display);
+    font-size: var(--text-4xl);
+    font-weight: 700;
+    line-height: var(--leading-tight);
+    letter-spacing: var(--tracking-tight);
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-5);
+  }
+
+  .vs-contato__desc {
+    font-family: var(--font-accent);
+    font-size: var(--text-lg);
+    font-weight: 400;
+    font-style: italic;
+    line-height: var(--leading-normal);
+    color: var(--color-text-secondary);
+  }
+
+  /* Grid: info + map */
+  .vs-contato__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-8);
+    align-items: start;
+  }
+
+  /* Contact info cards */
+  .vs-contato__info {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+  }
+
+  .vs-contato__item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-4);
+    padding: var(--space-5);
+    background: rgba(255, 255, 255, 0.6);
+    border: 1px solid rgba(232, 122, 47, 0.08);
+    border-radius: var(--radius-md);
+    transition: background var(--duration-fast) var(--ease-out),
+      border-color var(--duration-fast) var(--ease-out),
+      box-shadow var(--duration-fast) var(--ease-out);
+  }
+
+  .vs-contato__item:hover {
+    background: rgba(255, 255, 255, 0.9);
+    border-color: rgba(232, 122, 47, 0.15);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .vs-contato__item-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-sm);
+    background: var(--color-amber-subtle);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-amber);
+    flex-shrink: 0;
+  }
+
+  .vs-contato__item-icon svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .vs-contato__item-label {
+    font-family: var(--font-body);
+    font-size: var(--text-xs);
+    font-weight: 500;
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    margin-bottom: 4px;
+  }
+
+  .vs-contato__item-value {
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    font-weight: 400;
+    color: var(--color-text-primary);
+    line-height: var(--leading-snug);
+  }
+
+  .vs-contato__item-value a {
+    color: var(--color-text-primary) !important;
+    text-decoration: none;
+    transition: color var(--duration-fast) var(--ease-out);
+  }
+
+  .vs-contato__item-value a:hover {
+    color: var(--color-amber) !important;
+  }
+
+  /* CTA button large */
+  .vs-contato__cta {
+    margin-top: var(--space-6);
+  }
+
+  .vs-contato__cta .vs-btn--primary {
+    width: 100%;
+    justify-content: center;
+    padding: 18px 36px;
+    font-size: var(--text-lg);
+  }
+
+  /* Map */
+  .vs-contato__map-wrap {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    border: 1px solid rgba(232, 122, 47, 0.08);
+    aspect-ratio: 1 / 1;
+    max-height: 480px;
+    box-shadow: var(--shadow-md);
+  }
+
+  .vs-contato__map-wrap iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    filter: grayscale(0.2) contrast(1.05);
+  }
+
+  /* === RESPONSIVIDADE === */
+  @media (max-width: 768px) {
+    .vs-contato {
+      padding: var(--space-12) 0;
+    }
+
+    .vs-contato__title {
+      font-size: var(--text-3xl);
+    }
+
+    .vs-contato__grid {
+      grid-template-columns: 1fr;
+    }
+
+    .vs-contato__map-wrap {
+      aspect-ratio: 16 / 10;
+    }
+  }
+</style>

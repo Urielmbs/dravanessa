@@ -1,0 +1,113 @@
+---
+// src/components/Credenciais.astro
+---
+<section class="vs-section vs-credenciais" aria-label="Credenciais profissionais">
+  <div class="vs-credenciais__inner vs-reveal">
+    <p class="vs-credenciais__title">Formação & Especialização</p>
+    <div class="vs-credenciais__badges">
+      <span class="vs-credenciais__badge">
+        <span class="vs-credenciais__badge-dot"></span>
+        CRO-MG 52.491
+      </span>
+      <span class="vs-credenciais__divider"></span>
+      <span class="vs-credenciais__badge">
+        <span class="vs-credenciais__badge-dot"></span>
+        Cirurgiã e Traumatologista Bucomaxilofacial
+      </span>
+      <span class="vs-credenciais__divider"></span>
+      <span class="vs-credenciais__badge">
+        <span class="vs-credenciais__badge-dot"></span>
+        Mestranda em Inovação e Tecnologia em Saúde
+      </span>
+    </div>
+  </div>
+</section>
+
+<style>
+  .vs-credenciais {
+    background: var(--color-cream-dark);
+    padding: var(--space-12) 0;
+    text-align: center;
+  }
+
+  .vs-credenciais__inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 var(--side-padding);
+  }
+
+  .vs-credenciais__title {
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    font-weight: 500;
+    letter-spacing: var(--tracking-wider);
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-6);
+  }
+
+  .vs-credenciais__badges {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-3);
+    flex-wrap: wrap;
+  }
+
+  .vs-credenciais__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    font-weight: 400;
+    color: var(--color-text-secondary);
+    background: rgba(255, 255, 255, 0.6);
+    border: 1px solid rgba(232, 122, 47, 0.12);
+    border-radius: var(--radius-full);
+    padding: 10px 20px;
+    transition: border-color var(--duration-fast) var(--ease-out),
+      background var(--duration-fast) var(--ease-out);
+  }
+
+  .vs-credenciais__badge:hover {
+    border-color: var(--color-amber-soft);
+    background: rgba(255, 255, 255, 0.9);
+  }
+
+  .vs-credenciais__badge-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--color-amber);
+    flex-shrink: 0;
+  }
+
+  .vs-credenciais__divider {
+    width: 1px;
+    height: 24px;
+    background: var(--color-warm-gray);
+    display: none;
+  }
+
+  @media (min-width: 769px) {
+    .vs-credenciais__divider {
+      display: block;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .vs-credenciais {
+      padding: var(--space-10) 0;
+    }
+
+    .vs-credenciais__badges {
+      gap: var(--space-2);
+    }
+
+    .vs-credenciais__badge {
+      font-size: var(--text-xs);
+      padding: 8px 16px;
+    }
+  }
+</style>

@@ -1,0 +1,55 @@
+---
+// src/pages/procedimentos/viscosuplementacao.astro
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout title="Viscosuplementação | Dra. Vanessa Silveira">
+  <Nav />
+  <main class="vs-section page-container">
+    <div class="vs-container">
+      <div class="page-header vs-reveal">
+        <p class="vs-overline">Procedimento</p>
+        <h1 class="vs-font-display">Viscosuplementação da ATM</h1>
+        <p class="page-desc">
+          Injeção de ácido hialurônico para lubrificação e redução do atrito na articulação temporomandibular.
+        </p>
+      </div>
+      
+      <div class="page-content vs-reveal" data-delay="1">
+        <p>Esta página conterá informações detalhadas sobre a indicação, o funcionamento do procedimento e o pós-operatório da Viscosuplementação.</p>
+      </div>
+    </div>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .page-container {
+    padding: var(--space-20) 0 var(--space-16);
+    background: var(--color-cream);
+    min-height: 80vh;
+  }
+  .page-header {
+    margin-bottom: var(--space-8);
+    max-width: var(--max-width-text);
+  }
+  .page-header h1 {
+    font-size: var(--text-4xl);
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-3);
+  }
+  .page-desc {
+    font-family: var(--font-accent);
+    font-size: var(--text-lg);
+    font-style: italic;
+    color: var(--color-text-secondary);
+  }
+  .page-content {
+    font-size: var(--text-base);
+    color: var(--color-text-secondary);
+    max-width: var(--max-width-text);
+    line-height: var(--leading-normal);
+  }
+</style>

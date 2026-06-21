@@ -1,0 +1,102 @@
+---
+// src/components/Nav.astro
+---
+<div class="vs-nav-wrapper">
+  <nav class="vs-nav">
+    <a href="/" class="vs-nav__logo">Dra. Vanessa <span>Silveira</span></a>
+    <div class="vs-nav__links">
+      <a href="/dra-vanessa" class="vs-nav__link">Dra. Vanessa</a>
+      <a href="/metodo-reaticular" class="vs-nav__link">Método Reaticular</a>
+      <a href="/protocolo-neuromio" class="vs-nav__link">Protocolo NeuroMio</a>
+      <a href="/procedimentos" class="vs-nav__link">Procedimentos</a>
+      <a href="/treinamentos" class="vs-nav__link">Treinamentos</a>
+      <a href="/blog" class="vs-nav__link">Blog</a>
+    </div>
+    <a href="/contato" class="vs-btn vs-btn--primary vs-nav__cta">Agendar Consulta</a>
+  </nav>
+</div>
+
+<style>
+  .vs-nav-wrapper {
+    position: fixed;
+    top: 1.5rem;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    pointer-events: none;
+    display: flex;
+    justify-content: center;
+    padding: 0 var(--side-padding);
+  }
+
+  .vs-nav {
+    pointer-events: auto;
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 8px 32px rgba(232, 122, 47, 0.08);
+    border-radius: var(--radius-full);
+    padding: 10px 14px 10px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 960px;
+    transition: transform var(--duration-normal) var(--ease-out);
+  }
+
+  .vs-nav__logo {
+    font-family: var(--font-display);
+    font-size: var(--text-lg);
+    color: var(--color-text-primary);
+    text-decoration: none;
+    font-weight: 400;
+    letter-spacing: var(--tracking-tight);
+    white-space: nowrap;
+  }
+
+  .vs-nav__logo span {
+    color: var(--color-amber);
+    font-style: italic;
+  }
+
+  .vs-nav__links {
+    display: flex;
+    gap: var(--space-4);
+    align-items: center;
+  }
+
+  .vs-nav__link {
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    font-weight: 500;
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    transition: color var(--duration-fast);
+    white-space: nowrap;
+  }
+
+  .vs-nav__link:hover {
+    color: var(--color-amber);
+  }
+
+  .vs-nav__cta {
+    padding: 12px 24px;
+    font-size: var(--text-sm);
+  }
+
+  @media (max-width: 992px) {
+    .vs-nav__links {
+      display: none;
+    }
+
+    .vs-nav {
+      padding: 12px 24px;
+    }
+
+    .vs-nav__cta {
+      display: none;
+    }
+  }
+</style>

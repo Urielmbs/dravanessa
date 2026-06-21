@@ -1,0 +1,23 @@
+---
+// src/pages/contato.astro
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import ContatoSection from '../components/Contato.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Contato e Agendamentos | Dra. Vanessa Silveira">
+  <Nav />
+  <main class="page-container">
+    <ContatoSection />
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .page-container {
+    padding-top: var(--space-12);
+    background: var(--color-cream);
+    min-height: 80vh;
+  }
+</style>

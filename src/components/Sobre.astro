@@ -1,0 +1,200 @@
+---
+// src/components/Sobre.astro
+---
+<section class="vs-section vs-sobre" id="sobre" aria-label="Sobre a Dra. Vanessa">
+  <div class="vs-sobre__inner">
+    <!-- Image -->
+    <div class="vs-sobre__image-wrap vs-reveal">
+      <div class="vs-sobre__accent" aria-hidden="true"></div>
+      <img src="https://zaidansilveira.com.br/wp-content/uploads/2025/04/7S32061-1-scaled.jpg"
+        alt="Dra. Vanessa Silveira — Especialista em Dor Orofacial e DTM" class="vs-sobre__image" loading="lazy"
+        width="800" height="1000">
+    </div>
+
+    <!-- Content -->
+    <div class="vs-sobre__content">
+      <p class="vs-sobre__overline vs-reveal">Conheça a especialista</p>
+      <h2 class="vs-sobre__title vs-reveal" data-delay="1">Dra. Vanessa Silveira</h2>
+
+      <p class="vs-sobre__bio vs-reveal" data-delay="2">
+        Cirurgiã bucomaxilofacial com área de atuação em DTM e dor orofacial complexa, formada com ênfase em casos
+        de alta complexidade, aqueles em que o paciente já percorreu vários consultórios sem diagnóstico claro.
+      </p>
+
+      <p class="vs-sobre__bio vs-reveal" data-delay="2">
+        Ao longo de 8 anos e mais de 2.000 pacientes atendidos, percebi que a maior parte do sofrimento com DTM não
+        vem da dor em si, vem de não ser acreditado. De ouvir "é só estresse" e ir embora sem resposta.
+      </p>
+
+      <p class="vs-sobre__bio vs-reveal" data-delay="2">
+        Por isso criei o <strong>Método Rearticular™</strong>: um protocolo que começa pela escuta e termina com uma
+        transformação
+        verdadeira. Porque acredito que cuidar dos meus pacientes é cuidar da saúde como um todo.
+      </p>
+
+      <div class="vs-sobre__highlight vs-reveal" data-delay="3">
+        <div class="vs-sobre__stat">
+          <p class="vs-sobre__stat-value">10+</p>
+          <p class="vs-sobre__stat-label">Anos de experiência</p>
+        </div>
+        <div class="vs-sobre__stat">
+          <p class="vs-sobre__stat-value">2000+</p>
+          <p class="vs-sobre__stat-label">Pacientes atendidos</p>
+        </div>
+        <div class="vs-sobre__stat">
+          <p class="vs-sobre__stat-value">5.0</p>
+          <p class="vs-sobre__stat-label">Google Reviews</p>
+        </div>
+      </div>
+
+      <div class="vs-sobre__cta vs-reveal" data-delay="4">
+        <a href="https://wa.me/5532998513101" target="_blank" rel="noopener" class="vs-btn vs-btn--primary">
+          Agende sua consulta
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .vs-sobre {
+    background: var(--gradient-ice);
+    padding: var(--space-16) 0;
+  }
+
+  .vs-sobre__inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 var(--side-padding);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-10);
+    align-items: center;
+  }
+
+  /* Image side */
+  .vs-sobre__image-wrap {
+    position: relative;
+  }
+
+  .vs-sobre__image {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-lg);
+  }
+
+  /* Floating accent behind image */
+  .vs-sobre__accent {
+    position: absolute;
+    width: 80%;
+    height: 80%;
+    background: var(--color-amber-soft);
+    border-radius: var(--radius-xl);
+    opacity: 0.2;
+    z-index: -1;
+    top: 30px;
+    left: -20px;
+    filter: blur(40px);
+  }
+
+  /* Text side */
+  .vs-sobre__content {
+    max-width: 520px;
+  }
+
+  .vs-sobre__overline {
+    font-family: var(--font-body);
+    font-size: var(--text-xs);
+    font-weight: 600;
+    letter-spacing: var(--tracking-wider);
+    text-transform: uppercase;
+    color: var(--color-amber);
+    margin-bottom: var(--space-4);
+  }
+
+  .vs-sobre__title {
+    font-family: var(--font-display);
+    font-size: var(--text-4xl);
+    font-weight: 700;
+    line-height: var(--leading-tight);
+    letter-spacing: var(--tracking-tight);
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-5);
+  }
+
+  .vs-sobre__bio {
+    font-family: var(--font-accent);
+    font-size: var(--text-base);
+    font-weight: 400;
+    font-style: italic;
+    line-height: var(--leading-normal);
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-6);
+  }
+
+  .vs-sobre__bio+.vs-sobre__bio {
+    margin-top: calc(-1 * var(--space-3));
+  }
+
+  .vs-sobre__highlight {
+    display: flex;
+    gap: var(--space-8);
+    margin-top: var(--space-7);
+    padding-top: var(--space-7);
+    border-top: 1px solid rgba(232, 122, 47, 0.12);
+  }
+
+  .vs-sobre__stat {
+    text-align: center;
+  }
+
+  .vs-sobre__stat-value {
+    font-family: var(--font-display);
+    font-size: var(--text-3xl);
+    font-weight: 700;
+    color: var(--color-amber);
+    line-height: 1;
+    margin-bottom: var(--space-2);
+  }
+
+  .vs-sobre__stat-label {
+    font-family: var(--font-body);
+    font-size: var(--text-xs);
+    font-weight: 400;
+    color: var(--color-text-muted);
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+  }
+
+  .vs-sobre__cta {
+    margin-top: var(--space-7);
+  }
+
+  /* === RESPONSIVIDADE === */
+  @media (max-width: 768px) {
+    .vs-sobre {
+      padding: var(--space-12) 0;
+    }
+
+    .vs-sobre__inner {
+      grid-template-columns: 1fr;
+      gap: var(--space-8);
+    }
+
+    .vs-sobre__image-wrap {
+      order: -1;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    .vs-sobre__title {
+      font-size: var(--text-3xl);
+    }
+
+    .vs-sobre__highlight {
+      justify-content: center;
+    }
+  }
+</style>

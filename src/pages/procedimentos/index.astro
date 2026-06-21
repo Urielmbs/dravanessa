@@ -1,0 +1,23 @@
+---
+// src/pages/procedimentos/index.astro
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Tratamentos from '../../components/Tratamentos.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout title="Procedimentos e Tratamentos | Dra. Vanessa Silveira">
+  <Nav />
+  <main class="page-container">
+    <Tratamentos />
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .page-container {
+    padding-top: var(--space-12);
+    background: var(--color-cream);
+    min-height: 80vh;
+  }
+</style>

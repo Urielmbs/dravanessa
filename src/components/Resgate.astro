@@ -1,0 +1,98 @@
+---
+// src/components/Resgate.astro
+---
+<section id="resgate" class="vs-section vs-resgate" aria-label="A culpa não é sua">
+  <div class="vs-resgate__glow" aria-hidden="true"></div>
+  <div class="vs-resgate__inner">
+    <p class="vs-resgate__overline vs-reveal">Acolhimento verdadeiro</p>
+    <h2 class="vs-resgate__title vs-reveal" data-delay="1">A sua dor é real. <br>Ainda que ninguém a entenda.</h2>
+    <p class="vs-resgate__text vs-reveal" data-delay="2">
+      Quantas vezes você já ouviu que o seu problema <em>"é só estresse"</em> ou, pior, que <em>"é coisa da sua
+        cabeça"</em>? É comum que pacientes sofram em silêncio por anos, sendo medicados apenas para aliviar o sintoma
+      momentâneo, enquanto a causa raiz é ignorada.
+    </p>
+    <p class="vs-resgate__text vs-reveal" data-delay="3">
+      Vamos deixar algo claro: o estresse pode agravar, mas a origem do que você sente é <strong> mecânica,
+        inflamatória ou
+        estrutural</strong> na sua articulação (ATM) ou na musculatura. Tratamentos superficiais não resolvem a causa
+      raiz.
+    </p>
+
+    <div class="vs-resgate__actions vs-reveal" data-delay="4">
+      <a href="#metodo" class="vs-btn vs-btn--primary">Quero descobrir a causa da minha dor</a>
+      <a href="https://wa.me/5532998513101" target="_blank" class="vs-btn vs-btn--secondary"
+        style="border-color: rgba(255,255,255,0.3); color: white !important;">Falar com a Dra. Vanessa</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .vs-resgate {
+    background: var(--color-surface-dark);
+    padding: var(--space-20) 0;
+    color: var(--color-text-on-dark);
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+  }
+
+  .vs-resgate__glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 600px;
+    height: 600px;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(circle, rgba(232, 122, 47, 0.15) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .vs-resgate__inner {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 var(--side-padding);
+  }
+
+  .vs-resgate__overline {
+    font-size: var(--text-xs);
+    font-weight: 600;
+    letter-spacing: var(--tracking-wider);
+    text-transform: uppercase;
+    color: var(--color-amber-light);
+    margin-bottom: var(--space-4);
+  }
+
+  .vs-resgate__title {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    color: var(--color-text-on-dark);
+    line-height: var(--leading-tight);
+    margin-bottom: var(--space-6);
+  }
+
+  .vs-resgate__text {
+    font-size: var(--text-lg);
+    font-weight: 300;
+    line-height: var(--leading-normal);
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: var(--space-6);
+  }
+
+  .vs-resgate__text strong {
+    color: white;
+    font-weight: 500;
+    background: rgba(232, 122, 47, 0.2);
+    padding: 0 4px;
+    border-radius: 4px;
+  }
+
+  .vs-resgate__actions {
+    display: flex;
+    gap: var(--space-4);
+    justify-content: center;
+    margin-top: var(--space-8);
+    flex-wrap: wrap;
+  }
+</style>
