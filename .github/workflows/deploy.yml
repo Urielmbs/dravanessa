@@ -38,3 +38,4 @@ jobs:
           TARGET: "./public_html/dravanessazsilveira.com.br/"
           EXCLUDE: "/.git*, /blog/*"
           ARGS: "-avzr --delete"
+          SSH_CMD_ARGS: "-T -o StrictHostKeyChecking=no -o IdentitiesOnly=yes"
