@@ -2,54 +2,284 @@
 // src/pages/procedimentos/remocao-sisos.astro
 import Layout from '../../layouts/Layout.astro';
 import Nav from '../../components/Nav.astro';
+import Contato from '../../components/Contato.astro';
 import Footer from '../../components/Footer.astro';
 ---
 
-<Layout title="Remoção de Sisos | Dra. Vanessa Silveira">
+<Layout title="Remoção de Sisos e Cirurgia Oral Menor | Dra. Vanessa Silveira">
   <Nav />
   <main class="vs-section page-container">
     <div class="vs-container">
+      <nav class="vs-breadcrumb">
+        <a href="/">Home</a> / <a href="/procedimentos">Tratamentos</a> / <span>Remoção de Sisos & Cirurgia Oral</span>
+      </nav>
+
       <div class="page-header vs-reveal">
-        <p class="vs-overline">Procedimento</p>
-        <h1 class="vs-font-display">Remoção de Sisos</h1>
-        <p class="page-desc">
-          Extrações de dentes do siso com técnica minimamente invasiva, focando em segurança e pós-operatório rápido.
+        <span class="vs-badge">Cirurgia Bucomaxilofacial de Alta Precisão</span>
+        <h1 class="vs-font-display">Remoção de Sisos e Cirurgia Oral Menor</h1>
+        <p class="page-lead">
+          Extração cirúrgica segura de terceiros molares inclusos ou impactados com técnica minimamente invasiva, preservação óssea e recuperação rápida e sem dor.
         </p>
       </div>
       
-      <div class="page-content vs-reveal" data-delay="1">
-        <p>Esta página conterá orientações pré e pós-operatórias detalhadas para a extração dos terceiros molares.</p>
+      <div class="proc-grid vs-reveal" data-delay="1">
+        <div class="proc-main">
+          <div class="proc-block">
+            <h2>Extração Segura e Tranquila de Sisos</h2>
+            <p>
+              A remoção dos terceiros molares (sisos) é um dos procedimentos cirúrgicos ambulatoriais mais comuns na clínica. No entanto, quando os dentes estão **inclusos (debaixo da gengiva)** ou próximos ao nervo alveolar inferior, a cirurgia exige a expertise de uma especialista em Cirurgia Bucomaxilofacial.
+            </p>
+            <p>
+              Com o uso de instrumentação cirúrgica delicada, anestesia local indolor e protocolos preventivos contra inchaço, a Dra. Vanessa Silveira garante um procedimento rápido e um pós-operatório confortável.
+            </p>
+          </div>
+
+          <div class="proc-block">
+            <h2>Indicações para Extração dos Sisos</h2>
+            <ul class="check-list">
+              <li>✔️ <strong>Dor e Pericoronarite:</strong> Infecção e inflamação dolorosa recorrente na gengiva ao redor do siso.</li>
+              <li>✔️ <strong>Sisos Inclusos ou Impactados:</strong> Dentes travados no osso que podem formar cistos cirúrgicos.</li>
+              <li>✔️ <strong>Pressão nos Dentes Vizinhos:</strong> Risco de cárie oculta ou reabsorção da raiz do segundo molar.</li>
+              <li>✔️ <strong>Indicação Ortodôntica:</strong> Necessidade de abrir espaço na arcada para alinhamento dentário.</li>
+            </ul>
+          </div>
+
+          <div class="proc-block">
+            <h2>Procedimentos de Cirurgia Oral Menor</h2>
+            <div class="benefits-grid">
+              <div class="benefit-card">
+                <h4>🦷 Extração de Sisos Complexos</h4>
+                <p>Remoção de sisos horizontais, impactados ou próximos a estruturas nervosas delicadas.</p>
+              </div>
+              <div class="benefit-card">
+                <h4>✂️ Frenectomia (Labial e Lingual)</h4>
+                <p>Correção cirúrgica do freio lingual ou labial para restaurar a fala e o fechamento entre os dentes.</p>
+              </div>
+              <div class="benefit-card">
+                <h4>🔍 Tracionamento de Dentes Inclusos</h4>
+                <p>Procedimento cirúrgico associado ao aparelho ortodôntico para trazer dentes retidos para a arcada.</p>
+              </div>
+              <div class="benefit-card">
+                <h4>🔬 Remoção de Cistos Benignos</h4>
+                <p>Enucleação precisa de pequenas lesões císticas maxilares com preservação do osso saudável.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="proc-block">
+            <h2>Diferenciais e Conforto do Paciente</h2>
+            <div class="steps-timeline">
+              <div class="step-item">
+                <span class="step-num">1</span>
+                <div>
+                  <h3>Anestesia Local Totalmente Indolor</h3>
+                  <p>Técnicas anestésicas avançadas e gel dessensibilizante prévio para que você não sinta absolutamente nada durante a extração.</p>
+                </div>
+              </div>
+
+              <div class="step-item">
+                <span class="step-num">2</span>
+                <div>
+                  <h3>Protocolo Anti-Edema & Laserterapia</h3>
+                  <p>Aplicação de laser terapêutico logo após a extração para reduzir inchaços, acelerar a cicatrização e eliminar a dor pós-operatória.</p>
+                </div>
+              </div>
+
+              <div class="step-item">
+                <span class="step-num">3</span>
+                <div>
+                  <h3>Suporte Contínuo e Direto</h3>
+                  <p>Orientação pós-operatória detalhada e canal de comunicação direto para tirar qualquer dúvida durante a recuperação.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <aside class="proc-sidebar">
+          <div class="sidebar-box">
+            <h3>Dra. Vanessa Silveira</h3>
+            <p class="doctor-spec">Cirurgiã Bucomaxilofacial · CRO-MG</p>
+            <p>Especialista em extrações de sisos inclusos com técnica preservadora e sem dor.</p>
+            <hr />
+            <div class="sidebar-info">
+              <p>📍 <strong>Local:</strong> Juiz de Fora - MG</p>
+              <p>⏱️ <strong>Duração:</strong> ~30 a 60 minutos</p>
+              <p>🩹 <strong>Recuperação:</strong> Rápida & Laser</p>
+            </div>
+            <a href="/contato" class="vs-btn vs-btn--primary w-full">Fale conosco para agendar</a>
+          </div>
+        </aside>
       </div>
     </div>
   </main>
+  <Contato />
   <Footer />
 </Layout>
 
 <style>
   .page-container {
-    padding: var(--space-20) 0 var(--space-16);
+    padding: calc(var(--space-20) + 2rem) 0 var(--space-16);
     background: var(--color-cream);
     min-height: 80vh;
   }
-  .page-header {
-    margin-bottom: var(--space-8);
-    max-width: var(--max-width-text);
+  .vs-breadcrumb {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-4);
+  }
+  .vs-breadcrumb a {
+    color: var(--color-amber);
+    text-decoration: none;
+  }
+  .vs-badge {
+    display: inline-block;
+    padding: 6px 14px;
+    background: var(--color-amber-subtle);
+    color: var(--color-amber);
+    border-radius: var(--radius-full);
+    font-size: var(--text-xs);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: var(--space-3);
   }
   .page-header h1 {
     font-size: var(--text-4xl);
     color: var(--color-text-primary);
-    margin-bottom: var(--space-3);
+    margin-bottom: var(--space-4);
   }
-  .page-desc {
-    font-family: var(--font-accent);
+  .page-lead {
     font-size: var(--text-lg);
-    font-style: italic;
     color: var(--color-text-secondary);
+    line-height: var(--leading-relaxed);
+    max-width: 850px;
+    margin-bottom: var(--space-8);
   }
-  .page-content {
+  .proc-grid {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: var(--space-8);
+  }
+  @media (max-width: 992px) {
+    .proc-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  .proc-main {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-8);
+  }
+  .proc-block {
+    background: white;
+    padding: var(--space-8);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-warm-gray);
+    box-shadow: var(--shadow-sm);
+  }
+  .proc-block h2 {
+    font-size: var(--text-2xl);
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-4);
+  }
+  .proc-block p {
     font-size: var(--text-base);
     color: var(--color-text-secondary);
-    max-width: var(--max-width-text);
+    line-height: var(--leading-relaxed);
+    margin-bottom: var(--space-3);
+  }
+  .check-list {
+    list-style: none;
+    padding: 0;
+    margin: var(--space-4) 0 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+  .check-list li {
+    font-size: var(--text-base);
+    color: var(--color-text-primary);
     line-height: var(--leading-normal);
+  }
+  .steps-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+    margin-top: var(--space-4);
+  }
+  .step-item {
+    display: flex;
+    gap: var(--space-4);
+    align-items: flex-start;
+  }
+  .step-num {
+    width: 36px;
+    height: 36px;
+    border-radius: var(--radius-full);
+    background: var(--color-amber);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .step-item h3 {
+    font-size: var(--text-lg);
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-1);
+  }
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: var(--space-4);
+    margin-top: var(--space-4);
+  }
+  .benefit-card {
+    background: var(--color-cream);
+    padding: var(--space-4);
+    border-radius: var(--radius-md);
+  }
+  .benefit-card h4 {
+    font-size: var(--text-base);
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-2);
+  }
+  .benefit-card p {
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+    margin: 0;
+  }
+  .sidebar-box {
+    background: white;
+    padding: var(--space-6);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-warm-gray);
+    position: sticky;
+    top: 100px;
+    box-shadow: var(--shadow-sm);
+  }
+  .sidebar-box h3 {
+    font-size: var(--text-xl);
+    color: var(--color-text-primary);
+  }
+  .doctor-spec {
+    font-size: var(--text-xs);
+    color: var(--color-amber);
+    font-weight: 600;
+    margin-bottom: var(--space-3);
+  }
+  .sidebar-info {
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+    margin: var(--space-4) 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+  .w-full {
+    width: 100%;
+    text-align: center;
   }
 </style>
