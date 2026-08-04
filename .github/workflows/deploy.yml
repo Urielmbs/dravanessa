@@ -33,8 +33,8 @@ jobs:
           server: ${{ secrets.HOSTGATOR_HOST }}
           username: ${{ secrets.HOSTGATOR_USER }}
           password: ${{ secrets.HOSTGATOR_FTP_PASSWORD }}
-          port: 2222
-          protocol: sftp
+          port: 21
+          protocol: ftps
           local-dir: ./dist/
           server-dir: ./dravanessazsilveira.com.br/
           dangerous-clean-slate: false
