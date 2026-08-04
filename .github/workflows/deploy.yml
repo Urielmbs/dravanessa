@@ -36,7 +36,7 @@ jobs:
           port: 21
           protocol: ftp
           local-dir: ./dist/
-          server-dir: ./public_html/dravanessazsilveira.com.br/
+          server-dir: ./dravanessazsilveira.com.br/
           dangerous-clean-slate: false
           exclude: |
             **/.git*
