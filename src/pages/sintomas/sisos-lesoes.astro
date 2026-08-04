@@ -1,0 +1,162 @@
+---
+// src/pages/sintomas/sisos-lesoes.astro
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Contato from '../../components/Contato.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout title="Dor nos Sisos, Dentes Inclusos & Lesões Bucais | Dra. Vanessa Silveira">
+  <Nav />
+  <main class="vs-section page-container">
+    <div class="vs-container">
+      <nav class="vs-breadcrumb">
+        <a href="/">Home</a> / <a href="/sintomas/dor-atm-estalos">Sintomas & Dores</a> / <span>Dor nos Sisos & Lesões</span>
+      </nav>
+
+      <div class="page-header vs-reveal">
+        <span class="vs-badge">Sintoma & Diagnóstico</span>
+        <h1 class="vs-font-display">Dor nos Sisos, Inflamação Gengival e Lesões na Boca</h1>
+        <p class="page-lead">
+          Dor constante no fundo da boca, inchaço na gengiva ao redor do siso, limitação para abrir a boca ou feridas que não cicatrizam exigem atenção cirúrgica imediata.
+        </p>
+      </div>
+      
+      <div class="pas-content vs-reveal" data-delay="1">
+        <div class="pas-block pas-block--problem">
+          <h2>O Problema: Sisos inflamados e lesões bucais atípicas</h2>
+          <p>
+            Os terceiros molares (sisos) frequentemente não encontram espaço suficiente na arcada para nascerem alinhados. Isso resulta em sisos inclusos ou semi-inclusos, que acumulam bactérias e geram crises dolorosas de pericoronarite.
+          </p>
+          <ul class="symptom-checklist">
+            <li>✔️ Dor intensa ou pulsação no fundo da boca e mandíbula.</li>
+            <li>✔️ Inchaço na gengiva, mau hálito e dificuldade para engolir.</li>
+            <li>✔️ Dentes sisos empurrando os vizinhos ou causando cáries ocultas.</li>
+            <li>✔️ Feridas, manchas brancas/vermelhas ou nódulos na boca há mais de 15 dias.</li>
+          </ul>
+        </div>
+
+        <div class="pas-block pas-block--agitate">
+          <h2>Riscos do adiamento do tratamento</h2>
+          <p>
+            Um siso impactado pode formar cistos ósseos ou reabsorver as raízes dos dentes vizinhos. Além disso, lesões e feridas bucais persistentes necessitam de avaliação e biópsia precoce para descartar alterações histopatológicas graves.
+          </p>
+        </div>
+
+        <div class="pas-block pas-block--solution">
+          <h2>Cirurgia Preservadora e Rápida Recuperação</h2>
+          <p>
+            Com sólida experiência em cirurgia bucomaxilofacial e biópsias, a Dra. Vanessa Silveira realiza extrações de sisos complexos e procedimentos de diagnóstico oral com técnicas minimamente invasivas, sedação consciente e protocolo de pós-operatório sem dor.
+          </p>
+          <div class="cta-box">
+            <h3>Precisa de avaliação dos sisos ou lesão na boca?</h3>
+            <p>Agende uma consulta cirúrgica segura com exames de imagem integrados.</p>
+            <div class="cta-actions">
+              <a href="/procedimentos/remocao-sisos" class="vs-btn vs-btn--secondary">Remoção de Sisos</a>
+              <a href="/procedimentos/biopsias" class="vs-btn vs-btn--secondary">Biópsias & Diagnóstico</a>
+              <a href="/contato" class="vs-btn vs-btn--primary">Fale conosco</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <Contato />
+  <Footer />
+</Layout>
+
+<style>
+  .page-container {
+    padding: calc(var(--space-20) + 2rem) 0 var(--space-16);
+    background: var(--color-cream);
+    min-height: 80vh;
+  }
+  .vs-breadcrumb {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-4);
+  }
+  .vs-breadcrumb a {
+    color: var(--color-amber);
+    text-decoration: none;
+  }
+  .vs-badge {
+    display: inline-block;
+    padding: 6px 14px;
+    background: var(--color-amber-subtle);
+    color: var(--color-amber);
+    border-radius: var(--radius-full);
+    font-size: var(--text-xs);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: var(--space-3);
+  }
+  .page-header h1 {
+    font-size: var(--text-4xl);
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-4);
+  }
+  .page-lead {
+    font-size: var(--text-lg);
+    color: var(--color-text-secondary);
+    line-height: var(--leading-relaxed);
+    max-width: 800px;
+    margin-bottom: var(--space-8);
+  }
+  .pas-content {
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-8);
+  }
+  .pas-block {
+    background: white;
+    padding: var(--space-8);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--color-warm-gray);
+  }
+  .pas-block h2 {
+    font-size: var(--text-2xl);
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-4);
+  }
+  .pas-block p {
+    font-size: var(--text-base);
+    color: var(--color-text-secondary);
+    line-height: var(--leading-relaxed);
+    margin-bottom: var(--space-4);
+  }
+  .symptom-checklist {
+    list-style: none;
+    padding: 0;
+    margin: var(--space-4) 0 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+  .symptom-checklist li {
+    font-size: var(--text-base);
+    color: var(--color-text-primary);
+    font-weight: 500;
+  }
+  .cta-box {
+    background: var(--color-cream);
+    padding: var(--space-6);
+    border-radius: var(--radius-md);
+    margin-top: var(--space-6);
+    border-left: 4px solid var(--color-amber);
+  }
+  .cta-box h3 {
+    font-size: var(--text-xl);
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-2);
+  }
+  .cta-actions {
+    display: flex;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+    margin-top: var(--space-4);
+  }
+</style>

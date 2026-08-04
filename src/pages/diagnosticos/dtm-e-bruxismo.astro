@@ -1,0 +1,25 @@
+---
+// src/pages/diagnosticos/dtm-e-bruxismo.astro
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Dores from '../../components/Dores.astro';
+import Contato from '../../components/Contato.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout title="Teste de Auto-Diagnóstico DTM e Bruxismo | Dra. Vanessa Silveira">
+  <Nav />
+  <main class="page-container">
+    <Dores />
+    <Contato />
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .page-container {
+    padding-top: calc(var(--space-12) + 1.5rem);
+    background: var(--color-cream);
+    min-height: 80vh;
+  }
+</style>

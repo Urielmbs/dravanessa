@@ -1,0 +1,167 @@
+---
+// src/pages/sintomas/dor-atm-estalos.astro
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Contato from '../../components/Contato.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout title="Dores na ATM, Estalos & Travamento Mandibular | Dra. Vanessa Silveira">
+  <Nav />
+  <main class="vs-section page-container">
+    <div class="vs-container">
+      <!-- Breadcrumb -->
+      <nav class="vs-breadcrumb">
+        <a href="/">Home</a> / <a href="/sintomas/dor-atm-estalos">Sintomas & Dores</a> / <span>Dores na ATM & Estalos</span>
+      </nav>
+
+      <!-- PAS Hero Section -->
+      <div class="page-header vs-reveal">
+        <span class="vs-badge">Sintoma & Diagnóstico</span>
+        <h1 class="vs-font-display">Dores na ATM, Estalos e Travamento Mandibular</h1>
+        <p class="page-lead">
+          Sentir estalos ao mastigar, estalos ao abrir a boca ou dor articular constante <strong>não é normal</strong>. Entenda por que isso acontece e como recuperar a movimentação livre e sem dor da sua mandíbula.
+        </p>
+      </div>
+      
+      <!-- PAS Copy Content -->
+      <div class="pas-content vs-reveal" data-delay="1">
+        <!-- Problem -->
+        <div class="pas-block pas-block--problem">
+          <h2>O Problema: Você se acostumou a viver com a dor?</h2>
+          <p>
+            Muitas pessoas passam anos convivendo com ruídos na articulação temporomandibular (ATM), acreditando ser apenas uma "mania" ou "tensão passageira". Com o tempo, os estalos progridem para dores agudas ao mastigar, estalos ao bocejar e até episódios assustadores onde a mandíbula travada não abre ou não fecha.
+          </p>
+          <ul class="symptom-checklist">
+            <li>✔️ Estalos, cliques ou ruídos de "areia" ao abrir a boca ou mastigar.</li>
+            <li>✔️ Dificuldade ou dor ao mastigar alimentos mais rígidos.</li>
+            <li>✔️ Sensação de que a mandíbula está fora do lugar ou desalinhada.</li>
+            <li>✔️ Episódios de travamento mandibular (boca presa aberta ou fechada).</li>
+          </ul>
+        </div>
+
+        <!-- Agitation -->
+        <div class="pas-block pas-block--agitate">
+          <h2>O que acontece se você não tratar?</h2>
+          <p>
+            A ATM é uma das articulações mais complexas do corpo humano. O estalo contínuo sinaliza que o disco articular (a cartilagem que amortece o osso) está se deslocando. Sem o tratamento correto, o atrito osso com osso gera desgaste irreversível, inflamação crônica e limitação severa na alimentação e na fala.
+          </p>
+        </div>
+
+        <!-- Solution -->
+        <div class="pas-block pas-block--solution">
+          <h2>A Solução: Tratamento Especializado com a Dra. Vanessa</h2>
+          <p>
+            Como cirurgiã bucomaxilofacial e especialista em Dor Orofacial, a Dra. Vanessa Silveira realiza um mapeamento funcional minucioso da sua articulação. A partir do diagnóstico correto, aplicamos procedimentos minimamente invasivos (como Artrocentese ou Viscossuplementação) e terapias regenerativas que eliminam a causa da dor e devolvem o equilíbrio mecânico.
+          </p>
+          <div class="cta-box">
+            <h3>Quer saber o nível da sua dor articular?</h3>
+            <p>Faça nosso teste online gratuito ou agende uma avaliação individualizada.</p>
+            <div class="cta-actions">
+              <a href="/diagnosticos/auto-diagnostico" class="vs-btn vs-btn--secondary">Fazer Auto-Diagnóstico Online</a>
+              <a href="/contato" class="vs-btn vs-btn--primary">Fale conosco</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <Contato />
+  <Footer />
+</Layout>
+
+<style>
+  .page-container {
+    padding: calc(var(--space-20) + 2rem) 0 var(--space-16);
+    background: var(--color-cream);
+    min-height: 80vh;
+  }
+  .vs-breadcrumb {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-4);
+  }
+  .vs-breadcrumb a {
+    color: var(--color-amber);
+    text-decoration: none;
+  }
+  .vs-badge {
+    display: inline-block;
+    padding: 6px 14px;
+    background: var(--color-amber-subtle);
+    color: var(--color-amber);
+    border-radius: var(--radius-full);
+    font-size: var(--text-xs);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: var(--space-3);
+  }
+  .page-header h1 {
+    font-size: var(--text-4xl);
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-4);
+  }
+  .page-lead {
+    font-size: var(--text-lg);
+    color: var(--color-text-secondary);
+    line-height: var(--leading-relaxed);
+    max-width: 800px;
+    margin-bottom: var(--space-8);
+  }
+  .pas-content {
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-8);
+  }
+  .pas-block {
+    background: white;
+    padding: var(--space-8);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--color-warm-gray);
+  }
+  .pas-block h2 {
+    font-size: var(--text-2xl);
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-4);
+  }
+  .pas-block p {
+    font-size: var(--text-base);
+    color: var(--color-text-secondary);
+    line-height: var(--leading-relaxed);
+    margin-bottom: var(--space-4);
+  }
+  .symptom-checklist {
+    list-style: none;
+    padding: 0;
+    margin: var(--space-4) 0 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+  .symptom-checklist li {
+    font-size: var(--text-base);
+    color: var(--color-text-primary);
+    font-weight: 500;
+  }
+  .cta-box {
+    background: var(--color-cream);
+    padding: var(--space-6);
+    border-radius: var(--radius-md);
+    margin-top: var(--space-6);
+    border-left: 4px solid var(--color-amber);
+  }
+  .cta-box h3 {
+    font-size: var(--text-xl);
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-2);
+  }
+  .cta-actions {
+    display: flex;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+    margin-top: var(--space-4);
+  }
+</style>

@@ -7,37 +7,67 @@
     
     <!-- Navigation Links Container -->
     <div class="vs-nav__links" id="vs-menu-links">
-      <a href="/dra-vanessa" class="vs-nav__link">Dra. Vanessa</a>
-      <a href="/metodo-reaticular" class="vs-nav__link">Método Reaticular</a>
-      <a href="/protocolo-neuromio" class="vs-nav__link">Protocolo NeuroMio</a>
-      
-      <!-- Dropdown Wrapper -->
+      <!-- Dropdown: Dra. Vanessa -->
       <div class="vs-nav__dropdown">
-        <a href="/procedimentos" class="vs-nav__link vs-nav__link--has-dropdown" id="vs-dropdown-toggle">
-          Procedimentos
+        <a href="/dra-vanessa" class="vs-nav__link vs-nav__link--has-dropdown vs-dropdown-toggle">
+          Dra. Vanessa
           <svg class="vs-nav__dropdown-icon" width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
             <path d="m1 1 4 4 4-4"/>
           </svg>
         </a>
-        <div class="vs-nav__dropdown-menu" id="vs-dropdown-menu">
-          <a href="/procedimentos" class="vs-nav__dropdown-item">Todos os Procedimentos</a>
-          <a href="/procedimentos/artrocentese" class="vs-nav__dropdown-item">Artrocentese</a>
-          <a href="/procedimentos/viscosuplementacao" class="vs-nav__dropdown-item">Viscosuplementação</a>
-          <a href="/procedimentos/remocao-sisos" class="vs-nav__dropdown-item">Remoção de Sisos</a>
-          <a href="/procedimentos/cirurgia-ortognatica" class="vs-nav__dropdown-item">Cirurgia Ortognática</a>
-          <a href="/procedimentos/pacientes-oncologicos" class="vs-nav__dropdown-item">Pacientes Oncológicos</a>
-          <a href="/procedimentos/biopsias" class="vs-nav__dropdown-item">Biópsias</a>
-          <a href="/procedimentos/atm-conservador" class="vs-nav__dropdown-item">ATM - Conservador</a>
+        <div class="vs-nav__dropdown-menu vs-dropdown-menu">
+          <a href="/dra-vanessa" class="vs-nav__dropdown-item">Sobre a Dra. Vanessa</a>
+          <a href="/treinamentos" class="vs-nav__dropdown-item">Treinamentos & Cursos</a>
+          <a href="/eventos" class="vs-nav__dropdown-item">Eventos & Palestras</a>
         </div>
       </div>
       
-      <a href="/treinamentos" class="vs-nav__link">Treinamentos</a>
+      <!-- Dropdown: Sintomas & Dores -->
+      <div class="vs-nav__dropdown">
+        <a href="/sintomas/dor-atm-estalos" class="vs-nav__link vs-nav__link--has-dropdown vs-dropdown-toggle">
+          Sintomas & Dores
+          <svg class="vs-nav__dropdown-icon" width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m1 1 4 4 4-4"/>
+          </svg>
+        </a>
+        <div class="vs-nav__dropdown-menu vs-dropdown-menu">
+          <a href="/sintomas/dor-atm-estalos" class="vs-nav__dropdown-item">Dores na ATM, Estalos & Travamento</a>
+          <a href="/sintomas/bruxismo-apertamento" class="vs-nav__dropdown-item">Bruxismo, Apertamento & Dor de Cabeça</a>
+          <a href="/sintomas/deformidade-mordida" class="vs-nav__dropdown-item">Deformidade Facial & Problemas na Mordida</a>
+          <a href="/sintomas/sisos-lesoes" class="vs-nav__dropdown-item">Dor nos Sisos & Lesões Bucais</a>
+          <a href="/diagnosticos/auto-diagnostico" class="vs-nav__dropdown-item vs-nav__dropdown-item--highlight">
+            ✨ Teste de Auto-Diagnóstico DTM/Bruxismo
+          </a>
+        </div>
+      </div>
+
+      <!-- Dropdown: Soluções & Tratamentos -->
+      <div class="vs-nav__dropdown">
+        <a href="/procedimentos" class="vs-nav__link vs-nav__link--has-dropdown vs-dropdown-toggle">
+          Soluções & Tratamentos
+          <svg class="vs-nav__dropdown-icon" width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m1 1 4 4 4-4"/>
+          </svg>
+        </a>
+        <div class="vs-nav__dropdown-menu vs-dropdown-menu">
+          <a href="/procedimentos" class="vs-nav__dropdown-item">Todos os Procedimentos</a>
+          <a href="/procedimentos/artrocentese" class="vs-nav__dropdown-item">Artrocentese da ATM</a>
+          <a href="/procedimentos/viscosuplementacao" class="vs-nav__dropdown-item">Viscossuplementação da ATM</a>
+          <a href="/procedimentos/liberacao-miofascial" class="vs-nav__dropdown-item">Liberação Miofascial</a>
+          <a href="/procedimentos/atm-conservador" class="vs-nav__dropdown-item">Tratamento Conservador & Regenerativo</a>
+          <a href="/procedimentos/cirurgia-ortognatica" class="vs-nav__dropdown-item">Cirurgia Ortognática</a>
+          <a href="/procedimentos/remocao-sisos" class="vs-nav__dropdown-item">Remoção de Sisos & Cirurgia Oral Menor</a>
+          <a href="/procedimentos/biopsias" class="vs-nav__dropdown-item">Biópsias & Estomatologia</a>
+          <a href="/procedimentos/pacientes-oncologicos" class="vs-nav__dropdown-item">Pacientes Oncológicos & Especiais</a>
+        </div>
+      </div>
+      
       <a href="/blog" class="vs-nav__link">Blog</a>
     </div>
 
     <!-- Actions / Desktop CTA and Hamburger Toggle -->
     <div class="vs-nav__actions-wrapper">
-      <a href="/contato" class="vs-btn vs-btn--primary vs-nav__cta">Agendar Consulta</a>
+      <a href="/contato" class="vs-btn vs-btn--primary vs-nav__cta">Fale conosco</a>
       
       <button class="vs-nav__toggle" aria-label="Abrir Menu" id="vs-menu-toggle">
         <span class="vs-nav__toggle-box">
@@ -53,9 +83,6 @@
   const initNav = () => {
     const toggleBtn = document.getElementById('vs-menu-toggle');
     const menuLinks = document.getElementById('vs-menu-links');
-    const dropdownToggle = document.getElementById('vs-dropdown-toggle');
-    const dropdownMenu = document.getElementById('vs-dropdown-menu');
-    const dropdownIcon = document.querySelector('.vs-nav__dropdown-icon');
 
     // Toggle Mobile Drawer
     if (toggleBtn && menuLinks) {
@@ -66,18 +93,25 @@
       });
     }
 
-    // Toggle Dropdown on click (only on mobile view <= 992px)
-    if (dropdownToggle && dropdownMenu) {
-      dropdownToggle.addEventListener('click', (e) => {
-        if (window.innerWidth <= 992) {
-          e.preventDefault(); // Prevent navigating directly on mobile click
-          dropdownMenu.classList.toggle('is-open');
-          if (dropdownIcon) {
-            dropdownIcon.classList.toggle('is-rotated');
+    // Toggle Dropdowns on click (only on mobile view <= 992px)
+    const dropdownContainers = document.querySelectorAll('.vs-nav__dropdown');
+    dropdownContainers.forEach((container) => {
+      const toggle = container.querySelector('.vs-dropdown-toggle');
+      const menu = container.querySelector('.vs-dropdown-menu');
+      const icon = container.querySelector('.vs-nav__dropdown-icon');
+
+      if (toggle && menu) {
+        toggle.addEventListener('click', (e) => {
+          if (window.innerWidth <= 992) {
+            e.preventDefault(); // Prevent navigating directly on mobile click
+            menu.classList.toggle('is-open');
+            if (icon) {
+              icon.classList.toggle('is-rotated');
+            }
           }
-        }
-      });
-    }
+        });
+      }
+    });
 
     // Close menu when clicking outside
     document.addEventListener('click', (e) => {
@@ -249,6 +283,18 @@
 
   .vs-nav__dropdown-item:hover::before {
     transform: translateY(-50%) scaleX(1);
+  }
+
+  .vs-nav__dropdown-item--highlight {
+    color: var(--color-amber);
+    font-weight: 600;
+    background: var(--color-amber-subtle);
+    border-top: 1px solid var(--color-warm-gray);
+    margin-top: 4px;
+  }
+
+  .vs-nav__dropdown-item--highlight:hover {
+    background: rgba(232, 122, 47, 0.15);
   }
 
   /* Desktop hover triggers */

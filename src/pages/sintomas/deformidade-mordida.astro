@@ -1,0 +1,162 @@
+---
+// src/pages/sintomas/deformidade-mordida.astro
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Contato from '../../components/Contato.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout title="Deformidades Dento-Faciais & Problemas de Mordida | Dra. Vanessa Silveira">
+  <Nav />
+  <main class="vs-section page-container">
+    <div class="vs-container">
+      <nav class="vs-breadcrumb">
+        <a href="/">Home</a> / <a href="/sintomas/dor-atm-estalos">Sintomas & Dores</a> / <span>Deformidade Facial & Mordida</span>
+      </nav>
+
+      <div class="page-header vs-reveal">
+        <span class="vs-badge">Sintoma & Diagnóstico</span>
+        <h1 class="vs-font-display">Deformidades Faciais, Assimetria e Problemas na Mordida</h1>
+        <p class="page-lead">
+          Queixo proeminente (queixo pra frente), queixo retraído (queixo pequeno), mordida aberta ou assimetria facial afetam a estética da face, a mastigação e a respiração.
+        </p>
+      </div>
+      
+      <div class="pas-content vs-reveal" data-delay="1">
+        <div class="pas-block pas-block--problem">
+          <h2>O Problema: Quando o aparelho ortodôntico sozinho não resolve</h2>
+          <p>
+            Muitos pacientes passam anos usando aparelhos dentários sem alcançar um encaixe perfeito dos dentes ou a harmonia do perfil facial. Isso ocorre porque o problema não é a posição dos dentes, mas sim o **tamanho ou posicionamento incorreto dos ossos da maxila e mandíbula**.
+          </p>
+          <ul class="symptom-checklist">
+            <li>✔️ Queixo projetado para a frente (Classe III) ou retraído para trás (Classe II).</li>
+            <li>✔️ Dentes superiores e inferiores que não se tocam ao fechar a boca (mordida aberta).</li>
+            <li>✔️ Dificuldade para mastigar alimentos de forma eficiente.</li>
+            <li>✔️ Apneia do sono, ronco noturno e respiração predominantemente bucal.</li>
+            <li>✔️ Desconforto estético com o sorriso ou perfil facial.</li>
+          </ul>
+        </div>
+
+        <div class="pas-block pas-block--agitate">
+          <h2>O impacto na autoestima e na saúde respiratória</h2>
+          <p>
+            O desalinhamento ósseo facial sobrecarrega os músculos da mastigação e a ATM, além de estreitar as vias aéreas superiores, causando ronco e cansaço diurno por má qualidade de sono. A insatisfação com a aparência do perfil também traz um peso emocional significativo.
+          </p>
+        </div>
+
+        <div class="pas-block pas-block--solution">
+          <h2>A Solução: Planejamento 3D e Cirurgia Ortognática</h2>
+          <p>
+            A Dra. Vanessa Silveira realiza o planejamento cirúrgico digital em 3D, reposicionando os ossos da maxila e mandíbula com máxima precisão. O resultado é a restauração funcional imediata da respiração e mastigação, combinada a um perfil facial harmonioso e natural.
+          </p>
+          <div class="cta-box">
+            <h3>Quer entender se o seu caso tem indicação cirúrgica?</h3>
+            <p>Agende uma avaliação especializada e veja como o planejamento 3D transforma sorrisos e vidas.</p>
+            <div class="cta-actions">
+              <a href="/procedimentos/cirurgia-ortognatica" class="vs-btn vs-btn--secondary">Conheça a Cirurgia Ortognática</a>
+              <a href="/contato" class="vs-btn vs-btn--primary">Fale conosco</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <Contato />
+  <Footer />
+</Layout>
+
+<style>
+  .page-container {
+    padding: calc(var(--space-20) + 2rem) 0 var(--space-16);
+    background: var(--color-cream);
+    min-height: 80vh;
+  }
+  .vs-breadcrumb {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-4);
+  }
+  .vs-breadcrumb a {
+    color: var(--color-amber);
+    text-decoration: none;
+  }
+  .vs-badge {
+    display: inline-block;
+    padding: 6px 14px;
+    background: var(--color-amber-subtle);
+    color: var(--color-amber);
+    border-radius: var(--radius-full);
+    font-size: var(--text-xs);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: var(--space-3);
+  }
+  .page-header h1 {
+    font-size: var(--text-4xl);
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-4);
+  }
+  .page-lead {
+    font-size: var(--text-lg);
+    color: var(--color-text-secondary);
+    line-height: var(--leading-relaxed);
+    max-width: 800px;
+    margin-bottom: var(--space-8);
+  }
+  .pas-content {
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-8);
+  }
+  .pas-block {
+    background: white;
+    padding: var(--space-8);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--color-warm-gray);
+  }
+  .pas-block h2 {
+    font-size: var(--text-2xl);
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-4);
+  }
+  .pas-block p {
+    font-size: var(--text-base);
+    color: var(--color-text-secondary);
+    line-height: var(--leading-relaxed);
+    margin-bottom: var(--space-4);
+  }
+  .symptom-checklist {
+    list-style: none;
+    padding: 0;
+    margin: var(--space-4) 0 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+  .symptom-checklist li {
+    font-size: var(--text-base);
+    color: var(--color-text-primary);
+    font-weight: 500;
+  }
+  .cta-box {
+    background: var(--color-cream);
+    padding: var(--space-6);
+    border-radius: var(--radius-md);
+    margin-top: var(--space-6);
+    border-left: 4px solid var(--color-amber);
+  }
+  .cta-box h3 {
+    font-size: var(--text-xl);
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-2);
+  }
+  .cta-actions {
+    display: flex;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+    margin-top: var(--space-4);
+  }
+</style>

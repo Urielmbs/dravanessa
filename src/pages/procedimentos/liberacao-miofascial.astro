@@ -1,0 +1,161 @@
+---
+// src/pages/procedimentos/liberacao-miofascial.astro
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Contato from '../../components/Contato.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout title="Liberação Miofascial para DTM e Dor Orofacial | Dra. Vanessa Silveira">
+  <Nav />
+  <main class="vs-section page-container">
+    <div class="vs-container">
+      <nav class="vs-breadcrumb">
+        <a href="/">Home</a> / <a href="/procedimentos">Soluções & Tratamentos</a> / <span>Liberação Miofascial</span>
+      </nav>
+
+      <div class="page-header vs-reveal">
+        <span class="vs-badge">Tratamento Muscular & Orofacial</span>
+        <h1 class="vs-font-display">Liberação Miofascial Orofacial e Cervical</h1>
+        <p class="page-lead">
+          Desativação de pontos-gatilho (trigger points) na musculatura da face, cabeça e pescoço para alívio imediato da tensão muscular provocada pela DTM e bruxismo.
+        </p>
+      </div>
+      
+      <div class="pas-content vs-reveal" data-delay="1">
+        <div class="pas-block pas-block--problem">
+          <h2>O Problema: Nós de tensão e rigidez muscular na face</h2>
+          <p>
+            Pacientes com bruxismo ou DTM passam longos períodos tensionando involuntariamente os músculos massequeter, temporal e cervicais. Essa hiperatividade forma **pontos-gatilho** (nódulos de tensão extremamente dolorosos ao toque) que irradiam dor de cabeça, dor atrás dos olhos e rigidez no pescoço.
+          </p>
+          <ul class="symptom-checklist">
+            <li>✔️ Sensação de "pesos" ou endurecimento nas bochechas e mandíbula.</li>
+            <li>✔️ Dores de cabeça tensionais recorrentes nas têmporas.</li>
+            <li>✔️ Dor ou sensibilidade ao apertar a musculatura facial.</li>
+            <li>✔️ Dificuldade ou desconforto ao abrir completamente a boca.</li>
+          </ul>
+        </div>
+
+        <div class="pas-block pas-block--agitate">
+          <h2>Por que a medicação sozinha não resolve?</h2>
+          <p>
+            Analgésicos e relaxantes musculares agem temporariamente na sensação de dor, mas não conseguem desfazer mecanicamente o nó de tensão na fáscia muscular. Sem o trabalho terapêutico correto, o músculo permanece encurtado, mantendo a tração excessiva sobre a articulação (ATM).
+          </p>
+        </div>
+
+        <div class="pas-block pas-block--solution">
+          <h2>Como funciona a Liberação Miofascial na Clínica</h2>
+          <p>
+            A Dra. Vanessa Silveira aplica técnicas manuais específicas de liberação fascial combinadas à terapia com agulhamento a seco (dry needling) e fotobiomodulação a laser. O resultado é o relaxamento muscular profundo, melhora imediata na amplitude de abertura bucal e alívio da dor crônica.
+          </p>
+          <div class="cta-box">
+            <h3>Sentindo tensão acumulada na face ou pescoço?</h3>
+            <p>Agende uma avaliação muscular individualizada com a Dra. Vanessa.</p>
+            <div class="cta-actions">
+              <a href="/diagnosticos/auto-diagnostico" class="vs-btn vs-btn--secondary">Fazer Auto-Diagnóstico DTM</a>
+              <a href="/contato" class="vs-btn vs-btn--primary">Fale conosco</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <Contato />
+  <Footer />
+</Layout>
+
+<style>
+  .page-container {
+    padding: calc(var(--space-20) + 2rem) 0 var(--space-16);
+    background: var(--color-cream);
+    min-height: 80vh;
+  }
+  .vs-breadcrumb {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-4);
+  }
+  .vs-breadcrumb a {
+    color: var(--color-amber);
+    text-decoration: none;
+  }
+  .vs-badge {
+    display: inline-block;
+    padding: 6px 14px;
+    background: var(--color-amber-subtle);
+    color: var(--color-amber);
+    border-radius: var(--radius-full);
+    font-size: var(--text-xs);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: var(--space-3);
+  }
+  .page-header h1 {
+    font-size: var(--text-4xl);
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-4);
+  }
+  .page-lead {
+    font-size: var(--text-lg);
+    color: var(--color-text-secondary);
+    line-height: var(--leading-relaxed);
+    max-width: 800px;
+    margin-bottom: var(--space-8);
+  }
+  .pas-content {
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-8);
+  }
+  .pas-block {
+    background: white;
+    padding: var(--space-8);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--color-warm-gray);
+  }
+  .pas-block h2 {
+    font-size: var(--text-2xl);
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-4);
+  }
+  .pas-block p {
+    font-size: var(--text-base);
+    color: var(--color-text-secondary);
+    line-height: var(--leading-relaxed);
+    margin-bottom: var(--space-4);
+  }
+  .symptom-checklist {
+    list-style: none;
+    padding: 0;
+    margin: var(--space-4) 0 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+  .symptom-checklist li {
+    font-size: var(--text-base);
+    color: var(--color-text-primary);
+    font-weight: 500;
+  }
+  .cta-box {
+    background: var(--color-cream);
+    padding: var(--space-6);
+    border-radius: var(--radius-md);
+    margin-top: var(--space-6);
+    border-left: 4px solid var(--color-amber);
+  }
+  .cta-box h3 {
+    font-size: var(--text-xl);
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-2);
+  }
+  .cta-actions {
+    display: flex;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+    margin-top: var(--space-4);
+  }
+</style>
