@@ -1,4 +1,4 @@
-name: Deploy Institucional HostGator (SSH/Rsync)
+name: Deploy Institucional HostGator (FTP)
 
 on:
   push:
@@ -27,15 +27,17 @@ jobs:
       - name: 🏗️ 4. Compilar site Astro (Gera HTML/CSS em ./dist/)
         run: npm run build
 
-      - name: 📂 5. Sincronizar pasta ./dist/ com a HostGator via Rsync
-        uses: easingthemes/ssh-deploy@v5.1.0
+      - name: 📂 5. Enviar pasta ./dist/ para a HostGator via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
-          SSH_PRIVATE_KEY: ${{ secrets.HOSTGATOR_SSH_KEY || secrets.HOSTGATOR_PASSWORD || secrets.SSH_PRIVATE_KEY }}
-          REMOTE_HOST: ${{ secrets.HOSTGATOR_HOST }}
-          REMOTE_USER: ${{ secrets.HOSTGATOR_USER }}
-          REMOTE_PORT: "2222"
-          SOURCE: "dist/"
-          TARGET: "./public_html/dravanessazsilveira.com.br/"
-          EXCLUDE: "/.git*, /blog/*"
-          ARGS: "-avzr --delete"
-          SSH_CMD_ARGS: "-T -o StrictHostKeyChecking=no -o IdentitiesOnly=yes"
+          server: ${{ secrets.HOSTGATOR_HOST }}
+          username: ${{ secrets.HOSTGATOR_USER }}
+          password: ${{ secrets.HOSTGATOR_FTP_PASSWORD }}
+          port: 21
+          protocol: ftp
+          local-dir: ./dist/
+          server-dir: ./public_html/dravanessazsilveira.com.br/
+          dangerous-clean-slate: false
+          exclude: |
+            **/.git*
+            **/blog/**
