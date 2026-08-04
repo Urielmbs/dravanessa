@@ -1,41 +1,45 @@
-name: Deploy Website to Production Server
+name: Deploy Institucional HostGator (SSH/Rsync)
 
 on:
   push:
     branches:
       - main
-      - master
   workflow_dispatch:
 
 jobs:
-  build-and-deploy:
-    name: Build & Upload to Server
+  web-deploy:
+    name: 🚀 Deploy Website to HostGator
     runs-on: ubuntu-latest
 
     steps:
-      - name: 1. Checkout repository
+      - name: 🚚 1. Baixar código fonte do repositório
         uses: actions/checkout@v4
 
-      - name: 2. Setup Node.js
+      - name: ⚙️ 2. Configurar ambiente Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: 'npm'
 
-      - name: 3. Install dependencies
+      - name: 📦 3. Instalar dependências
         run: npm ci
 
-      - name: 4. Build Astro static site
+      - name: 🏗️ 4. Compilar site Astro (Gera HTML/CSS em ./dist/)
         run: npm run build
 
-      - name: 5. Sync build output (dist/) to Web Server
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      - name: 📂 5. Sincronizar pasta ./dist/ com a HostGator via Rsync
+        uses: SamKirkland/web-deploy@v1
         with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          port: ${{ secrets.FTP_PORT || 21 }}
-          protocol: ${{ secrets.FTP_PROTOCOL || 'ftps' }}
-          local-dir: ./dist/
-          server-dir: ${{ secrets.FTP_SERVER_DIR || '/public_html/' }}
-          dangerous-clean-slate: false
+          target-server: ${{ secrets.HOSTGATOR_HOST }}
+          remote-user: ${{ secrets.HOSTGATOR_USER }}
+          private-ssh-key: ${{ secrets.HOSTGATOR_SSH_KEY }}
+          ssh-port: 2222
+          
+          # Origem: Pasta gerada pelo build do Astro
+          source-path: ./dist/
+          
+          # Destino: Pasta do domínio na HostGator
+          destination-path: ./public_html/dravanessazsilveira.com.br/
+          
+          # Opções do Rsync: Preserva a pasta /blog (WordPress) e atualiza apenas os arquivos modificados
+          rsync-options: --archive --verbose --compress --human-readable --delete-after --exclude=.git* --exclude="blog/"
