@@ -4,17 +4,99 @@
 <div class="vs-nav-wrapper">
   <nav class="vs-nav">
     <a href="/" class="vs-nav__logo">Dra. Vanessa <span>Silveira</span></a>
-    <div class="vs-nav__links">
+    
+    <!-- Navigation Links Container -->
+    <div class="vs-nav__links" id="vs-menu-links">
       <a href="/dra-vanessa" class="vs-nav__link">Dra. Vanessa</a>
       <a href="/metodo-reaticular" class="vs-nav__link">Método Reaticular</a>
       <a href="/protocolo-neuromio" class="vs-nav__link">Protocolo NeuroMio</a>
-      <a href="/procedimentos" class="vs-nav__link">Procedimentos</a>
+      
+      <!-- Dropdown Wrapper -->
+      <div class="vs-nav__dropdown">
+        <a href="/procedimentos" class="vs-nav__link vs-nav__link--has-dropdown" id="vs-dropdown-toggle">
+          Procedimentos
+          <svg class="vs-nav__dropdown-icon" width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m1 1 4 4 4-4"/>
+          </svg>
+        </a>
+        <div class="vs-nav__dropdown-menu" id="vs-dropdown-menu">
+          <a href="/procedimentos" class="vs-nav__dropdown-item">Todos os Procedimentos</a>
+          <a href="/procedimentos/artrocentese" class="vs-nav__dropdown-item">Artrocentese</a>
+          <a href="/procedimentos/viscosuplementacao" class="vs-nav__dropdown-item">Viscosuplementação</a>
+          <a href="/procedimentos/remocao-sisos" class="vs-nav__dropdown-item">Remoção de Sisos</a>
+          <a href="/procedimentos/cirurgia-ortognatica" class="vs-nav__dropdown-item">Cirurgia Ortognática</a>
+          <a href="/procedimentos/pacientes-oncologicos" class="vs-nav__dropdown-item">Pacientes Oncológicos</a>
+          <a href="/procedimentos/biopsias" class="vs-nav__dropdown-item">Biópsias</a>
+          <a href="/procedimentos/atm-conservador" class="vs-nav__dropdown-item">ATM - Conservador</a>
+        </div>
+      </div>
+      
       <a href="/treinamentos" class="vs-nav__link">Treinamentos</a>
       <a href="/blog" class="vs-nav__link">Blog</a>
     </div>
-    <a href="/contato" class="vs-btn vs-btn--primary vs-nav__cta">Agendar Consulta</a>
+
+    <!-- Actions / Desktop CTA and Hamburger Toggle -->
+    <div class="vs-nav__actions-wrapper">
+      <a href="/contato" class="vs-btn vs-btn--primary vs-nav__cta">Agendar Consulta</a>
+      
+      <button class="vs-nav__toggle" aria-label="Abrir Menu" id="vs-menu-toggle">
+        <span class="vs-nav__toggle-box">
+          <span class="vs-nav__toggle-inner"></span>
+        </span>
+      </button>
+    </div>
   </nav>
 </div>
+
+<script>
+  // Mobile drawer and click-to-toggle dropdown logic
+  const initNav = () => {
+    const toggleBtn = document.getElementById('vs-menu-toggle');
+    const menuLinks = document.getElementById('vs-menu-links');
+    const dropdownToggle = document.getElementById('vs-dropdown-toggle');
+    const dropdownMenu = document.getElementById('vs-dropdown-menu');
+    const dropdownIcon = document.querySelector('.vs-nav__dropdown-icon');
+
+    // Toggle Mobile Drawer
+    if (toggleBtn && menuLinks) {
+      toggleBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        toggleBtn.classList.toggle('is-active');
+        menuLinks.classList.toggle('is-open');
+      });
+    }
+
+    // Toggle Dropdown on click (only on mobile view <= 992px)
+    if (dropdownToggle && dropdownMenu) {
+      dropdownToggle.addEventListener('click', (e) => {
+        if (window.innerWidth <= 992) {
+          e.preventDefault(); // Prevent navigating directly on mobile click
+          dropdownMenu.classList.toggle('is-open');
+          if (dropdownIcon) {
+            dropdownIcon.classList.toggle('is-rotated');
+          }
+        }
+      });
+    }
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (menuLinks && menuLinks.classList.contains('is-open')) {
+        const clickedInsideMenu = menuLinks.contains(e.target as Node);
+        const clickedToggle = toggleBtn && toggleBtn.contains(e.target as Node);
+        
+        if (!clickedInsideMenu && !clickedToggle) {
+          toggleBtn?.classList.remove('is-active');
+          menuLinks.classList.remove('is-open');
+        }
+      }
+    });
+  };
+
+  // Run on load and after page transitions
+  initNav();
+  document.addEventListener('astro:after-swap', initNav);
+</script>
 
 <style>
   .vs-nav-wrapper {
@@ -81,22 +163,272 @@
     color: var(--color-amber);
   }
 
+  .vs-nav__link--has-dropdown {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .vs-nav__dropdown-icon {
+    display: inline-block;
+    transition: transform var(--duration-fast) var(--ease-out);
+  }
+
+  /* --- DESKTOP DROPDOWN BEHAVIOR --- */
+  .vs-nav__dropdown {
+    position: relative;
+  }
+
+  .vs-nav__dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(12px);
+    background: rgba(253, 248, 243, 0.98);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(232, 122, 47, 0.12);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-lg);
+    padding: var(--space-3) 0;
+    min-width: 240px;
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity var(--duration-normal) var(--ease-out),
+      transform var(--duration-normal) var(--ease-spring),
+      visibility var(--duration-normal);
+    z-index: 100;
+  }
+
+  /* Invisible bridge to sustain hover state when mouse crosses the offset gap */
+  .vs-nav__dropdown-menu::before {
+    content: '';
+    position: absolute;
+    top: -24px;
+    left: 0;
+    right: 0;
+    height: 24px;
+    background: transparent;
+  }
+
+  .vs-nav__dropdown-item {
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    font-weight: 500;
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    padding: 10px var(--space-5);
+    transition: background var(--duration-fast) var(--ease-out),
+      color var(--duration-fast) var(--ease-out);
+    white-space: nowrap;
+    text-align: left;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .vs-nav__dropdown-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%) scaleX(0);
+    transform-origin: left;
+    width: 3px;
+    height: 60%;
+    background: var(--color-amber);
+    transition: transform var(--duration-fast) var(--ease-out);
+  }
+
+  .vs-nav__dropdown-item:hover {
+    background: var(--color-amber-subtle);
+    color: var(--color-amber);
+  }
+
+  .vs-nav__dropdown-item:hover::before {
+    transform: translateY(-50%) scaleX(1);
+  }
+
+  /* Desktop hover triggers */
+  @media (min-width: 993px) {
+    .vs-nav__dropdown:hover .vs-nav__dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transform: translateX(-50%) translateY(6px);
+    }
+
+    .vs-nav__dropdown:hover .vs-nav__dropdown-icon {
+      transform: rotate(180deg);
+    }
+  }
+
+  /* Actions wrapper */
+  .vs-nav__actions-wrapper {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+  }
+
   .vs-nav__cta {
     padding: 12px 24px;
     font-size: var(--text-sm);
   }
 
-  @media (max-width: 992px) {
-    .vs-nav__links {
-      display: none;
-    }
+  /* Hamburger Toggle Button (Hidden on Desktop) */
+  .vs-nav__toggle {
+    display: none !important;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    align-items: center;
+    justify-content: center;
+    z-index: 1010;
+  }
 
+  .vs-nav__toggle-box {
+    width: 22px;
+    height: 14px;
+    display: inline-block;
+    position: relative;
+  }
+
+  .vs-nav__toggle-inner,
+  .vs-nav__toggle-inner::before,
+  .vs-nav__toggle-inner::after {
+    width: 22px;
+    height: 2px;
+    background-color: var(--color-text-primary);
+    position: absolute;
+    transition: transform var(--duration-fast) var(--ease-out),
+      top var(--duration-fast) var(--ease-out),
+      bottom var(--duration-fast) var(--ease-out),
+      opacity var(--duration-fast) var(--ease-out);
+  }
+
+  .vs-nav__toggle-inner {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .vs-nav__toggle-inner::before {
+    content: "";
+    top: -6px;
+    left: 0;
+  }
+
+  .vs-nav__toggle-inner::after {
+    content: "";
+    bottom: -6px;
+    left: 0;
+  }
+
+  /* Hamburger toggle active state transitions */
+  .vs-nav__toggle.is-active .vs-nav__toggle-inner {
+    transform: rotate(45deg);
+  }
+
+  .vs-nav__toggle.is-active .vs-nav__toggle-inner::before {
+    top: 0;
+    opacity: 0;
+  }
+
+  .vs-nav__toggle.is-active .vs-nav__toggle-inner::after {
+    bottom: 0;
+    transform: rotate(-90deg);
+  }
+
+  /* --- RESPONSIVIDADE MOBILE --- */
+  @media (max-width: 992px) {
     .vs-nav {
-      padding: 12px 24px;
+      padding: 10px 14px 10px 24px;
     }
 
     .vs-nav__cta {
+      display: none !important;
+    }
+
+    .vs-nav__toggle {
+      display: flex !important;
+    }
+
+    /* Links container transformed into drawer */
+    .vs-nav__links {
       display: none;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0;
+      position: absolute;
+      top: calc(100% + 12px);
+      left: 0;
+      right: 0;
+      background: rgba(253, 248, 243, 0.98);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(232, 122, 47, 0.12);
+      border-radius: var(--radius-lg);
+      padding: var(--space-4) 0;
+      box-shadow: var(--shadow-lg);
+      z-index: 999;
+      pointer-events: auto;
+    }
+
+    .vs-nav__links.is-open {
+      display: flex;
+    }
+
+    .vs-nav__link {
+      width: 100%;
+      padding: var(--space-3) var(--space-6);
+      text-align: left;
+      border-bottom: 1px solid rgba(232, 122, 47, 0.05);
+    }
+
+    .vs-nav__link--has-dropdown {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(232, 122, 47, 0.05);
+    }
+
+    /* Mobile Dropdown styles */
+    .vs-nav__dropdown-menu {
+      position: relative;
+      top: 0;
+      left: 0;
+      transform: none !important;
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      box-shadow: none;
+      border: none;
+      background: rgba(232, 122, 47, 0.03);
+      padding: 0;
+      min-width: 100%;
+      display: none;
+      border-bottom: 1px solid rgba(232, 122, 47, 0.05);
+    }
+
+    .vs-nav__dropdown-menu.is-open {
+      display: flex;
+    }
+
+    .vs-nav__dropdown-item {
+      padding: var(--space-3) var(--space-8);
+      border-bottom: 1px solid rgba(232, 122, 47, 0.03);
+      white-space: normal; /* Allow wrapping on small screens */
+    }
+
+    .vs-nav__dropdown-item::before {
+      display: none; /* Hide indicator line on mobile */
+    }
+
+    /* Mobile Dropdown Arrow Rotate */
+    .vs-nav__dropdown-icon.is-rotated {
+      transform: rotate(180deg);
     }
   }
 </style>
