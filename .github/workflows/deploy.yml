@@ -28,18 +28,13 @@ jobs:
         run: npm run build
 
       - name: 📂 5. Sincronizar pasta ./dist/ com a HostGator via Rsync
-        uses: SamKirkland/web-deploy@v1
+        uses: easingthemes/ssh-deploy@v5.1.0
         with:
-          target-server: ${{ secrets.HOSTGATOR_HOST }}
-          remote-user: ${{ secrets.HOSTGATOR_USER }}
-          private-ssh-key: ${{ secrets.HOSTGATOR_SSH_KEY }}
-          ssh-port: 2222
-          
-          # Origem: Pasta gerada pelo build do Astro
-          source-path: ./dist/
-          
-          # Destino: Pasta do domínio na HostGator
-          destination-path: ./public_html/dravanessazsilveira.com.br/
-          
-          # Opções do Rsync: Preserva a pasta /blog (WordPress) e atualiza apenas os arquivos modificados
-          rsync-options: --archive --verbose --compress --human-readable --delete-after --exclude=.git* --exclude="blog/"
+          SSH_PRIVATE_KEY: ${{ secrets.HOSTGATOR_SSH_KEY || secrets.HOSTGATOR_PASSWORD || secrets.SSH_PRIVATE_KEY }}
+          REMOTE_HOST: ${{ secrets.HOSTGATOR_HOST }}
+          REMOTE_USER: ${{ secrets.HOSTGATOR_USER }}
+          PORT: "2222"
+          SOURCE: "dist/"
+          TARGET: "./public_html/dravanessazsilveira.com.br/"
+          EXCLUDE: "/.git*, /blog/*"
+          ARGS: "-avzr --delete"
