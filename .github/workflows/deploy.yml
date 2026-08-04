@@ -33,7 +33,7 @@ jobs:
           SSH_PRIVATE_KEY: ${{ secrets.HOSTGATOR_SSH_KEY || secrets.HOSTGATOR_PASSWORD || secrets.SSH_PRIVATE_KEY }}
           REMOTE_HOST: ${{ secrets.HOSTGATOR_HOST }}
           REMOTE_USER: ${{ secrets.HOSTGATOR_USER }}
-          PORT: "2222"
+          REMOTE_PORT: "2222"
           SOURCE: "dist/"
           TARGET: "./public_html/dravanessazsilveira.com.br/"
           EXCLUDE: "/.git*, /blog/*"
