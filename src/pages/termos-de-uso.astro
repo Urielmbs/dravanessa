@@ -1,0 +1,123 @@
+---
+// src/pages/termos-de-uso.astro
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import { siteConfig } from '../data/site';
+---
+
+<Layout
+  title="Termos de Uso | Dra. Vanessa Silveira"
+  description="Condições de uso do site da Dra. Vanessa Silveira, cirurgiã bucomaxilofacial em Juiz de Fora."
+>
+  <Nav />
+  <main class="vs-section page-container">
+    <div class="vs-container vs-container--text">
+      <div class="page-header vs-reveal">
+        <h1 class="vs-font-display">Termos de Uso</h1>
+        <p class="page-desc">Última atualização: agosto de 2026.</p>
+      </div>
+
+      <div class="page-content vs-reveal" data-delay="1">
+        <p>
+          Ao acessar e utilizar este site, você concorda com os termos descritos a seguir. Se não
+          concordar com alguma condição, recomendamos que não utilize este site.
+        </p>
+
+        <h2>Finalidade do site</h2>
+        <p>
+          Este site tem caráter informativo e institucional, apresentando os procedimentos, a
+          trajetória profissional e os canais de contato de {siteConfig.name} ({siteConfig.cro}).
+          O conteúdo aqui publicado não substitui uma consulta, diagnóstico ou tratamento presencial
+          com profissional de saúde qualificado.
+        </p>
+
+        <h2>Uso permitido</h2>
+        <p>
+          O conteúdo deste site pode ser acessado livremente para fins informativos. Não é permitida
+          a reprodução, distribuição ou uso comercial dos textos, imagens e demais materiais sem
+          autorização prévia.
+        </p>
+
+        <h2>Propriedade intelectual</h2>
+        <p>
+          Textos, imagens, identidade visual e demais elementos deste site são de propriedade de
+          {siteConfig.name} ou utilizados sob licença, sendo protegidos pela legislação de direitos
+          autorais aplicável.
+        </p>
+
+        <h2>Limitação de responsabilidade</h2>
+        <p>
+          As informações apresentadas neste site são de caráter geral e educativo. Decisões clínicas
+          devem sempre ser tomadas em consulta individual com a profissional, considerando o histórico
+          e as particularidades de cada paciente.
+        </p>
+
+        <h2>Links externos</h2>
+        <p>
+          Este site pode conter links para redes sociais e outros serviços externos (como Instagram,
+          LinkedIn, YouTube e Google Maps). Não nos responsabilizamos pelo conteúdo ou pelas práticas
+          de privacidade desses sites de terceiros.
+        </p>
+
+        <h2>Alterações destes termos</h2>
+        <p>
+          Estes Termos de Uso podem ser atualizados periodicamente. O uso continuado do site após
+          eventuais alterações representa a concordância com os novos termos.
+        </p>
+
+        <h2>Legislação aplicável</h2>
+        <p>
+          Estes termos são regidos pela legislação brasileira, com foro eleito na comarca de
+          Juiz de Fora - MG para dirimir eventuais controvérsias.
+        </p>
+
+        <h2>Contato</h2>
+        <p>
+          Dúvidas sobre estes termos podem ser enviadas para <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>.
+        </p>
+      </div>
+    </div>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .page-container {
+    padding: var(--space-20) 0 var(--space-16);
+    background: var(--color-cream);
+    min-height: 80vh;
+  }
+  .page-header {
+    margin-bottom: var(--space-8);
+  }
+  .page-header h1 {
+    font-size: var(--text-4xl);
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-3);
+  }
+  .page-desc {
+    font-family: var(--font-accent);
+    font-size: var(--text-lg);
+    font-style: italic;
+    color: var(--color-text-secondary);
+  }
+  .page-content {
+    font-size: var(--text-base);
+    color: var(--color-text-secondary);
+    line-height: var(--leading-normal);
+  }
+  .page-content h2 {
+    font-family: var(--font-display);
+    font-size: var(--text-xl);
+    color: var(--color-text-primary);
+    margin-top: var(--space-8);
+    margin-bottom: var(--space-3);
+  }
+  .page-content p {
+    margin-bottom: var(--space-4);
+  }
+  .page-content a {
+    color: var(--color-amber);
+  }
+</style>

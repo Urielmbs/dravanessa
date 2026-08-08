@@ -1,5 +1,6 @@
 ---
 // src/components/Contato.astro
+import { siteConfig } from '../data/site';
 ---
 <section class="vs-section vs-contato" id="contato" aria-label="Contato e agendamento">
   <div class="vs-contato__bg" aria-hidden="true"></div>
@@ -27,7 +28,7 @@
           <div>
             <p class="vs-contato__item-label">WhatsApp</p>
             <p class="vs-contato__item-value">
-              <a href="https://wa.me/5532998513101">(32) 99851-3101</a>
+              <a href={siteConfig.whatsapp.href}>{siteConfig.whatsapp.display}</a>
             </p>
           </div>
         </div>
@@ -44,7 +45,7 @@
           <div>
             <p class="vs-contato__item-label">Telefone</p>
             <p class="vs-contato__item-value">
-              <a href="tel:+553232128916">(32) 3212-8916</a>
+              <a href={siteConfig.phone.href}>{siteConfig.phone.display}</a>
             </p>
           </div>
         </div>
@@ -61,7 +62,7 @@
           <div>
             <p class="vs-contato__item-label">E-mail</p>
             <p class="vs-contato__item-value">
-              <a href="mailto:vanessa@zaidansilveira.com.br">vanessa@zaidansilveira.com.br</a>
+              <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>
             </p>
           </div>
         </div>
@@ -78,16 +79,16 @@
           <div>
             <p class="vs-contato__item-label">Endereço</p>
             <p class="vs-contato__item-value">
-              SINPLA Odontologia
-              <br>Av. Presidente Itamar Franco, 1545, Sala 1<br>
-              Centro, Juiz de Fora - MG
+              {siteConfig.address.clinic}
+              <br>{siteConfig.address.street}<br>
+              {siteConfig.address.cityLine}
             </p>
           </div>
         </div>
 
         <!-- CTA -->
         <div class="vs-contato__cta vs-reveal" data-delay="4">
-          <a href="https://wa.me/5532998513101" target="_blank" rel="noopener" class="vs-btn vs-btn--primary">
+          <a href={siteConfig.whatsapp.href} target="_blank" rel="noopener" class="vs-btn vs-btn--primary">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
               <use href="#icon-whatsapp" />
             </svg>
@@ -99,7 +100,7 @@
       <!-- Map -->
       <div class="vs-contato__map-wrap vs-reveal" data-delay="2">
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3705.410218612151!2d-43.3486767!3d-21.764378999999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x69114eb777782f23%3A0x770d8b475353570a!2sVanessa%20Zaidan%20Silveira%20%7C%20Bucomaxilo%20%26%20DTM!5e0!3m2!1spt-BR!2sbr!4v1775234261310!5m2!1spt-BR!2sbr"
+          src={siteConfig.address.mapEmbedUrl}
           width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>

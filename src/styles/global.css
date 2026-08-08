@@ -315,3 +315,32 @@ body {
   padding: 0;
   background: var(--color-cream);
 }
+
+/* === ACESSIBILIDADE === */
+
+/* Oculta visualmente mantendo o conteúdo disponível para leitores de tela
+   (usado para títulos h1 semânticos em páginas cujo design já traz o
+   título principal como elemento estilizado, ex: h2 de um componente) */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Estado de foco visível para navegação por teclado */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--color-amber);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}

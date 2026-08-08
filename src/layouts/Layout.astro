@@ -1,16 +1,44 @@
 ---
 // src/layouts/Layout.astro
 import '../styles/global.css';
+import { siteConfig } from '../data/site';
 
 interface Props {
   title: string;
   description?: string;
+  ogImage?: string;
 }
 
-const { 
-  title, 
-  description = "Dra. Vanessa Silveira | Cirurgiã Bucomaxilofacial em Juiz de Fora" 
+const {
+  title,
+  description = "Dra. Vanessa Silveira | Cirurgiã Bucomaxilofacial em Juiz de Fora",
+  ogImage = "/images/dra-vanessa-sobre.jpg",
 } = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const ogImageURL = new URL(ogImage, Astro.site);
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Physician",
+  "name": siteConfig.name,
+  "image": ogImageURL.toString(),
+  "url": siteConfig.url,
+  "telephone": siteConfig.phone.href.replace('tel:', ''),
+  "medicalSpecialty": "Cirurgia Bucomaxilofacial",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": siteConfig.address.street,
+    "addressLocality": "Juiz de Fora",
+    "addressRegion": "MG",
+    "addressCountry": "BR",
+  },
+  "sameAs": [
+    siteConfig.social.instagram,
+    siteConfig.social.linkedin,
+    siteConfig.social.youtube,
+  ],
+};
 ---
 <!DOCTYPE html>
 <html lang="pt-BR" style="scroll-behavior: smooth;">
@@ -30,6 +58,25 @@ const {
   <meta name="generator" content={Astro.generator} />
   <link rel="icon" type="image/x-icon" href="/favicon.ico" />
   <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="canonical" href={canonicalURL} />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content={siteConfig.name} />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content={canonicalURL} />
+  <meta property="og:image" content={ogImageURL} />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={ogImageURL} />
+
+  <!-- Dados estruturados: Physician / negócio local -->
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} is:inline />
 
   <!-- OPTIMIZATION: DNS Prefetch & Preconnect for external tags -->
   <link rel="dns-prefetch" href="https://www.googletagmanager.com">

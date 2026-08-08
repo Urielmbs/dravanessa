@@ -4,9 +4,13 @@ import Layout from '../../layouts/Layout.astro';
 import Nav from '../../components/Nav.astro';
 import Contato from '../../components/Contato.astro';
 import Footer from '../../components/Footer.astro';
+import '../../styles/procedimentos.css';
 ---
 
-<Layout title="Tratamento Conservador e Regenerativo da ATM | Dra. Vanessa Silveira">
+<Layout
+  title="Tratamento Conservador e Regenerativo da ATM | Dra. Vanessa Silveira"
+  description="Mais de 85% dos casos de DTM podem ser tratados sem cirurgia. Conheça o tratamento conservador e regenerativo da ATM."
+>
   <Nav />
   <main class="vs-section page-container">
     <div class="vs-container">
@@ -27,7 +31,7 @@ import Footer from '../../components/Footer.astro';
           <div class="proc-block">
             <h2>Tratamento Clínico Personalizado da ATM</h2>
             <p>
-              Mais de 85% dos pacientes com Disfunção Temporomandibular (DTM) podem ser tratados com sucesso através do **Tratamento Conservador e Regenerativo**, sem necessidade de intervenções cirúrgicas invasivas.
+              Mais de 85% dos pacientes com Disfunção Temporomandibular (DTM) podem ser tratados com sucesso através do <strong>Tratamento Conservador e Regenerativo</strong>, sem necessidade de intervenções cirúrgicas invasivas.
             </p>
             <p>
               O segredo do sucesso do tratamento com a Dra. Vanessa Silveira reside no diagnóstico diferencial preciso: identificamos se a origem da dor é articular, muscular ou uma combinação das duas, aplicando terapias focadas no reequilíbrio biomecânico da mastigação.
@@ -88,141 +92,3 @@ import Footer from '../../components/Footer.astro';
   <Footer />
 </Layout>
 
-<style>
-  .page-container {
-    padding: calc(var(--space-20) + 2rem) 0 var(--space-16);
-    background: var(--color-cream);
-    min-height: 80vh;
-  }
-  .vs-breadcrumb {
-    font-size: var(--text-sm);
-    color: var(--color-text-muted);
-    margin-bottom: var(--space-4);
-  }
-  .vs-breadcrumb a {
-    color: var(--color-amber);
-    text-decoration: none;
-  }
-  .vs-badge {
-    display: inline-block;
-    padding: 6px 14px;
-    background: var(--color-amber-subtle);
-    color: var(--color-amber);
-    border-radius: var(--radius-full);
-    font-size: var(--text-xs);
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    margin-bottom: var(--space-3);
-  }
-  .page-header h1 {
-    font-size: var(--text-4xl);
-    color: var(--color-text-primary);
-    margin-bottom: var(--space-4);
-  }
-  .page-lead {
-    font-size: var(--text-lg);
-    color: var(--color-text-secondary);
-    line-height: var(--leading-relaxed);
-    max-width: 850px;
-    margin-bottom: var(--space-8);
-  }
-  .proc-grid {
-    display: grid;
-    grid-template-columns: 1fr 320px;
-    gap: var(--space-8);
-  }
-  @media (max-width: 992px) {
-    .proc-grid {
-      grid-template-columns: 1fr;
-    }
-  }
-  .proc-main {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-8);
-  }
-  .proc-block {
-    background: white;
-    padding: var(--space-8);
-    border-radius: var(--radius-lg);
-    border: 1px solid var(--color-warm-gray);
-    box-shadow: var(--shadow-sm);
-  }
-  .proc-block h2 {
-    font-size: var(--text-2xl);
-    color: var(--color-text-primary);
-    margin-bottom: var(--space-4);
-  }
-  .proc-block p {
-    font-size: var(--text-base);
-    color: var(--color-text-secondary);
-    line-height: var(--leading-relaxed);
-    margin-bottom: var(--space-3);
-  }
-  .check-list {
-    list-style: none;
-    padding: 0;
-    margin: var(--space-4) 0 0 0;
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-3);
-  }
-  .check-list li {
-    font-size: var(--text-base);
-    color: var(--color-text-primary);
-    line-height: var(--leading-normal);
-  }
-  .benefits-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: var(--space-4);
-    margin-top: var(--space-4);
-  }
-  .benefit-card {
-    background: var(--color-cream);
-    padding: var(--space-4);
-    border-radius: var(--radius-md);
-  }
-  .benefit-card h4 {
-    font-size: var(--text-base);
-    color: var(--color-text-primary);
-    margin-bottom: var(--space-2);
-  }
-  .benefit-card p {
-    font-size: var(--text-sm);
-    color: var(--color-text-secondary);
-    margin: 0;
-  }
-  .sidebar-box {
-    background: white;
-    padding: var(--space-6);
-    border-radius: var(--radius-lg);
-    border: 1px solid var(--color-warm-gray);
-    position: sticky;
-    top: 100px;
-    box-shadow: var(--shadow-sm);
-  }
-  .sidebar-box h3 {
-    font-size: var(--text-xl);
-    color: var(--color-text-primary);
-  }
-  .doctor-spec {
-    font-size: var(--text-xs);
-    color: var(--color-amber);
-    font-weight: 600;
-    margin-bottom: var(--space-3);
-  }
-  .sidebar-info {
-    font-size: var(--text-sm);
-    color: var(--color-text-secondary);
-    margin: var(--space-4) 0;
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-2);
-  }
-  .w-full {
-    width: 100%;
-    text-align: center;
-  }
-</style>

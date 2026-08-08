@@ -4,9 +4,13 @@ import Layout from '../../layouts/Layout.astro';
 import Nav from '../../components/Nav.astro';
 import Contato from '../../components/Contato.astro';
 import Footer from '../../components/Footer.astro';
+import '../../styles/procedimentos.css';
 ---
 
-<Layout title="Atendimento Odontológico Oncológico e Hospitalar | Dra. Vanessa Silveira">
+<Layout
+  title="Atendimento Odontológico Oncológico e Hospitalar | Dra. Vanessa Silveira"
+  description="Acompanhamento odontológico especializado para pacientes oncológicos, com prevenção de mucosite e osteorradionecrose durante o tratamento."
+>
   <Nav />
   <main class="vs-section page-container">
     <div class="vs-container">
@@ -30,7 +34,7 @@ import Footer from '../../components/Footer.astro';
               O tratamento quimioterápico e radioterápico na região de cabeça e pescoço impacta diretamente as mucosas bucais, glândulas salivares e os ossos maxilares.
             </p>
             <p>
-              Como especialista com sólida vivência hospitalar — tendo liderado a equipe de Odontologia Hospitalar do **Hospital Ascomcer** —, a **Dra. Vanessa Silveira** oferece um acompanhamento altamente técnico e empático, trabalhando em estreita colaboração com médicos oncologistas e radioterapeutas.
+              Como especialista com sólida vivência hospitalar — tendo liderado a equipe de Odontologia Hospitalar do <strong>Hospital Ascomcer</strong> —, a <strong>Dra. Vanessa Silveira</strong> oferece um acompanhamento altamente técnico e empático, trabalhando em estreita colaboração com médicos oncologistas e radioterapeutas.
             </p>
           </div>
 
@@ -49,7 +53,7 @@ import Footer from '../../components/Footer.astro';
                 <span class="step-num">2</span>
                 <div>
                   <h3>Manejo Durante o Tratamento (Prevenção de Mucosite)</h3>
-                  <p>Aplicação de **Laserterapia de Baixa Potência (Fotobiomodulação)** para prevenir e tratar a mucosite oral (feridas dolorosas causadas pelo tratamento oncológico), permitindo que o paciente continue se alimentando sem dor.</p>
+                  <p>Aplicação de <strong>Laserterapia de Baixa Potência (Fotobiomodulação)</strong> para prevenir e tratar a mucosite oral (feridas dolorosas causadas pelo tratamento oncológico), permitindo que o paciente continue se alimentando sem dor.</p>
                 </div>
               </div>
 
@@ -57,7 +61,7 @@ import Footer from '../../components/Footer.astro';
                 <span class="step-num">3</span>
                 <div>
                   <h3>Acompanhamento Pós-Tratamento & Suporte Contínuo</h3>
-                  <p>Prevenção rigorosa da **Osteorradionecrose** (necrose óssea pós-radioterapia), manejo da xerostomia (sensação de boca seca) e restauração da função mastigatória.</p>
+                  <p>Prevenção rigorosa da <strong>Osteorradionecrose</strong> (necrose óssea pós-radioterapia), manejo da xerostomia (sensação de boca seca) e restauração da função mastigatória.</p>
                 </div>
               </div>
             </div>
@@ -114,169 +118,3 @@ import Footer from '../../components/Footer.astro';
   <Footer />
 </Layout>
 
-<style>
-  .page-container {
-    padding: calc(var(--space-20) + 2rem) 0 var(--space-16);
-    background: var(--color-cream);
-    min-height: 80vh;
-  }
-  .vs-breadcrumb {
-    font-size: var(--text-sm);
-    color: var(--color-text-muted);
-    margin-bottom: var(--space-4);
-  }
-  .vs-breadcrumb a {
-    color: var(--color-amber);
-    text-decoration: none;
-  }
-  .vs-badge {
-    display: inline-block;
-    padding: 6px 14px;
-    background: var(--color-amber-subtle);
-    color: var(--color-amber);
-    border-radius: var(--radius-full);
-    font-size: var(--text-xs);
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    margin-bottom: var(--space-3);
-  }
-  .page-header h1 {
-    font-size: var(--text-4xl);
-    color: var(--color-text-primary);
-    margin-bottom: var(--space-4);
-  }
-  .page-lead {
-    font-size: var(--text-lg);
-    color: var(--color-text-secondary);
-    line-height: var(--leading-relaxed);
-    max-width: 850px;
-    margin-bottom: var(--space-8);
-  }
-  .proc-grid {
-    display: grid;
-    grid-template-columns: 1fr 320px;
-    gap: var(--space-8);
-  }
-  @media (max-width: 992px) {
-    .proc-grid {
-      grid-template-columns: 1fr;
-    }
-  }
-  .proc-main {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-8);
-  }
-  .proc-block {
-    background: white;
-    padding: var(--space-8);
-    border-radius: var(--radius-lg);
-    border: 1px solid var(--color-warm-gray);
-    box-shadow: var(--shadow-sm);
-  }
-  .proc-block h2 {
-    font-size: var(--text-2xl);
-    color: var(--color-text-primary);
-    margin-bottom: var(--space-4);
-  }
-  .proc-block p {
-    font-size: var(--text-base);
-    color: var(--color-text-secondary);
-    line-height: var(--leading-relaxed);
-    margin-bottom: var(--space-3);
-  }
-  .check-list {
-    list-style: none;
-    padding: 0;
-    margin: var(--space-4) 0 0 0;
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-3);
-  }
-  .check-list li {
-    font-size: var(--text-base);
-    color: var(--color-text-primary);
-    line-height: var(--leading-normal);
-  }
-  .steps-timeline {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-6);
-    margin-top: var(--space-4);
-  }
-  .step-item {
-    display: flex;
-    gap: var(--space-4);
-    align-items: flex-start;
-  }
-  .step-num {
-    width: 36px;
-    height: 36px;
-    border-radius: var(--radius-full);
-    background: var(--color-amber);
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 700;
-    flex-shrink: 0;
-  }
-  .step-item h3 {
-    font-size: var(--text-lg);
-    color: var(--color-text-primary);
-    margin-bottom: var(--space-1);
-  }
-  .benefits-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: var(--space-4);
-    margin-top: var(--space-4);
-  }
-  .benefit-card {
-    background: var(--color-cream);
-    padding: var(--space-4);
-    border-radius: var(--radius-md);
-  }
-  .benefit-card h4 {
-    font-size: var(--text-base);
-    color: var(--color-text-primary);
-    margin-bottom: var(--space-2);
-  }
-  .benefit-card p {
-    font-size: var(--text-sm);
-    color: var(--color-text-secondary);
-    margin: 0;
-  }
-  .sidebar-box {
-    background: white;
-    padding: var(--space-6);
-    border-radius: var(--radius-lg);
-    border: 1px solid var(--color-warm-gray);
-    position: sticky;
-    top: 100px;
-    box-shadow: var(--shadow-sm);
-  }
-  .sidebar-box h3 {
-    font-size: var(--text-xl);
-    color: var(--color-text-primary);
-  }
-  .doctor-spec {
-    font-size: var(--text-xs);
-    color: var(--color-amber);
-    font-weight: 600;
-    margin-bottom: var(--space-3);
-  }
-  .sidebar-info {
-    font-size: var(--text-sm);
-    color: var(--color-text-secondary);
-    margin: var(--space-4) 0;
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-2);
-  }
-  .w-full {
-    width: 100%;
-    text-align: center;
-  }
-</style>

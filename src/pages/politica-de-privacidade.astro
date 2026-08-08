@@ -1,0 +1,125 @@
+---
+// src/pages/politica-de-privacidade.astro
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import { siteConfig } from '../data/site';
+---
+
+<Layout
+  title="Política de Privacidade | Dra. Vanessa Silveira"
+  description="Saiba como a Dra. Vanessa Silveira coleta, usa e protege os dados pessoais de visitantes e pacientes deste site, em conformidade com a LGPD."
+>
+  <Nav />
+  <main class="vs-section page-container">
+    <div class="vs-container vs-container--text">
+      <div class="page-header vs-reveal">
+        <h1 class="vs-font-display">Política de Privacidade</h1>
+        <p class="page-desc">Última atualização: agosto de 2026.</p>
+      </div>
+
+      <div class="page-content vs-reveal" data-delay="1">
+        <p>
+          Esta Política de Privacidade descreve como {siteConfig.name} ({siteConfig.role}, {siteConfig.cro})
+          coleta, utiliza e protege as informações de quem visita este site, em conformidade com a
+          Lei Geral de Proteção de Dados (Lei nº 13.709/2018 — LGPD).
+        </p>
+
+        <h2>Quais dados coletamos</h2>
+        <p>
+          Coletamos apenas os dados que você nos fornece voluntariamente ao entrar em contato, como nome,
+          telefone/WhatsApp e e-mail, quando você utiliza os canais de contato disponíveis no site
+          (WhatsApp, telefone ou e-mail). Também coletamos dados de navegação de forma automatizada
+          (como páginas visitadas e origem do acesso) por meio de ferramentas de análise de audiência.
+        </p>
+
+        <h2>Como usamos os dados</h2>
+        <p>
+          Os dados de contato são usados exclusivamente para responder às suas mensagens e agendar
+          avaliações e consultas. Os dados de navegação são usados de forma agregada para entender
+          como o site é utilizado e melhorar seu conteúdo.
+        </p>
+
+        <h2>Cookies e ferramentas de análise</h2>
+        <p>
+          Este site utiliza o Google Tag Manager para organizar ferramentas de análise de audiência.
+          Essas ferramentas podem usar cookies para coletar dados estatísticos de navegação de forma
+          anônima. Você pode desativar cookies nas configurações do seu navegador a qualquer momento.
+        </p>
+
+        <h2>Compartilhamento de dados</h2>
+        <p>
+          Não vendemos nem compartilhamos seus dados pessoais com terceiros para fins de marketing.
+          Dados podem ser compartilhados apenas quando necessário para a prestação do atendimento
+          (por exemplo, com a clínica onde os atendimentos são realizados) ou quando exigido por lei.
+        </p>
+
+        <h2>Seus direitos como titular de dados</h2>
+        <p>
+          Nos termos da LGPD, você pode solicitar a qualquer momento a confirmação da existência de
+          tratamento, acesso, correção, anonimização ou eliminação dos seus dados pessoais. Para
+          exercer esses direitos, entre em contato pelo e-mail <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>.
+        </p>
+
+        <h2>Segurança</h2>
+        <p>
+          Adotamos medidas técnicas e administrativas razoáveis para proteger os dados pessoais
+          coletados contra acessos não autorizados e situações de uso indevido.
+        </p>
+
+        <h2>Alterações desta política</h2>
+        <p>
+          Esta política pode ser atualizada periodicamente para refletir melhorias ou mudanças
+          legais. Recomendamos revisá-la ocasionalmente.
+        </p>
+
+        <h2>Contato</h2>
+        <p>
+          Dúvidas sobre esta política podem ser enviadas para <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>
+          ou pelo WhatsApp <a href={siteConfig.whatsapp.href}>{siteConfig.whatsapp.display}</a>.
+        </p>
+      </div>
+    </div>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .page-container {
+    padding: var(--space-20) 0 var(--space-16);
+    background: var(--color-cream);
+    min-height: 80vh;
+  }
+  .page-header {
+    margin-bottom: var(--space-8);
+  }
+  .page-header h1 {
+    font-size: var(--text-4xl);
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-3);
+  }
+  .page-desc {
+    font-family: var(--font-accent);
+    font-size: var(--text-lg);
+    font-style: italic;
+    color: var(--color-text-secondary);
+  }
+  .page-content {
+    font-size: var(--text-base);
+    color: var(--color-text-secondary);
+    line-height: var(--leading-normal);
+  }
+  .page-content h2 {
+    font-family: var(--font-display);
+    font-size: var(--text-xl);
+    color: var(--color-text-primary);
+    margin-top: var(--space-8);
+    margin-bottom: var(--space-3);
+  }
+  .page-content p {
+    margin-bottom: var(--space-4);
+  }
+  .page-content a {
+    color: var(--color-amber);
+  }
+</style>
