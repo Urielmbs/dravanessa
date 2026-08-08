@@ -1,5 +1,7 @@
 ---
 // src/components/PraQuem.astro
+import { Image } from 'astro:assets';
+import dorMandibula from '../assets/images/dor-mandibula.jpg';
 ---
 <section id="pra-quem" class="vs-section vs-praquem" aria-label="Para quem é este tratamento">
   <div class="vs-praquem__inner">
@@ -24,7 +26,7 @@
       </div>
     </div>
     <div class="vs-praquem__image-wrap vs-reveal" data-delay="2">
-      <img src="/images/dor-mandibula.jpg" alt="Pessoa com dor na mandíbula" loading="lazy" width="800" height="800">
+      <Image src={dorMandibula} alt="Pessoa com dor na mandíbula" loading="lazy" width="800" height="800" format="webp" quality={80} />
     </div>
   </div>
 </section>
