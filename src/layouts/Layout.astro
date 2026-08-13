@@ -43,12 +43,13 @@ const jsonLd = {
 <!DOCTYPE html>
 <html lang="pt-BR" style="scroll-behavior: smooth;">
 <head>
-  <!-- Google Tag Manager: dataLayer inicializado aqui (custo zero),
-       o script real só é carregado mais tarde — ver comentário no fim do <body>. -->
-  <script is:inline>
-    window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
-  </script>
+  <!-- Google Tag Manager -->
+  <script is:inline>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-KTXGZ998');</script>
+  <!-- End Google Tag Manager -->
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -144,34 +145,6 @@ const jsonLd = {
     })();
   </script>
 
-  <!-- Google Tag Manager: carregamento adiado para não bloquear o
-       primeiro paint. Dispara na primeira interação do usuário, ou após
-       o "load" + um pequeno atraso como rede de segurança, para garantir
-       que o rastreamento continue funcionando mesmo sem interação. -->
-  <script is:inline>
-    (function () {
-      'use strict';
-      var loaded = false;
 
-      function loadGTM() {
-        if (loaded) return;
-        loaded = true;
-        var f = document.getElementsByTagName('script')[0];
-        var j = document.createElement('script');
-        j.async = true;
-        j.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-KTXGZ998';
-        f.parentNode.insertBefore(j, f);
-      }
-
-      var interactionEvents = ['scroll', 'mousemove', 'keydown', 'touchstart', 'pointerdown'];
-      interactionEvents.forEach(function (evt) {
-        window.addEventListener(evt, loadGTM, { once: true, passive: true });
-      });
-
-      window.addEventListener('load', function () {
-        setTimeout(loadGTM, 3500);
-      });
-    })();
-  </script>
 </body>
 </html>
