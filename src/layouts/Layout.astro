@@ -51,6 +51,84 @@ const jsonLd = {
   })(window,document,'script','dataLayer','GTM-KTXGZ998');</script>
   <!-- End Google Tag Manager -->
 
+  <!-- Rastreamento de Leads WhatsApp - Google Tag Manager -->
+  <script is:inline>
+  (function () {
+
+    /* Evita instalar o listener mais de uma vez
+       em navegações internas do Astro */
+    if (window.__whatsappTrackingInstalled) {
+      return;
+    }
+
+    window.__whatsappTrackingInstalled = true;
+
+    window.dataLayer = window.dataLayer || [];
+
+    function isWhatsAppLink(url) {
+      if (!url) return false;
+
+      return (
+        url.includes('wa.me/') ||
+        url.includes('api.whatsapp.com/') ||
+        url.includes('web.whatsapp.com/') ||
+        url.includes('whatsapp.com/send') ||
+        url.startsWith('whatsapp://')
+      );
+    }
+
+    document.addEventListener(
+      'click',
+      function (event) {
+
+        const element = event.target.closest('a[href]');
+
+        if (!element) return;
+
+        const url =
+          element.href ||
+          element.getAttribute('href') ||
+          '';
+
+        if (!isWhatsAppLink(url)) return;
+
+        const texto =
+          (
+            element.innerText ||
+            element.textContent ||
+            'WhatsApp'
+          )
+          .trim()
+          .substring(0, 150);
+
+        /* Envia o evento para o Google Tag Manager */
+        window.dataLayer.push({
+          event: 'whatsapp_click',
+
+          whatsapp_url: url,
+
+          whatsapp_button_text: texto,
+
+          page_location: window.location.href,
+
+          page_path: window.location.pathname,
+
+          page_title: document.title
+        });
+
+        console.log(
+          '[GTM] Lead WhatsApp registrado:',
+          url
+        );
+
+      },
+      true
+    );
+
+  })();
+  </script>
+  <!-- Fim Rastreamento WhatsApp -->
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{title}</title>
@@ -84,8 +162,14 @@ const jsonLd = {
 </head>
 <body>
   <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KTXGZ998"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <noscript>
+    <iframe
+      src="https://www.googletagmanager.com/ns.html?id=GTM-KTXGZ998"
+      height="0"
+      width="0"
+      style="display:none;visibility:hidden">
+    </iframe>
+  </noscript>
   <!-- End Google Tag Manager (noscript) -->
   <!-- SVG Sprite — ícones reutilizáveis -->
   <svg xmlns="http://www.w3.org/2000/svg" style="display:none">
