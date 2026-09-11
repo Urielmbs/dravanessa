@@ -22,3 +22,10 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# claude code workspace metadata
+.v3code/
+
+# arquivos de referência/backup fora do site publicado
+# (PDFs de relatório, fotos soltas, páginas antigas de redirecionamento)
+arquives/
