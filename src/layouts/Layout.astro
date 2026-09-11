@@ -78,6 +78,8 @@ const jsonLd = {
   <meta name="generator" content={Astro.generator} />
   <link rel="icon" type="image/x-icon" href="/favicon.ico" />
   <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <meta name="theme-color" content="#E87A2F" />
   <link rel="canonical" href={canonicalURL} />
 
   <!-- Pré-carrega a fonte principal usada em títulos e corpo de texto -->
@@ -169,11 +171,6 @@ const jsonLd = {
 
           page_title: document.title
         });
-
-        console.log(
-          '[GTM] Lead WhatsApp registrado:',
-          url
-        );
 
       },
       true

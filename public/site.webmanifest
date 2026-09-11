@@ -1,0 +1,16 @@
+{
+  "name": "Dra. Vanessa Silveira - Cirurgiã Bucomaxilofacial",
+  "short_name": "Dra. Vanessa Silveira",
+  "description": "Especialista em DTM, dor orofacial e bruxismo em Juiz de Fora.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FDF8F3",
+  "theme_color": "#E87A2F",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "16x16",
+      "type": "image/x-icon"
+    }
+  ]
+}
