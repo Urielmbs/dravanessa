@@ -47,12 +47,63 @@ const jsonLd = {
   <meta charset="UTF-8">
 
   <!-- Google Tag Manager -->
-  <script is:inline>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-KTXGZ998');</script>
+  <script is:inline>
+  (function(w,d,s,l,i){
+    w[l]=w[l]||[];
+    w[l].push({
+      'gtm.start': new Date().getTime(),
+      event:'gtm.js'
+    });
+
+
+    var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),
+        dl=l!='dataLayer'?'&l='+l:'';
+
+
+    j.async=true;
+    j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+
+
+    f.parentNode.insertBefore(j,f);
+
+
+  })(window,document,'script','dataLayer','GTM-KTXGZ998');
+  </script>
   <!-- End Google Tag Manager -->
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <meta name="generator" content={Astro.generator} />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="canonical" href={canonicalURL} />
+
+  <!-- Pré-carrega a fonte principal usada em títulos e corpo de texto -->
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/outfit-variable-latin.woff2" crossorigin />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content={siteConfig.name} />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content={canonicalURL} />
+  <meta property="og:image" content={ogImageURL} />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={ogImageURL} />
+
+  <!-- Dados estruturados: Physician / negócio local -->
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} is:inline />
+
+  <!-- OPTIMIZATION: DNS Prefetch para o GTM, que carrega de forma adiada -->
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="dns-prefetch" href="https://www.google-analytics.com">
 
   <!-- Rastreamento de Leads WhatsApp - Google Tag Manager -->
   <script is:inline>
@@ -119,6 +170,11 @@ const jsonLd = {
           page_title: document.title
         });
 
+        console.log(
+          '[GTM] Lead WhatsApp registrado:',
+          url
+        );
+
       },
       true
     );
@@ -126,39 +182,6 @@ const jsonLd = {
   })();
   </script>
   <!-- Fim Rastreamento WhatsApp -->
-
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{title}</title>
-  <meta name="description" content={description} />
-  <meta name="generator" content={Astro.generator} />
-  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
-  <link rel="canonical" href={canonicalURL} />
-
-  <!-- Pré-carrega a fonte principal usada em títulos e corpo de texto -->
-  <link rel="preload" as="font" type="font/woff2" href="/fonts/outfit-variable-latin.woff2" crossorigin />
-
-  <!-- Open Graph -->
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content={siteConfig.name} />
-  <meta property="og:locale" content="pt_BR" />
-  <meta property="og:title" content={title} />
-  <meta property="og:description" content={description} />
-  <meta property="og:url" content={canonicalURL} />
-  <meta property="og:image" content={ogImageURL} />
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content={title} />
-  <meta name="twitter:description" content={description} />
-  <meta name="twitter:image" content={ogImageURL} />
-
-  <!-- Dados estruturados: Physician / negócio local -->
-  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} is:inline />
-
-  <!-- OPTIMIZATION: DNS Prefetch para o GTM, que carrega de forma adiada -->
-  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
-  <link rel="dns-prefetch" href="https://www.google-analytics.com">
 </head>
 <body>
   <!-- Google Tag Manager (noscript) -->
