@@ -9,12 +9,14 @@
     <div class="vs-nav__links" id="vs-menu-links">
       <!-- Dropdown: Dra. Vanessa -->
       <div class="vs-nav__dropdown">
-        <a href="/dra-vanessa" class="vs-nav__link vs-nav__link--has-dropdown vs-dropdown-toggle">
-          Dra. Vanessa
-          <svg class="vs-nav__dropdown-icon" width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="m1 1 4 4 4-4"/>
-          </svg>
-        </a>
+        <div class="vs-nav__link-row">
+          <a href="/dra-vanessa" class="vs-nav__link vs-nav__link--has-dropdown">Dra. Vanessa</a>
+          <button type="button" class="vs-nav__dropdown-caret vs-dropdown-toggle" aria-expanded="false" aria-label="Abrir submenu Dra. Vanessa">
+            <svg class="vs-nav__dropdown-icon" width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m1 1 4 4 4-4"/>
+            </svg>
+          </button>
+        </div>
         <div class="vs-nav__dropdown-menu vs-dropdown-menu">
           <a href="/dra-vanessa" class="vs-nav__dropdown-item">Sobre a Dra. Vanessa</a>
           <a href="/treinamentos" class="vs-nav__dropdown-item">Treinamentos & Cursos</a>
@@ -24,12 +26,14 @@
       
       <!-- Dropdown: Sintomas & Dores -->
       <div class="vs-nav__dropdown">
-        <a href="/sintomas/dor-atm-estalos" class="vs-nav__link vs-nav__link--has-dropdown vs-dropdown-toggle">
-          Sintomas & Dores
-          <svg class="vs-nav__dropdown-icon" width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="m1 1 4 4 4-4"/>
-          </svg>
-        </a>
+        <div class="vs-nav__link-row">
+          <a href="/sintomas/dor-atm-estalos" class="vs-nav__link vs-nav__link--has-dropdown">Sintomas & Dores</a>
+          <button type="button" class="vs-nav__dropdown-caret vs-dropdown-toggle" aria-expanded="false" aria-label="Abrir submenu Sintomas & Dores">
+            <svg class="vs-nav__dropdown-icon" width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m1 1 4 4 4-4"/>
+            </svg>
+          </button>
+        </div>
         <div class="vs-nav__dropdown-menu vs-dropdown-menu">
           <a href="/sintomas/dor-atm-estalos" class="vs-nav__dropdown-item">Dores na ATM, Estalos & Travamento</a>
           <a href="/sintomas/bruxismo-apertamento" class="vs-nav__dropdown-item">Bruxismo, Apertamento & Dor de Cabeça</a>
@@ -43,12 +47,14 @@
 
       <!-- Dropdown: Soluções & Tratamentos -->
       <div class="vs-nav__dropdown">
-        <a href="/procedimentos" class="vs-nav__link vs-nav__link--has-dropdown vs-dropdown-toggle">
-          Soluções & Tratamentos
-          <svg class="vs-nav__dropdown-icon" width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="m1 1 4 4 4-4"/>
-          </svg>
-        </a>
+        <div class="vs-nav__link-row">
+          <a href="/procedimentos" class="vs-nav__link vs-nav__link--has-dropdown">Soluções & Tratamentos</a>
+          <button type="button" class="vs-nav__dropdown-caret vs-dropdown-toggle" aria-expanded="false" aria-label="Abrir submenu Soluções & Tratamentos">
+            <svg class="vs-nav__dropdown-icon" width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m1 1 4 4 4-4"/>
+            </svg>
+          </button>
+        </div>
         <div class="vs-nav__dropdown-menu vs-dropdown-menu">
           <a href="/procedimentos" class="vs-nav__dropdown-item">Todos os Procedimentos</a>
           <a href="/procedimentos/artrocentese" class="vs-nav__dropdown-item">Artrocentese da ATM</a>
@@ -91,7 +97,7 @@
       });
     }
 
-    // Toggle Dropdowns on click (only on mobile view <= 992px)
+    // Toggle Dropdowns on click (caret button only — the link itself always navigates)
     const dropdownContainers = document.querySelectorAll('.vs-nav__dropdown');
     dropdownContainers.forEach((container) => {
       const toggle = container.querySelector('.vs-dropdown-toggle');
@@ -100,12 +106,11 @@
 
       if (toggle && menu) {
         toggle.addEventListener('click', (e) => {
-          if (window.innerWidth <= 992) {
-            e.preventDefault(); // Prevent navigating directly on mobile click
-            menu.classList.toggle('is-open');
-            if (icon) {
-              icon.classList.toggle('is-rotated');
-            }
+          e.stopPropagation();
+          const isOpen = menu.classList.toggle('is-open');
+          toggle.setAttribute('aria-expanded', String(isOpen));
+          if (icon) {
+            icon.classList.toggle('is-rotated', isOpen);
           }
         });
       }
@@ -195,10 +200,21 @@
     color: var(--color-amber);
   }
 
-  .vs-nav__link--has-dropdown {
+  .vs-nav__link-row {
     display: inline-flex;
     align-items: center;
-    gap: 6px;
+  }
+
+  .vs-nav__dropdown-caret {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    padding: 4px;
+    margin-left: 2px;
+    color: inherit;
+    cursor: pointer;
   }
 
   .vs-nav__dropdown-icon {
@@ -431,11 +447,22 @@
       border-bottom: 1px solid rgba(232, 122, 47, 0.05);
     }
 
-    .vs-nav__link--has-dropdown {
+    .vs-nav__link-row {
       display: flex;
-      justify-content: space-between;
-      align-items: center;
+      width: 100%;
+      align-items: stretch;
       border-bottom: 1px solid rgba(232, 122, 47, 0.05);
+    }
+
+    .vs-nav__link--has-dropdown {
+      flex: 1;
+      border-bottom: none;
+    }
+
+    .vs-nav__dropdown-caret {
+      flex-shrink: 0;
+      padding: 0 var(--space-6);
+      margin-left: 0;
     }
 
     /* Mobile Dropdown styles */

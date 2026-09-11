@@ -1,14 +1,15 @@
 ---
 // src/components/Sobre.astro
+import { Image } from 'astro:assets';
+import draVanessaSobre from '../assets/images/dra-vanessa-sobre.jpg';
 ---
 <section class="vs-section vs-sobre" id="sobre" aria-label="Sobre a Dra. Vanessa">
   <div class="vs-sobre__inner">
     <!-- Image -->
     <div class="vs-sobre__image-wrap vs-reveal">
       <div class="vs-sobre__accent" aria-hidden="true"></div>
-      <img src="/images/dra-vanessa-sobre.jpg"
-        alt="Dra. Vanessa Silveira — Especialista em Dor Orofacial e DTM" class="vs-sobre__image" loading="lazy"
-        width="800" height="1000">
+      <Image src={draVanessaSobre} alt="Dra. Vanessa Silveira — Especialista em Dor Orofacial e DTM"
+        class="vs-sobre__image" loading="lazy" width={800} height={1010} format="webp" quality={80} />
     </div>
 
     <!-- Content -->

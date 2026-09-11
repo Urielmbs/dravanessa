@@ -2,6 +2,7 @@
 // src/layouts/Layout.astro
 import '../styles/global.css';
 import { siteConfig } from '../data/site';
+import WhatsAppFloat from '../components/WhatsAppFloat.astro';
 
 interface Props {
   title: string;
@@ -116,11 +117,6 @@ const jsonLd = {
           page_title: document.title
         });
 
-        console.log(
-          '[GTM] Lead WhatsApp registrado:',
-          url
-        );
-
       },
       true
     );
@@ -137,6 +133,9 @@ const jsonLd = {
   <link rel="icon" type="image/x-icon" href="/favicon.ico" />
   <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
   <link rel="canonical" href={canonicalURL} />
+
+  <!-- Pré-carrega a fonte principal usada em títulos e corpo de texto -->
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/outfit-variable-latin.woff2" crossorigin />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
@@ -189,6 +188,9 @@ const jsonLd = {
 
   <!-- Slots para Navegação e Conteúdo -->
   <slot />
+
+  <!-- Botão fixo de WhatsApp -->
+  <WhatsAppFloat />
 
   <!-- SCRIPT GLOBAL DE REVEAL (INTERSECTION OBSERVER) -->
   <script is:inline>
