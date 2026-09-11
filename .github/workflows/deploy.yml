@@ -1,14 +1,17 @@
-name: Deploy Institucional HostGator (FTP)
+name: CI (Build Verification)
 
 on:
   push:
     branches:
       - main
+  pull_request:
+    branches:
+      - main
   workflow_dispatch:
 
 jobs:
-  web-deploy:
-    name: 🚀 Deploy Website to HostGator
+  build-check:
+    name: 🏗️ Verificar Build Astro
     runs-on: ubuntu-latest
 
     steps:
@@ -24,20 +27,6 @@ jobs:
       - name: 📦 3. Instalar dependências
         run: npm ci
 
-      - name: 🏗️ 4. Compilar site Astro (Gera HTML/CSS em ./dist/)
+      - name: 🏗️ 4. Testar compilação Astro
         run: npm run build
 
-      - name: 📂 5. Enviar pasta ./dist/ para a HostGator via FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.4.0
-        with:
-          server: ${{ secrets.HOSTGATOR_HOST }}
-          username: ${{ secrets.HOSTGATOR_USER }}
-          password: ${{ secrets.HOSTGATOR_FTP_PASSWORD }}
-          port: 21
-          protocol: ftps
-          local-dir: ./dist/
-          server-dir: ./dravanessazsilveira.com.br/
-          dangerous-clean-slate: false
-          exclude: |
-            **/.git*
-            **/blog/**
