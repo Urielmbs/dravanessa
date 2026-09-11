@@ -1,5 +1,28 @@
 ---
 // src/components/Nav.astro
+const pathname = Astro.url.pathname.replace(/\/+$/, '') || '/';
+const isActive = (href: string) => pathname === href.replace(/\/+$/, '');
+const isGroupActive = (hrefs: string[]) => hrefs.some(isActive);
+
+const draVanessaGroup = ['/dra-vanessa', '/treinamentos', '/eventos'];
+const sintomasGroup = [
+  '/sintomas/dor-atm-estalos',
+  '/sintomas/bruxismo-apertamento',
+  '/sintomas/deformidade-mordida',
+  '/sintomas/sisos-lesoes',
+  '/diagnosticos/auto-diagnostico',
+];
+const procedimentosGroup = [
+  '/procedimentos',
+  '/procedimentos/artrocentese',
+  '/procedimentos/viscosuplementacao',
+  '/procedimentos/liberacao-miofascial',
+  '/procedimentos/atm-conservador',
+  '/procedimentos/cirurgia-ortognatica',
+  '/procedimentos/remocao-sisos',
+  '/procedimentos/biopsias',
+  '/procedimentos/pacientes-oncologicos',
+];
 ---
 <div class="vs-nav-wrapper">
   <nav class="vs-nav">
@@ -10,7 +33,9 @@
       <!-- Dropdown: Dra. Vanessa -->
       <div class="vs-nav__dropdown">
         <div class="vs-nav__link-row">
-          <a href="/dra-vanessa" class="vs-nav__link vs-nav__link--has-dropdown">Dra. Vanessa</a>
+          <a href="/dra-vanessa" class="vs-nav__link vs-nav__link--has-dropdown"
+            class:list={{ 'is-active': isGroupActive(draVanessaGroup) }}
+            aria-current={isActive('/dra-vanessa') ? 'page' : undefined}>Dra. Vanessa</a>
           <button type="button" class="vs-nav__dropdown-caret vs-dropdown-toggle" aria-expanded="false" aria-label="Abrir submenu Dra. Vanessa">
             <svg class="vs-nav__dropdown-icon" width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
               <path d="m1 1 4 4 4-4"/>
@@ -18,16 +43,18 @@
           </button>
         </div>
         <div class="vs-nav__dropdown-menu vs-dropdown-menu">
-          <a href="/dra-vanessa" class="vs-nav__dropdown-item">Sobre a Dra. Vanessa</a>
-          <a href="/treinamentos" class="vs-nav__dropdown-item">Treinamentos & Cursos</a>
-          <a href="/eventos" class="vs-nav__dropdown-item">Eventos & Palestras</a>
+          <a href="/dra-vanessa" class="vs-nav__dropdown-item" class:list={{ 'is-active': isActive('/dra-vanessa') }} aria-current={isActive('/dra-vanessa') ? 'page' : undefined}>Sobre a Dra. Vanessa</a>
+          <a href="/treinamentos" class="vs-nav__dropdown-item" class:list={{ 'is-active': isActive('/treinamentos') }} aria-current={isActive('/treinamentos') ? 'page' : undefined}>Treinamentos & Cursos</a>
+          <a href="/eventos" class="vs-nav__dropdown-item" class:list={{ 'is-active': isActive('/eventos') }} aria-current={isActive('/eventos') ? 'page' : undefined}>Eventos & Palestras</a>
         </div>
       </div>
-      
+
       <!-- Dropdown: Sintomas & Dores -->
       <div class="vs-nav__dropdown">
         <div class="vs-nav__link-row">
-          <a href="/sintomas/dor-atm-estalos" class="vs-nav__link vs-nav__link--has-dropdown">Sintomas & Dores</a>
+          <a href="/sintomas/dor-atm-estalos" class="vs-nav__link vs-nav__link--has-dropdown"
+            class:list={{ 'is-active': isGroupActive(sintomasGroup) }}
+            aria-current={isActive('/sintomas/dor-atm-estalos') ? 'page' : undefined}>Sintomas & Dores</a>
           <button type="button" class="vs-nav__dropdown-caret vs-dropdown-toggle" aria-expanded="false" aria-label="Abrir submenu Sintomas & Dores">
             <svg class="vs-nav__dropdown-icon" width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
               <path d="m1 1 4 4 4-4"/>
@@ -35,11 +62,11 @@
           </button>
         </div>
         <div class="vs-nav__dropdown-menu vs-dropdown-menu">
-          <a href="/sintomas/dor-atm-estalos" class="vs-nav__dropdown-item">Dores na ATM, Estalos & Travamento</a>
-          <a href="/sintomas/bruxismo-apertamento" class="vs-nav__dropdown-item">Bruxismo, Apertamento & Dor de Cabeça</a>
-          <a href="/sintomas/deformidade-mordida" class="vs-nav__dropdown-item">Deformidade Facial & Problemas na Mordida</a>
-          <a href="/sintomas/sisos-lesoes" class="vs-nav__dropdown-item">Dor nos Sisos & Lesões Bucais</a>
-          <a href="/diagnosticos/auto-diagnostico" class="vs-nav__dropdown-item vs-nav__dropdown-item--highlight">
+          <a href="/sintomas/dor-atm-estalos" class="vs-nav__dropdown-item" class:list={{ 'is-active': isActive('/sintomas/dor-atm-estalos') }} aria-current={isActive('/sintomas/dor-atm-estalos') ? 'page' : undefined}>Dores na ATM, Estalos & Travamento</a>
+          <a href="/sintomas/bruxismo-apertamento" class="vs-nav__dropdown-item" class:list={{ 'is-active': isActive('/sintomas/bruxismo-apertamento') }} aria-current={isActive('/sintomas/bruxismo-apertamento') ? 'page' : undefined}>Bruxismo, Apertamento & Dor de Cabeça</a>
+          <a href="/sintomas/deformidade-mordida" class="vs-nav__dropdown-item" class:list={{ 'is-active': isActive('/sintomas/deformidade-mordida') }} aria-current={isActive('/sintomas/deformidade-mordida') ? 'page' : undefined}>Deformidade Facial & Problemas na Mordida</a>
+          <a href="/sintomas/sisos-lesoes" class="vs-nav__dropdown-item" class:list={{ 'is-active': isActive('/sintomas/sisos-lesoes') }} aria-current={isActive('/sintomas/sisos-lesoes') ? 'page' : undefined}>Dor nos Sisos & Lesões Bucais</a>
+          <a href="/diagnosticos/auto-diagnostico" class="vs-nav__dropdown-item vs-nav__dropdown-item--highlight" class:list={{ 'is-active': isActive('/diagnosticos/auto-diagnostico') }} aria-current={isActive('/diagnosticos/auto-diagnostico') ? 'page' : undefined}>
             🩻 Teste de Auto-Diagnóstico DTM/Bruxismo
           </a>
         </div>
@@ -48,7 +75,9 @@
       <!-- Dropdown: Soluções & Tratamentos -->
       <div class="vs-nav__dropdown">
         <div class="vs-nav__link-row">
-          <a href="/procedimentos" class="vs-nav__link vs-nav__link--has-dropdown">Soluções & Tratamentos</a>
+          <a href="/procedimentos" class="vs-nav__link vs-nav__link--has-dropdown"
+            class:list={{ 'is-active': isGroupActive(procedimentosGroup) }}
+            aria-current={isActive('/procedimentos') ? 'page' : undefined}>Soluções & Tratamentos</a>
           <button type="button" class="vs-nav__dropdown-caret vs-dropdown-toggle" aria-expanded="false" aria-label="Abrir submenu Soluções & Tratamentos">
             <svg class="vs-nav__dropdown-icon" width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
               <path d="m1 1 4 4 4-4"/>
@@ -56,22 +85,22 @@
           </button>
         </div>
         <div class="vs-nav__dropdown-menu vs-dropdown-menu">
-          <a href="/procedimentos" class="vs-nav__dropdown-item">Todos os Procedimentos</a>
-          <a href="/procedimentos/artrocentese" class="vs-nav__dropdown-item">Artrocentese da ATM</a>
-          <a href="/procedimentos/viscosuplementacao" class="vs-nav__dropdown-item">Viscossuplementação da ATM</a>
-          <a href="/procedimentos/liberacao-miofascial" class="vs-nav__dropdown-item">Liberação Miofascial</a>
-          <a href="/procedimentos/atm-conservador" class="vs-nav__dropdown-item">Tratamento Conservador & Regenerativo</a>
-          <a href="/procedimentos/cirurgia-ortognatica" class="vs-nav__dropdown-item">Cirurgia Ortognática</a>
-          <a href="/procedimentos/remocao-sisos" class="vs-nav__dropdown-item">Remoção de Sisos & Cirurgia Oral Menor</a>
-          <a href="/procedimentos/biopsias" class="vs-nav__dropdown-item">Biópsias & Estomatologia</a>
-          <a href="/procedimentos/pacientes-oncologicos" class="vs-nav__dropdown-item">Pacientes Oncológicos & Especiais</a>
+          <a href="/procedimentos" class="vs-nav__dropdown-item" class:list={{ 'is-active': isActive('/procedimentos') }} aria-current={isActive('/procedimentos') ? 'page' : undefined}>Todos os Procedimentos</a>
+          <a href="/procedimentos/artrocentese" class="vs-nav__dropdown-item" class:list={{ 'is-active': isActive('/procedimentos/artrocentese') }} aria-current={isActive('/procedimentos/artrocentese') ? 'page' : undefined}>Artrocentese da ATM</a>
+          <a href="/procedimentos/viscosuplementacao" class="vs-nav__dropdown-item" class:list={{ 'is-active': isActive('/procedimentos/viscosuplementacao') }} aria-current={isActive('/procedimentos/viscosuplementacao') ? 'page' : undefined}>Viscossuplementação da ATM</a>
+          <a href="/procedimentos/liberacao-miofascial" class="vs-nav__dropdown-item" class:list={{ 'is-active': isActive('/procedimentos/liberacao-miofascial') }} aria-current={isActive('/procedimentos/liberacao-miofascial') ? 'page' : undefined}>Liberação Miofascial</a>
+          <a href="/procedimentos/atm-conservador" class="vs-nav__dropdown-item" class:list={{ 'is-active': isActive('/procedimentos/atm-conservador') }} aria-current={isActive('/procedimentos/atm-conservador') ? 'page' : undefined}>Tratamento Conservador & Regenerativo</a>
+          <a href="/procedimentos/cirurgia-ortognatica" class="vs-nav__dropdown-item" class:list={{ 'is-active': isActive('/procedimentos/cirurgia-ortognatica') }} aria-current={isActive('/procedimentos/cirurgia-ortognatica') ? 'page' : undefined}>Cirurgia Ortognática</a>
+          <a href="/procedimentos/remocao-sisos" class="vs-nav__dropdown-item" class:list={{ 'is-active': isActive('/procedimentos/remocao-sisos') }} aria-current={isActive('/procedimentos/remocao-sisos') ? 'page' : undefined}>Remoção de Sisos & Cirurgia Oral Menor</a>
+          <a href="/procedimentos/biopsias" class="vs-nav__dropdown-item" class:list={{ 'is-active': isActive('/procedimentos/biopsias') }} aria-current={isActive('/procedimentos/biopsias') ? 'page' : undefined}>Biópsias & Estomatologia</a>
+          <a href="/procedimentos/pacientes-oncologicos" class="vs-nav__dropdown-item" class:list={{ 'is-active': isActive('/procedimentos/pacientes-oncologicos') }} aria-current={isActive('/procedimentos/pacientes-oncologicos') ? 'page' : undefined}>Pacientes Oncológicos & Especiais</a>
         </div>
       </div>
     </div>
 
     <!-- Actions / Desktop CTA and Hamburger Toggle -->
     <div class="vs-nav__actions-wrapper">
-      <a href="/contato" class="vs-btn vs-btn--primary vs-nav__cta">Fale conosco</a>
+      <a href="/contato" class="vs-btn vs-btn--primary vs-nav__cta" aria-current={isActive('/contato') ? 'page' : undefined}>Fale conosco</a>
       
       <button class="vs-nav__toggle" aria-label="Abrir Menu" id="vs-menu-toggle">
         <span class="vs-nav__toggle-box">
@@ -200,6 +229,11 @@
     color: var(--color-amber);
   }
 
+  .vs-nav__link.is-active {
+    color: var(--color-amber);
+    font-weight: 600;
+  }
+
   .vs-nav__link-row {
     display: inline-flex;
     align-items: center;
@@ -296,6 +330,16 @@
   }
 
   .vs-nav__dropdown-item:hover::before {
+    transform: translateY(-50%) scaleX(1);
+  }
+
+  .vs-nav__dropdown-item.is-active {
+    background: var(--color-amber-subtle);
+    color: var(--color-amber);
+    font-weight: 600;
+  }
+
+  .vs-nav__dropdown-item.is-active::before {
     transform: translateY(-50%) scaleX(1);
   }
 
