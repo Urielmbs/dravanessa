@@ -8,7 +8,8 @@ import '../styles/idv-brasileira.css';
   title="Laboratório de Identidade Visual Brasileira | Dra. Vanessa Silveira"
   description="Área de testes e experimentação da nova identidade visual com estética praiana vintage carioca e acolhimento solar."
 >
-  <div class="theme-idv-brasileira idv-brasileira-grain idv-page-container">
+  <div id="grain-overlay" class="idv-grain-overlay" aria-hidden="true"></div>
+  <div class="theme-idv-brasileira idv-page-container">
     
     <!-- BARRA SUPERIOR DE CONTROLE E CONTEXTO -->
     <header class="idv-topbar">
@@ -188,13 +189,14 @@ import '../styles/idv-brasileira.css';
     // Toggle para testar a presença do granulado analógico
     const toggleBtn = document.getElementById('toggle-grain-btn');
     const grainStatus = document.getElementById('grain-status');
-    const container = document.querySelector('.idv-page-container');
+    const grainOverlay = document.getElementById('grain-overlay');
 
-    if (toggleBtn && grainStatus && container) {
+    if (toggleBtn && grainStatus && grainOverlay) {
       toggleBtn.addEventListener('click', () => {
-        const isGrainActive = container.classList.toggle('idv-brasileira-grain');
-        grainStatus.textContent = isGrainActive ? 'Ativado' : 'Desativado';
-        toggleBtn.style.opacity = isGrainActive ? '1' : '0.7';
+        const isHidden = grainOverlay.style.display === 'none';
+        grainOverlay.style.display = isHidden ? 'block' : 'none';
+        grainStatus.textContent = isHidden ? 'Ativado' : 'Desativado';
+        toggleBtn.style.opacity = isHidden ? '1' : '0.7';
       });
     }
   </script>
