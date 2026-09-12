@@ -1,0 +1,89 @@
+/* ==========================================================================
+   IDENTIDADE VISUAL BRASILEIRA — DRA. VANESSA SILVEIRA
+   Raiz Carioca Praiana Vintage & Acolhimento Solar
+   ========================================================================== */
+
+:root {
+  /* === PALETA CARIOCA PRAIANA VINTAGE === */
+  /* Neutros Quentes & Areia (Linho / Papel Solar) */
+  --rio-sand-light: #FBF6EE;       /* Fundo principal leve, areia iluminada */
+  --rio-sand: #F5E6D8;             /* Areia quente / linho cru das referências */
+  --rio-sand-muted: #EAD8C7;       /* Areia de contraste / divisórias sutis */
+
+  /* Sol, Energia & Acolhimento */
+  --rio-solar: #F8A54A;            /* Laranja sol da tarde / guarda-sol amarelo ouro */
+  --rio-solar-light: #FCD8A5;      /* Brilho suave da tarde */
+  --rio-terracotta: #E7581A;       /* Terracota vibrante / contraste caloroso */
+  --rio-terracotta-dark: #C2430E;  /* Terracota profundo para botões e foco */
+  --rio-terracotta-subtle: rgba(231, 88, 26, 0.08);
+
+  /* Mar, Brisa & Alívio (Contraste Costeiro) */
+  --rio-ocean: #53B9AE;            /* Turquesa mar raso / frescor terapêutico */
+  --rio-ocean-light: #C2EAE5;      /* Espuma do mar suave */
+  --rio-ocean-deep: #245868;       /* Azul mar profundo / autoridade médica elegante */
+  --rio-ocean-subtle: rgba(83, 185, 174, 0.12);
+
+  /* Botânica & Restingas */
+  --rio-sage: #797E5C;             /* Verde oliva costeiro / equilíbrio orgânico */
+  --rio-sage-light: #DCE2CE;       /* Folha clara */
+
+  /* Contrastes de Texto & Estrutura (Substitui o preto digital frio por calor) */
+  --rio-coffee: #2C221C;           /* Café torrado escuro: máxima legibilidade com nobreza */
+  --rio-coffee-light: #5A4A3F;     /* Marrom texto de apoio */
+  --rio-coffee-muted: #847265;     /* Rótulos e metadados */
+  --rio-white: #FFFFFF;
+
+  /* Bordas nítidas e limpas (sem efeito vidro/blur fake) */
+  --rio-border-subtle: rgba(44, 34, 28, 0.08);
+  --rio-border-medium: rgba(44, 34, 28, 0.16);
+  --rio-border-strong: #2C221C;
+
+  /* Sombras físicas sutis (estética impressa/analógica, não luz digital 3D) */
+  --rio-shadow-flat: 2px 2px 0px rgba(44, 34, 28, 0.08);
+  --rio-shadow-card: 4px 4px 0px rgba(44, 34, 28, 0.1);
+  --rio-shadow-hover: 6px 6px 0px rgba(231, 88, 26, 0.2);
+
+  /* Curvaturas: definidas e expressivas (sem cantos arredondados genéricos de SaaS) */
+  --rio-radius-sm: 4px;
+  --rio-radius-md: 10px;
+  --rio-radius-lg: 18px;
+  --rio-radius-pill: 999px;
+}
+
+/* === GRANULADO ANALÓGICO ULTRA LEVE (FILM GRAIN) ===
+   Totalmente procedural via SVG data-URI: 0 requisições de rede, 0 overhead de JS.
+   Dá o verniz de foto de filme carioca dos anos 70/80. */
+body.theme-idv-brasileira::before,
+.idv-brasileira-grain {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.038;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* === ADAPTAÇÃO DAS VARIÁVEIS GLOBAIS QUANDO A IDENTIDADE ESTIVER ATIVA === */
+body.theme-idv-brasileira {
+  background-color: var(--rio-sand-light);
+  color: var(--rio-coffee);
+  --color-cream: var(--rio-sand-light);
+  --color-cream-dark: var(--rio-sand);
+  --color-warm-gray: var(--rio-sand-muted);
+  --color-amber: var(--rio-terracotta);
+  --color-amber-light: var(--rio-solar);
+  --color-amber-soft: var(--rio-solar-light);
+  --color-text-primary: var(--rio-coffee);
+  --color-text-secondary: var(--rio-coffee-light);
+  --color-text-muted: var(--rio-coffee-muted);
+  --color-sky: var(--rio-ocean);
+  --color-sky-light: var(--rio-ocean-light);
+  --color-sky-deep: var(--rio-ocean-deep);
+  --color-sky-subtle: var(--rio-ocean-subtle);
+  --gradient-warm: linear-gradient(135deg, var(--rio-solar) 0%, var(--rio-terracotta) 100%);
+  --gradient-hero: linear-gradient(180deg, var(--rio-sand-light) 0%, var(--rio-sand) 60%, var(--rio-solar-light) 100%);
+}

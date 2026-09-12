@@ -1,0 +1,661 @@
+---
+// src/pages/idv-brasileira.astro
+import Layout from '../layouts/Layout.astro';
+import '../styles/idv-brasileira.css';
+---
+
+<Layout
+  title="Laboratório de Identidade Visual Brasileira | Dra. Vanessa Silveira"
+  description="Área de testes e experimentação da nova identidade visual com estética praiana vintage carioca e acolhimento solar."
+>
+  <div class="theme-idv-brasileira idv-brasileira-grain idv-page-container">
+    
+    <!-- BARRA SUPERIOR DE CONTROLE E CONTEXTO -->
+    <header class="idv-topbar">
+      <div class="idv-badge">🌿 Branch: <code>idv-brasileira</code></div>
+      <div class="idv-top-actions">
+        <a href="/" class="idv-btn-back">← Ver Site Atual (Main)</a>
+        <button id="toggle-grain-btn" class="idv-btn-toggle" type="button">
+          Granulado: <span id="grain-status">Ativado</span>
+        </button>
+      </div>
+    </header>
+
+    <main class="idv-main">
+      
+      <!-- HERO DO LABORATÓRIO -->
+      <section class="idv-hero-intro">
+        <span class="idv-tagline">Identidade Visual Brasileira • Raiz Carioca Praiana</span>
+        <h1 class="idv-title">O Acolhimento da Saúde com Calor Solar & Charme Vintage</h1>
+        <p class="idv-lead">
+          Substituindo o padrão hospitalar frio (e os clichês de bordô/musgo) por uma estética calorosa,
+          solar e receptiva. Contrastes nítidos, acabamento de linho e areia, e um leve granulado analógico 
+          que transforma o cuidado com a dor em alívio e bem-estar.
+        </p>
+      </section>
+
+      <!-- SEÇÃO 1: PALETA DE CORES EXTRAÍDA DAS REFERÊNCIAS -->
+      <section class="idv-palette-section">
+        <h2 class="idv-section-title">Paleta de Cores & Contrastes Naturais</h2>
+        <p class="idv-section-sub">Tons inspirados no sol da tarde, areia de Ipanema, guarda-sóis listrados e mar aberto.</p>
+        
+        <div class="idv-palette-grid">
+          <!-- Cor 1 -->
+          <div class="idv-color-card" style="background-color: #F5E6D8; color: #2C221C;">
+            <div class="idv-color-info">
+              <span class="idv-color-name">Areia & Linho Cru</span>
+              <code class="idv-color-hex">#F5E6D8</code>
+              <span class="idv-color-role">Base / Superfícies / Acolhimento</span>
+            </div>
+          </div>
+
+          <!-- Cor 2 -->
+          <div class="idv-color-card" style="background-color: #F8A54A; color: #2C221C;">
+            <div class="idv-color-info">
+              <span class="idv-color-name">Sol da Tarde (Ocre)</span>
+              <code class="idv-color-hex">#F8A54A</code>
+              <span class="idv-color-role">Energia / Realces / Calor</span>
+            </div>
+          </div>
+
+          <!-- Cor 3 -->
+          <div class="idv-color-card" style="background-color: #E7581A; color: #FFFFFF;">
+            <div class="idv-color-info">
+              <span class="idv-color-name">Terracota Solar</span>
+              <code class="idv-color-hex">#E7581A</code>
+              <span class="idv-color-role">Ação Principal / Botões / Vida</span>
+            </div>
+          </div>
+
+          <!-- Cor 4 -->
+          <div class="idv-color-card" style="background-color: #53B9AE; color: #2C221C;">
+            <div class="idv-color-info">
+              <span class="idv-color-name">Turquesa Mar Aberto</span>
+              <code class="idv-color-hex">#53B9AE</code>
+              <span class="idv-color-role">Frescor / Alívio / Brisa</span>
+            </div>
+          </div>
+
+          <!-- Cor 5 -->
+          <div class="idv-color-card" style="background-color: #797E5C; color: #FFFFFF;">
+            <div class="idv-color-info">
+              <span class="idv-color-name">Verde Restingas</span>
+              <code class="idv-color-hex">#797E5C</code>
+              <span class="idv-color-role">Equilíbrio / Botânica Costeira</span>
+            </div>
+          </div>
+
+          <!-- Cor 6 -->
+          <div class="idv-color-card" style="background-color: #2C221C; color: #F5E6D8;">
+            <div class="idv-color-info">
+              <span class="idv-color-name">Café Torrado</span>
+              <code class="idv-color-hex">#2C221C</code>
+              <span class="idv-color-role">Tipografia Principal / Contraste Nobre</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SEÇÃO 2: EXPERIMENTAÇÃO DE COMPONENTES NA NOVA ESTÉTICA -->
+      <section class="idv-preview-section">
+        <h2 class="idv-section-title">Amostra Visual de Componentes</h2>
+        <p class="idv-section-sub">Sem efeitos de vidro artificiais. Mais contraste, bordas nítidas e textura tátil.</p>
+
+        <div class="idv-components-grid">
+          
+          <!-- BANNER HERO EXEMPLO -->
+          <div class="idv-preview-box idv-hero-box">
+            <span class="idv-pill-tag">Cirurgia Bucomaxilofacial & Tratamento de DTM</span>
+            <h3 class="idv-hero-sample-title">
+              Viver sem dor na mandíbula <br/>
+              <span class="idv-accent-word">é recuperar a sua liberdade.</span>
+            </h3>
+            <p class="idv-hero-sample-desc">
+              Um olhar clínico aprofundado, seguro e acolhedor para dores orofaciais, bruxismo e travamento de mandíbula em Juiz de Fora.
+            </p>
+            <div class="idv-cta-group">
+              <a href="#agendamento" class="idv-btn-primary">Agendar Consulta pelo WhatsApp →</a>
+              <a href="#saiba-mais" class="idv-btn-secondary">Conhecer Tratamentos</a>
+            </div>
+          </div>
+
+          <!-- CARD DE TRATAMENTO / SINTOMA -->
+          <div class="idv-preview-box idv-card-sample">
+            <div class="idv-card-header">
+              <div class="idv-card-icon">🌊</div>
+              <span class="idv-card-category">Alívio & Diagnóstico</span>
+            </div>
+            <h4 class="idv-card-title">Dor e Estalos ao Mastigar</h4>
+            <p class="idv-card-body">
+              Estalos ao abrir a boca, sensação de cansaço facial ou zumbido no ouvido são sinais clássicos de disfunção da ATM. Tratamentos conservadores devolvem sua qualidade de vida.
+            </p>
+            <div class="idv-card-footer">
+              <span class="idv-card-status">● Diagnóstico Preciso</span>
+              <a href="#dtm" class="idv-card-link">Entenda o procedimento →</a>
+            </div>
+          </div>
+
+          <!-- CARD DE DEPOIMENTO ESTILO LINHO RETRÔ -->
+          <div class="idv-preview-box idv-quote-sample">
+            <div class="idv-quote-mark">“</div>
+            <p class="idv-quote-text">
+              Eu convivia com dores de cabeça diárias há mais de 3 anos achando que era estresse. O cuidado e a precisão da Dra. Vanessa mudaram minha rotina por completo.
+            </p>
+            <div class="idv-quote-author">
+              <div class="idv-author-avatar">VS</div>
+              <div>
+                <strong>Mariana S.</strong>
+                <span>Paciente tratada de DTM em Juiz de Fora</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- SEÇÃO 3: RESUMO DE DIRETRIZES & PRÓXIMOS PASSOS -->
+      <section class="idv-next-steps">
+        <h2 class="idv-section-title">Próximos Passos de Validação</h2>
+        <div class="idv-steps-list">
+          <div class="idv-step-item">
+            <span class="idv-step-number">01</span>
+            <div>
+              <strong>Ajuste Fino de Contrastes & Detalhes</strong>
+              <p>Validar se os tons de terracota, areia e café estão na saturação perfeita para você.</p>
+            </div>
+          </div>
+          <div class="idv-step-item">
+            <span class="idv-step-number">02</span>
+            <div>
+              <strong>Aplicação Gradual nos Componentes Reais</strong>
+              <p>Vestir `Hero.astro`, `Nav.astro`, `Tratamentos.astro` e `Sobre.astro` com esta nova linguagem sem mexer na estrutura.</p>
+            </div>
+          </div>
+          <div class="idv-step-item">
+            <span class="idv-step-number">03</span>
+            <div>
+              <strong>Revisão de Copy & Tom de Voz</strong>
+              <p>Após validada a parte estética, trazer uma comunicação mais calorosa, fluida e brasileira para os textos.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <script is:inline>
+    // Toggle para testar a presença do granulado analógico
+    const toggleBtn = document.getElementById('toggle-grain-btn');
+    const grainStatus = document.getElementById('grain-status');
+    const container = document.querySelector('.idv-page-container');
+
+    if (toggleBtn && grainStatus && container) {
+      toggleBtn.addEventListener('click', () => {
+        const isGrainActive = container.classList.toggle('idv-brasileira-grain');
+        grainStatus.textContent = isGrainActive ? 'Ativado' : 'Desativado';
+        toggleBtn.style.opacity = isGrainActive ? '1' : '0.7';
+      });
+    }
+  </script>
+
+  <style>
+    .idv-page-container {
+      min-height: 100vh;
+      background-color: var(--rio-sand-light, #FBF6EE);
+      color: var(--rio-coffee, #2C221C);
+      padding: 0 1.5rem 5rem 1.5rem;
+      font-family: var(--font-body, system-ui, sans-serif);
+      transition: background-color 0.3s ease;
+    }
+
+    /* BARRA SUPERIOR */
+    .idv-topbar {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1.5rem 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--rio-border-subtle, rgba(44,34,28,0.1));
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .idv-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--rio-coffee, #2C221C);
+      background: var(--rio-sand, #F5E6D8);
+      padding: 0.4rem 0.8rem;
+      border-radius: var(--rio-radius-sm, 4px);
+      border: 1px solid var(--rio-border-medium, rgba(44,34,28,0.15));
+    }
+
+    .idv-badge code {
+      color: var(--rio-terracotta, #E7581A);
+      font-family: monospace;
+      font-weight: 700;
+    }
+
+    .idv-top-actions {
+      display: flex;
+      gap: 0.75rem;
+      align-items: center;
+    }
+
+    .idv-btn-back {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--rio-coffee-light, #5A4A3F);
+      text-decoration: none;
+      padding: 0.45rem 0.9rem;
+      border: 1px solid var(--rio-border-medium, rgba(44,34,28,0.15));
+      border-radius: var(--rio-radius-sm, 4px);
+      background: transparent;
+      transition: all 0.2s ease;
+    }
+
+    .idv-btn-back:hover {
+      background: var(--rio-sand, #F5E6D8);
+      color: var(--rio-coffee, #2C221C);
+    }
+
+    .idv-btn-toggle {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--rio-coffee, #2C221C);
+      background: var(--rio-sand, #F5E6D8);
+      border: 1px solid var(--rio-border-medium, rgba(44,34,28,0.15));
+      border-radius: var(--rio-radius-sm, 4px);
+      padding: 0.45rem 0.9rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    #grain-status {
+      color: var(--rio-terracotta, #E7581A);
+      font-weight: 700;
+    }
+
+    /* CORPO PRINCIPAL */
+    .idv-main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding-top: 3rem;
+    }
+
+    .idv-hero-intro {
+      margin-bottom: 3.5rem;
+    }
+
+    .idv-tagline {
+      display: inline-block;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-weight: 700;
+      color: var(--rio-terracotta, #E7581A);
+      margin-bottom: 1rem;
+    }
+
+    .idv-title {
+      font-family: var(--font-accent, 'Tiro Devanagari Marathi', serif);
+      font-size: clamp(2rem, 4.5vw, 3.2rem);
+      line-height: 1.15;
+      color: var(--rio-coffee, #2C221C);
+      margin-bottom: 1.25rem;
+      font-weight: 400;
+    }
+
+    .idv-lead {
+      font-size: 1.15rem;
+      line-height: 1.6;
+      color: var(--rio-coffee-light, #5A4A3F);
+      max-width: 800px;
+    }
+
+    .idv-section-title {
+      font-family: var(--font-accent, serif);
+      font-size: 1.75rem;
+      color: var(--rio-coffee, #2C221C);
+      margin-bottom: 0.5rem;
+    }
+
+    .idv-section-sub {
+      font-size: 0.95rem;
+      color: var(--rio-coffee-muted, #847265);
+      margin-bottom: 2rem;
+    }
+
+    /* GRID DE PALETAS */
+    .idv-palette-section {
+      margin-bottom: 4.5rem;
+    }
+
+    .idv-palette-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .idv-color-card {
+      padding: 1.5rem 1.2rem;
+      border-radius: var(--rio-radius-md, 10px);
+      border: 1px solid rgba(44, 34, 28, 0.12);
+      box-shadow: var(--rio-shadow-flat, 2px 2px 0px rgba(44,34,28,0.08));
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      min-height: 150px;
+      transition: transform 0.2s ease;
+    }
+
+    .idv-color-card:hover {
+      transform: translateY(-2px);
+    }
+
+    .idv-color-info {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .idv-color-name {
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    .idv-color-hex {
+      font-family: monospace;
+      font-size: 0.85rem;
+      opacity: 0.85;
+    }
+
+    .idv-color-role {
+      font-size: 0.72rem;
+      opacity: 0.75;
+      margin-top: 0.35rem;
+      line-height: 1.2;
+    }
+
+    /* PREVIEW DE COMPONENTES */
+    .idv-preview-section {
+      margin-bottom: 4.5rem;
+    }
+
+    .idv-components-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .idv-preview-box {
+      background: var(--rio-sand-light, #FBF6EE);
+      border: 1.5px solid var(--rio-coffee, #2C221C);
+      border-radius: var(--rio-radius-md, 10px);
+      padding: 2rem;
+      box-shadow: var(--rio-shadow-card, 4px 4px 0px rgba(44,34,28,0.1));
+      position: relative;
+    }
+
+    /* HERO SAMPLE BOX */
+    .idv-hero-box {
+      grid-column: 1 / -1;
+      background: linear-gradient(135deg, #FBF6EE 0%, #F5E6D8 100%);
+      padding: 2.5rem;
+      border: 1.5px solid var(--rio-coffee, #2C221C);
+    }
+
+    .idv-pill-tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      background: var(--rio-ocean, #53B9AE);
+      color: #1A383F;
+      padding: 0.35rem 0.75rem;
+      border-radius: var(--rio-radius-pill, 999px);
+      margin-bottom: 1rem;
+    }
+
+    .idv-hero-sample-title {
+      font-family: var(--font-accent, serif);
+      font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+      line-height: 1.2;
+      color: var(--rio-coffee, #2C221C);
+      margin-bottom: 1rem;
+      font-weight: 400;
+    }
+
+    .idv-accent-word {
+      color: var(--rio-terracotta, #E7581A);
+      font-style: italic;
+    }
+
+    .idv-hero-sample-desc {
+      font-size: 1.05rem;
+      line-height: 1.6;
+      color: var(--rio-coffee-light, #5A4A3F);
+      max-width: 650px;
+      margin-bottom: 1.75rem;
+    }
+
+    .idv-cta-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .idv-btn-primary {
+      display: inline-flex;
+      align-items: center;
+      background-color: var(--rio-terracotta, #E7581A);
+      color: #FFFFFF;
+      font-weight: 700;
+      font-size: 0.95rem;
+      padding: 0.85rem 1.6rem;
+      border-radius: var(--rio-radius-sm, 4px);
+      text-decoration: none;
+      border: 1.5px solid var(--rio-coffee, #2C221C);
+      box-shadow: 3px 3px 0px var(--rio-coffee, #2C221C);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .idv-btn-primary:hover {
+      transform: translate(-1px, -1px);
+      box-shadow: 4px 4px 0px var(--rio-coffee, #2C221C);
+      background-color: var(--rio-terracotta-dark, #C2430E);
+    }
+
+    .idv-btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      background: transparent;
+      color: var(--rio-coffee, #2C221C);
+      font-weight: 600;
+      font-size: 0.95rem;
+      padding: 0.85rem 1.4rem;
+      border-radius: var(--rio-radius-sm, 4px);
+      text-decoration: none;
+      border: 1.5px solid var(--rio-coffee, #2C221C);
+      transition: background 0.15s ease;
+    }
+
+    .idv-btn-secondary:hover {
+      background: var(--rio-sand, #F5E6D8);
+    }
+
+    /* CARD DE TRATAMENTO */
+    .idv-card-sample {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .idv-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .idv-card-icon {
+      font-size: 1.5rem;
+    }
+
+    .idv-card-category {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--rio-sage, #797E5C);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .idv-card-title {
+      font-family: var(--font-accent, serif);
+      font-size: 1.4rem;
+      color: var(--rio-coffee, #2C221C);
+      margin-bottom: 0.75rem;
+      font-weight: 400;
+    }
+
+    .idv-card-body {
+      font-size: 0.95rem;
+      line-height: 1.55;
+      color: var(--rio-coffee-light, #5A4A3F);
+      margin-bottom: 1.5rem;
+    }
+
+    .idv-card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid var(--rio-border-subtle, rgba(44,34,28,0.1));
+      padding-top: 1rem;
+    }
+
+    .idv-card-status {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--rio-ocean-deep, #245868);
+    }
+
+    .idv-card-link {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--rio-terracotta, #E7581A);
+      text-decoration: none;
+    }
+
+    .idv-card-link:hover {
+      text-decoration: underline;
+    }
+
+    /* DEPOIMENTO */
+    .idv-quote-sample {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background: #FDF9F4;
+    }
+
+    .idv-quote-mark {
+      font-family: var(--font-accent, serif);
+      font-size: 3rem;
+      line-height: 1;
+      color: var(--rio-solar, #F8A54A);
+      margin-bottom: -0.5rem;
+    }
+
+    .idv-quote-text {
+      font-size: 1rem;
+      line-height: 1.6;
+      font-style: italic;
+      color: var(--rio-coffee, #2C221C);
+      margin-bottom: 1.5rem;
+    }
+
+    .idv-quote-author {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .idv-author-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: var(--rio-radius-sm, 4px);
+      background: var(--rio-sand, #F5E6D8);
+      border: 1px solid var(--rio-border-medium, rgba(44,34,28,0.15));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.85rem;
+      color: var(--rio-terracotta, #E7581A);
+    }
+
+    .idv-quote-author strong {
+      display: block;
+      font-size: 0.9rem;
+      color: var(--rio-coffee, #2C221C);
+    }
+
+    .idv-quote-author span {
+      display: block;
+      font-size: 0.75rem;
+      color: var(--rio-coffee-muted, #847265);
+    }
+
+    /* SEÇÃO DE PASSOS */
+    .idv-next-steps {
+      border-top: 1px solid var(--rio-border-subtle, rgba(44,34,28,0.1));
+      padding-top: 3rem;
+    }
+
+    .idv-steps-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .idv-step-item {
+      display: flex;
+      gap: 1rem;
+      background: var(--rio-sand, #F5E6D8);
+      padding: 1.5rem;
+      border-radius: var(--rio-radius-md, 10px);
+      border: 1px solid var(--rio-border-subtle, rgba(44,34,28,0.1));
+    }
+
+    .idv-step-number {
+      font-family: var(--font-accent, serif);
+      font-size: 1.8rem;
+      color: var(--rio-terracotta, #E7581A);
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .idv-step-item strong {
+      display: block;
+      margin-bottom: 0.35rem;
+      color: var(--rio-coffee, #2C221C);
+      font-size: 1rem;
+    }
+
+    .idv-step-item p {
+      margin: 0;
+      font-size: 0.85rem;
+      line-height: 1.45;
+      color: var(--rio-coffee-light, #5A4A3F);
+    }
+  </style>
+</Layout>

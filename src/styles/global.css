@@ -1,6 +1,8 @@
 /* ================================================
    DRA. VANESSA SILVEIRA — CSS DESIGN TOKENS
    ================================================ */
+@import './idv-brasileira.css';
+
 
 /* Fontes hospedadas localmente (antes carregadas via Google Fonts CDN).
    Outfit é uma fonte variável — um único arquivo cobre os pesos 300–700. */
