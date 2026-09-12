@@ -27,12 +27,26 @@ import '../styles/idv-brasileira.css';
       </div>
 
       <div class="idv-header-actions">
+        <a href="/home-rio" class="idv-link-home-rio">🌴 Abrir Nova Home (Versão Rio) →</a>
         <a href="/" class="idv-link-main">← Ver Site Atual</a>
         <button id="toggle-grain-btn" class="idv-btn-pill" type="button">
           Granulado: <span id="grain-status">Ativado</span>
         </button>
       </div>
     </header>
+
+    <!-- BANNER DE ACESSO À NOVA HOME COMPLETA -->
+    <div class="idv-home-rio-banner">
+      <div class="idv-home-rio-banner-inner">
+        <div class="idv-banner-info">
+          <span class="idv-tag-pulse">NOVA HOME COMPLETA</span>
+          <strong>Reconstrução da Home com a Estética Carioca Praiana:</strong>
+          <span>Integrando as 5 fotos da Dra. Vanessa e o novo polo de atendimento na Barra da Tijuca (RJ).</span>
+        </div>
+        <a href="/home-rio" class="idv-btn-open-rio">Explorar Home-Rio Completa →</a>
+      </div>
+    </div>
+
 
     <!-- PAINEL 1: HERO EDITORIAL TROPICAL (SEM CAIXAS, TIPOGRAFIA PURA & CONTRASTES) -->
     <section class="idv-editorial-hero">
@@ -424,35 +438,88 @@ import '../styles/idv-brasileira.css';
       align-items: center;
     }
 
-    .idv-link-main {
+    .idv-link-home-rio {
       font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--rio-coffee-light);
-      text-decoration: none;
-      padding: 0.4rem 0.8rem;
-      border: var(--rio-stroke-thin);
-      transition: all 0.2s ease;
-    }
-
-    .idv-link-main:hover {
-      background: var(--rio-sand-warm);
-      color: var(--rio-coffee);
-    }
-
-    .idv-btn-pill {
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--rio-coffee);
-      background: var(--rio-solar-soft);
-      border: var(--rio-stroke-thin);
-      padding: 0.4rem 0.9rem;
-      cursor: pointer;
-    }
-
-    #grain-status {
-      color: var(--rio-terracotta);
       font-weight: 700;
+      color: #FFF;
+      background-color: var(--rio-terracotta);
+      text-decoration: none;
+      padding: 0.45rem 1rem;
+      border: 2px solid var(--rio-coffee);
+      box-shadow: 2px 2px 0px var(--rio-coffee);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
     }
+
+    .idv-link-home-rio:hover {
+      transform: translate(-1px, -1px);
+      box-shadow: 3px 3px 0px var(--rio-coffee);
+      background-color: var(--rio-terracotta-dark);
+    }
+
+    /* BANNER DE ACESSO À NOVA HOME */
+    .idv-home-rio-banner {
+      background-color: var(--rio-sand-warm);
+      border-bottom: 2px solid var(--rio-coffee);
+      padding: 1rem 2rem;
+    }
+
+    .idv-home-rio-banner-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .idv-banner-info {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      flex-wrap: wrap;
+    }
+
+    .idv-tag-pulse {
+      font-size: 0.7rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background-color: var(--rio-ocean-pool);
+      color: #FFF;
+      padding: 0.25rem 0.6rem;
+    }
+
+    .idv-banner-info strong {
+      font-family: var(--font-editorial);
+      font-size: 1.05rem;
+      color: var(--rio-coffee);
+    }
+
+    .idv-banner-info span {
+      font-size: 0.9rem;
+      color: var(--rio-coffee-light);
+    }
+
+    .idv-btn-open-rio {
+      background-color: var(--rio-coffee);
+      color: var(--rio-sand-light);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 700;
+      padding: 0.65rem 1.4rem;
+      border: 2px solid var(--rio-coffee);
+      box-shadow: 3px 3px 0px var(--rio-terracotta);
+      transition: all 0.15s ease;
+      white-space: nowrap;
+    }
+
+    .idv-btn-open-rio:hover {
+      transform: translate(-1px, -1px);
+      box-shadow: 4px 4px 0px var(--rio-terracotta);
+      color: #FFF;
+    }
+
 
     /* ==========================================================
        HERO EDITORIAL LIVRE

@@ -1,0 +1,1424 @@
+---
+// src/pages/home-rio.astro
+import Layout from '../layouts/Layout.astro';
+import '../styles/idv-brasileira.css';
+---
+
+<Layout
+  title="Dra. Vanessa Silveira | Cirurgia Bucomaxilofacial • Juiz de Fora & Barra da Tijuca (RJ)"
+  description="Tratamento especializado em DTM, dor orofacial e cirurgia bucomaxilofacial em Juiz de Fora e na Barra da Tijuca - Rio de Janeiro."
+>
+  <!-- PELÍCULA DE GRANULADO ANALÓGICO 35MM -->
+  <div id="grain-overlay" class="idv-grain-overlay" aria-hidden="true"></div>
+
+  <div class="rio-page">
+    
+    <!-- FAIXA DE ANÚNCIO SUPERIOR: EXPANSÃO RIO DE JANEIRO -->
+    <aside class="rio-announcement-bar">
+      <div class="rio-announcement-inner">
+        <span class="rio-badge-pulse">Novidade</span>
+        <p>
+          Atendimentos presenciais em <strong>Juiz de Fora (MG)</strong> e agora também na <strong>Barra da Tijuca — Rio de Janeiro (RJ)</strong>.
+        </p>
+        <a href="#unidades" class="rio-announcement-link">Ver detalhes das unidades →</a>
+      </div>
+    </aside>
+
+    <!-- NAVEGAÇÃO EDITORIAL PRAIANA -->
+    <header class="rio-nav">
+      <div class="rio-nav-inner">
+        <a href="/home-rio" class="rio-logo">
+          <span class="rio-logo-mark">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+              <circle cx="12" cy="12" r="4"/>
+              <path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.93 4.93l2.12 2.12M16.95 16.95l2.12 2.12M4.93 19.07l2.12-2.12M16.95 7.05l2.12-2.12" stroke="currentColor" stroke-width="2"/>
+            </svg>
+          </span>
+          <span class="rio-logo-text">
+            <strong>Dra. Vanessa Silveira</strong>
+            <small>Cirurgia Bucomaxilofacial • DTM</small>
+          </span>
+        </a>
+
+        <nav class="rio-nav-menu">
+          <a href="#pra-quem" class="rio-nav-link">Para Quem É</a>
+          <a href="#tratamentos" class="rio-nav-link">Tratamentos</a>
+          <a href="#sobre" class="rio-nav-link">Sobre a Dra.</a>
+          <a href="#unidades" class="rio-nav-link">JF & Barra da Tijuca</a>
+          <a href="/idv-brasileira" class="rio-nav-link rio-nav-lab">← Canvas da IDV</a>
+        </nav>
+
+        <a href="https://wa.me/5532998513101" target="_blank" rel="noopener" class="rio-btn-nav">
+          Agendar Consulta
+        </a>
+      </div>
+    </header>
+
+    <main>
+      
+      <!-- HERO SECTION: O ALÍVIO SOLAR COM A FOTO 1 DA DRA. VANESSA -->
+      <section class="rio-hero">
+        <div class="rio-container rio-hero-grid">
+          
+          <div class="rio-hero-text">
+            <div class="rio-tag-location">
+              <span>JF • BARRA DA TIJUCA (RJ)</span>
+              <span class="rio-tag-divider">•</span>
+              <span>MÉTODO REARTICULAR™</span>
+            </div>
+
+            <h1 class="rio-hero-title">
+              O alívio da dor <br/>
+              tem o calor e a leveza <br/>
+              <em>do sol da tarde.</em>
+            </h1>
+
+            <p class="rio-hero-desc">
+              Você não precisa se acostumar a viver com dor de cabeça diária, estalos na mandíbula e noites mal dormidas. 
+              Um cuidado cirúrgico seguro, humano e sem a frieza dos consultórios convencionais.
+            </p>
+
+            <div class="rio-hero-actions">
+              <a href="https://wa.me/5532998513101" target="_blank" rel="noopener" class="rio-btn-cta">
+                Agendar Consulta no WhatsApp
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </a>
+              <a href="#pra-quem" class="rio-link-scroll">
+                Descubra se o seu caso tem solução ↓
+              </a>
+            </div>
+
+            <div class="rio-hero-trust-bar">
+              <div class="rio-trust-item">
+                <strong>8+ Anos</strong>
+                <span>Dedicação exclusiva</span>
+              </div>
+              <div class="rio-trust-separator">/</div>
+              <div class="rio-trust-item">
+                <strong>2.000+</strong>
+                <span>Pacientes atendidos</span>
+              </div>
+              <div class="rio-trust-separator">/</div>
+              <div class="rio-trust-item">
+                <strong>5.0 ★</strong>
+                <span>Avaliações no Google</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- FOTO 1: DESCALÇA, NO CHÃO, LINHO E CALOR HUMANO -->
+          <div class="rio-hero-media">
+            <div class="rio-image-frame">
+              <img 
+                src="/images/vanessa-rio/vanessa-chao-cadeira.jpg" 
+                alt="Dra. Vanessa Silveira sentada de forma acolhedora com camisa de linho e sorriso tranquilo" 
+                class="rio-hero-img"
+                loading="eager"
+              />
+              <div class="rio-frame-badge">
+                <span class="rio-badge-sun">☀️</span>
+                <div>
+                  <strong>Acolhimento Real</strong>
+                  <small>Escuta sem pressa</small>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- TRANSIÇÃO DE ONDA FLUIDA -->
+      <div class="idv-wave-connector" aria-hidden="true">
+        <svg viewBox="0 0 1440 60" fill="none" preserveAspectRatio="none">
+          <path d="M0,25 C360,65 720,0 1080,40 C1260,60 1380,15 1440,30 L1440,60 L0,60 Z" fill="var(--rio-sand-warm)"/>
+        </svg>
+      </div>
+
+      <!-- SEÇÃO 2: PARA QUEM É COM A FOTO 3 (ALEGRIA E ESPONTANEIDADE DE VIVER SEM DOR) -->
+      <section id="pra-quem" class="rio-section rio-section-warm">
+        <div class="rio-container rio-grid-split">
+          
+          <!-- FOTO 3: RISO ESPONTÂNEO NA CADEIRA -->
+          <div class="rio-split-media">
+            <div class="rio-photo-card">
+              <img 
+                src="/images/vanessa-rio/vanessa-cadeira-sorriso.jpg" 
+                alt="Dra. Vanessa Silveira sorrindo com espontaneidade e leveza" 
+                class="rio-photo-content"
+                loading="lazy"
+              />
+              <div class="rio-photo-caption">
+                <em>"Recuperar a sua mastigação e sorrir sem medo não é vaidade: é devolver sua liberdade."</em>
+              </div>
+            </div>
+          </div>
+
+          <div class="rio-split-content">
+            <span class="rio-eyebrow">VOCÊ SE RECONHECE AQUI?</span>
+            <h2 class="rio-section-title">
+              Você sente que já tentou de tudo, <br/>
+              <em>mas a dor sempre volta?</em>
+            </h2>
+            
+            <p class="rio-text-lead">
+              Esta mensagem é para você que já peregrinou por múltiplos consultórios, trocou de placas de bruxismo sem resultado duradouro, depende de analgésicos e ouviu que <em>"dor de cabeça crônica é normal do estresse"</em>.
+            </p>
+
+            <ul class="rio-symptom-list">
+              <li>
+                <span class="rio-check-icon">✓</span>
+                <div>
+                  <strong>Dor ao mastigar ou falar muito</strong>
+                  <p>Cansaço excessivo nos músculos da face e têmporas logo pela manhã.</p>
+                </div>
+              </li>
+              <li>
+                <span class="rio-check-icon">✓</span>
+                <div>
+                  <strong>Estalos, cliques ou medo da mandíbula travar</strong>
+                  <p>Insegurança ao abrir a boca ou bocejar que limita momentos simples à mesa.</p>
+                </div>
+              </li>
+              <li>
+                <span class="rio-check-icon">✓</span>
+                <div>
+                  <strong>Dores de cabeça diárias e zumbido no ouvido</strong>
+                  <p>Sintomas que muitas vezes são diagnosticados erroneamente como enxaqueca isolada.</p>
+                </div>
+              </li>
+            </ul>
+
+            <div class="rio-split-cta">
+              <a href="https://wa.me/5532998513101" target="_blank" rel="noopener" class="rio-btn-cta">
+                Quero descobrir a causa da minha dor →
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- TRANSIÇÃO DE ONDA PARA O BLOCO OCEANO -->
+      <div class="idv-wave-connector" style="background: var(--rio-sand-warm);" aria-hidden="true">
+        <svg viewBox="0 0 1440 60" fill="none" preserveAspectRatio="none">
+          <path d="M0,15 C400,60 800,5 1200,45 L1440,20 L1440,60 L0,60 Z" fill="var(--rio-ocean-pool)"/>
+        </svg>
+      </div>
+
+      <!-- SEÇÃO 3: TRATAMENTOS E MÉTODO REARTICULAR (NARRATIVA EM BLOCO MAR) -->
+      <section id="tratamentos" class="rio-section rio-section-ocean">
+        <div class="rio-container">
+          
+          <div class="rio-section-header-ocean">
+            <span class="rio-eyebrow-mist">MÉTODO REARTICULAR™</span>
+            <h2 class="rio-ocean-title">
+              Cuidado Progressivo: Menos Invasão, Mais Eficácia
+            </h2>
+            <p class="rio-ocean-desc">
+              Nossa filosofia é clara: esgotamos todas as possibilidades conservadoras antes de indicar qualquer procedimento invasivo.
+            </p>
+          </div>
+
+          <div class="rio-treatments-flow">
+            
+            <div class="rio-treatment-row">
+              <div class="rio-row-index">01</div>
+              <div class="rio-row-info">
+                <h3>Tratamento Conservador da ATM & Bruxismo</h3>
+                <p>
+                  Placas oclusais estabilizadoras de alta precisão, farmacoterapia direcionada, fisioterapia orofacial integrada e liberação miofascial para desativar os pontos de tensão muscular.
+                </p>
+              </div>
+              <div class="rio-row-badge">Primeira Linha</div>
+            </div>
+
+            <div class="rio-treatment-row">
+              <div class="rio-row-index">02</div>
+              <div class="rio-row-info">
+                <h3>Viscossuplementação & Terapias Articulares</h3>
+                <p>
+                  Infiltrações intra-articulares com ácido hialurônico para nutrir a cartilagem da ATM, reduzir o atrito, eliminar estalos dolorosos e devolver a lubrificação natural da mandíbula.
+                </p>
+              </div>
+              <div class="rio-row-badge">Minimamente Invasivo</div>
+            </div>
+
+            <div class="rio-treatment-row">
+              <div class="rio-row-index">03</div>
+              <div class="rio-row-info">
+                <h3>Artrocentese & Lavagem da Articulação</h3>
+                <p>
+                  Procedimento sob anestesia local para desobstrução articular, remoção de mediadores inflamatórios e liberação do disco articular travado, restaurando a abertura de boca.
+                </p>
+              </div>
+              <div class="rio-row-badge">Intervenção Direcionada</div>
+            </div>
+
+            <div class="rio-treatment-row">
+              <div class="rio-row-index">04</div>
+              <div class="rio-row-info">
+                <h3>Cirurgia Ortognática & Casos Complexos</h3>
+                <p>
+                  Correção esquelética das discrepâncias dos maxilares (mordida aberta, cruzada ou retrognatismo). Planejamento 100% digital em 3D para transformar a função mastigatória e o equilíbrio facial.
+                </p>
+              </div>
+              <div class="rio-row-badge">Cirurgia Avançada</div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      <!-- TRANSIÇÃO DE ONDA PARA A AREIA LINHO -->
+      <div class="idv-wave-connector" style="background: var(--rio-ocean-pool);" aria-hidden="true">
+        <svg viewBox="0 0 1440 60" fill="none" preserveAspectRatio="none">
+          <path d="M0,35 C320,5 680,65 1100,20 L1440,40 L1440,60 L0,60 Z" fill="var(--rio-sand-light)"/>
+        </svg>
+      </div>
+
+      <!-- SEÇÃO 4: SOBRE A DRA. VANESSA COM A FOTO 2 (CONEXÃO PROFUNDA E EMPATIA) -->
+      <section id="sobre" class="rio-section">
+        <div class="rio-container rio-grid-split">
+          
+          <div class="rio-split-content">
+            <span class="rio-eyebrow">A ESPECIALISTA</span>
+            <h2 class="rio-section-title">
+              "A maior dor do paciente não é física: <br/>
+              <em>é a angústia de não ser compreendido."</em>
+            </h2>
+
+            <p class="rio-text-body">
+              Sou a <strong>Dra. Vanessa Silveira</strong>, cirurgiã bucomaxilofacial apaixonada por desatar os nós que impedem as pessoas de viver com leveza.
+            </p>
+
+            <p class="rio-text-body">
+              Ao longo de quase uma década e mais de 2.000 pacientes atendidos, aprendi que quem sofre com DTM frequentemente passou por consultas apressadas onde ouviu frases como <em>"isso é coisa da sua cabeça"</em>.
+            </p>
+
+            <p class="rio-text-body">
+              Aqui, a consulta começa por ouvir a sua história. Cada anatomia é única, cada rotina tem suas tensões, e a solução só existe quando unimos o rigor técnico da cirurgia à sensibilidade do cuidado humano.
+            </p>
+
+            <div class="rio-credentials-inline">
+              <div class="rio-cred-item">
+                <span class="rio-cred-symbol">✦</span>
+                <span>Cirurgiã Bucomaxilofacial Especialista</span>
+              </div>
+              <div class="rio-cred-item">
+                <span class="rio-cred-symbol">✦</span>
+                <span>Atuação Específica em Dores Faciais Crônicas & ATM</span>
+              </div>
+              <div class="rio-cred-item">
+                <span class="rio-cred-symbol">✦</span>
+                <span>Membro de Equipes Hospitalares Referência</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- FOTO 2: OLHAR DIRETO E PALMEIRA AO FUNDO -->
+          <div class="rio-split-media">
+            <div class="rio-photo-card rio-photo-card--tall">
+              <img 
+                src="/images/vanessa-rio/vanessa-planta-sorriso.jpg" 
+                alt="Dra. Vanessa Silveira sorrindo com acolhimento próximo a uma planta costeira" 
+                class="rio-photo-content"
+                loading="lazy"
+              />
+              <div class="rio-author-badge">
+                <strong>Dra. Vanessa Silveira</strong>
+                <span>Cirurgiã Bucomaxilofacial • CRO/MG</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- SEÇÃO 5: UNIDADES — JUIZ DE FORA & BARRA DA TIJUCA COM A FOTO 4 (ESTILO DE VIDA E CIÊNCIA) -->
+      <section id="unidades" class="rio-section rio-section-solar">
+        <div class="rio-container">
+          
+          <div class="rio-solar-header">
+            <span class="rio-eyebrow-dark">POLOS DE ATENDIMENTO</span>
+            <h2 class="rio-solar-title">
+              O Cuidado da Dra. Vanessa em Duas Cidades
+            </h2>
+            <p class="rio-solar-desc">
+              Conectando a tradição e acolhimento de Juiz de Fora à energia vibrante do Rio de Janeiro.
+            </p>
+          </div>
+
+          <div class="rio-units-grid">
+            
+            <!-- UNIDADE JUIZ DE FORA -->
+            <div class="rio-unit-card">
+              <div class="rio-unit-badge">CONSULTÓRIO PRINCIPAL</div>
+              <h3 class="rio-unit-city">Juiz de Fora • MG</h3>
+              <p class="rio-unit-local">Av. Barão do Rio Branco, 2872 — Centro</p>
+              <p class="rio-unit-info">
+                Estrutura completa para diagnóstico por imagem, avaliações clínicas detalhadas, terapias articulares e acompanhamento contínuo de DTM.
+              </p>
+              <a href="https://wa.me/5532998513101?text=Olá,%20gostaria%20de%20agendar%20consulta%20em%20Juiz%20de%20Fora" 
+                 target="_blank" rel="noopener" class="rio-btn-unit">
+                Agendar em Juiz de Fora →
+              </a>
+            </div>
+
+            <!-- UNIDADE BARRA DA TIJUCA -->
+            <div class="rio-unit-card rio-unit-card--highlight">
+              <div class="rio-unit-badge rio-unit-badge--new">NOVA UNIDADE • RIO DE JANEIRO</div>
+              <h3 class="rio-unit-city">Barra da Tijuca • RJ</h3>
+              <p class="rio-unit-local">Polo Médico na Barra da Tijuca (Local em definição)</p>
+              <p class="rio-unit-info">
+                Trazendo a abordagem conservadora e acolhedora da Dra. Vanessa para os cariocas. Atendimentos exclusivos para avaliação de DTM, dores orofaciais e planejamento ortognático.
+              </p>
+              <a href="https://wa.me/5532998513101?text=Olá,%20gostaria%20de%20informações%20sobre%20atendimentos%20na%20Barra%20da%20Tijuca%20-%20RJ" 
+                 target="_blank" rel="noopener" class="rio-btn-unit rio-btn-unit--solid">
+                Lista de Espera Barra da Tijuca →
+              </a>
+            </div>
+
+            <!-- FOTO 4: NO BANCO DE MADEIRA COM LIVROS E PAREDE VERDE -->
+            <div class="rio-unit-media">
+              <img 
+                src="/images/vanessa-rio/vanessa-banco-madeira.jpg" 
+                alt="Dra. Vanessa Silveira relaxada em banco de madeira com estilo autêntico e solar" 
+                class="rio-unit-img"
+                loading="lazy"
+              />
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      <!-- SEÇÃO 6: PRIMEIRA CONSULTA COM A FOTO 5 (NO SOFÁ, CONFORTÁVEL E DESCOMPLICADO) -->
+      <section class="rio-section">
+        <div class="rio-container rio-grid-split rio-grid-split--reverse">
+          
+          <!-- FOTO 5: NO SOFÁ COM ALMOFADAS BOTÂNICAS -->
+          <div class="rio-split-media">
+            <div class="rio-photo-card">
+              <img 
+                src="/images/vanessa-rio/vanessa-sofa-folhagem.jpg" 
+                alt="Dra. Vanessa Silveira em conversa acolhedora no sofá com almofadas de folhas" 
+                class="rio-photo-content"
+                loading="lazy"
+              />
+              <div class="rio-photo-caption">
+                <em>"A primeira consulta é uma conversa com tempo e respeito. Sem jaleco intimidador, sem pressa de ir embora."</em>
+              </div>
+            </div>
+          </div>
+
+          <div class="rio-split-content">
+            <span class="rio-eyebrow">COMO FUNCIONA</span>
+            <h2 class="rio-section-title">
+              O que esperar da sua <br/>
+              <em>primeira avaliação com a Dra. Vanessa</em>
+            </h2>
+
+            <div class="rio-steps-timeline">
+              <div class="rio-step-card">
+                <span class="rio-step-dot">01</span>
+                <div>
+                  <strong>Escuta detalhada da sua jornada</strong>
+                  <p>Entendemos quando a dor começou, tratamentos prévios que falharam e como ela impacta seu sono e trabalho.</p>
+                </div>
+              </div>
+
+              <div class="rio-step-card">
+                <span class="rio-step-dot">02</span>
+                <div>
+                  <strong>Exame físico e palpação articular precisa</strong>
+                  <p>Identificação exata de cada feixe muscular doloroso e medição milimétrica da abertura e desvios de mandíbula.</p>
+                </div>
+              </div>
+
+              <div class="rio-step-card">
+                <span class="rio-step-dot">03</span>
+                <div>
+                  <strong>Plano de tratamento transparente e progressivo</strong>
+                  <p>Você sai da consulta entendendo o porquê de cada sintoma e com um plano passo a passo desenhado para o seu caso.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="rio-split-cta">
+              <a href="https://wa.me/5532998513101" target="_blank" rel="noopener" class="rio-btn-cta">
+                Falar com a equipe no WhatsApp →
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- CTA FINAL STATEMENT: FORMA MARCADA COM SOMBRA DE SERIGRAFIA -->
+      <section class="rio-section rio-section-cta">
+        <div class="rio-container">
+          <div class="rio-final-banner">
+            <div class="rio-banner-text">
+              <span class="rio-eyebrow-light">AGENDE SEU HORÁRIO</span>
+              <h2 class="rio-banner-title">
+                Recupere o prazer de sorrir, mastigar e viver sem peso no rosto.
+              </h2>
+              <p class="rio-banner-sub">
+                Atendimento presencial em Juiz de Fora (MG) e em breve na Barra da Tijuca (RJ).
+              </p>
+            </div>
+
+            <div class="rio-banner-actions">
+              <a href="https://wa.me/5532998513101" target="_blank" rel="noopener" class="rio-btn-hero-solid">
+                Agendar Consulta pelo WhatsApp
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </a>
+              <span class="rio-banner-help">Atendimento atencioso e resposta rápida</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- FOOTER COM DESIGN BRASILEIRO -->
+    <footer class="rio-footer">
+      <div class="rio-container rio-footer-inner">
+        <div>
+          <h3 class="rio-footer-title">Dra. Vanessa Silveira</h3>
+          <p class="rio-footer-sub">Cirurgia Bucomaxilofacial • DTM e Dor Orofacial</p>
+          <p class="rio-footer-loc">Juiz de Fora (MG) • Barra da Tijuca (Rio de Janeiro)</p>
+        </div>
+
+        <div class="rio-footer-nav">
+          <a href="/home-rio">Home Rio</a>
+          <a href="/idv-brasileira">Canvas da Identidade</a>
+          <a href="/">Site Original (Main)</a>
+          <a href="/politica-de-privacidade">Privacidade</a>
+        </div>
+      </div>
+      <div class="rio-footer-bottom">
+        <div class="rio-container">
+          <small>© 2026 Dra. Vanessa Silveira. Todos os direitos reservados. Nova Identidade Visual Brasileira.</small>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <style>
+    /* ==========================================================================
+       HOME RIO — RECONSTRUÇÃO COMPLETA DA HOME (IDV BRASILEIRA)
+       ========================================================================== */
+
+    .rio-page {
+      background-color: var(--rio-sand-light);
+      color: var(--rio-coffee);
+      font-family: var(--font-sans-clean);
+      overflow-x: hidden;
+    }
+
+    .rio-container {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* BARRA DE ANÚNCIO */
+    .rio-announcement-bar {
+      background-color: var(--rio-coffee);
+      color: var(--rio-sand-light);
+      padding: 0.65rem 1rem;
+      font-size: 0.85rem;
+    }
+
+    .rio-announcement-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      text-align: center;
+    }
+
+    .rio-badge-pulse {
+      background-color: var(--rio-terracotta);
+      color: #FFF;
+      font-size: 0.7rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 0.2rem 0.6rem;
+    }
+
+    .rio-announcement-link {
+      color: var(--rio-solar-gold);
+      font-weight: 700;
+      text-decoration: underline;
+    }
+
+    /* NAVEGAÇÃO */
+    .rio-nav {
+      background-color: var(--rio-sand-light);
+      border-bottom: var(--rio-stroke-thin);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(10px);
+    }
+
+    .rio-nav-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 1.25rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .rio-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      text-decoration: none;
+      color: var(--rio-coffee);
+    }
+
+    .rio-logo-mark {
+      color: var(--rio-terracotta);
+    }
+
+    .rio-logo-text strong {
+      display: block;
+      font-family: var(--font-editorial);
+      font-size: 1.2rem;
+      line-height: 1.1;
+    }
+
+    .rio-logo-text small {
+      display: block;
+      font-size: 0.75rem;
+      color: var(--rio-coffee-muted);
+      letter-spacing: 0.04em;
+    }
+
+    .rio-nav-menu {
+      display: flex;
+      gap: 1.75rem;
+      align-items: center;
+    }
+
+    .rio-nav-link {
+      text-decoration: none;
+      color: var(--rio-coffee-light);
+      font-size: 0.95rem;
+      font-weight: 600;
+      transition: color 0.2s ease;
+    }
+
+    .rio-nav-link:hover {
+      color: var(--rio-terracotta);
+    }
+
+    .rio-nav-lab {
+      color: var(--rio-terracotta);
+      font-weight: 700;
+      background: var(--rio-sand-warm);
+      padding: 0.3rem 0.7rem;
+      border: 1px solid rgba(35, 25, 20, 0.15);
+    }
+
+    .rio-btn-nav {
+      background-color: var(--rio-coffee);
+      color: var(--rio-sand-light);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 700;
+      padding: 0.7rem 1.4rem;
+      border: 2px solid var(--rio-coffee);
+      box-shadow: 3px 3px 0px var(--rio-terracotta);
+      transition: all 0.15s ease;
+    }
+
+    .rio-btn-nav:hover {
+      transform: translate(-1px, -1px);
+      box-shadow: 4px 4px 0px var(--rio-terracotta);
+    }
+
+    /* ==========================================================================
+       HERO COM A FOTO 1
+       ========================================================================== */
+    .rio-hero {
+      padding: 4.5rem 0 3.5rem 0;
+      background-color: var(--rio-sand-light);
+    }
+
+    .rio-hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      gap: 3.5rem;
+      align-items: center;
+    }
+
+    .rio-tag-location {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      color: var(--rio-terracotta);
+      margin-bottom: 1.25rem;
+    }
+
+    .rio-tag-divider {
+      color: var(--rio-solar-gold);
+    }
+
+    .rio-hero-title {
+      font-family: var(--font-editorial);
+      font-size: clamp(2.4rem, 4.8vw, 3.8rem);
+      line-height: 1.1;
+      color: var(--rio-coffee);
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.02em;
+      font-weight: 700;
+    }
+
+    .rio-hero-title em {
+      color: var(--rio-terracotta);
+      font-style: italic;
+      font-weight: 400;
+    }
+
+    .rio-hero-desc {
+      font-size: 1.15rem;
+      line-height: 1.65;
+      color: var(--rio-coffee-light);
+      margin-bottom: 2.25rem;
+      max-width: 580px;
+    }
+
+    .rio-hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 1.75rem;
+      flex-wrap: wrap;
+      margin-bottom: 3rem;
+    }
+
+    .rio-btn-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background-color: var(--rio-terracotta);
+      color: #FFF;
+      font-weight: 700;
+      font-size: 1.05rem;
+      padding: 1.05rem 2rem;
+      text-decoration: none;
+      border: 2px solid var(--rio-coffee);
+      box-shadow: 4px 4px 0px var(--rio-coffee);
+      transition: all 0.15s ease;
+    }
+
+    .rio-btn-cta:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 6px 6px 0px var(--rio-coffee);
+      background-color: var(--rio-terracotta-dark);
+    }
+
+    .rio-link-scroll {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--rio-coffee);
+      text-decoration: none;
+      border-bottom: 2px solid var(--rio-solar-gold);
+      padding-bottom: 2px;
+    }
+
+    .rio-hero-trust-bar {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      padding-top: 1.5rem;
+      border-top: var(--rio-stroke-thin);
+    }
+
+    .rio-trust-item strong {
+      display: block;
+      font-family: var(--font-editorial);
+      font-size: 1.5rem;
+      color: var(--rio-coffee);
+      line-height: 1;
+    }
+
+    .rio-trust-item span {
+      font-size: 0.75rem;
+      color: var(--rio-coffee-muted);
+    }
+
+    .rio-trust-separator {
+      color: var(--rio-sand-deep);
+      font-size: 1.5rem;
+    }
+
+    /* MÍDIA DO HERO */
+    .rio-image-frame {
+      position: relative;
+      border: 2px solid var(--rio-coffee);
+      box-shadow: 8px 8px 0px var(--rio-coffee);
+      background-color: var(--rio-sand-warm);
+    }
+
+    .rio-hero-img {
+      width: 100%;
+      height: 520px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .rio-frame-badge {
+      position: absolute;
+      bottom: -15px;
+      left: -15px;
+      background: var(--rio-sand-light);
+      border: 2px solid var(--rio-coffee);
+      box-shadow: 4px 4px 0px var(--rio-coffee);
+      padding: 0.75rem 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .rio-badge-sun {
+      font-size: 1.4rem;
+    }
+
+    .rio-frame-badge strong {
+      display: block;
+      font-size: 0.85rem;
+      color: var(--rio-coffee);
+    }
+
+    .rio-frame-badge small {
+      display: block;
+      font-size: 0.75rem;
+      color: var(--rio-terracotta);
+      font-weight: 600;
+    }
+
+    /* ==========================================================================
+       SEÇÕES GERAIS E GRIDS SPLIT
+       ========================================================================== */
+    .rio-section {
+      padding: 5.5rem 0;
+    }
+
+    .rio-section-warm {
+      background-color: var(--rio-sand-warm);
+    }
+
+    .rio-grid-split {
+      display: grid;
+      grid-template-columns: 1fr 1.15fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .rio-grid-split--reverse {
+      grid-template-columns: 1.15fr 1fr;
+    }
+
+    .rio-eyebrow {
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      color: var(--rio-terracotta);
+      display: block;
+      margin-bottom: 1rem;
+    }
+
+    .rio-section-title {
+      font-family: var(--font-editorial);
+      font-size: clamp(2rem, 3.8vw, 3rem);
+      line-height: 1.15;
+      color: var(--rio-coffee);
+      margin-bottom: 1.5rem;
+      font-weight: 700;
+    }
+
+    .rio-section-title em {
+      color: var(--rio-terracotta);
+      font-style: italic;
+    }
+
+    .rio-text-lead {
+      font-size: 1.15rem;
+      line-height: 1.65;
+      color: var(--rio-coffee-light);
+      margin-bottom: 2rem;
+    }
+
+    .rio-text-body {
+      font-size: 1.05rem;
+      line-height: 1.65;
+      color: var(--rio-coffee-light);
+      margin-bottom: 1.25rem;
+    }
+
+    /* LISTA DE SINTOMAS */
+    .rio-symptom-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 2.5rem 0;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .rio-symptom-list li {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+
+    .rio-check-icon {
+      width: 26px;
+      height: 26px;
+      background: var(--rio-terracotta);
+      color: #FFF;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 0.85rem;
+      flex-shrink: 0;
+      border: 1px solid var(--rio-coffee);
+    }
+
+    .rio-symptom-list strong {
+      display: block;
+      font-size: 1.05rem;
+      color: var(--rio-coffee);
+      margin-bottom: 0.2rem;
+    }
+
+    .rio-symptom-list p {
+      font-size: 0.95rem;
+      color: var(--rio-coffee-light);
+      margin: 0;
+      line-height: 1.45;
+    }
+
+    /* CARDS DE FOTO COM LEGENDA */
+    .rio-photo-card {
+      position: relative;
+      border: 2px solid var(--rio-coffee);
+      box-shadow: 6px 6px 0px var(--rio-coffee);
+      background-color: #FFF;
+    }
+
+    .rio-photo-card--tall .rio-photo-content {
+      height: 560px;
+    }
+
+    .rio-photo-content {
+      width: 100%;
+      height: 480px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .rio-photo-caption {
+      background: var(--rio-sand-light);
+      border-top: var(--rio-stroke-thin);
+      padding: 1.25rem;
+      font-family: var(--font-editorial);
+      font-size: 0.95rem;
+      line-height: 1.4;
+      color: var(--rio-coffee);
+    }
+
+    .rio-author-badge {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      background: var(--rio-sand-light);
+      border: 2px solid var(--rio-coffee);
+      padding: 0.75rem 1.25rem;
+    }
+
+    .rio-author-badge strong {
+      display: block;
+      font-family: var(--font-editorial);
+      font-size: 1.05rem;
+      color: var(--rio-coffee);
+    }
+
+    .rio-author-badge span {
+      font-size: 0.75rem;
+      color: var(--rio-terracotta);
+      font-weight: 700;
+    }
+
+    /* CREDENCIAIS */
+    .rio-credentials-inline {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: var(--rio-stroke-thin);
+    }
+
+    .rio-cred-item {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--rio-coffee);
+    }
+
+    .rio-cred-symbol {
+      color: var(--rio-solar-gold);
+      font-size: 1.1rem;
+    }
+
+    /* ==========================================================================
+       SEÇÃO OCEANO (TRATAMENTOS)
+       ========================================================================== */
+    .rio-section-ocean {
+      background-color: var(--rio-ocean-pool);
+      color: #FFF;
+    }
+
+    .rio-section-header-ocean {
+      max-width: 780px;
+      margin-bottom: 3.5rem;
+    }
+
+    .rio-eyebrow-mist {
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      color: var(--rio-ocean-mist);
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 0.75rem;
+    }
+
+    .rio-ocean-title {
+      font-family: var(--font-editorial);
+      font-size: clamp(2.2rem, 4vw, 3.2rem);
+      line-height: 1.15;
+      color: #FFF;
+      margin-bottom: 1rem;
+    }
+
+    .rio-ocean-desc {
+      font-size: 1.15rem;
+      line-height: 1.6;
+      color: var(--rio-ocean-mist);
+    }
+
+    .rio-treatments-flow {
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .rio-treatment-row {
+      display: grid;
+      grid-template-columns: 80px 1fr 180px;
+      align-items: center;
+      gap: 2rem;
+      padding: 2.5rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      transition: padding 0.2s ease, background 0.2s ease;
+    }
+
+    .rio-treatment-row:hover {
+      padding-left: 1rem;
+      padding-right: 1rem;
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .rio-row-index {
+      font-family: var(--font-editorial);
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--rio-solar-gold);
+    }
+
+    .rio-row-info h3 {
+      font-family: var(--font-editorial);
+      font-size: 1.5rem;
+      color: #FFF;
+      margin-bottom: 0.5rem;
+    }
+
+    .rio-row-info p {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #D6EFEA;
+      margin: 0;
+      max-width: 700px;
+    }
+
+    .rio-row-badge {
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      background: rgba(255, 255, 255, 0.15);
+      color: var(--rio-solar-gold);
+      padding: 0.4rem 0.8rem;
+      text-align: center;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+    }
+
+    /* ==========================================================================
+       SEÇÃO POLOS DE ATENDIMENTO (SOLAR)
+       ========================================================================== */
+    .rio-section-solar {
+      background-color: var(--rio-solar-gold);
+      color: var(--rio-coffee);
+    }
+
+    .rio-solar-header {
+      max-width: 780px;
+      margin-bottom: 3.5rem;
+    }
+
+    .rio-eyebrow-dark {
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      background: var(--rio-coffee);
+      color: var(--rio-solar-gold);
+      display: inline-block;
+      padding: 0.25rem 0.6rem;
+      margin-bottom: 1rem;
+    }
+
+    .rio-solar-title {
+      font-family: var(--font-editorial);
+      font-size: clamp(2.2rem, 4vw, 3.2rem);
+      line-height: 1.15;
+      color: var(--rio-coffee);
+      margin-bottom: 0.75rem;
+      font-weight: 700;
+    }
+
+    .rio-solar-desc {
+      font-size: 1.15rem;
+      color: var(--rio-coffee);
+    }
+
+    .rio-units-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 2rem;
+      align-items: stretch;
+    }
+
+    .rio-unit-card {
+      background-color: var(--rio-sand-light);
+      border: 2px solid var(--rio-coffee);
+      box-shadow: 4px 4px 0px var(--rio-coffee);
+      padding: 2.25rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .rio-unit-card--highlight {
+      background-color: #FFF;
+      border: 3px solid var(--rio-coffee);
+      box-shadow: 6px 6px 0px var(--rio-terracotta);
+    }
+
+    .rio-unit-badge {
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      color: var(--rio-coffee-muted);
+      margin-bottom: 1rem;
+    }
+
+    .rio-unit-badge--new {
+      color: var(--rio-terracotta);
+      font-weight: 900;
+    }
+
+    .rio-unit-city {
+      font-family: var(--font-editorial);
+      font-size: 1.6rem;
+      color: var(--rio-coffee);
+      margin-bottom: 0.5rem;
+    }
+
+    .rio-unit-local {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--rio-terracotta);
+      margin-bottom: 1rem;
+    }
+
+    .rio-unit-info {
+      font-size: 0.95rem;
+      line-height: 1.55;
+      color: var(--rio-coffee-light);
+      margin-bottom: 2rem;
+    }
+
+    .rio-btn-unit {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--rio-coffee);
+      text-decoration: none;
+      border: 2px solid var(--rio-coffee);
+      padding: 0.75rem 1.25rem;
+      text-align: center;
+      transition: background 0.15s ease;
+    }
+
+    .rio-btn-unit:hover {
+      background: var(--rio-sand-warm);
+    }
+
+    .rio-btn-unit--solid {
+      background-color: var(--rio-terracotta);
+      color: #FFF;
+      box-shadow: 3px 3px 0px var(--rio-coffee);
+    }
+
+    .rio-btn-unit--solid:hover {
+      background-color: var(--rio-terracotta-dark);
+      color: #FFF;
+    }
+
+    .rio-unit-media {
+      border: 2px solid var(--rio-coffee);
+      box-shadow: 4px 4px 0px var(--rio-coffee);
+      overflow: hidden;
+      background-color: #FFF;
+    }
+
+    .rio-unit-img {
+      width: 100%;
+      height: 100%;
+      min-height: 380px;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* TIMELINE DE PASSOS */
+    .rio-steps-timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .rio-step-card {
+      display: flex;
+      gap: 1.25rem;
+      align-items: flex-start;
+      border-left: 2px solid var(--rio-solar-gold);
+      padding-left: 1.25rem;
+    }
+
+    .rio-step-dot {
+      font-family: var(--font-editorial);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--rio-terracotta);
+      line-height: 1;
+    }
+
+    .rio-step-card strong {
+      display: block;
+      font-size: 1.05rem;
+      color: var(--rio-coffee);
+      margin-bottom: 0.25rem;
+    }
+
+    .rio-step-card p {
+      font-size: 0.95rem;
+      line-height: 1.5;
+      color: var(--rio-coffee-light);
+      margin: 0;
+    }
+
+    /* ==========================================================================
+       CTA FINAL STATEMENT
+       ========================================================================== */
+    .rio-section-cta {
+      padding: 0 0 6rem 0;
+    }
+
+    .rio-final-banner {
+      background-color: var(--rio-sand-warm);
+      border: 2px solid var(--rio-coffee);
+      box-shadow: 6px 6px 0px var(--rio-coffee);
+      padding: 4rem 3.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 3.5rem;
+      flex-wrap: wrap;
+    }
+
+    .rio-banner-text {
+      max-width: 650px;
+    }
+
+    .rio-banner-title {
+      font-family: var(--font-editorial);
+      font-size: clamp(2rem, 3.6vw, 2.8rem);
+      line-height: 1.15;
+      color: var(--rio-coffee);
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+
+    .rio-banner-sub {
+      font-size: 1.15rem;
+      color: var(--rio-coffee-light);
+      margin: 0;
+    }
+
+    .rio-banner-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .rio-btn-hero-solid {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      background-color: var(--rio-terracotta);
+      color: #FFF;
+      font-weight: 700;
+      font-size: 1.1rem;
+      padding: 1.25rem 2.25rem;
+      text-decoration: none;
+      border: 2px solid var(--rio-coffee);
+      box-shadow: 4px 4px 0px var(--rio-coffee);
+      transition: all 0.15s ease;
+    }
+
+    .rio-btn-hero-solid:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 6px 6px 0px var(--rio-coffee);
+      background-color: var(--rio-terracotta-dark);
+    }
+
+    .rio-banner-help {
+      font-size: 0.8rem;
+      color: var(--rio-coffee-muted);
+      font-weight: 600;
+    }
+
+    /* FOOTER */
+    .rio-footer {
+      background-color: var(--rio-coffee);
+      color: var(--rio-sand-light);
+      padding: 4rem 0 0 0;
+    }
+
+    .rio-footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 2.5rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .rio-footer-title {
+      font-family: var(--font-editorial);
+      font-size: 1.5rem;
+      color: #FFF;
+      margin-bottom: 0.4rem;
+    }
+
+    .rio-footer-sub {
+      font-size: 0.95rem;
+      color: var(--rio-solar-gold);
+      margin-bottom: 0.4rem;
+    }
+
+    .rio-footer-loc {
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.6);
+      margin: 0;
+    }
+
+    .rio-footer-nav {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .rio-footer-nav a {
+      color: var(--rio-sand-light);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .rio-footer-nav a:hover {
+      color: var(--rio-solar-gold);
+    }
+
+    .rio-footer-bottom {
+      padding: 1.5rem 0;
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 0.8rem;
+    }
+
+    /* RESPONSIVIDADE */
+    @media (max-width: 1024px) {
+      .rio-hero-grid,
+      .rio-grid-split,
+      .rio-grid-split--reverse {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
+      .rio-units-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .rio-nav-menu {
+        display: none;
+      }
+
+      .rio-treatment-row {
+        grid-template-columns: 50px 1fr;
+        gap: 1rem;
+      }
+
+      .rio-row-badge {
+        display: none;
+      }
+
+      .rio-hero-img {
+        height: 400px;
+      }
+    }
+  </style>
+</Layout>
