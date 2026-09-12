@@ -10,7 +10,7 @@ _(Replace this with one or two sentences: what this workspace is and what it's f
 
 ## Recent Changes
 
-_(none yet)_
+- **2026-09-12**: Atualizado favicon do site com versões 96x96 e 16x16 PNG em alta definição no `Layout.astro` e `site.webmanifest`.
 
 ## Session Memory
 
