@@ -1,58 +1,56 @@
 /* ==========================================================================
    IDENTIDADE VISUAL BRASILEIRA — DRA. VANESSA SILVEIRA
-   Raiz Carioca Praiana Vintage & Acolhimento Solar
+   Estética Carioca Praiana Vintage • Modernismo Tropical • Sem Caixas de IA
    ========================================================================== */
 
+/* Fonte Vintage Editorial com alto contraste e curvas expressivas dos anos 70 */
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,600&display=swap');
+
 :root {
-  /* === PALETA CARIOCA PRAIANA VINTAGE === */
-  /* Neutros Quentes & Areia (Linho / Papel Solar) */
-  --rio-sand-light: #FBF6EE;       /* Fundo principal leve, areia iluminada */
-  --rio-sand: #F5E6D8;             /* Areia quente / linho cru das referências */
-  --rio-sand-muted: #EAD8C7;       /* Areia de contraste / divisórias sutis */
+  /* === PALETA REFINADA: SOL, MAR, LINHO & TERRACOTA === */
+  --rio-sand-light: #FBF7F0;        /* Areia linho pura, fundo iluminado */
+  --rio-sand-warm: #F3E8DB;         /* Areia quente de praia / duna */
+  --rio-sand-deep: #E7D7C3;         /* Linho cru rústico */
 
-  /* Sol, Energia & Acolhimento */
-  --rio-solar: #F8A54A;            /* Laranja sol da tarde / guarda-sol amarelo ouro */
-  --rio-solar-light: #FCD8A5;      /* Brilho suave da tarde */
-  --rio-terracotta: #E7581A;       /* Terracota vibrante / contraste caloroso */
-  --rio-terracotta-dark: #C2430E;  /* Terracota profundo para botões e foco */
-  --rio-terracotta-subtle: rgba(231, 88, 26, 0.08);
+  /* Sol & Fogo Carioca (Referência SUNWHIP & Coleção) */
+  --rio-terracotta: #E24C27;        /* Terracota / Vermilhão solar de alto impacto */
+  --rio-terracotta-dark: #BF3816;   /* Terracota fechado para foco e leitura */
+  --rio-solar-gold: #F2AC38;        /* Ocre dourado / sol de meio-dia */
+  --rio-solar-soft: #FCE6BE;        /* Toque suave de sol */
 
-  /* Mar, Brisa & Alívio (Contraste Costeiro) */
-  --rio-ocean: #53B9AE;            /* Turquesa mar raso / frescor terapêutico */
-  --rio-ocean-light: #C2EAE5;      /* Espuma do mar suave */
-  --rio-ocean-deep: #245868;       /* Azul mar profundo / autoridade médica elegante */
-  --rio-ocean-subtle: rgba(83, 185, 174, 0.12);
+  /* Águas & Brisa Costeira (Referência Piscina / Mar de Ipanema) */
+  --rio-ocean-pool: #257C90;        /* Azul mar profundo / piscina vintage */
+  --rio-ocean-surf: #4AA9A8;        /* Turquesa cristalina */
+  --rio-ocean-mist: #B2DFD8;        /* Espuma suave da arrebentação */
 
   /* Botânica & Restingas */
-  --rio-sage: #797E5C;             /* Verde oliva costeiro / equilíbrio orgânico */
-  --rio-sage-light: #DCE2CE;       /* Folha clara */
+  --rio-palm-green: #3F5E4D;        /* Verde coqueiro / restinga carioca */
+  --rio-sage-soft: #8C9982;         /* Verde sálvia praiano */
 
-  /* Contrastes de Texto & Estrutura (Substitui o preto digital frio por calor) */
-  --rio-coffee: #2C221C;           /* Café torrado escuro: máxima legibilidade com nobreza */
-  --rio-coffee-light: #5A4A3F;     /* Marrom texto de apoio */
-  --rio-coffee-muted: #847265;     /* Rótulos e metadados */
+  /* Contraste Tipográfico de Alto Nível (Zero cinza digital frio) */
+  --rio-coffee: #231914;            /* Café torrado escuro: contraste absoluto */
+  --rio-coffee-light: #524035;      /* Marrom café para parágrafos */
+  --rio-coffee-muted: #857062;      /* Notas de rodapé e detalhes */
   --rio-white: #FFFFFF;
 
-  /* Bordas nítidas e limpas (sem efeito vidro/blur fake) */
-  --rio-border-subtle: rgba(44, 34, 28, 0.08);
-  --rio-border-medium: rgba(44, 34, 28, 0.16);
-  --rio-border-strong: #2C221C;
+  /* Tipografia */
+  --font-editorial: 'Fraunces', 'Tiro Devanagari Marathi', Georgia, serif;
+  --font-sans-clean: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 
-  /* Sombras físicas sutis (estética impressa/analógica, não luz digital 3D) */
-  --rio-shadow-flat: 2px 2px 0px rgba(44, 34, 28, 0.08);
-  --rio-shadow-card: 4px 4px 0px rgba(44, 34, 28, 0.1);
-  --rio-shadow-hover: 6px 6px 0px rgba(231, 88, 26, 0.2);
+  /* Linhas e Sombras Secas (Estética de pôster impresso / serigrafia) */
+  --rio-stroke-thick: 2px solid var(--rio-coffee);
+  --rio-stroke-thin: 1px solid rgba(35, 25, 20, 0.18);
+  --rio-shadow-print: 4px 4px 0px var(--rio-coffee);
+  --rio-shadow-sun: 6px 6px 0px var(--rio-solar-gold);
+  --rio-shadow-terracotta: 5px 5px 0px var(--rio-terracotta);
 
-  /* Curvaturas: definidas e expressivas (sem cantos arredondados genéricos de SaaS) */
-  --rio-radius-sm: 4px;
-  --rio-radius-md: 10px;
-  --rio-radius-lg: 18px;
+  /* Curvaturas: ZERO ou MINIMALISTAS (1-3px) para quebrar o clichê "bento box" de IA */
+  --rio-radius-sharp: 0px;
+  --rio-radius-subtle: 3px;
   --rio-radius-pill: 999px;
 }
 
-/* === GRANULADO ANALÓGICO ULTRA LEVE (FILM GRAIN) ===
-   Totalmente procedural via SVG data-URI: 0 requisições de rede, 0 overhead de JS.
-   Dá o verniz de foto de filme carioca dos anos 70/80. */
+/* === GRANULADO ANALÓGICO ULTRA LEVE (FILM GRAIN) === */
 .idv-grain-overlay {
   position: fixed;
   top: 0;
@@ -61,28 +59,20 @@
   height: 100vh;
   pointer-events: none !important;
   z-index: 9999;
-  opacity: 0.045;
+  opacity: 0.042;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
 }
 
+/* Divisores de Onda Orgânica (Estilo Calçadão & Dunas) */
+.idv-wave-divider {
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: translateZ(0);
+}
 
-/* === ADAPTAÇÃO DAS VARIÁVEIS GLOBAIS QUANDO A IDENTIDADE ESTIVER ATIVA === */
-body.theme-idv-brasileira {
-  background-color: var(--rio-sand-light);
-  color: var(--rio-coffee);
-  --color-cream: var(--rio-sand-light);
-  --color-cream-dark: var(--rio-sand);
-  --color-warm-gray: var(--rio-sand-muted);
-  --color-amber: var(--rio-terracotta);
-  --color-amber-light: var(--rio-solar);
-  --color-amber-soft: var(--rio-solar-light);
-  --color-text-primary: var(--rio-coffee);
-  --color-text-secondary: var(--rio-coffee-light);
-  --color-text-muted: var(--rio-coffee-muted);
-  --color-sky: var(--rio-ocean);
-  --color-sky-light: var(--rio-ocean-light);
-  --color-sky-deep: var(--rio-ocean-deep);
-  --color-sky-subtle: var(--rio-ocean-subtle);
-  --gradient-warm: linear-gradient(135deg, var(--rio-solar) 0%, var(--rio-terracotta) 100%);
-  --gradient-hero: linear-gradient(180deg, var(--rio-sand-light) 0%, var(--rio-sand) 60%, var(--rio-solar-light) 100%);
+.idv-wave-divider svg {
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 60px;
 }
