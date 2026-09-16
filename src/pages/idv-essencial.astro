@@ -1,50 +1,48 @@
 ---
-// src/pages/idv-essencial.astro
-// POC de identidade — proposta ESSENCIAL, versão 2.
-// A venda acontece por reconhecimento e por competência demonstrada.
-// Nenhum gatilho de escassez, urgência fabricada ou apelo emocional forçado:
-// a página descortina o mecanismo da dor e informa que existe consulta.
+// src/pages/idv-essencial.astro — POC de identidade, proposta ESSENCIAL v3.
+//
+// A espinha da página são as frases grandes. Lidas sozinhas, na ordem, elas
+// contam a história inteira — é o que segura quem escaneia. A prosa embaixo
+// existe para quem decidiu ler, e nunca para carregar o argumento.
 import Layout from '../layouts/Layout.astro';
 import '../styles/idv-essencial.css';
 
 const whatsapp = 'https://wa.me/5532998513101';
 
-// Cada sintoma vem com o seu mecanismo. É o par sintoma + explicação que
-// produz o reconhecimento: ela já sentiu, mas nunca ouviu o porquê.
 const sinais = [
   { sinal: 'Você acorda com a cabeça pesada e a mandíbula cansada.',
-    causa: 'Não é sono ruim. É musculatura que trabalhou a noite inteira sem você saber.' },
+    causa: 'Musculatura que trabalhou a noite inteira. Não é sono ruim.' },
   { sinal: 'A boca estala, range ou desliza para um lado quando abre.',
-    causa: 'O disco da articulação está saindo de posição e voltando a cada movimento.' },
-  { sinal: 'Dor no ouvido, zumbido ou sensação de ouvido tampado — e o otorrino não achou nada.',
-    causa: 'A articulação fica a milímetros do canal auditivo. A dor é referida, não é do ouvido.' },
+    causa: 'O disco da articulação sai de posição e volta a cada movimento.' },
+  { sinal: 'Dor no ouvido ou zumbido — e o otorrino não achou nada.',
+    causa: 'A articulação fica a milímetros do canal auditivo. A dor é referida.' },
   { sinal: 'Dor de cabeça na têmpora, quase sempre do mesmo lado.',
-    causa: 'É o músculo temporal em contração contínua. Costuma ser tratado como enxaqueca por anos.' },
-  { sinal: 'Cansaço ao mastigar carne, pão, chiclete — e você já evita certos alimentos.',
-    causa: 'A musculatura perde resistência antes de terminar a refeição.' },
+    causa: 'Músculo temporal em contração contínua. Tratado como enxaqueca por anos.' },
+  { sinal: 'Cansaço ao mastigar, e você já evita certos alimentos.',
+    causa: 'A musculatura perde resistência antes do fim da refeição.' },
   { sinal: 'A sensação de que os dentes não encaixam mais como antes.',
     causa: 'A posição do côndilo mudou. Os dentes são o sintoma, não a origem.' },
   { sinal: 'Você já usou placa e não resolveu — ou piorou.',
-    causa: 'Placa é instrumento, não tratamento. Existe mais de um tipo, para mais de um problema.' },
+    causa: 'Placa é instrumento, não tratamento. Existe mais de um tipo.' },
   { sinal: 'Alguém já disse que era do estresse e mandou você relaxar.',
     causa: 'Estresse é um fator. Nunca é o diagnóstico.' },
 ];
 
 const tipos = [
-  { n: '01', nome: 'Muscular',
-    texto: 'A dor nasce nos músculos da mastigação. Dói ao toque, piora ao longo do dia e se espalha para têmpora e pescoço. É o tipo mais comum e o que mais responde a tratamento conservador.' },
-  { n: '02', nome: 'Articular',
-    texto: 'O problema está no disco e na articulação. Estalos, travamentos, limitação de abertura. Aqui a placa estabilizadora sozinha raramente resolve.' },
-  { n: '03', nome: 'Mista',
-    texto: 'As duas coisas ao mesmo tempo — que é o cenário mais frequente em quem já convive com dor há anos. Exige tratar na ordem certa, não tudo de uma vez.' },
+  { n: '01', nome: 'Muscular', resumo: 'A dor nasce no músculo.',
+    texto: 'Dói ao toque, piora ao longo do dia e se espalha para têmpora e pescoço. É o tipo mais comum e o que melhor responde a tratamento conservador.' },
+  { n: '02', nome: 'Articular', resumo: 'A dor nasce na articulação.',
+    texto: 'Estalos, travamentos, limitação de abertura. O disco perdeu a posição. Aqui a placa estabilizadora sozinha raramente resolve.' },
+  { n: '03', nome: 'Mista', resumo: 'As duas ao mesmo tempo.',
+    texto: 'O cenário mais frequente em quem convive com dor há anos. Exige tratar na ordem certa — músculo antes de articulação — e não tudo de uma vez.' },
 ];
 
 const consulta = [
-  { rotulo: 'Duração', valor: 'Cerca de uma hora' },
-  { rotulo: 'Começa por', valor: 'A sua história inteira, antes de qualquer exame' },
-  { rotulo: 'Exame clínico', valor: 'Palpação dos músculos da mastigação e do pescoço, medida da abertura de boca em milímetros, ausculta da articulação e avaliação dos movimentos' },
-  { rotulo: 'Imagem', valor: 'Solicitada depois, quando muda a conduta — não para descobrir o diagnóstico' },
-  { rotulo: 'Você sai com', valor: 'O nome do que você tem e o plano escrito, do menos invasivo para o mais' },
+  { rotulo: 'Duração', valor: 'Cerca de uma hora.' },
+  { rotulo: 'Começa por', valor: 'A sua história inteira, antes de qualquer exame.' },
+  { rotulo: 'Exame', valor: 'Palpação dos músculos da mastigação e do pescoço, medida da abertura de boca em milímetros, ausculta da articulação e avaliação dos movimentos.' },
+  { rotulo: 'Imagem', valor: 'Solicitada depois, quando muda a conduta. Nunca para descobrir o diagnóstico.' },
+  { rotulo: 'Você sai com', valor: 'O nome do que você tem e o plano escrito, do menos invasivo para o mais.' },
 ];
 
 const naoE = [
@@ -71,24 +69,19 @@ const naoE = [
 
     <main>
 
-      <!-- ABERTURA -->
+      <!-- ═══ 01 ═══ -->
       <section class="ess-open">
         <div class="ess-wrap ess-open-grid">
           <div class="ess-open-col">
-            <div class="ess-open-head">
-              <h1 class="ess-display">Você não está<br />inventando a sua dor.</h1>
-            </div>
-
-            <div class="ess-open-body">
-            <p class="ess-lede-text">
-              Dor de cabeça quase todo dia. Estalo ao abrir a boca. O maxilar que cansa antes
-              do fim da refeição. E exames que voltam normais.
+            <h1 class="ess-display">Você não está<br />inventando a sua dor.</h1>
+            <p class="ess-read-text ess-read-text--lead">
+              <strong>Dor de cabeça quase todo dia.</strong> Estalo ao abrir a boca. O maxilar
+              que cansa antes do fim da refeição. E exames que voltam normais.
             </p>
-            <p class="ess-lede-text ess-lede-text--strong">
+            <p class="ess-read-text">
               Isso tem nome, tem causa anatômica e tem tratamento. O motivo de ninguém ter
-                encontrado até agora costuma ser sempre o mesmo — e está explicado abaixo.
-              </p>
-            </div>
+              encontrado até agora costuma ser sempre o mesmo.
+            </p>
           </div>
 
           <figure class="ess-portrait ess-portrait--lead">
@@ -102,16 +95,11 @@ const naoE = [
         </div>
       </section>
 
-      <!-- RECONHECIMENTO: sintoma + mecanismo, em duas colunas -->
+      <!-- ═══ 02 · SINAIS ═══ -->
       <section class="ess-signs">
         <div class="ess-wrap">
-          <div class="ess-signs-head">
-            <p class="ess-label">Comece por aqui</p>
-            <h2 class="ess-headline">Quantas destas são suas?</h2>
-            <p class="ess-note-text">
-              Cada uma delas tem uma explicação anatômica. Nenhuma é exagero seu.
-            </p>
-          </div>
+          <p class="ess-label">01 <span aria-hidden="true">—</span> Comece por aqui</p>
+          <h2 class="ess-statement">Quantas destas são suas?</h2>
 
           <ul class="ess-signs-grid">
             {sinais.map((item) => (
@@ -121,65 +109,59 @@ const naoE = [
               </li>
             ))}
           </ul>
+
+          <p class="ess-read-text ess-read-text--after">
+            Cada uma delas tem explicação anatômica. <strong>Nenhuma é exagero seu</strong> —
+            e é justamente por serem sintomas espalhados pelo corpo que a DTM passa tantos
+            anos sem ser identificada.
+          </p>
         </div>
       </section>
 
-      <!-- A INVERSÃO: a revelação clínica, a única seção em fundo escuro -->
+      <!-- ═══ 03 · A INVERSÃO ═══ -->
       <section class="ess-reveal">
-        <div class="ess-wrap ess-reveal-grid">
-          <div class="ess-reveal-head">
-            <p class="ess-label ess-label--light">A parte que não te explicaram</p>
-            <h2 class="ess-headline ess-headline--light">
-              Por que os seus exames vieram normais
-            </h2>
-          </div>
+        <div class="ess-wrap">
+          <p class="ess-label ess-label--light">02 <span aria-hidden="true">—</span> A parte que não te explicaram</p>
 
-          <div class="ess-reveal-body">
-            <p>
-              A radiografia panorâmica que você fez mostra dentes e osso. Ela não mostra o disco
-              articular, que é de cartilagem, nem os músculos da mastigação — que é exatamente
-              onde a maior parte da dor de DTM nasce.
+          <h2 class="ess-statement ess-statement--light">
+            Os seus exames vieram normais porque não olharam para onde dói.
+          </h2>
+
+          <div class="ess-reveal-cols">
+            <p class="ess-read-text ess-read-text--light">
+              <strong>A radiografia panorâmica mostra dentes e osso.</strong> Ela não mostra o
+              disco articular, que é de cartilagem, nem os músculos da mastigação — que é
+              exatamente onde a maior parte da dor de DTM nasce.
             </p>
-            <p class="ess-reveal-emphasis">
-              Um exame normal não significa que não há nada. Significa que aquele exame não
-              olha para onde dói.
-            </p>
-            <p>
-              O diagnóstico de DTM é clínico. Se faz com tempo, com as mãos e com medida.
-              A imagem entra depois, para confirmar ou para planejar — nunca para descobrir.
-              É por isso que tantas pessoas passam anos com exames impecáveis e dor real.
+            <p class="ess-read-text ess-read-text--light">
+              <strong>O diagnóstico de DTM é clínico.</strong> Se faz com tempo, com as mãos e
+              com medida. A imagem entra depois, para confirmar ou para planejar. É por isso
+              que tanta gente passa anos com exames impecáveis e dor real.
             </p>
           </div>
         </div>
       </section>
 
-      <!-- POR QUE A PLACA NÃO RESOLVEU -->
+      <!-- ═══ 04 · TRÊS QUADROS ═══ -->
       <section class="ess-types">
         <div class="ess-wrap">
-          <div class="ess-types-head">
-            <p class="ess-label">Por que a placa não resolveu</p>
-            <h2 class="ess-headline">Existem três quadros diferentes.</h2>
-            <p class="ess-note-text">E o tratamento de um não serve para o outro.</p>
-          </div>
+          <p class="ess-label">03 <span aria-hidden="true">—</span> Por que a placa não resolveu</p>
+          <h2 class="ess-statement">Existem três quadros diferentes.<br />A sua placa foi feita para um deles.</h2>
 
           <div class="ess-types-grid">
             {tipos.map((t) => (
               <article class="ess-type">
                 <p class="ess-type-n">{t.n}</p>
-                <h3 class="ess-title">{t.nome}</h3>
-                <p class="ess-body-text">{t.texto}</p>
+                <h3 class="ess-type-name">{t.nome}</h3>
+                <p class="ess-type-sum">{t.resumo}</p>
+                <p class="ess-read-text ess-read-text--sm">{t.texto}</p>
               </article>
             ))}
           </div>
-
-          <p class="ess-types-close">
-            Uma placa feita sem definir qual dos três é o seu caso só acerta por sorte.
-            É a razão mais comum de um tratamento de DTM não funcionar.
-          </p>
         </div>
       </section>
 
-      <!-- QUEM ATENDE -->
+      <!-- ═══ 05 · QUEM ATENDE ═══ -->
       <section class="ess-about">
         <div class="ess-wrap ess-about-grid">
           <figure class="ess-portrait ess-portrait--about">
@@ -191,19 +173,18 @@ const naoE = [
           </figure>
 
           <div class="ess-about-text">
-            <p class="ess-label">Quem atende</p>
-            <h2 class="ess-headline">
-              Sou a Dra. Vanessa Silveira,<br />cirurgiã bucomaxilofacial.
-            </h2>
-            <p class="ess-body-text">
-              Em quase uma década dedicada a dor orofacial, atendi mais de duas mil pessoas.
-              A maioria chegou depois de anos ouvindo que não era nada — e trazendo uma pasta
-              de exames normais.
+            <p class="ess-label">04 <span aria-hidden="true">—</span> Quem atende</p>
+            <h2 class="ess-statement">Sou a Dra. Vanessa Silveira, cirurgiã bucomaxilofacial.</h2>
+
+            <p class="ess-read-text">
+              <strong>Em quase uma década dedicada a dor orofacial</strong>, atendi mais de duas
+              mil pessoas. A maioria chegou depois de anos ouvindo que não era nada, trazendo
+              uma pasta de exames normais.
             </p>
-            <p class="ess-body-text">
-              O que mudou o resultado dessas pessoas não foi uma técnica nova. Foi a primeira
-              consulta ter tempo para a história inteira antes de olhar qualquer imagem.
-              Sem isso, o tratamento acerta o sintoma e erra a causa — e a dor volta.
+            <p class="ess-read-text">
+              O que mudou o resultado delas não foi técnica nova. Foi a primeira consulta ter
+              tempo para a história inteira antes de olhar qualquer imagem. <em>Sem isso, o
+              tratamento acerta o sintoma e erra a causa</em> — e a dor volta.
             </p>
 
             <dl class="ess-creds">
@@ -215,13 +196,11 @@ const naoE = [
         </div>
       </section>
 
-      <!-- A PRIMEIRA CONSULTA: dados, não promessas -->
+      <!-- ═══ 06 · A CONSULTA ═══ -->
       <section class="ess-visit">
-        <div class="ess-wrap ess-visit-grid">
-          <div class="ess-visit-head">
-            <p class="ess-label">A primeira consulta</p>
-            <h2 class="ess-headline">O que acontece,<br />exatamente.</h2>
-          </div>
+        <div class="ess-wrap">
+          <p class="ess-label">05 <span aria-hidden="true">—</span> A primeira consulta</p>
+          <h2 class="ess-statement">Você sai com o nome do que tem.</h2>
 
           <dl class="ess-visit-list">
             {consulta.map((linha) => (
@@ -231,26 +210,22 @@ const naoE = [
               </div>
             ))}
           </dl>
+
+          <div class="ess-limits">
+            <p class="ess-label">Para ser claro</p>
+            <ul class="ess-limits-list">
+              {naoE.map((linha) => <li>{linha}</li>)}
+            </ul>
+          </div>
         </div>
       </section>
 
-      <!-- LIMITES HONESTOS -->
-      <section class="ess-limits">
-        <div class="ess-wrap ess-limits-grid">
-          <p class="ess-label">Para ser claro</p>
-          <ul class="ess-limits-list">
-            {naoE.map((linha) => <li>{linha}</li>)}
-          </ul>
-        </div>
-      </section>
-
-      <!-- DISPONIBILIDADE — não é pedido, é informação -->
+      <!-- ═══ 07 · DISPONIBILIDADE ═══ -->
       <section class="ess-close">
         <div class="ess-wrap ess-close-grid">
           <div class="ess-close-text">
-            <h2 class="ess-close-line">
-              A consulta existe e a agenda está aberta.
-              O próximo passo é seu.
+            <h2 class="ess-statement ess-statement--close">
+              A consulta existe e a agenda está aberta. O próximo passo é seu.
             </h2>
 
             <div class="ess-where">
@@ -297,31 +272,92 @@ const naoE = [
 </Layout>
 
 <style>
-  /* ==========================================================================
-     Três fontes de vida, nenhuma delas ornamental:
-     1. escala de PESOS (300–700) e o eixo de largura da Archivo
-     2. composição assimétrica sobre grid de 12 colunas
-     3. uma única inversão de fundo, na seção que carrega a revelação
-     ========================================================================== */
-
   .ess {
-    background: var(--ess-linen);
+    background: var(--ess-paper);
     color: var(--ess-ink);
-    font-family: var(--ess-font);
-    font-size: var(--ess-body);
-    line-height: 1.68;
+    font-family: var(--ess-serif);
+    font-optical-sizing: auto;
     -webkit-font-smoothing: antialiased;
   }
 
   .ess-wrap {
-    max-width: 1240px;
+    max-width: 1220px;
     margin: 0 auto;
     padding-inline: var(--ess-gutter);
   }
 
-  /* --- TOPO --- */
+  /* ---------- CAMADA 1: a espinha. Lidas sozinhas, contam a história. ---------- */
+  .ess-display {
+    font-family: var(--ess-serif);
+    font-size: var(--ess-display);
+    font-weight: 400;
+    line-height: 1.04;
+    letter-spacing: -0.022em;
+    margin: 0 0 clamp(1.75rem, 3vw, 2.5rem);
+  }
+
+  .ess-statement {
+    font-family: var(--ess-serif);
+    font-size: var(--ess-statement);
+    font-weight: 400;
+    line-height: 1.16;
+    letter-spacing: -0.016em;
+    max-width: 20ch;
+    margin: 0 0 clamp(2.25rem, 4vw, 3.25rem);
+    text-wrap: pretty;
+  }
+
+  .ess-statement--light { color: var(--ess-paper); max-width: 22ch; }
+  .ess-statement--close { max-width: 18ch; }
+
+  /* ---------- CAMADA 2: rótulos de escaneio, na sans ---------- */
+  .ess-label {
+    font-family: var(--ess-sans);
+    font-size: var(--ess-label);
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ess-muted);
+    margin: 0 0 1rem;
+  }
+
+  .ess-label--light { color: var(--ess-deep-tint); }
+
+  /* ---------- CAMADA 3: prosa. Grande, escura, medida curta. ----------
+     O erro da versão anterior foi corpo cinza a 17px. Aqui é 19–20px em
+     quase-tinta, que é o que torna a leitura confortável de verdade. */
+  .ess-read-text {
+    font-size: var(--ess-read);
+    font-weight: 400;
+    line-height: 1.62;
+    color: var(--ess-ink-soft);
+    max-width: 58ch;
+    margin: 0 0 1.15rem;
+  }
+
+  .ess-read-text:last-child { margin-bottom: 0; }
+
+  /* A entrada em negrito dá ao olho um ponto de pouso por parágrafo. */
+  .ess-read-text strong {
+    font-weight: 600;
+    color: var(--ess-ink);
+  }
+
+  .ess-read-text em {
+    font-style: italic;
+    color: var(--ess-ink);
+  }
+
+  .ess-read-text--lead { font-size: clamp(1.2rem, 1.6vw, 1.4rem); line-height: 1.55; }
+  .ess-read-text--sm { font-size: 1.0625rem; line-height: 1.6; }
+  .ess-read-text--light { color: var(--ess-deep-tint); }
+  .ess-read-text--light strong,
+  .ess-read-text--light em { color: var(--ess-paper); }
+  .ess-read-text--after { margin-top: clamp(2.5rem, 4vw, 3.5rem); max-width: 54ch; }
+
+  /* ---------- TOPO ---------- */
   .ess-top {
-    padding-block: 1.5rem;
+    padding-block: 1.4rem;
     border-bottom: 1px solid var(--ess-rule-soft);
   }
 
@@ -333,15 +369,15 @@ const naoE = [
   }
 
   .ess-mark {
-    font-size: 0.9375rem;
-    font-weight: 600;
-    font-stretch: 96%;
-    letter-spacing: -0.005em;
+    font-family: var(--ess-serif);
+    font-size: 1.1rem;
+    font-weight: 500;
     color: var(--ess-ink);
     text-decoration: none;
   }
 
   .ess-top-meta {
+    font-family: var(--ess-sans);
     font-size: var(--ess-label);
     font-weight: 500;
     letter-spacing: 0.14em;
@@ -349,10 +385,10 @@ const naoE = [
     color: var(--ess-muted);
   }
 
-  .ess-top-link,
-  .ess-link {
+  .ess-top-link {
+    font-family: var(--ess-sans);
     font-size: var(--ess-small);
-    font-weight: 500;
+    font-weight: 600;
     color: var(--ess-ink);
     text-decoration: underline;
     text-underline-offset: 0.4em;
@@ -361,68 +397,10 @@ const naoE = [
     transition: text-decoration-color 200ms var(--ess-ease);
   }
 
-  .ess-top-link:hover,
-  .ess-link:hover { text-decoration-color: var(--ess-ink); }
+  .ess-top-link:hover { text-decoration-color: var(--ess-ink); }
 
-  /* --- TIPOS DE BASE --- */
-  .ess-display {
-    font-size: var(--ess-display);
-    font-weight: 600;
-    font-stretch: 92%;
-    line-height: 1.02;
-    letter-spacing: -0.032em;
-    margin: 0;
-  }
-
-  .ess-headline {
-    font-size: var(--ess-headline);
-    font-weight: 500;
-    font-stretch: 96%;
-    line-height: 1.16;
-    letter-spacing: -0.024em;
-    margin: 0 0 1.25rem;
-    text-wrap: balance;
-  }
-
-  .ess-title {
-    font-size: var(--ess-title);
-    font-weight: 600;
-    line-height: 1.3;
-    letter-spacing: -0.014em;
-    margin: 0 0 0.75rem;
-  }
-
-  .ess-label {
-    font-size: var(--ess-label);
-    font-weight: 600;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--ess-muted);
-    margin: 0 0 1.25rem;
-  }
-
-  .ess-label--light { color: var(--ess-deep-tint); }
-
-  .ess-body-text {
-    font-size: var(--ess-body);
-    font-weight: 400;
-    line-height: 1.72;
-    color: var(--ess-muted);
-    margin: 0 0 1.15rem;
-    max-width: 54ch;
-  }
-
-  .ess-note-text {
-    font-size: var(--ess-small);
-    color: var(--ess-muted);
-    margin: 0;
-    max-width: 44ch;
-  }
-
-  /* --- ABERTURA: grid de 12, com o texto entrando na coluna 2 --- */
-  .ess-open {
-    padding-block: clamp(3.5rem, 7vw, 6rem) var(--ess-section);
-  }
+  /* ---------- 01 ABERTURA ---------- */
+  .ess-open { padding-block: clamp(3.5rem, 7vw, 6rem) var(--ess-section); }
 
   .ess-open-grid {
     display: grid;
@@ -432,38 +410,7 @@ const naoE = [
     align-items: start;
   }
 
-  /* O texto ocupa as colunas 1–7 e o retrato as 8–12: sem sobreposição, o
-     que evita que o auto-placement empurre o texto para depois da imagem. */
-  .ess-open-col {
-    grid-column: 1 / 8;
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    row-gap: clamp(2rem, 4vw, 3.25rem);
-  }
-
-  .ess-open-head { grid-column: 1 / 8; }
-
-  /* O corpo não começa na margem: entra uma coluna. É o degrau que a
-     composição repete depois nas outras seções. */
-  .ess-open-body {
-    grid-column: 2 / 8;
-    display: flex;
-    flex-direction: column;
-    gap: 1.15rem;
-  }
-
-  .ess-lede-text {
-    font-size: var(--ess-lede);
-    font-weight: 400;
-    line-height: 1.55;
-    color: var(--ess-muted);
-    margin: 0;
-  }
-
-  .ess-lede-text--strong {
-    color: var(--ess-ink);
-    font-weight: 500;
-  }
+  .ess-open-col { grid-column: 1 / 8; }
 
   .ess-portrait { margin: 0; }
 
@@ -473,10 +420,11 @@ const naoE = [
     height: auto;
     aspect-ratio: 2 / 3;
     object-fit: cover;
-    background: var(--ess-linen-deep);
+    background: var(--ess-paper-deep);
   }
 
   .ess-portrait figcaption {
+    font-family: var(--ess-sans);
     font-size: var(--ess-label);
     font-weight: 500;
     letter-spacing: 0.14em;
@@ -485,19 +433,12 @@ const naoE = [
     margin-top: 0.85rem;
   }
 
-  .ess-portrait--lead {
-    grid-column: 8 / 13;
-  }
+  .ess-portrait--lead { grid-column: 8 / 13; }
 
-  /* --- SINAIS: duas colunas, peso separando sintoma de mecanismo --- */
-  .ess-signs {
-    padding-block: 0 var(--ess-section);
-  }
-
-  .ess-signs-head {
-    max-width: 46ch;
-    margin-bottom: clamp(2.5rem, 5vw, 4rem);
-  }
+  /* ---------- 02 SINAIS ----------
+     Cada item é um ponto de parada do olho: linha em serifa quase-tinta,
+     mecanismo em sans pequena. O contraste de família separa as camadas. */
+  .ess-signs { padding-block: 0 var(--ess-section); }
 
   .ess-signs-grid {
     list-style: none;
@@ -510,71 +451,48 @@ const naoE = [
   }
 
   .ess-sign {
-    padding-block: clamp(1.4rem, 2.5vw, 1.9rem);
+    padding-block: clamp(1.3rem, 2.2vw, 1.75rem);
     border-bottom: 1px solid var(--ess-rule-soft);
   }
 
   .ess-sign-line {
-    font-size: clamp(1.0625rem, 1.5vw, 1.1875rem);
-    font-weight: 500;
-    line-height: 1.42;
-    letter-spacing: -0.014em;
+    font-family: var(--ess-serif);
+    font-size: var(--ess-sign);
+    font-weight: 400;
+    line-height: 1.38;
+    letter-spacing: -0.008em;
     color: var(--ess-ink);
-    margin: 0 0 0.45rem;
+    margin: 0 0 0.4rem;
   }
 
   .ess-sign-cause {
-    font-size: var(--ess-small);
+    font-family: var(--ess-sans);
+    font-size: 0.875rem;
     font-weight: 400;
-    line-height: 1.6;
+    line-height: 1.55;
     color: var(--ess-muted);
     margin: 0;
   }
 
-  /* --- A INVERSÃO --- */
+  /* ---------- 03 A INVERSÃO ---------- */
   .ess-reveal {
     background: var(--ess-deep);
-    color: var(--ess-linen);
-    padding-block: clamp(4.5rem, 9vw, 7.5rem);
+    color: var(--ess-paper);
+    padding-block: clamp(4.5rem, 8vw, 7rem);
     margin-bottom: var(--ess-section);
   }
 
-  .ess-reveal-grid {
+  .ess-reveal-cols {
     display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    column-gap: clamp(1.5rem, 3vw, 2.5rem);
-    row-gap: 2.5rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(2rem, 5vw, 4rem);
+    max-width: 62rem;
+    padding-top: clamp(1.5rem, 3vw, 2.25rem);
+    border-top: 1px solid var(--ess-deep-rule);
   }
 
-  .ess-reveal-head { grid-column: 1 / 6; }
-  .ess-reveal-body { grid-column: 7 / 13; }
-
-  .ess-headline--light { color: var(--ess-linen); }
-
-  .ess-reveal-body p {
-    font-size: var(--ess-lede);
-    font-weight: 300;
-    line-height: 1.66;
-    color: var(--ess-deep-tint);
-    margin: 0 0 1.5rem;
-  }
-
-  .ess-reveal-body p:last-child { margin-bottom: 0; }
-
-  .ess-reveal-emphasis {
-    color: var(--ess-linen) !important;
-    font-weight: 500 !important;
-    padding-block: 1.5rem;
-    border-block: 1px solid var(--ess-deep-rule);
-  }
-
-  /* --- TRÊS QUADROS --- */
+  /* ---------- 04 TRÊS QUADROS ---------- */
   .ess-types { padding-block: 0 var(--ess-section); }
-
-  .ess-types-head {
-    max-width: 34ch;
-    margin-bottom: clamp(2.5rem, 5vw, 3.5rem);
-  }
 
   .ess-types-grid {
     display: grid;
@@ -584,32 +502,36 @@ const naoE = [
 
   .ess-type {
     border-top: 2px solid var(--ess-ink);
-    padding-top: 1.25rem;
+    padding-top: 1.15rem;
   }
 
   .ess-type-n {
+    font-family: var(--ess-sans);
     font-size: var(--ess-label);
     font-weight: 700;
     font-variant-numeric: tabular-nums;
     letter-spacing: 0.14em;
     color: var(--ess-muted);
-    margin: 0 0 1.5rem;
+    margin: 0 0 1.25rem;
   }
 
-  .ess-type .ess-body-text { margin: 0; }
-
-  .ess-types-close {
-    font-size: var(--ess-lede);
-    font-weight: 500;
-    line-height: 1.55;
-    letter-spacing: -0.014em;
-    max-width: 40ch;
-    margin: clamp(2.5rem, 5vw, 3.5rem) 0 0 auto;
-    padding-top: 1.75rem;
-    border-top: 1px solid var(--ess-rule);
+  .ess-type-name {
+    font-family: var(--ess-serif);
+    font-size: 1.6rem;
+    font-weight: 400;
+    line-height: 1.2;
+    margin: 0 0 0.3rem;
   }
 
-  /* --- QUEM ATENDE --- */
+  .ess-type-sum {
+    font-family: var(--ess-sans);
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--ess-ink);
+    margin: 0 0 0.9rem;
+  }
+
+  /* ---------- 05 QUEM ATENDE ---------- */
   .ess-about { padding-block: 0 var(--ess-section); }
 
   .ess-about-grid {
@@ -621,24 +543,25 @@ const naoE = [
   }
 
   .ess-portrait--about { grid-column: 1 / 5; }
-  .ess-about-text { grid-column: 6 / 12; }
+  .ess-about-text { grid-column: 6 / 13; }
 
   .ess-creds {
-    margin: 2.5rem 0 0;
+    margin: 2.25rem 0 0;
     padding-top: 1.5rem;
     border-top: 1px solid var(--ess-rule);
     display: grid;
-    gap: 0.85rem;
+    gap: 0.75rem;
   }
 
   .ess-creds > div {
     display: grid;
-    grid-template-columns: 8.5rem 1fr;
+    grid-template-columns: 7.5rem 1fr;
     gap: 1rem;
     align-items: baseline;
   }
 
   .ess-creds dt {
+    font-family: var(--ess-sans);
     font-size: var(--ess-label);
     font-weight: 600;
     letter-spacing: 0.14em;
@@ -648,63 +571,52 @@ const naoE = [
 
   .ess-creds dd {
     margin: 0;
-    font-size: var(--ess-small);
-    font-weight: 400;
+    font-size: 1.0625rem;
     line-height: 1.5;
+    color: var(--ess-ink-soft);
   }
 
-  /* --- A CONSULTA: tabela de dados, porque dado é o que prova competência --- */
+  /* ---------- 06 A CONSULTA ---------- */
   .ess-visit { padding-block: 0 var(--ess-section); }
 
-  .ess-visit-grid {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    column-gap: clamp(1.5rem, 3vw, 2.5rem);
-    row-gap: 2.5rem;
-    align-items: start;
-  }
-
-  .ess-visit-head { grid-column: 1 / 5; }
-  .ess-visit-list { grid-column: 6 / 13; margin: 0; }
+  .ess-visit-list { margin: 0; max-width: 62rem; }
 
   .ess-visit-row {
     display: grid;
-    grid-template-columns: 10rem 1fr;
+    grid-template-columns: 11rem 1fr;
     gap: 1.5rem;
-    padding-block: 1.35rem;
+    padding-block: 1.25rem;
     border-bottom: 1px solid var(--ess-rule-soft);
   }
 
   .ess-visit-row:first-child { border-top: 1px solid var(--ess-ink); }
 
   .ess-visit-row dt {
+    font-family: var(--ess-sans);
     font-size: var(--ess-label);
     font-weight: 600;
     letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--ess-muted);
-    padding-top: 0.28rem;
+    padding-top: 0.42rem;
   }
 
   .ess-visit-row dd {
     margin: 0;
-    font-size: var(--ess-body);
-    font-weight: 400;
-    line-height: 1.6;
-    max-width: 52ch;
+    font-size: var(--ess-read);
+    line-height: 1.55;
+    color: var(--ess-ink-soft);
+    max-width: 54ch;
   }
 
-  /* --- LIMITES --- */
   .ess-limits {
-    padding-block: 0 var(--ess-section);
+    margin-top: clamp(2.5rem, 5vw, 4rem);
+    background: var(--ess-paper-warm);
+    padding: clamp(1.75rem, 3.5vw, 2.5rem);
+    max-width: 62rem;
   }
 
-  .ess-limits-grid {
-    background: var(--ess-linen-warm);
-    padding: clamp(2rem, 4vw, 3rem);
-  }
-
-  .ess-limits-grid .ess-label { margin-bottom: 1.5rem; }
+  .ess-limits .ess-label { margin-bottom: 1.25rem; }
 
   .ess-limits-list {
     list-style: none;
@@ -712,17 +624,16 @@ const naoE = [
     padding: 0;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 0.85rem clamp(2rem, 5vw, 4rem);
+    gap: 0.7rem clamp(2rem, 5vw, 3.5rem);
   }
 
   .ess-limits-list li {
-    font-size: var(--ess-small);
-    font-weight: 400;
-    line-height: 1.55;
-    color: var(--ess-muted);
+    font-size: 1.0625rem;
+    line-height: 1.5;
+    color: var(--ess-ink-soft);
   }
 
-  /* --- DISPONIBILIDADE --- */
+  /* ---------- 07 DISPONIBILIDADE ---------- */
   .ess-close { padding-block: 0 var(--ess-section); }
 
   .ess-close-grid {
@@ -736,37 +647,27 @@ const naoE = [
   .ess-close-text { grid-column: 1 / 8; }
   .ess-portrait--close { grid-column: 9 / 13; }
 
-  .ess-close-line {
-    font-size: var(--ess-headline);
-    font-weight: 500;
-    font-stretch: 96%;
-    line-height: 1.18;
-    letter-spacing: -0.026em;
-    max-width: 22ch;
-    margin: 0 0 clamp(2.25rem, 4vw, 3rem);
-    text-wrap: balance;
-  }
-
   .ess-where {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: clamp(1.5rem, 4vw, 3rem);
     margin-bottom: clamp(2.25rem, 4vw, 3rem);
-    padding-top: 1.75rem;
+    padding-top: 1.5rem;
     border-top: 1px solid var(--ess-rule);
   }
 
-  .ess-where-item .ess-label { margin-bottom: 0.75rem; }
+  .ess-where-item .ess-label { margin-bottom: 0.65rem; }
 
   .ess-address {
-    font-size: var(--ess-small);
-    font-weight: 400;
+    font-size: 1.0625rem;
     line-height: 1.5;
-    margin: 0 0 0.5rem;
+    margin: 0 0 0.4rem;
+    color: var(--ess-ink-soft);
   }
 
   .ess-where-status {
-    font-size: var(--ess-small);
+    font-family: var(--ess-sans);
+    font-size: 0.875rem;
     font-weight: 600;
     margin: 0;
   }
@@ -774,10 +675,10 @@ const naoE = [
   .ess-button {
     display: inline-block;
     background: var(--ess-ink);
-    color: var(--ess-linen);
+    color: var(--ess-paper);
+    font-family: var(--ess-sans);
     font-size: var(--ess-small);
     font-weight: 600;
-    letter-spacing: 0.01em;
     padding: 1.15rem 2.6rem;
     text-decoration: none;
     transition: background-color 200ms var(--ess-ease);
@@ -786,15 +687,16 @@ const naoE = [
   .ess-button:hover { background: var(--ess-deep); }
 
   .ess-note {
+    font-family: var(--ess-sans);
     font-size: var(--ess-label);
     font-weight: 500;
     letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--ess-muted);
-    margin: 1.25rem 0 0;
+    margin: 1.15rem 0 0;
   }
 
-  /* --- RODAPÉ --- */
+  /* ---------- RODAPÉ ---------- */
   .ess-foot {
     border-top: 1px solid var(--ess-rule);
     padding-block: 2rem 2.75rem;
@@ -805,12 +707,12 @@ const naoE = [
     flex-wrap: wrap;
     justify-content: space-between;
     gap: 1rem 2rem;
+    font-family: var(--ess-sans);
     font-size: 0.8125rem;
     color: var(--ess-muted);
   }
 
   .ess-foot-inner p { margin: 0; }
-
   .ess-foot-nav { display: flex; flex-wrap: wrap; gap: 1.75rem; }
 
   .ess-foot-nav a {
@@ -821,25 +723,15 @@ const naoE = [
 
   .ess-foot-nav a:hover { color: var(--ess-ink); }
 
-  .ess :focus-visible {
-    outline: 2px solid var(--ess-deep);
-    outline-offset: 3px;
-  }
+  .ess :focus-visible { outline: 2px solid var(--ess-deep); outline-offset: 3px; }
 
   :global(body:has(.ess) .vs-wa-float) { display: none !important; }
 
-  /* --- RESPONSIVO --- */
+  /* ---------- RESPONSIVO ---------- */
   @media (max-width: 1080px) {
-    .ess-open-col { grid-column: 1 / 8; }
-    .ess-portrait--lead { grid-column: 8 / 13; }
-    .ess-reveal-head { grid-column: 1 / 13; }
-    .ess-reveal-body { grid-column: 1 / 11; }
     .ess-portrait--about { grid-column: 1 / 6; }
     .ess-about-text { grid-column: 7 / 13; }
-    .ess-visit-head { grid-column: 1 / 13; }
-    .ess-visit-list { grid-column: 1 / 13; }
     .ess-close-text { grid-column: 1 / 9; }
-    .ess-portrait--close { grid-column: 9 / 13; }
   }
 
   @media (max-width: 860px) {
@@ -852,30 +744,30 @@ const naoE = [
     .ess-close-text,
     .ess-portrait--close {
       grid-column: 1 / 13;
-      grid-row: auto;
     }
 
     .ess-portrait--lead,
     .ess-portrait--about,
-    .ess-portrait--close {
-      max-width: 340px;
-    }
+    .ess-portrait--close { max-width: 330px; }
+
+    .ess-statement { max-width: 100%; }
 
     .ess-signs-grid,
     .ess-types-grid,
-    .ess-limits-list {
+    .ess-limits-list,
+    .ess-reveal-cols {
       grid-template-columns: 1fr;
     }
 
     .ess-signs-grid { column-gap: 0; }
-    .ess-types-close { margin-left: 0; }
+    .ess-reveal-cols { gap: 1.15rem; }
   }
 
   @media (max-width: 560px) {
     .ess-visit-row,
     .ess-creds > div {
       grid-template-columns: 1fr;
-      gap: 0.4rem;
+      gap: 0.35rem;
     }
 
     .ess-where { grid-template-columns: 1fr; }

@@ -1,56 +1,78 @@
 /* ==========================================================================
    IDV ESSENCIAL — DRA. VANESSA SILVEIRA
 
-   Tese: a paciente não precisa ser impressionada nem persuadida. Precisa que
-   alguém descreva a experiência dela com mais precisão do que ela própria
-   consegue, e explique o mecanismo. Competência demonstrada é o argumento
-   de venda; o resto da página só precisa não atrapalhar.
+   A página é lida em três profundidades, e precisa funcionar nas três:
 
-   Minimalismo aqui não é ausência: é economia de MEIOS, não de trabalho.
-   A vida vem de três lugares — escala de pesos, composição assimétrica e
-   uma única inversão de fundo. Não de ornamento.
+   5 segundos  — só as frases grandes em serifa. Sozinhas, elas já contam
+                 a história inteira. É o que decide se ela continua.
+   30 segundos — as frases grandes + os rótulos + a lista de sinais.
+   Leitura     — a prosa, em corpo grande e escuro, medida de 62ch.
+
+   Isso governa cada decisão abaixo. Corpo de texto em cinza pequeno é a
+   fórmula de página de termos de uso; aqui o corpo é 19–20px, quase tinta,
+   e o cinza fica reservado ao que é de fato secundário.
    ========================================================================== */
 
+/* Newsreader (Production Type): leitura e títulos. Eixo óptico de verdade —
+   o texto usa opsz baixo, o display usa alto, e as formas mudam entre eles. */
 @font-face {
-  font-family: 'Archivo';
+  font-family: 'Newsreader';
   font-style: normal;
-  font-weight: 300 700;
-  font-stretch: 75% 112%;
+  font-weight: 200 800;
   font-display: swap;
-  src: url('/fonts/archivo-variable-latin.woff2') format('woff2');
+  src: url('/fonts/newsreader-variable-roman-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Newsreader';
+  font-style: italic;
+  font-weight: 200 700;
+  font-display: swap;
+  src: url('/fonts/newsreader-variable-italic-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* Schibsted Grotesk: só a camada de escaneio — rótulos, dados, botões.
+   Face de mídia norueguesa, com desenho próprio; não é grotesca genérica. */
+@font-face {
+  font-family: 'Schibsted Grotesk';
+  font-style: normal;
+  font-weight: 400 900;
+  font-display: swap;
+  src: url('/fonts/schibsted-grotesk-variable-roman-latin.woff2') format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
 .ess {
-  /* Linho quente, tinta quente. E uma única cor: verde-petróleo profundo.
-     Ela existe para inverter o fundo na seção que carrega a revelação
-     clínica — não para decorar. Aparece uma vez, com peso. */
-  --ess-linen: #F2F0EB;
-  --ess-linen-warm: #EAE6DE;
-  --ess-linen-deep: #DFDAD0;
-  --ess-ink: #17150F;
-  --ess-muted: #6A645A;
-  --ess-rule: rgba(23, 21, 15, 0.16);
-  --ess-rule-soft: rgba(23, 21, 15, 0.09);
+  --ess-paper: #F4F2ED;
+  --ess-paper-warm: #ECE7DE;
+  --ess-paper-deep: #DFD9CD;
+  --ess-ink: #15130F;
+  --ess-ink-soft: #3A352C;     /* corpo de texto: quase tinta, NUNCA cinza */
+  --ess-muted: #6E675A;        /* só metadado e legenda */
+  --ess-rule: rgba(21, 19, 15, 0.18);
+  --ess-rule-soft: rgba(21, 19, 15, 0.10);
 
-  --ess-deep: #24423D;
-  --ess-deep-tint: #9DB5AF;
-  --ess-deep-rule: rgba(255, 255, 255, 0.18);
+  --ess-deep: #21403A;
+  --ess-deep-tint: #B6CCC5;
+  --ess-deep-rule: rgba(255, 255, 255, 0.2);
 
-  --ess-font: 'Archivo', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, sans-serif;
+  --ess-serif: 'Newsreader', Georgia, 'Times New Roman', serif;
+  --ess-sans: 'Schibsted Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 
-  /* Escala com PESO, não só com corpo. A Archivo tem eixo de largura:
-     o display entra levemente condensado (92), o texto fica em 100.
-     É essa diferença que dá autoridade editorial sem trocar de família. */
-  --ess-display: clamp(2.3rem, 5.4vw, 4.15rem);
-  --ess-headline: clamp(1.75rem, 3.4vw, 2.75rem);
-  --ess-title: clamp(1.25rem, 2vw, 1.55rem);
-  --ess-lede: clamp(1.0625rem, 1.5vw, 1.25rem);
-  --ess-body: 1.0625rem;
+  /* CAMADA 1 — as frases que carregam a página sozinhas */
+  --ess-display: clamp(2.5rem, 5.6vw, 4.4rem);
+  --ess-statement: clamp(1.65rem, 3.2vw, 2.6rem);
+  /* CAMADA 2 — títulos e sinais */
+  --ess-headline: clamp(1.5rem, 2.6vw, 2.05rem);
+  --ess-sign: clamp(1.15rem, 1.55vw, 1.3rem);
+  /* CAMADA 3 — prosa, grande e confortável */
+  --ess-read: clamp(1.125rem, 1.35vw, 1.25rem);
   --ess-small: 0.9375rem;
   --ess-label: 0.6875rem;
 
   --ess-gutter: clamp(1.5rem, 5vw, 4.5rem);
-  --ess-section: clamp(5rem, 10vw, 8.5rem);
+  --ess-section: clamp(5rem, 9vw, 7.5rem);
   --ess-ease: cubic-bezier(0.2, 0.8, 0.2, 1);
 }
