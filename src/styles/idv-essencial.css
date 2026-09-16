@@ -1,13 +1,14 @@
 /* ==========================================================================
    IDV ESSENCIAL — DRA. VANESSA SILVEIRA
-   Proposta independente. Não herda nada de idv-brasileira.css.
 
-   Tese: a paciente não precisa ser impressionada, precisa ser reconhecida.
-   Então a página não tenta aparecer. Não há cor de marca, não há moldura,
-   não há granulado, não há divisor, não há badge, não há ícone decorativo.
-   Só existem quatro materiais: o fundo de linho, a tinta, o ar e as fotos.
-   A cor da página inteira vem das fotografias — como numa vitrine da Osklen,
-   onde a peça é que tem cor e a loja é neutra.
+   Tese: a paciente não precisa ser impressionada nem persuadida. Precisa que
+   alguém descreva a experiência dela com mais precisão do que ela própria
+   consegue, e explique o mecanismo. Competência demonstrada é o argumento
+   de venda; o resto da página só precisa não atrapalhar.
+
+   Minimalismo aqui não é ausência: é economia de MEIOS, não de trabalho.
+   A vida vem de três lugares — escala de pesos, composição assimétrica e
+   uma única inversão de fundo. Não de ornamento.
    ========================================================================== */
 
 @font-face {
@@ -21,23 +22,35 @@
 }
 
 .ess {
-  /* Quatro valores. Não há quinto — nem cor de acento, nem semântica de cor.
-     O neutro é quente de propósito: linho, não cinza digital. */
+  /* Linho quente, tinta quente. E uma única cor: verde-petróleo profundo.
+     Ela existe para inverter o fundo na seção que carrega a revelação
+     clínica — não para decorar. Aparece uma vez, com peso. */
   --ess-linen: #F2F0EB;
-  --ess-linen-deep: #E8E4DC;
-  --ess-ink: #1B1917;
-  --ess-muted: #6B655E;
-  --ess-rule: rgba(27, 25, 23, 0.14);
+  --ess-linen-warm: #EAE6DE;
+  --ess-linen-deep: #DFDAD0;
+  --ess-ink: #17150F;
+  --ess-muted: #6A645A;
+  --ess-rule: rgba(23, 21, 15, 0.16);
+  --ess-rule-soft: rgba(23, 21, 15, 0.09);
+
+  --ess-deep: #24423D;
+  --ess-deep-tint: #9DB5AF;
+  --ess-deep-rule: rgba(255, 255, 255, 0.18);
 
   --ess-font: 'Archivo', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, sans-serif;
 
-  /* Uma escala, quatro degraus. Tudo na página é um destes quatro. */
-  --ess-statement: clamp(2.15rem, 5vw, 3.9rem);
-  --ess-title: clamp(1.5rem, 2.6vw, 2.1rem);
+  /* Escala com PESO, não só com corpo. A Archivo tem eixo de largura:
+     o display entra levemente condensado (92), o texto fica em 100.
+     É essa diferença que dá autoridade editorial sem trocar de família. */
+  --ess-display: clamp(2.3rem, 5.4vw, 4.15rem);
+  --ess-headline: clamp(1.75rem, 3.4vw, 2.75rem);
+  --ess-title: clamp(1.25rem, 2vw, 1.55rem);
+  --ess-lede: clamp(1.0625rem, 1.5vw, 1.25rem);
   --ess-body: 1.0625rem;
+  --ess-small: 0.9375rem;
   --ess-label: 0.6875rem;
 
-  --ess-gutter: clamp(1.5rem, 5vw, 4rem);
-  --ess-section: clamp(5.5rem, 11vw, 9rem);
+  --ess-gutter: clamp(1.5rem, 5vw, 4.5rem);
+  --ess-section: clamp(5rem, 10vw, 8.5rem);
   --ess-ease: cubic-bezier(0.2, 0.8, 0.2, 1);
 }

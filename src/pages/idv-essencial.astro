@@ -1,72 +1,94 @@
 ---
 // src/pages/idv-essencial.astro
-// POC de identidade visual — proposta ESSENCIAL.
-// Independente de /home-rio e de /idv-brasileira: paleta, tipografia,
-// estrutura e texto foram refeitos do zero.
+// POC de identidade — proposta ESSENCIAL, versão 2.
+// A venda acontece por reconhecimento e por competência demonstrada.
+// Nenhum gatilho de escassez, urgência fabricada ou apelo emocional forçado:
+// a página descortina o mecanismo da dor e informa que existe consulta.
 import Layout from '../layouts/Layout.astro';
 import '../styles/idv-essencial.css';
 
 const whatsapp = 'https://wa.me/5532998513101';
 
-// O conteudo que importa, e so ele. Cada item abaixo existe porque responde
-// a uma pergunta que a paciente realmente faz — nenhum existe para preencher.
-const reconhecimento = [
-  'Você acorda com a mandíbula cansada e a cabeça já pesada.',
-  'A boca estala ao abrir, e existe o medo de que um dia trave.',
-  'Os exames voltam normais, mas a dor continua ali.',
-  'Você já trocou de placa mais de uma vez.',
-  'Alguém já disse que era do estresse.',
+// Cada sintoma vem com o seu mecanismo. É o par sintoma + explicação que
+// produz o reconhecimento: ela já sentiu, mas nunca ouviu o porquê.
+const sinais = [
+  { sinal: 'Você acorda com a cabeça pesada e a mandíbula cansada.',
+    causa: 'Não é sono ruim. É musculatura que trabalhou a noite inteira sem você saber.' },
+  { sinal: 'A boca estala, range ou desliza para um lado quando abre.',
+    causa: 'O disco da articulação está saindo de posição e voltando a cada movimento.' },
+  { sinal: 'Dor no ouvido, zumbido ou sensação de ouvido tampado — e o otorrino não achou nada.',
+    causa: 'A articulação fica a milímetros do canal auditivo. A dor é referida, não é do ouvido.' },
+  { sinal: 'Dor de cabeça na têmpora, quase sempre do mesmo lado.',
+    causa: 'É o músculo temporal em contração contínua. Costuma ser tratado como enxaqueca por anos.' },
+  { sinal: 'Cansaço ao mastigar carne, pão, chiclete — e você já evita certos alimentos.',
+    causa: 'A musculatura perde resistência antes de terminar a refeição.' },
+  { sinal: 'A sensação de que os dentes não encaixam mais como antes.',
+    causa: 'A posição do côndilo mudou. Os dentes são o sintoma, não a origem.' },
+  { sinal: 'Você já usou placa e não resolveu — ou piorou.',
+    causa: 'Placa é instrumento, não tratamento. Existe mais de um tipo, para mais de um problema.' },
+  { sinal: 'Alguém já disse que era do estresse e mandou você relaxar.',
+    causa: 'Estresse é um fator. Nunca é o diagnóstico.' },
 ];
 
-const caminho = [
-  {
-    tempo: 'Primeira consulta',
-    titulo: 'Ouvir a história inteira',
-    texto: 'Antes de qualquer exame. Quanto tempo dura, o que piora, o que já foi tentado. É a parte que costuma ter sido pulada.',
-  },
-  {
-    tempo: 'Mesma semana',
-    titulo: 'Nomear a causa',
-    texto: 'Exame clínico da articulação e da musculatura, com imagem quando ela muda a conduta. Dor com nome deixa de ser dor sem fim.',
-  },
-  {
-    tempo: 'A partir daí',
-    titulo: 'Tratar na ordem certa',
-    texto: 'Do conservador ao cirúrgico, nessa ordem, sempre. A cirurgia é uma possibilidade entre outras — não o ponto de partida.',
-  },
+const tipos = [
+  { n: '01', nome: 'Muscular',
+    texto: 'A dor nasce nos músculos da mastigação. Dói ao toque, piora ao longo do dia e se espalha para têmpora e pescoço. É o tipo mais comum e o que mais responde a tratamento conservador.' },
+  { n: '02', nome: 'Articular',
+    texto: 'O problema está no disco e na articulação. Estalos, travamentos, limitação de abertura. Aqui a placa estabilizadora sozinha raramente resolve.' },
+  { n: '03', nome: 'Mista',
+    texto: 'As duas coisas ao mesmo tempo — que é o cenário mais frequente em quem já convive com dor há anos. Exige tratar na ordem certa, não tudo de uma vez.' },
+];
+
+const consulta = [
+  { rotulo: 'Duração', valor: 'Cerca de uma hora' },
+  { rotulo: 'Começa por', valor: 'A sua história inteira, antes de qualquer exame' },
+  { rotulo: 'Exame clínico', valor: 'Palpação dos músculos da mastigação e do pescoço, medida da abertura de boca em milímetros, ausculta da articulação e avaliação dos movimentos' },
+  { rotulo: 'Imagem', valor: 'Solicitada depois, quando muda a conduta — não para descobrir o diagnóstico' },
+  { rotulo: 'Você sai com', valor: 'O nome do que você tem e o plano escrito, do menos invasivo para o mais' },
+];
+
+const naoE = [
+  'Não é harmonização facial nem procedimento estético.',
+  'Não é promessa de cura numa sessão.',
+  'Não começa por cirurgia — a maioria dos casos nunca chega lá.',
+  'Não substitui o seu dentista: trabalha junto com ele.',
 ];
 ---
 
 <Layout
   title="Dra. Vanessa Silveira | DTM e dor orofacial em Juiz de Fora e na Barra da Tijuca"
-  description="Cirurgia bucomaxilofacial com foco em DTM e dor orofacial crônica. Juiz de Fora (MG) e Barra da Tijuca (RJ)."
+  description="Cirurgia bucomaxilofacial com foco em DTM e dor orofacial crônica. Diagnóstico clínico, tratamento na ordem certa. Juiz de Fora (MG) e Barra da Tijuca (RJ)."
 >
   <div class="ess">
 
     <header class="ess-top">
       <div class="ess-wrap ess-top-inner">
         <a href="/idv-essencial" class="ess-mark">Dra. Vanessa Silveira</a>
+        <span class="ess-top-meta">Cirurgia Bucomaxilofacial <span aria-hidden="true">·</span> DTM e Dor Orofacial</span>
         <a href={whatsapp} target="_blank" rel="noopener" class="ess-top-link">Agendar consulta</a>
       </div>
     </header>
 
     <main>
 
-      <!-- ABERTURA: a frase que faz ela se reconhecer, e o retrato. Nada mais. -->
+      <!-- ABERTURA -->
       <section class="ess-open">
-        <div class="ess-wrap">
-          <h1 class="ess-statement">Você não está inventando a sua dor.</h1>
-        </div>
         <div class="ess-wrap ess-open-grid">
-          <div class="ess-open-text">
-            <p class="ess-lede">
-              Dor de cabeça diária, estalos na mandíbula, o maxilar que trava, o sono que não descansa.
-              Isso tem nome — disfunção temporomandibular — e tem caminho de tratamento.
+          <div class="ess-open-col">
+            <div class="ess-open-head">
+              <h1 class="ess-display">Você não está<br />inventando a sua dor.</h1>
+            </div>
+
+            <div class="ess-open-body">
+            <p class="ess-lede-text">
+              Dor de cabeça quase todo dia. Estalo ao abrir a boca. O maxilar que cansa antes
+              do fim da refeição. E exames que voltam normais.
             </p>
-            <p class="ess-meta">
-              Cirurgia bucomaxilofacial <span aria-hidden="true">·</span> DTM e dor orofacial
-              <br />Juiz de Fora <span aria-hidden="true">·</span> Barra da Tijuca
-            </p>
+            <p class="ess-lede-text ess-lede-text--strong">
+              Isso tem nome, tem causa anatômica e tem tratamento. O motivo de ninguém ter
+                encontrado até agora costuma ser sempre o mesmo — e está explicado abaixo.
+              </p>
+            </div>
           </div>
 
           <figure class="ess-portrait ess-portrait--lead">
@@ -75,28 +97,92 @@ const caminho = [
               alt="Dra. Vanessa Silveira sentada, em postura tranquila e acolhedora"
               width="691" height="1024" loading="eager" fetchpriority="high"
             />
+            <figcaption>Dra. Vanessa Silveira <span aria-hidden="true">·</span> CRO/MG</figcaption>
           </figure>
         </div>
       </section>
 
-      <!-- RECONHECIMENTO: texto puro. Sem ícone, sem card, sem caixa. -->
-      <section class="ess-recognize">
+      <!-- RECONHECIMENTO: sintoma + mecanismo, em duas colunas -->
+      <section class="ess-signs">
         <div class="ess-wrap">
-          <p class="ess-label">Provavelmente você já vive assim</p>
-          <ul class="ess-lines">
-            {reconhecimento.map((linha) => <li>{linha}</li>)}
+          <div class="ess-signs-head">
+            <p class="ess-label">Comece por aqui</p>
+            <h2 class="ess-headline">Quantas destas são suas?</h2>
+            <p class="ess-note-text">
+              Cada uma delas tem uma explicação anatômica. Nenhuma é exagero seu.
+            </p>
+          </div>
+
+          <ul class="ess-signs-grid">
+            {sinais.map((item) => (
+              <li class="ess-sign">
+                <p class="ess-sign-line">{item.sinal}</p>
+                <p class="ess-sign-cause">{item.causa}</p>
+              </li>
+            ))}
           </ul>
-          <p class="ess-aside">
-            Nenhuma dessas frases é sinal de exagero. São sinais clínicos, e cada um deles
-            aponta para algo que pode ser examinado.
+        </div>
+      </section>
+
+      <!-- A INVERSÃO: a revelação clínica, a única seção em fundo escuro -->
+      <section class="ess-reveal">
+        <div class="ess-wrap ess-reveal-grid">
+          <div class="ess-reveal-head">
+            <p class="ess-label ess-label--light">A parte que não te explicaram</p>
+            <h2 class="ess-headline ess-headline--light">
+              Por que os seus exames vieram normais
+            </h2>
+          </div>
+
+          <div class="ess-reveal-body">
+            <p>
+              A radiografia panorâmica que você fez mostra dentes e osso. Ela não mostra o disco
+              articular, que é de cartilagem, nem os músculos da mastigação — que é exatamente
+              onde a maior parte da dor de DTM nasce.
+            </p>
+            <p class="ess-reveal-emphasis">
+              Um exame normal não significa que não há nada. Significa que aquele exame não
+              olha para onde dói.
+            </p>
+            <p>
+              O diagnóstico de DTM é clínico. Se faz com tempo, com as mãos e com medida.
+              A imagem entra depois, para confirmar ou para planejar — nunca para descobrir.
+              É por isso que tantas pessoas passam anos com exames impecáveis e dor real.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- POR QUE A PLACA NÃO RESOLVEU -->
+      <section class="ess-types">
+        <div class="ess-wrap">
+          <div class="ess-types-head">
+            <p class="ess-label">Por que a placa não resolveu</p>
+            <h2 class="ess-headline">Existem três quadros diferentes.</h2>
+            <p class="ess-note-text">E o tratamento de um não serve para o outro.</p>
+          </div>
+
+          <div class="ess-types-grid">
+            {tipos.map((t) => (
+              <article class="ess-type">
+                <p class="ess-type-n">{t.n}</p>
+                <h3 class="ess-title">{t.nome}</h3>
+                <p class="ess-body-text">{t.texto}</p>
+              </article>
+            ))}
+          </div>
+
+          <p class="ess-types-close">
+            Uma placa feita sem definir qual dos três é o seu caso só acerta por sorte.
+            É a razão mais comum de um tratamento de DTM não funcionar.
           </p>
         </div>
       </section>
 
-      <!-- QUEM CUIDA: primeira pessoa, curto, e o segundo retrato. -->
+      <!-- QUEM ATENDE -->
       <section class="ess-about">
         <div class="ess-wrap ess-about-grid">
-          <figure class="ess-portrait">
+          <figure class="ess-portrait ess-portrait--about">
             <img
               src="/images/vanessa-rio/vanessa-planta-sorriso.jpg"
               alt="Retrato da Dra. Vanessa Silveira"
@@ -106,69 +192,82 @@ const caminho = [
 
           <div class="ess-about-text">
             <p class="ess-label">Quem atende</p>
-            <h2 class="ess-title">
-              Sou a Dra. Vanessa Silveira, cirurgiã bucomaxilofacial.
+            <h2 class="ess-headline">
+              Sou a Dra. Vanessa Silveira,<br />cirurgiã bucomaxilofacial.
             </h2>
-            <p class="ess-body">
-              Em quase uma década tratando dor orofacial, atendi mais de duas mil pessoas — e a
-              maioria chegou depois de anos ouvindo que não era nada.
+            <p class="ess-body-text">
+              Em quase uma década dedicada a dor orofacial, atendi mais de duas mil pessoas.
+              A maioria chegou depois de anos ouvindo que não era nada — e trazendo uma pasta
+              de exames normais.
             </p>
-            <p class="ess-body">
-              Aprendi que a consulta mais importante é a primeira: a que tem tempo para a história
-              inteira antes de olhar qualquer exame. Sem isso, o tratamento acerta o sintoma e erra a causa.
+            <p class="ess-body-text">
+              O que mudou o resultado dessas pessoas não foi uma técnica nova. Foi a primeira
+              consulta ter tempo para a história inteira antes de olhar qualquer imagem.
+              Sem isso, o tratamento acerta o sintoma e erra a causa — e a dor volta.
             </p>
-            <p class="ess-credentials">
-              Especialista em Cirurgia e Traumatologia Bucomaxilofacial <span aria-hidden="true">·</span>
-              CRO/MG <span aria-hidden="true">·</span> atuação dedicada a DTM e dores faciais crônicas
-            </p>
+
+            <dl class="ess-creds">
+              <div><dt>Formação</dt><dd>Especialista em Cirurgia e Traumatologia Bucomaxilofacial</dd></div>
+              <div><dt>Atuação</dt><dd>DTM, dor orofacial crônica e cirurgia ortognática</dd></div>
+              <div><dt>Registro</dt><dd>CRO/MG</dd></div>
+            </dl>
           </div>
         </div>
       </section>
 
-      <!-- O CAMINHO: três etapas reais, porque aqui a ordem carrega informação. -->
-      <section class="ess-path">
-        <div class="ess-wrap">
-          <p class="ess-label">Como funciona</p>
-          <div class="ess-path-grid">
-            {caminho.map((etapa) => (
-              <article class="ess-step">
-                <p class="ess-step-time">{etapa.tempo}</p>
-                <h3 class="ess-step-title">{etapa.titulo}</h3>
-                <p class="ess-body">{etapa.texto}</p>
-              </article>
+      <!-- A PRIMEIRA CONSULTA: dados, não promessas -->
+      <section class="ess-visit">
+        <div class="ess-wrap ess-visit-grid">
+          <div class="ess-visit-head">
+            <p class="ess-label">A primeira consulta</p>
+            <h2 class="ess-headline">O que acontece,<br />exatamente.</h2>
+          </div>
+
+          <dl class="ess-visit-list">
+            {consulta.map((linha) => (
+              <div class="ess-visit-row">
+                <dt>{linha.rotulo}</dt>
+                <dd>{linha.valor}</dd>
+              </div>
             ))}
-          </div>
+          </dl>
         </div>
       </section>
 
-      <!-- ONDE: informação, sem cartão e sem mapa decorativo. -->
-      <section class="ess-where">
-        <div class="ess-wrap ess-where-grid">
-          <div class="ess-where-item">
-            <p class="ess-label">Juiz de Fora <span aria-hidden="true">·</span> MG</p>
-            <p class="ess-address">Av. Barão do Rio Branco, 2872<br />Centro</p>
-            <a href="https://maps.google.com/?q=Av.+Barão+do+Rio+Branco,+2872,+Juiz+de+Fora"
-               target="_blank" rel="noopener" class="ess-link">Ver no mapa</a>
-          </div>
-
-          <div class="ess-where-item">
-            <p class="ess-label">Barra da Tijuca <span aria-hidden="true">·</span> RJ</p>
-            <p class="ess-address">Nova unidade<br />Agenda em formação</p>
-            <a href={whatsapp} target="_blank" rel="noopener" class="ess-link">Entrar na lista</a>
-          </div>
+      <!-- LIMITES HONESTOS -->
+      <section class="ess-limits">
+        <div class="ess-wrap ess-limits-grid">
+          <p class="ess-label">Para ser claro</p>
+          <ul class="ess-limits-list">
+            {naoE.map((linha) => <li>{linha}</li>)}
+          </ul>
         </div>
       </section>
 
-      <!-- FECHO: uma frase e uma ação. -->
+      <!-- DISPONIBILIDADE — não é pedido, é informação -->
       <section class="ess-close">
         <div class="ess-wrap ess-close-grid">
           <div class="ess-close-text">
-            <p class="ess-closing-line">
-              Se você chegou até o fim desta página, é bem provável que já tenha tentado de tudo.
-              Vamos começar pelo começo.
-            </p>
+            <h2 class="ess-close-line">
+              A consulta existe e a agenda está aberta.
+              O próximo passo é seu.
+            </h2>
+
+            <div class="ess-where">
+              <div class="ess-where-item">
+                <p class="ess-label">Juiz de Fora <span aria-hidden="true">·</span> MG</p>
+                <p class="ess-address">Av. Barão do Rio Branco, 2872 — Centro</p>
+                <p class="ess-where-status">Agenda aberta</p>
+              </div>
+              <div class="ess-where-item">
+                <p class="ess-label">Barra da Tijuca <span aria-hidden="true">·</span> RJ</p>
+                <p class="ess-address">Nova unidade</p>
+                <p class="ess-where-status">Agenda em formação</p>
+              </div>
+            </div>
+
             <a href={whatsapp} target="_blank" rel="noopener" class="ess-button">Agendar consulta</a>
-            <p class="ess-note">Atendimento por WhatsApp <span aria-hidden="true">·</span> resposta no mesmo dia</p>
+            <p class="ess-note">WhatsApp <span aria-hidden="true">·</span> resposta no mesmo dia</p>
           </div>
 
           <figure class="ess-portrait ess-portrait--close">
@@ -185,7 +284,7 @@ const caminho = [
 
     <footer class="ess-foot">
       <div class="ess-wrap ess-foot-inner">
-        <p>Dra. Vanessa Silveira <span aria-hidden="true">·</span> Cirurgia Bucomaxilofacial</p>
+        <p>Dra. Vanessa Silveira <span aria-hidden="true">·</span> Cirurgia Bucomaxilofacial <span aria-hidden="true">·</span> CRO/MG</p>
         <nav class="ess-foot-nav">
           <a href="/home-rio">Proposta anterior</a>
           <a href="/idv-brasileira">Canvas da IDV</a>
@@ -199,9 +298,10 @@ const caminho = [
 
 <style>
   /* ==========================================================================
-     Nenhuma regra abaixo desenha um enfeite. Cada uma existe para posicionar,
-     dimensionar ou dar respiro. Onde houver dúvida entre marcar e não marcar,
-     não marca.
+     Três fontes de vida, nenhuma delas ornamental:
+     1. escala de PESOS (300–700) e o eixo de largura da Archivo
+     2. composição assimétrica sobre grid de 12 colunas
+     3. uma única inversão de fundo, na seção que carrega a revelação
      ========================================================================== */
 
   .ess {
@@ -209,19 +309,20 @@ const caminho = [
     color: var(--ess-ink);
     font-family: var(--ess-font);
     font-size: var(--ess-body);
-    line-height: 1.7;
+    line-height: 1.68;
     -webkit-font-smoothing: antialiased;
   }
 
   .ess-wrap {
-    max-width: 1180px;
+    max-width: 1240px;
     margin: 0 auto;
     padding-inline: var(--ess-gutter);
   }
 
-  /* --- TOPO: o nome e a ação. Não há menu: a página inteira é a resposta. --- */
+  /* --- TOPO --- */
   .ess-top {
-    padding-block: 1.75rem;
+    padding-block: 1.5rem;
+    border-bottom: 1px solid var(--ess-rule-soft);
   }
 
   .ess-top-inner {
@@ -233,72 +334,138 @@ const caminho = [
 
   .ess-mark {
     font-size: 0.9375rem;
-    font-weight: 500;
-    letter-spacing: 0.01em;
+    font-weight: 600;
+    font-stretch: 96%;
+    letter-spacing: -0.005em;
     color: var(--ess-ink);
     text-decoration: none;
   }
 
+  .ess-top-meta {
+    font-size: var(--ess-label);
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ess-muted);
+  }
+
   .ess-top-link,
   .ess-link {
-    font-size: 0.875rem;
-    font-weight: 400;
+    font-size: var(--ess-small);
+    font-weight: 500;
     color: var(--ess-ink);
     text-decoration: underline;
-    text-underline-offset: 0.35em;
+    text-underline-offset: 0.4em;
     text-decoration-thickness: 1px;
     text-decoration-color: var(--ess-rule);
     transition: text-decoration-color 200ms var(--ess-ease);
   }
 
   .ess-top-link:hover,
-  .ess-link:hover {
-    text-decoration-color: var(--ess-ink);
+  .ess-link:hover { text-decoration-color: var(--ess-ink); }
+
+  /* --- TIPOS DE BASE --- */
+  .ess-display {
+    font-size: var(--ess-display);
+    font-weight: 600;
+    font-stretch: 92%;
+    line-height: 1.02;
+    letter-spacing: -0.032em;
+    margin: 0;
   }
 
-  /* --- ABERTURA --- */
+  .ess-headline {
+    font-size: var(--ess-headline);
+    font-weight: 500;
+    font-stretch: 96%;
+    line-height: 1.16;
+    letter-spacing: -0.024em;
+    margin: 0 0 1.25rem;
+    text-wrap: balance;
+  }
+
+  .ess-title {
+    font-size: var(--ess-title);
+    font-weight: 600;
+    line-height: 1.3;
+    letter-spacing: -0.014em;
+    margin: 0 0 0.75rem;
+  }
+
+  .ess-label {
+    font-size: var(--ess-label);
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ess-muted);
+    margin: 0 0 1.25rem;
+  }
+
+  .ess-label--light { color: var(--ess-deep-tint); }
+
+  .ess-body-text {
+    font-size: var(--ess-body);
+    font-weight: 400;
+    line-height: 1.72;
+    color: var(--ess-muted);
+    margin: 0 0 1.15rem;
+    max-width: 54ch;
+  }
+
+  .ess-note-text {
+    font-size: var(--ess-small);
+    color: var(--ess-muted);
+    margin: 0;
+    max-width: 44ch;
+  }
+
+  /* --- ABERTURA: grid de 12, com o texto entrando na coluna 2 --- */
   .ess-open {
-    padding-block: clamp(3rem, 7vw, 6rem) 0;
+    padding-block: clamp(3.5rem, 7vw, 6rem) var(--ess-section);
   }
 
   .ess-open-grid {
     display: grid;
-    grid-template-columns: 1.15fr 0.85fr;
-    gap: clamp(2.5rem, 6vw, 5rem);
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: clamp(1.5rem, 3vw, 2.5rem);
+    row-gap: clamp(2.5rem, 5vw, 4rem);
     align-items: start;
   }
 
-  .ess-statement {
-    font-size: var(--ess-statement);
+  /* O texto ocupa as colunas 1–7 e o retrato as 8–12: sem sobreposição, o
+     que evita que o auto-placement empurre o texto para depois da imagem. */
+  .ess-open-col {
+    grid-column: 1 / 8;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    row-gap: clamp(2rem, 4vw, 3.25rem);
+  }
+
+  .ess-open-head { grid-column: 1 / 8; }
+
+  /* O corpo não começa na margem: entra uma coluna. É o degrau que a
+     composição repete depois nas outras seções. */
+  .ess-open-body {
+    grid-column: 2 / 8;
+    display: flex;
+    flex-direction: column;
+    gap: 1.15rem;
+  }
+
+  .ess-lede-text {
+    font-size: var(--ess-lede);
     font-weight: 400;
-    line-height: 1.06;
-    letter-spacing: -0.028em;
-    margin: 0 0 clamp(3rem, 6vw, 4.5rem);
-    max-width: 26ch;
-    text-wrap: balance;
-  }
-
-  .ess-lede {
-    font-size: 1.125rem;
-    line-height: 1.65;
-    color: var(--ess-muted);
-    margin: 0 0 2.5rem;
-    max-width: 38ch;
-  }
-
-  .ess-meta {
-    font-size: var(--ess-label);
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    line-height: 2;
+    line-height: 1.55;
     color: var(--ess-muted);
     margin: 0;
   }
 
-  /* --- RETRATOS: sem borda, sem sombra, sem canto. A foto é a foto. --- */
-  .ess-portrait {
-    margin: 0;
+  .ess-lede-text--strong {
+    color: var(--ess-ink);
+    font-weight: 500;
   }
+
+  .ess-portrait { margin: 0; }
 
   .ess-portrait img {
     display: block;
@@ -309,211 +476,328 @@ const caminho = [
     background: var(--ess-linen-deep);
   }
 
-  .ess-portrait--lead {
-    max-width: 420px;
-    justify-self: end;
-    width: 100%;
-  }
-
-  .ess-portrait--small {
-    max-width: 260px;
-  }
-
-  /* --- RECONHECIMENTO: a única lista da página, e ela é só texto. --- */
-  .ess-recognize {
-    padding-block: var(--ess-section);
-  }
-
-  .ess-label {
+  .ess-portrait figcaption {
     font-size: var(--ess-label);
     font-weight: 500;
-    letter-spacing: 0.18em;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--ess-muted);
-    margin: 0 0 clamp(2rem, 4vw, 3rem);
+    margin-top: 0.85rem;
   }
 
-  .ess-lines {
+  .ess-portrait--lead {
+    grid-column: 8 / 13;
+  }
+
+  /* --- SINAIS: duas colunas, peso separando sintoma de mecanismo --- */
+  .ess-signs {
+    padding-block: 0 var(--ess-section);
+  }
+
+  .ess-signs-head {
+    max-width: 46ch;
+    margin-bottom: clamp(2.5rem, 5vw, 4rem);
+  }
+
+  .ess-signs-grid {
     list-style: none;
     margin: 0;
     padding: 0;
-    max-width: 46ch;
-    border-top: 1px solid var(--ess-rule);
-  }
-
-  .ess-lines li {
-    font-size: clamp(1.1rem, 2vw, 1.45rem);
-    font-weight: 400;
-    line-height: 1.45;
-    letter-spacing: -0.012em;
-    padding-block: clamp(1.1rem, 2.2vw, 1.6rem);
-    border-bottom: 1px solid var(--ess-rule);
-  }
-
-  .ess-aside {
-    font-size: var(--ess-body);
-    line-height: 1.7;
-    color: var(--ess-muted);
-    max-width: 44ch;
-    margin: clamp(2.5rem, 5vw, 3.5rem) 0 0;
-  }
-
-  /* --- QUEM ATENDE --- */
-  .ess-about {
-    padding-block: 0 var(--ess-section);
-  }
-
-  .ess-about-grid {
     display: grid;
-    grid-template-columns: 0.72fr 1.28fr;
-    gap: clamp(2.5rem, 7vw, 6rem);
-    align-items: start;
+    grid-template-columns: 1fr 1fr;
+    column-gap: clamp(2.5rem, 6vw, 5rem);
+    border-top: 1px solid var(--ess-ink);
   }
 
-  .ess-title {
-    font-size: var(--ess-title);
+  .ess-sign {
+    padding-block: clamp(1.4rem, 2.5vw, 1.9rem);
+    border-bottom: 1px solid var(--ess-rule-soft);
+  }
+
+  .ess-sign-line {
+    font-size: clamp(1.0625rem, 1.5vw, 1.1875rem);
+    font-weight: 500;
+    line-height: 1.42;
+    letter-spacing: -0.014em;
+    color: var(--ess-ink);
+    margin: 0 0 0.45rem;
+  }
+
+  .ess-sign-cause {
+    font-size: var(--ess-small);
     font-weight: 400;
-    line-height: 1.25;
-    letter-spacing: -0.02em;
-    margin: 0 0 1.75rem;
-    max-width: 22ch;
-  }
-
-  .ess-body {
-    font-size: var(--ess-body);
-    line-height: 1.75;
+    line-height: 1.6;
     color: var(--ess-muted);
-    margin: 0 0 1.25rem;
-    max-width: 52ch;
+    margin: 0;
   }
 
-  .ess-credentials {
-    font-size: 0.8125rem;
-    line-height: 1.8;
-    color: var(--ess-muted);
-    margin: 2.5rem 0 0;
-    padding-top: 1.5rem;
-    border-top: 1px solid var(--ess-rule);
-    max-width: 44ch;
+  /* --- A INVERSÃO --- */
+  .ess-reveal {
+    background: var(--ess-deep);
+    color: var(--ess-linen);
+    padding-block: clamp(4.5rem, 9vw, 7.5rem);
+    margin-bottom: var(--ess-section);
   }
 
-  /* --- O CAMINHO: três colunas, um fio cada. A ordem é a informação. --- */
-  .ess-path {
-    padding-block: 0 var(--ess-section);
+  .ess-reveal-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: clamp(1.5rem, 3vw, 2.5rem);
+    row-gap: 2.5rem;
   }
 
-  .ess-path-grid {
+  .ess-reveal-head { grid-column: 1 / 6; }
+  .ess-reveal-body { grid-column: 7 / 13; }
+
+  .ess-headline--light { color: var(--ess-linen); }
+
+  .ess-reveal-body p {
+    font-size: var(--ess-lede);
+    font-weight: 300;
+    line-height: 1.66;
+    color: var(--ess-deep-tint);
+    margin: 0 0 1.5rem;
+  }
+
+  .ess-reveal-body p:last-child { margin-bottom: 0; }
+
+  .ess-reveal-emphasis {
+    color: var(--ess-linen) !important;
+    font-weight: 500 !important;
+    padding-block: 1.5rem;
+    border-block: 1px solid var(--ess-deep-rule);
+  }
+
+  /* --- TRÊS QUADROS --- */
+  .ess-types { padding-block: 0 var(--ess-section); }
+
+  .ess-types-head {
+    max-width: 34ch;
+    margin-bottom: clamp(2.5rem, 5vw, 3.5rem);
+  }
+
+  .ess-types-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: clamp(2rem, 4vw, 3.5rem);
   }
 
-  .ess-step {
-    border-top: 1px solid var(--ess-ink);
-    padding-top: 1.5rem;
+  .ess-type {
+    border-top: 2px solid var(--ess-ink);
+    padding-top: 1.25rem;
   }
 
-  .ess-step-time {
+  .ess-type-n {
     font-size: var(--ess-label);
-    font-weight: 500;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.14em;
     color: var(--ess-muted);
-    margin: 0 0 1.25rem;
+    margin: 0 0 1.5rem;
   }
 
-  .ess-step-title {
-    font-size: 1.25rem;
-    font-weight: 400;
-    line-height: 1.3;
-    letter-spacing: -0.015em;
-    margin: 0 0 0.85rem;
+  .ess-type .ess-body-text { margin: 0; }
+
+  .ess-types-close {
+    font-size: var(--ess-lede);
+    font-weight: 500;
+    line-height: 1.55;
+    letter-spacing: -0.014em;
+    max-width: 40ch;
+    margin: clamp(2.5rem, 5vw, 3.5rem) 0 0 auto;
+    padding-top: 1.75rem;
+    border-top: 1px solid var(--ess-rule);
   }
 
-  .ess-step .ess-body {
-    margin: 0;
-  }
+  /* --- QUEM ATENDE --- */
+  .ess-about { padding-block: 0 var(--ess-section); }
 
-  /* --- ONDE --- */
-  .ess-where {
-    padding-block: 0 var(--ess-section);
-  }
-
-  .ess-where-grid {
+  .ess-about-grid {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 320px));
-    justify-content: start;
-    gap: clamp(2.5rem, 6vw, 5rem);
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: clamp(1.5rem, 3vw, 2.5rem);
+    row-gap: 2.5rem;
     align-items: start;
   }
 
-  .ess-where-item .ess-label {
-    margin-bottom: 1.25rem;
+  .ess-portrait--about { grid-column: 1 / 5; }
+  .ess-about-text { grid-column: 6 / 12; }
+
+  .ess-creds {
+    margin: 2.5rem 0 0;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--ess-rule);
+    display: grid;
+    gap: 0.85rem;
   }
 
-  .ess-address {
-    font-size: 1.0625rem;
+  .ess-creds > div {
+    display: grid;
+    grid-template-columns: 8.5rem 1fr;
+    gap: 1rem;
+    align-items: baseline;
+  }
+
+  .ess-creds dt {
+    font-size: var(--ess-label);
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ess-muted);
+  }
+
+  .ess-creds dd {
+    margin: 0;
+    font-size: var(--ess-small);
+    font-weight: 400;
+    line-height: 1.5;
+  }
+
+  /* --- A CONSULTA: tabela de dados, porque dado é o que prova competência --- */
+  .ess-visit { padding-block: 0 var(--ess-section); }
+
+  .ess-visit-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: clamp(1.5rem, 3vw, 2.5rem);
+    row-gap: 2.5rem;
+    align-items: start;
+  }
+
+  .ess-visit-head { grid-column: 1 / 5; }
+  .ess-visit-list { grid-column: 6 / 13; margin: 0; }
+
+  .ess-visit-row {
+    display: grid;
+    grid-template-columns: 10rem 1fr;
+    gap: 1.5rem;
+    padding-block: 1.35rem;
+    border-bottom: 1px solid var(--ess-rule-soft);
+  }
+
+  .ess-visit-row:first-child { border-top: 1px solid var(--ess-ink); }
+
+  .ess-visit-row dt {
+    font-size: var(--ess-label);
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ess-muted);
+    padding-top: 0.28rem;
+  }
+
+  .ess-visit-row dd {
+    margin: 0;
+    font-size: var(--ess-body);
+    font-weight: 400;
     line-height: 1.6;
-    margin: 0 0 1.25rem;
+    max-width: 52ch;
   }
 
-  /* --- FECHO --- */
-  .ess-close {
+  /* --- LIMITES --- */
+  .ess-limits {
     padding-block: 0 var(--ess-section);
   }
 
+  .ess-limits-grid {
+    background: var(--ess-linen-warm);
+    padding: clamp(2rem, 4vw, 3rem);
+  }
+
+  .ess-limits-grid .ess-label { margin-bottom: 1.5rem; }
+
+  .ess-limits-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.85rem clamp(2rem, 5vw, 4rem);
+  }
+
+  .ess-limits-list li {
+    font-size: var(--ess-small);
+    font-weight: 400;
+    line-height: 1.55;
+    color: var(--ess-muted);
+  }
+
+  /* --- DISPONIBILIDADE --- */
+  .ess-close { padding-block: 0 var(--ess-section); }
+
   .ess-close-grid {
     display: grid;
-    grid-template-columns: 1.15fr 0.85fr;
-    gap: clamp(2.5rem, 6vw, 5rem);
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: clamp(1.5rem, 3vw, 2.5rem);
+    row-gap: 2.5rem;
     align-items: end;
   }
 
-  .ess-portrait--close {
-    max-width: 340px;
-    justify-self: end;
-    width: 100%;
-  }
+  .ess-close-text { grid-column: 1 / 8; }
+  .ess-portrait--close { grid-column: 9 / 13; }
 
-  .ess-closing-line {
-    font-size: clamp(1.4rem, 2.8vw, 2.05rem);
-    font-weight: 400;
-    line-height: 1.32;
-    letter-spacing: -0.022em;
-    max-width: 24ch;
+  .ess-close-line {
+    font-size: var(--ess-headline);
+    font-weight: 500;
+    font-stretch: 96%;
+    line-height: 1.18;
+    letter-spacing: -0.026em;
+    max-width: 22ch;
     margin: 0 0 clamp(2.25rem, 4vw, 3rem);
     text-wrap: balance;
   }
 
-  /* Um retângulo de tinta. Sem raio, sem sombra, sem deslocamento no hover. */
+  .ess-where {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(1.5rem, 4vw, 3rem);
+    margin-bottom: clamp(2.25rem, 4vw, 3rem);
+    padding-top: 1.75rem;
+    border-top: 1px solid var(--ess-rule);
+  }
+
+  .ess-where-item .ess-label { margin-bottom: 0.75rem; }
+
+  .ess-address {
+    font-size: var(--ess-small);
+    font-weight: 400;
+    line-height: 1.5;
+    margin: 0 0 0.5rem;
+  }
+
+  .ess-where-status {
+    font-size: var(--ess-small);
+    font-weight: 600;
+    margin: 0;
+  }
+
   .ess-button {
     display: inline-block;
     background: var(--ess-ink);
     color: var(--ess-linen);
-    font-size: 0.9375rem;
-    font-weight: 500;
-    letter-spacing: 0.02em;
-    padding: 1.15rem 2.5rem;
+    font-size: var(--ess-small);
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    padding: 1.15rem 2.6rem;
     text-decoration: none;
     transition: background-color 200ms var(--ess-ease);
   }
 
-  .ess-button:hover {
-    background: #38332E;
-  }
+  .ess-button:hover { background: var(--ess-deep); }
 
   .ess-note {
     font-size: var(--ess-label);
-    letter-spacing: 0.16em;
+    font-weight: 500;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--ess-muted);
-    margin: 1.5rem 0 0;
+    margin: 1.25rem 0 0;
   }
 
   /* --- RODAPÉ --- */
   .ess-foot {
     border-top: 1px solid var(--ess-rule);
-    padding-block: 2.25rem 3rem;
+    padding-block: 2rem 2.75rem;
   }
 
   .ess-foot-inner {
@@ -525,15 +809,9 @@ const caminho = [
     color: var(--ess-muted);
   }
 
-  .ess-foot-inner p {
-    margin: 0;
-  }
+  .ess-foot-inner p { margin: 0; }
 
-  .ess-foot-nav {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1.75rem;
-  }
+  .ess-foot-nav { display: flex; flex-wrap: wrap; gap: 1.75rem; }
 
   .ess-foot-nav a {
     color: var(--ess-muted);
@@ -541,67 +819,70 @@ const caminho = [
     transition: color 200ms var(--ess-ease);
   }
 
-  .ess-foot-nav a:hover {
-    color: var(--ess-ink);
-  }
+  .ess-foot-nav a:hover { color: var(--ess-ink); }
 
   .ess :focus-visible {
-    outline: 1px solid var(--ess-ink);
-    outline-offset: 4px;
+    outline: 2px solid var(--ess-deep);
+    outline-offset: 3px;
   }
 
-  /* O botão flutuante de WhatsApp é um enfeite permanente sobre o conteúdo.
-     Nesta proposta ele não existe: a página tem três chamadas próprias. */
-  :global(.ess ~ .vs-wa-float),
-  :global(body:has(.ess) .vs-wa-float) {
-    display: none !important;
+  :global(body:has(.ess) .vs-wa-float) { display: none !important; }
+
+  /* --- RESPONSIVO --- */
+  @media (max-width: 1080px) {
+    .ess-open-col { grid-column: 1 / 8; }
+    .ess-portrait--lead { grid-column: 8 / 13; }
+    .ess-reveal-head { grid-column: 1 / 13; }
+    .ess-reveal-body { grid-column: 1 / 11; }
+    .ess-portrait--about { grid-column: 1 / 6; }
+    .ess-about-text { grid-column: 7 / 13; }
+    .ess-visit-head { grid-column: 1 / 13; }
+    .ess-visit-list { grid-column: 1 / 13; }
+    .ess-close-text { grid-column: 1 / 9; }
+    .ess-portrait--close { grid-column: 9 / 13; }
   }
 
-  @media (max-width: 900px) {
-    .ess-open-grid,
-    .ess-about-grid {
-      grid-template-columns: 1fr;
+  @media (max-width: 860px) {
+    .ess-top-meta { display: none; }
+
+    .ess-open-col,
+    .ess-portrait--lead,
+    .ess-portrait--about,
+    .ess-about-text,
+    .ess-close-text,
+    .ess-portrait--close {
+      grid-column: 1 / 13;
+      grid-row: auto;
     }
 
-    .ess-portrait--lead {
-      justify-self: start;
+    .ess-portrait--lead,
+    .ess-portrait--about,
+    .ess-portrait--close {
       max-width: 340px;
     }
 
-    .ess-about-grid .ess-portrait {
-      max-width: 300px;
-      order: 2;
-    }
-
-    .ess-about-text {
-      order: 1;
-    }
-
-    .ess-path-grid {
-      grid-template-columns: 1fr;
-      gap: 2.5rem;
-    }
-
-    .ess-close-grid {
+    .ess-signs-grid,
+    .ess-types-grid,
+    .ess-limits-list {
       grid-template-columns: 1fr;
     }
 
-    .ess-portrait--close {
-      justify-self: start;
-      max-width: 260px;
-      order: -1;
-    }
+    .ess-signs-grid { column-gap: 0; }
+    .ess-types-close { margin-left: 0; }
   }
 
   @media (max-width: 560px) {
-    .ess-where-grid {
+    .ess-visit-row,
+    .ess-creds > div {
       grid-template-columns: 1fr;
+      gap: 0.4rem;
     }
+
+    .ess-where { grid-template-columns: 1fr; }
+    .ess-button { display: block; text-align: center; }
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .ess * {
-      transition-duration: 0.01ms !important;
-    }
+    .ess * { transition-duration: 0.01ms !important; }
   }
 </style>
