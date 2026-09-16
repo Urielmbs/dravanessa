@@ -95,12 +95,12 @@ import '../styles/idv-brasileira.css';
                 <strong>8+ Anos</strong>
                 <span>Dedicação exclusiva</span>
               </div>
-              <div class="rio-trust-separator">/</div>
+              <div class="rio-trust-separator" aria-hidden="true"></div>
               <div class="rio-trust-item">
                 <strong>2.000+</strong>
                 <span>Pacientes atendidos</span>
               </div>
-              <div class="rio-trust-separator">/</div>
+              <div class="rio-trust-separator" aria-hidden="true"></div>
               <div class="rio-trust-item">
                 <strong>5.0 ★</strong>
                 <span>Avaliações no Google</span>
@@ -169,21 +169,21 @@ import '../styles/idv-brasileira.css';
 
             <ul class="rio-symptom-list">
               <li>
-                <span class="rio-check-icon">✓</span>
+                <span class="rio-check-icon" aria-hidden="true">✦</span>
                 <div>
                   <strong>Dor ao mastigar ou falar muito</strong>
                   <p>Cansaço excessivo nos músculos da face e têmporas logo pela manhã.</p>
                 </div>
               </li>
               <li>
-                <span class="rio-check-icon">✓</span>
+                <span class="rio-check-icon" aria-hidden="true">✦</span>
                 <div>
                   <strong>Estalos, cliques ou medo da mandíbula travar</strong>
                   <p>Insegurança ao abrir a boca ou bocejar que limita momentos simples à mesa.</p>
                 </div>
               </li>
               <li>
-                <span class="rio-check-icon">✓</span>
+                <span class="rio-check-icon" aria-hidden="true">✦</span>
                 <div>
                   <strong>Dores de cabeça diárias e zumbido no ouvido</strong>
                   <p>Sintomas que muitas vezes são diagnosticados erroneamente como enxaqueca isolada.</p>
@@ -562,18 +562,29 @@ import '../styles/idv-brasileira.css';
 
     .rio-announcement-link {
       color: var(--rio-solar-gold);
-      font-weight: 700;
-      text-decoration: underline;
+      font-weight: 600;
+      text-decoration: none;
+      padding-bottom: 2px;
+      background-image: linear-gradient(var(--rio-solar-gold), var(--rio-solar-gold));
+      background-repeat: no-repeat;
+      background-position: 0 100%;
+      background-size: 100% 1px;
+      transition: background-size var(--rio-dur) var(--rio-ease);
+    }
+
+    .rio-announcement-link:hover {
+      background-size: 100% 2px;
     }
 
     /* NAVEGAÇÃO */
     .rio-nav {
-      background-color: var(--rio-sand-light);
-      border-bottom: var(--rio-stroke-thin);
+      background-color: rgba(251, 247, 240, 0.86);
+      border-bottom: 1px solid var(--rio-rule-soft);
       position: sticky;
       top: 0;
       z-index: 100;
       backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
     }
 
     .rio-nav-inner {
@@ -622,36 +633,51 @@ import '../styles/idv-brasileira.css';
       color: var(--rio-coffee-light);
       font-size: 0.95rem;
       font-weight: 600;
-      transition: color 0.2s ease;
+      padding-bottom: 3px;
+      background-image: linear-gradient(var(--rio-terracotta), var(--rio-terracotta));
+      background-repeat: no-repeat;
+      background-position: 0 100%;
+      background-size: 0 1.5px;
+      transition: background-size var(--rio-dur-slow) var(--rio-ease),
+                  color var(--rio-dur) var(--rio-ease);
     }
 
     .rio-nav-link:hover {
       color: var(--rio-terracotta);
+      background-size: 100% 1.5px;
     }
 
     .rio-nav-lab {
       color: var(--rio-terracotta);
-      font-weight: 700;
-      background: var(--rio-sand-warm);
-      padding: 0.3rem 0.7rem;
-      border: 1px solid rgba(35, 25, 20, 0.15);
+      font-weight: 600;
+      background: none;
+      padding: 0.3rem 0 0.3rem 0.9rem;
+      border: 0;
+      border-left: 1px solid var(--rio-rule);
+      background-position: 0.9rem 100%;
     }
 
+    /* Sólido e discreto: cede o protagonismo ao CTA do hero. */
     .rio-btn-nav {
       background-color: var(--rio-coffee);
       color: var(--rio-sand-light);
       text-decoration: none;
       font-size: 0.9rem;
-      font-weight: 700;
-      padding: 0.7rem 1.4rem;
-      border: 2px solid var(--rio-coffee);
-      box-shadow: 3px 3px 0px var(--rio-terracotta);
-      transition: all 0.15s ease;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      padding: 0.72rem 1.4rem;
+      border: 0;
+      border-radius: var(--rio-radius-subtle);
+      box-shadow: var(--rio-lift-soft);
+      transition: background-color var(--rio-dur) var(--rio-ease),
+                  box-shadow var(--rio-dur) var(--rio-ease),
+                  transform var(--rio-dur) var(--rio-ease);
     }
 
     .rio-btn-nav:hover {
-      transform: translate(-1px, -1px);
-      box-shadow: 4px 4px 0px var(--rio-terracotta);
+      background-color: var(--rio-terracotta);
+      transform: translateY(-1px);
+      box-shadow: 0 3px 0 rgba(35, 25, 20, 0.18);
     }
 
     /* ==========================================================================
@@ -716,42 +742,73 @@ import '../styles/idv-brasileira.css';
       margin-bottom: 3rem;
     }
 
+    /* NÍVEL 2 — SERIGRAFIA: peso de tinta no lugar de moldura.
+       O hover afunda (carimbo encostando no papel) em vez de flutuar. */
     .rio-btn-cta {
       display: inline-flex;
       align-items: center;
-      gap: 0.6rem;
+      gap: 0.7rem;
       background-color: var(--rio-terracotta);
       color: #FFF;
-      font-weight: 700;
+      font-weight: 600;
       font-size: 1.05rem;
-      padding: 1.05rem 2rem;
+      letter-spacing: 0.01em;
+      padding: 1rem 2rem 1.05rem;
       text-decoration: none;
-      border: 2px solid var(--rio-coffee);
-      box-shadow: 4px 4px 0px var(--rio-coffee);
-      transition: all 0.15s ease;
+      border: 0;
+      border-radius: var(--rio-radius-subtle);
+      box-shadow: var(--rio-ink-press);
+      transition: box-shadow var(--rio-dur) var(--rio-ease),
+                  transform var(--rio-dur) var(--rio-ease),
+                  background-color var(--rio-dur) var(--rio-ease);
+    }
+
+    .rio-btn-cta svg {
+      transition: transform var(--rio-dur) var(--rio-ease);
     }
 
     .rio-btn-cta:hover {
-      transform: translate(-2px, -2px);
-      box-shadow: 6px 6px 0px var(--rio-coffee);
+      transform: translate(2px, 2px);
+      box-shadow: var(--rio-ink-pressed);
       background-color: var(--rio-terracotta-dark);
     }
 
+    .rio-btn-cta:hover svg {
+      transform: translateX(3px);
+    }
+
+    .rio-btn-cta:focus-visible {
+      outline: 2px solid var(--rio-coffee);
+      outline-offset: 3px;
+    }
+
+    /* ASSINATURA DO SISTEMA: o fio cresce da esquerda no hover.
+       Mesmo gesto no menu, no rodapé e na barra de anúncio. */
     .rio-link-scroll {
       font-size: 0.95rem;
-      font-weight: 700;
+      font-weight: 600;
       color: var(--rio-coffee);
       text-decoration: none;
-      border-bottom: 2px solid var(--rio-solar-gold);
-      padding-bottom: 2px;
+      padding-bottom: 4px;
+      background-image: linear-gradient(var(--rio-solar-gold), var(--rio-solar-gold));
+      background-repeat: no-repeat;
+      background-position: 0 100%;
+      background-size: 32% 1.5px;
+      transition: background-size var(--rio-dur-slow) var(--rio-ease),
+                  color var(--rio-dur) var(--rio-ease);
+    }
+
+    .rio-link-scroll:hover {
+      background-size: 100% 1.5px;
+      color: var(--rio-terracotta-dark);
     }
 
     .rio-hero-trust-bar {
       display: flex;
-      align-items: center;
+      align-items: stretch;
       gap: 1.5rem;
       padding-top: 1.5rem;
-      border-top: var(--rio-stroke-thin);
+      border-top: 1px solid var(--rio-rule);
     }
 
     .rio-trust-item strong {
@@ -760,27 +817,44 @@ import '../styles/idv-brasileira.css';
       font-size: 1.5rem;
       color: var(--rio-coffee);
       line-height: 1;
+      font-variant-numeric: tabular-nums;
+      letter-spacing: -0.01em;
     }
 
     .rio-trust-item span {
       font-size: 0.75rem;
       color: var(--rio-coffee-muted);
+      letter-spacing: 0.02em;
     }
 
+    /* Fio real, alinhado à altura do bloco — não um caractere tipográfico. */
     .rio-trust-separator {
-      color: var(--rio-sand-deep);
-      font-size: 1.5rem;
+      width: 1px;
+      align-self: stretch;
+      background: var(--rio-sand-deep);
     }
 
     /* MÍDIA DO HERO */
+    /* NÍVEL 2 — FOTO ÂNCORA: chapa de papel deslocada, sem contorno.
+       A cor vem do mundo do papel, não do mundo da borda. */
     .rio-image-frame {
       position: relative;
-      border: 2px solid var(--rio-coffee);
-      box-shadow: 8px 8px 0px var(--rio-coffee);
-      background-color: var(--rio-sand-warm);
+      border: 0;
+      box-shadow: none;
+      background-color: transparent;
+    }
+
+    .rio-image-frame::after {
+      content: "";
+      position: absolute;
+      inset: 18px -18px -18px 18px;
+      background-color: var(--rio-sand-deep);
+      z-index: 0;
     }
 
     .rio-hero-img {
+      position: relative;
+      z-index: 1;
       width: 100%;
       height: 520px;
       object-fit: cover;
@@ -789,11 +863,13 @@ import '../styles/idv-brasileira.css';
 
     .rio-frame-badge {
       position: absolute;
+      z-index: 2;
       bottom: -15px;
       left: -15px;
       background: var(--rio-sand-light);
-      border: 2px solid var(--rio-coffee);
-      box-shadow: 4px 4px 0px var(--rio-coffee);
+      border: 1px solid var(--rio-rule);
+      border-radius: var(--rio-radius-subtle);
+      box-shadow: var(--rio-lift-soft);
       padding: 0.75rem 1.25rem;
       display: flex;
       align-items: center;
@@ -839,13 +915,38 @@ import '../styles/idv-brasileira.css';
       grid-template-columns: 1.15fr 1fr;
     }
 
-    .rio-eyebrow {
-      font-size: 0.8rem;
-      font-weight: 800;
-      letter-spacing: 0.12em;
-      color: var(--rio-terracotta);
-      display: block;
+    /* ANATOMIA ÚNICA: fio de 18px no lugar de caixa ou fundo sólido.
+       Só a cor muda conforme a faixa da seção. */
+    .rio-eyebrow,
+    .rio-eyebrow-mist,
+    .rio-eyebrow-dark,
+    .rio-eyebrow-light {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
       margin-bottom: 1rem;
+      background: none;
+      padding: 0;
+    }
+
+    .rio-eyebrow::before,
+    .rio-eyebrow-mist::before,
+    .rio-eyebrow-dark::before,
+    .rio-eyebrow-light::before {
+      content: "";
+      width: 18px;
+      height: 1.5px;
+      background: currentColor;
+      flex: none;
+    }
+
+    .rio-eyebrow,
+    .rio-eyebrow-light {
+      color: var(--rio-terracotta);
     }
 
     .rio-section-title {
@@ -892,18 +993,19 @@ import '../styles/idv-brasileira.css';
       align-items: flex-start;
     }
 
+    /* O ✦ das credenciais vira o marcador de todo o site. */
     .rio-check-icon {
-      width: 26px;
-      height: 26px;
-      background: var(--rio-terracotta);
-      color: #FFF;
+      width: 18px;
+      height: 18px;
+      background: none;
+      border: 0;
+      color: var(--rio-terracotta);
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      font-weight: 800;
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       flex-shrink: 0;
-      border: 1px solid var(--rio-coffee);
+      margin-top: 0.22rem;
     }
 
     .rio-symptom-list strong {
@@ -923,9 +1025,24 @@ import '../styles/idv-brasileira.css';
     /* CARDS DE FOTO COM LEGENDA */
     .rio-photo-card {
       position: relative;
-      border: 2px solid var(--rio-coffee);
-      box-shadow: 6px 6px 0px var(--rio-coffee);
+      border: 0;
+      box-shadow: none;
       background-color: #FFF;
+    }
+
+    .rio-photo-card::after {
+      content: "";
+      position: absolute;
+      inset: 16px -16px -16px 16px;
+      background-color: var(--rio-sand-deep);
+      z-index: 0;
+    }
+
+    .rio-photo-content,
+    .rio-photo-caption,
+    .rio-author-badge {
+      position: relative;
+      z-index: 1;
     }
 
     .rio-photo-card--tall .rio-photo-content {
@@ -941,7 +1058,7 @@ import '../styles/idv-brasileira.css';
 
     .rio-photo-caption {
       background: var(--rio-sand-light);
-      border-top: var(--rio-stroke-thin);
+      border-top: 1px solid var(--rio-rule-soft);
       padding: 1.25rem;
       font-family: var(--font-editorial);
       font-size: 0.95rem;
@@ -951,10 +1068,13 @@ import '../styles/idv-brasileira.css';
 
     .rio-author-badge {
       position: absolute;
+      z-index: 2;
       bottom: 20px;
       right: 20px;
       background: var(--rio-sand-light);
-      border: 2px solid var(--rio-coffee);
+      border: 1px solid var(--rio-rule);
+      border-radius: var(--rio-radius-subtle);
+      box-shadow: var(--rio-lift-soft);
       padding: 0.75rem 1.25rem;
     }
 
@@ -978,7 +1098,7 @@ import '../styles/idv-brasileira.css';
       gap: 0.75rem;
       margin-top: 2rem;
       padding-top: 1.5rem;
-      border-top: var(--rio-stroke-thin);
+      border-top: 1px solid var(--rio-rule);
     }
 
     .rio-cred-item {
@@ -1009,13 +1129,7 @@ import '../styles/idv-brasileira.css';
     }
 
     .rio-eyebrow-mist {
-      font-size: 0.8rem;
-      font-weight: 800;
-      letter-spacing: 0.12em;
       color: var(--rio-ocean-mist);
-      text-transform: uppercase;
-      display: block;
-      margin-bottom: 0.75rem;
     }
 
     .rio-ocean-title {
@@ -1043,7 +1157,8 @@ import '../styles/idv-brasileira.css';
       gap: 2rem;
       padding: 2.5rem 0;
       border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-      transition: padding 0.2s ease, background 0.2s ease;
+      transition: padding var(--rio-dur) var(--rio-ease),
+                  background-color var(--rio-dur) var(--rio-ease);
     }
 
     .rio-treatment-row:hover {
@@ -1100,14 +1215,7 @@ import '../styles/idv-brasileira.css';
     }
 
     .rio-eyebrow-dark {
-      font-size: 0.8rem;
-      font-weight: 800;
-      letter-spacing: 0.12em;
-      background: var(--rio-coffee);
-      color: var(--rio-solar-gold);
-      display: inline-block;
-      padding: 0.25rem 0.6rem;
-      margin-bottom: 1rem;
+      color: var(--rio-coffee);
     }
 
     .rio-solar-title {
@@ -1131,20 +1239,24 @@ import '../styles/idv-brasileira.css';
       align-items: stretch;
     }
 
+    /* NÍVEL 1 — FIO: o card delimita sem pesar. */
     .rio-unit-card {
       background-color: var(--rio-sand-light);
-      border: 2px solid var(--rio-coffee);
-      box-shadow: 4px 4px 0px var(--rio-coffee);
+      border: 1px solid var(--rio-rule);
+      border-radius: var(--rio-radius-subtle);
+      box-shadow: none;
       padding: 2.25rem;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
     }
 
+    /* A unidade nova se distingue por um único acento, não por mais moldura. */
     .rio-unit-card--highlight {
       background-color: #FFF;
-      border: 3px solid var(--rio-coffee);
-      box-shadow: 6px 6px 0px var(--rio-terracotta);
+      border: 1px solid var(--rio-rule);
+      border-top: 3px solid var(--rio-terracotta);
+      box-shadow: none;
     }
 
     .rio-unit-badge {
@@ -1181,37 +1293,64 @@ import '../styles/idv-brasileira.css';
       margin-bottom: 2rem;
     }
 
+    /* NÍVEL 1 — FIO: só fecha o contorno quando tocado. */
     .rio-btn-unit {
       font-size: 0.9rem;
-      font-weight: 700;
+      font-weight: 600;
       color: var(--rio-coffee);
       text-decoration: none;
-      border: 2px solid var(--rio-coffee);
-      padding: 0.75rem 1.25rem;
+      border: 1px solid var(--rio-rule);
+      border-radius: var(--rio-radius-subtle);
+      padding: 0.78rem 1.25rem;
       text-align: center;
-      transition: background 0.15s ease;
+      transition: border-color var(--rio-dur) var(--rio-ease),
+                  background-color var(--rio-dur) var(--rio-ease),
+                  color var(--rio-dur) var(--rio-ease);
     }
 
     .rio-btn-unit:hover {
+      border-color: var(--rio-coffee);
       background: var(--rio-sand-warm);
     }
 
     .rio-btn-unit--solid {
       background-color: var(--rio-terracotta);
       color: #FFF;
-      box-shadow: 3px 3px 0px var(--rio-coffee);
+      border-color: transparent;
+      box-shadow: var(--rio-ink-press);
+      transition: box-shadow var(--rio-dur) var(--rio-ease),
+                  transform var(--rio-dur) var(--rio-ease),
+                  background-color var(--rio-dur) var(--rio-ease);
     }
 
     .rio-btn-unit--solid:hover {
       background-color: var(--rio-terracotta-dark);
       color: #FFF;
+      border-color: transparent;
+      transform: translate(2px, 2px);
+      box-shadow: var(--rio-ink-pressed);
     }
 
     .rio-unit-media {
-      border: 2px solid var(--rio-coffee);
-      box-shadow: 4px 4px 0px var(--rio-coffee);
-      overflow: hidden;
+      position: relative;
+      border: 0;
+      box-shadow: none;
       background-color: #FFF;
+    }
+
+    /* Na faixa solar a chapa fica na família do sol: meio passo do fundo,
+       não contraste máximo — o mesmo raciocínio da areia sobre a areia no hero. */
+    .rio-unit-media::after {
+      content: "";
+      position: absolute;
+      inset: 14px -14px -14px 14px;
+      background-color: var(--rio-solar-soft);
+      z-index: 0;
+    }
+
+    .rio-unit-img {
+      position: relative;
+      z-index: 1;
     }
 
     .rio-unit-img {
@@ -1269,8 +1408,9 @@ import '../styles/idv-brasileira.css';
 
     .rio-final-banner {
       background-color: var(--rio-sand-warm);
-      border: 2px solid var(--rio-coffee);
-      box-shadow: 6px 6px 0px var(--rio-coffee);
+      border: 1px solid var(--rio-rule);
+      border-radius: var(--rio-radius-subtle);
+      box-shadow: none;
       padding: 4rem 3.5rem;
       display: flex;
       justify-content: space-between;
@@ -1310,19 +1450,36 @@ import '../styles/idv-brasileira.css';
       gap: 0.75rem;
       background-color: var(--rio-terracotta);
       color: #FFF;
-      font-weight: 700;
+      font-weight: 600;
       font-size: 1.1rem;
-      padding: 1.25rem 2.25rem;
+      letter-spacing: 0.01em;
+      padding: 1.2rem 2.25rem 1.25rem;
       text-decoration: none;
-      border: 2px solid var(--rio-coffee);
-      box-shadow: 4px 4px 0px var(--rio-coffee);
-      transition: all 0.15s ease;
+      border: 0;
+      border-radius: var(--rio-radius-subtle);
+      box-shadow: var(--rio-ink-press);
+      transition: box-shadow var(--rio-dur) var(--rio-ease),
+                  transform var(--rio-dur) var(--rio-ease),
+                  background-color var(--rio-dur) var(--rio-ease);
+    }
+
+    .rio-btn-hero-solid svg {
+      transition: transform var(--rio-dur) var(--rio-ease);
     }
 
     .rio-btn-hero-solid:hover {
-      transform: translate(-2px, -2px);
-      box-shadow: 6px 6px 0px var(--rio-coffee);
+      transform: translate(2px, 2px);
+      box-shadow: var(--rio-ink-pressed);
       background-color: var(--rio-terracotta-dark);
+    }
+
+    .rio-btn-hero-solid:hover svg {
+      transform: translateX(3px);
+    }
+
+    .rio-btn-hero-solid:focus-visible {
+      outline: 2px solid var(--rio-coffee);
+      outline-offset: 3px;
     }
 
     .rio-banner-help {
@@ -1378,16 +1535,32 @@ import '../styles/idv-brasileira.css';
       text-decoration: none;
       font-size: 0.95rem;
       font-weight: 600;
+      padding-bottom: 3px;
+      background-image: linear-gradient(var(--rio-solar-gold), var(--rio-solar-gold));
+      background-repeat: no-repeat;
+      background-position: 0 100%;
+      background-size: 0 1.5px;
+      transition: background-size var(--rio-dur-slow) var(--rio-ease),
+                  color var(--rio-dur) var(--rio-ease);
     }
 
     .rio-footer-nav a:hover {
       color: var(--rio-solar-gold);
+      background-size: 100% 1.5px;
     }
 
     .rio-footer-bottom {
       padding: 1.5rem 0;
       color: rgba(255, 255, 255, 0.5);
       font-size: 0.8rem;
+    }
+
+    /* Sangria: a foto encosta na faixa de cor em vez de flutuar dentro do container.
+       O .rio-page tem overflow-x: hidden, então não gera rolagem lateral. */
+    @media (min-width: 1200px) {
+      .rio-hero-media {
+        margin-right: -2rem;
+      }
     }
 
     /* RESPONSIVIDADE */
@@ -1418,6 +1591,17 @@ import '../styles/idv-brasileira.css';
 
       .rio-hero-img {
         height: 400px;
+      }
+
+      /* Chapas mais curtas no mobile, onde não há folga lateral para a sangria. */
+      .rio-image-frame::after,
+      .rio-photo-card::after,
+      .rio-unit-media::after {
+        inset: 10px -10px -10px 10px;
+      }
+
+      .rio-frame-badge {
+        left: 0;
       }
     }
   </style>

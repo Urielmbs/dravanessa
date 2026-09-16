@@ -48,6 +48,39 @@
   --rio-radius-sharp: 0px;
   --rio-radius-subtle: 3px;
   --rio-radius-pill: 999px;
+
+  /* === ACABAMENTO: ELEVAÇÃO POR PAPEL, NÃO POR ELEMENTO ===
+     Nível 0 — ar: conteúdo sem contorno (padrão).
+     Nível 1 — fio: --rio-rule, sem sombra (cards, legendas, botão secundário).
+     Nível 2 — serigrafia: --rio-ink-press. Máximo de dois por tela:
+               o CTA primário e a foto âncora da seção. */
+  --rio-rule: rgba(35, 25, 20, 0.14);
+  --rio-rule-soft: rgba(35, 25, 20, 0.08);
+  --rio-ink-press: 3px 3px 0 var(--rio-coffee), inset 0 -1px 0 rgba(0, 0, 0, 0.18);
+  --rio-ink-pressed: 1px 1px 0 var(--rio-coffee), inset 0 -1px 0 rgba(0, 0, 0, 0.18);
+  --rio-lift-soft: 0 1px 0 rgba(35, 25, 20, 0.25);
+
+  /* === MOVIMENTO: uma curva e três durações para o site inteiro === */
+  --rio-ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --rio-dur: 220ms;
+  --rio-dur-slow: 340ms;
+}
+
+/* === FOCO VISÍVEL (ausente na primeira versão da IDV) === */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--rio-terracotta);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 /* === GRANULADO ANALÓGICO ULTRA LEVE (FILM GRAIN) === */
