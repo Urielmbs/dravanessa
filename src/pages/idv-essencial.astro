@@ -1,0 +1,607 @@
+---
+// src/pages/idv-essencial.astro
+// POC de identidade visual — proposta ESSENCIAL.
+// Independente de /home-rio e de /idv-brasileira: paleta, tipografia,
+// estrutura e texto foram refeitos do zero.
+import Layout from '../layouts/Layout.astro';
+import '../styles/idv-essencial.css';
+
+const whatsapp = 'https://wa.me/5532998513101';
+
+// O conteudo que importa, e so ele. Cada item abaixo existe porque responde
+// a uma pergunta que a paciente realmente faz — nenhum existe para preencher.
+const reconhecimento = [
+  'Você acorda com a mandíbula cansada e a cabeça já pesada.',
+  'A boca estala ao abrir, e existe o medo de que um dia trave.',
+  'Os exames voltam normais, mas a dor continua ali.',
+  'Você já trocou de placa mais de uma vez.',
+  'Alguém já disse que era do estresse.',
+];
+
+const caminho = [
+  {
+    tempo: 'Primeira consulta',
+    titulo: 'Ouvir a história inteira',
+    texto: 'Antes de qualquer exame. Quanto tempo dura, o que piora, o que já foi tentado. É a parte que costuma ter sido pulada.',
+  },
+  {
+    tempo: 'Mesma semana',
+    titulo: 'Nomear a causa',
+    texto: 'Exame clínico da articulação e da musculatura, com imagem quando ela muda a conduta. Dor com nome deixa de ser dor sem fim.',
+  },
+  {
+    tempo: 'A partir daí',
+    titulo: 'Tratar na ordem certa',
+    texto: 'Do conservador ao cirúrgico, nessa ordem, sempre. A cirurgia é uma possibilidade entre outras — não o ponto de partida.',
+  },
+];
+---
+
+<Layout
+  title="Dra. Vanessa Silveira | DTM e dor orofacial em Juiz de Fora e na Barra da Tijuca"
+  description="Cirurgia bucomaxilofacial com foco em DTM e dor orofacial crônica. Juiz de Fora (MG) e Barra da Tijuca (RJ)."
+>
+  <div class="ess">
+
+    <header class="ess-top">
+      <div class="ess-wrap ess-top-inner">
+        <a href="/idv-essencial" class="ess-mark">Dra. Vanessa Silveira</a>
+        <a href={whatsapp} target="_blank" rel="noopener" class="ess-top-link">Agendar consulta</a>
+      </div>
+    </header>
+
+    <main>
+
+      <!-- ABERTURA: a frase que faz ela se reconhecer, e o retrato. Nada mais. -->
+      <section class="ess-open">
+        <div class="ess-wrap">
+          <h1 class="ess-statement">Você não está inventando a sua dor.</h1>
+        </div>
+        <div class="ess-wrap ess-open-grid">
+          <div class="ess-open-text">
+            <p class="ess-lede">
+              Dor de cabeça diária, estalos na mandíbula, o maxilar que trava, o sono que não descansa.
+              Isso tem nome — disfunção temporomandibular — e tem caminho de tratamento.
+            </p>
+            <p class="ess-meta">
+              Cirurgia bucomaxilofacial <span aria-hidden="true">·</span> DTM e dor orofacial
+              <br />Juiz de Fora <span aria-hidden="true">·</span> Barra da Tijuca
+            </p>
+          </div>
+
+          <figure class="ess-portrait ess-portrait--lead">
+            <img
+              src="/images/vanessa-rio/vanessa-chao-cadeira.jpg"
+              alt="Dra. Vanessa Silveira sentada, em postura tranquila e acolhedora"
+              width="691" height="1024" loading="eager" fetchpriority="high"
+            />
+          </figure>
+        </div>
+      </section>
+
+      <!-- RECONHECIMENTO: texto puro. Sem ícone, sem card, sem caixa. -->
+      <section class="ess-recognize">
+        <div class="ess-wrap">
+          <p class="ess-label">Provavelmente você já vive assim</p>
+          <ul class="ess-lines">
+            {reconhecimento.map((linha) => <li>{linha}</li>)}
+          </ul>
+          <p class="ess-aside">
+            Nenhuma dessas frases é sinal de exagero. São sinais clínicos, e cada um deles
+            aponta para algo que pode ser examinado.
+          </p>
+        </div>
+      </section>
+
+      <!-- QUEM CUIDA: primeira pessoa, curto, e o segundo retrato. -->
+      <section class="ess-about">
+        <div class="ess-wrap ess-about-grid">
+          <figure class="ess-portrait">
+            <img
+              src="/images/vanessa-rio/vanessa-planta-sorriso.jpg"
+              alt="Retrato da Dra. Vanessa Silveira"
+              width="632" height="1024" loading="lazy"
+            />
+          </figure>
+
+          <div class="ess-about-text">
+            <p class="ess-label">Quem atende</p>
+            <h2 class="ess-title">
+              Sou a Dra. Vanessa Silveira, cirurgiã bucomaxilofacial.
+            </h2>
+            <p class="ess-body">
+              Em quase uma década tratando dor orofacial, atendi mais de duas mil pessoas — e a
+              maioria chegou depois de anos ouvindo que não era nada.
+            </p>
+            <p class="ess-body">
+              Aprendi que a consulta mais importante é a primeira: a que tem tempo para a história
+              inteira antes de olhar qualquer exame. Sem isso, o tratamento acerta o sintoma e erra a causa.
+            </p>
+            <p class="ess-credentials">
+              Especialista em Cirurgia e Traumatologia Bucomaxilofacial <span aria-hidden="true">·</span>
+              CRO/MG <span aria-hidden="true">·</span> atuação dedicada a DTM e dores faciais crônicas
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- O CAMINHO: três etapas reais, porque aqui a ordem carrega informação. -->
+      <section class="ess-path">
+        <div class="ess-wrap">
+          <p class="ess-label">Como funciona</p>
+          <div class="ess-path-grid">
+            {caminho.map((etapa) => (
+              <article class="ess-step">
+                <p class="ess-step-time">{etapa.tempo}</p>
+                <h3 class="ess-step-title">{etapa.titulo}</h3>
+                <p class="ess-body">{etapa.texto}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <!-- ONDE: informação, sem cartão e sem mapa decorativo. -->
+      <section class="ess-where">
+        <div class="ess-wrap ess-where-grid">
+          <div class="ess-where-item">
+            <p class="ess-label">Juiz de Fora <span aria-hidden="true">·</span> MG</p>
+            <p class="ess-address">Av. Barão do Rio Branco, 2872<br />Centro</p>
+            <a href="https://maps.google.com/?q=Av.+Barão+do+Rio+Branco,+2872,+Juiz+de+Fora"
+               target="_blank" rel="noopener" class="ess-link">Ver no mapa</a>
+          </div>
+
+          <div class="ess-where-item">
+            <p class="ess-label">Barra da Tijuca <span aria-hidden="true">·</span> RJ</p>
+            <p class="ess-address">Nova unidade<br />Agenda em formação</p>
+            <a href={whatsapp} target="_blank" rel="noopener" class="ess-link">Entrar na lista</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- FECHO: uma frase e uma ação. -->
+      <section class="ess-close">
+        <div class="ess-wrap ess-close-grid">
+          <div class="ess-close-text">
+            <p class="ess-closing-line">
+              Se você chegou até o fim desta página, é bem provável que já tenha tentado de tudo.
+              Vamos começar pelo começo.
+            </p>
+            <a href={whatsapp} target="_blank" rel="noopener" class="ess-button">Agendar consulta</a>
+            <p class="ess-note">Atendimento por WhatsApp <span aria-hidden="true">·</span> resposta no mesmo dia</p>
+          </div>
+
+          <figure class="ess-portrait ess-portrait--close">
+            <img
+              src="/images/vanessa-rio/vanessa-sofa-folhagem.jpg"
+              alt="Dra. Vanessa Silveira em ambiente de atendimento"
+              width="708" height="1024" loading="lazy"
+            />
+          </figure>
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="ess-foot">
+      <div class="ess-wrap ess-foot-inner">
+        <p>Dra. Vanessa Silveira <span aria-hidden="true">·</span> Cirurgia Bucomaxilofacial</p>
+        <nav class="ess-foot-nav">
+          <a href="/home-rio">Proposta anterior</a>
+          <a href="/idv-brasileira">Canvas da IDV</a>
+          <a href="/politica-de-privacidade">Privacidade</a>
+        </nav>
+      </div>
+    </footer>
+
+  </div>
+</Layout>
+
+<style>
+  /* ==========================================================================
+     Nenhuma regra abaixo desenha um enfeite. Cada uma existe para posicionar,
+     dimensionar ou dar respiro. Onde houver dúvida entre marcar e não marcar,
+     não marca.
+     ========================================================================== */
+
+  .ess {
+    background: var(--ess-linen);
+    color: var(--ess-ink);
+    font-family: var(--ess-font);
+    font-size: var(--ess-body);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .ess-wrap {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding-inline: var(--ess-gutter);
+  }
+
+  /* --- TOPO: o nome e a ação. Não há menu: a página inteira é a resposta. --- */
+  .ess-top {
+    padding-block: 1.75rem;
+  }
+
+  .ess-top-inner {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1.5rem;
+  }
+
+  .ess-mark {
+    font-size: 0.9375rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    color: var(--ess-ink);
+    text-decoration: none;
+  }
+
+  .ess-top-link,
+  .ess-link {
+    font-size: 0.875rem;
+    font-weight: 400;
+    color: var(--ess-ink);
+    text-decoration: underline;
+    text-underline-offset: 0.35em;
+    text-decoration-thickness: 1px;
+    text-decoration-color: var(--ess-rule);
+    transition: text-decoration-color 200ms var(--ess-ease);
+  }
+
+  .ess-top-link:hover,
+  .ess-link:hover {
+    text-decoration-color: var(--ess-ink);
+  }
+
+  /* --- ABERTURA --- */
+  .ess-open {
+    padding-block: clamp(3rem, 7vw, 6rem) 0;
+  }
+
+  .ess-open-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: clamp(2.5rem, 6vw, 5rem);
+    align-items: start;
+  }
+
+  .ess-statement {
+    font-size: var(--ess-statement);
+    font-weight: 400;
+    line-height: 1.06;
+    letter-spacing: -0.028em;
+    margin: 0 0 clamp(3rem, 6vw, 4.5rem);
+    max-width: 26ch;
+    text-wrap: balance;
+  }
+
+  .ess-lede {
+    font-size: 1.125rem;
+    line-height: 1.65;
+    color: var(--ess-muted);
+    margin: 0 0 2.5rem;
+    max-width: 38ch;
+  }
+
+  .ess-meta {
+    font-size: var(--ess-label);
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    line-height: 2;
+    color: var(--ess-muted);
+    margin: 0;
+  }
+
+  /* --- RETRATOS: sem borda, sem sombra, sem canto. A foto é a foto. --- */
+  .ess-portrait {
+    margin: 0;
+  }
+
+  .ess-portrait img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 2 / 3;
+    object-fit: cover;
+    background: var(--ess-linen-deep);
+  }
+
+  .ess-portrait--lead {
+    max-width: 420px;
+    justify-self: end;
+    width: 100%;
+  }
+
+  .ess-portrait--small {
+    max-width: 260px;
+  }
+
+  /* --- RECONHECIMENTO: a única lista da página, e ela é só texto. --- */
+  .ess-recognize {
+    padding-block: var(--ess-section);
+  }
+
+  .ess-label {
+    font-size: var(--ess-label);
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ess-muted);
+    margin: 0 0 clamp(2rem, 4vw, 3rem);
+  }
+
+  .ess-lines {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    max-width: 46ch;
+    border-top: 1px solid var(--ess-rule);
+  }
+
+  .ess-lines li {
+    font-size: clamp(1.1rem, 2vw, 1.45rem);
+    font-weight: 400;
+    line-height: 1.45;
+    letter-spacing: -0.012em;
+    padding-block: clamp(1.1rem, 2.2vw, 1.6rem);
+    border-bottom: 1px solid var(--ess-rule);
+  }
+
+  .ess-aside {
+    font-size: var(--ess-body);
+    line-height: 1.7;
+    color: var(--ess-muted);
+    max-width: 44ch;
+    margin: clamp(2.5rem, 5vw, 3.5rem) 0 0;
+  }
+
+  /* --- QUEM ATENDE --- */
+  .ess-about {
+    padding-block: 0 var(--ess-section);
+  }
+
+  .ess-about-grid {
+    display: grid;
+    grid-template-columns: 0.72fr 1.28fr;
+    gap: clamp(2.5rem, 7vw, 6rem);
+    align-items: start;
+  }
+
+  .ess-title {
+    font-size: var(--ess-title);
+    font-weight: 400;
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+    margin: 0 0 1.75rem;
+    max-width: 22ch;
+  }
+
+  .ess-body {
+    font-size: var(--ess-body);
+    line-height: 1.75;
+    color: var(--ess-muted);
+    margin: 0 0 1.25rem;
+    max-width: 52ch;
+  }
+
+  .ess-credentials {
+    font-size: 0.8125rem;
+    line-height: 1.8;
+    color: var(--ess-muted);
+    margin: 2.5rem 0 0;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--ess-rule);
+    max-width: 44ch;
+  }
+
+  /* --- O CAMINHO: três colunas, um fio cada. A ordem é a informação. --- */
+  .ess-path {
+    padding-block: 0 var(--ess-section);
+  }
+
+  .ess-path-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(2rem, 4vw, 3.5rem);
+  }
+
+  .ess-step {
+    border-top: 1px solid var(--ess-ink);
+    padding-top: 1.5rem;
+  }
+
+  .ess-step-time {
+    font-size: var(--ess-label);
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ess-muted);
+    margin: 0 0 1.25rem;
+  }
+
+  .ess-step-title {
+    font-size: 1.25rem;
+    font-weight: 400;
+    line-height: 1.3;
+    letter-spacing: -0.015em;
+    margin: 0 0 0.85rem;
+  }
+
+  .ess-step .ess-body {
+    margin: 0;
+  }
+
+  /* --- ONDE --- */
+  .ess-where {
+    padding-block: 0 var(--ess-section);
+  }
+
+  .ess-where-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 320px));
+    justify-content: start;
+    gap: clamp(2.5rem, 6vw, 5rem);
+    align-items: start;
+  }
+
+  .ess-where-item .ess-label {
+    margin-bottom: 1.25rem;
+  }
+
+  .ess-address {
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    margin: 0 0 1.25rem;
+  }
+
+  /* --- FECHO --- */
+  .ess-close {
+    padding-block: 0 var(--ess-section);
+  }
+
+  .ess-close-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: clamp(2.5rem, 6vw, 5rem);
+    align-items: end;
+  }
+
+  .ess-portrait--close {
+    max-width: 340px;
+    justify-self: end;
+    width: 100%;
+  }
+
+  .ess-closing-line {
+    font-size: clamp(1.4rem, 2.8vw, 2.05rem);
+    font-weight: 400;
+    line-height: 1.32;
+    letter-spacing: -0.022em;
+    max-width: 24ch;
+    margin: 0 0 clamp(2.25rem, 4vw, 3rem);
+    text-wrap: balance;
+  }
+
+  /* Um retângulo de tinta. Sem raio, sem sombra, sem deslocamento no hover. */
+  .ess-button {
+    display: inline-block;
+    background: var(--ess-ink);
+    color: var(--ess-linen);
+    font-size: 0.9375rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    padding: 1.15rem 2.5rem;
+    text-decoration: none;
+    transition: background-color 200ms var(--ess-ease);
+  }
+
+  .ess-button:hover {
+    background: #38332E;
+  }
+
+  .ess-note {
+    font-size: var(--ess-label);
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ess-muted);
+    margin: 1.5rem 0 0;
+  }
+
+  /* --- RODAPÉ --- */
+  .ess-foot {
+    border-top: 1px solid var(--ess-rule);
+    padding-block: 2.25rem 3rem;
+  }
+
+  .ess-foot-inner {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1rem 2rem;
+    font-size: 0.8125rem;
+    color: var(--ess-muted);
+  }
+
+  .ess-foot-inner p {
+    margin: 0;
+  }
+
+  .ess-foot-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.75rem;
+  }
+
+  .ess-foot-nav a {
+    color: var(--ess-muted);
+    text-decoration: none;
+    transition: color 200ms var(--ess-ease);
+  }
+
+  .ess-foot-nav a:hover {
+    color: var(--ess-ink);
+  }
+
+  .ess :focus-visible {
+    outline: 1px solid var(--ess-ink);
+    outline-offset: 4px;
+  }
+
+  /* O botão flutuante de WhatsApp é um enfeite permanente sobre o conteúdo.
+     Nesta proposta ele não existe: a página tem três chamadas próprias. */
+  :global(.ess ~ .vs-wa-float),
+  :global(body:has(.ess) .vs-wa-float) {
+    display: none !important;
+  }
+
+  @media (max-width: 900px) {
+    .ess-open-grid,
+    .ess-about-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .ess-portrait--lead {
+      justify-self: start;
+      max-width: 340px;
+    }
+
+    .ess-about-grid .ess-portrait {
+      max-width: 300px;
+      order: 2;
+    }
+
+    .ess-about-text {
+      order: 1;
+    }
+
+    .ess-path-grid {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+
+    .ess-close-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .ess-portrait--close {
+      justify-self: start;
+      max-width: 260px;
+      order: -1;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .ess-where-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ess * {
+      transition-duration: 0.01ms !important;
+    }
+  }
+</style>
