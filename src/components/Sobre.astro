@@ -71,7 +71,7 @@ import { siteConfig } from '../data/site';
     margin: 0 auto;
     padding: 0 var(--side-padding);
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     gap: var(--space-10);
     align-items: center;
   }
@@ -183,7 +183,7 @@ import { siteConfig } from '../data/site';
     }
 
     .vs-sobre__inner {
-      grid-template-columns: 1fr;
+      grid-template-columns: minmax(0, 1fr);
       gap: var(--space-8);
     }
 
@@ -199,6 +199,8 @@ import { siteConfig } from '../data/site';
 
     .vs-sobre__highlight {
       justify-content: center;
+      flex-wrap: wrap;
+      gap: var(--space-5);
     }
   }
 </style>

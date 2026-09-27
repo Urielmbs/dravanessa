@@ -14,13 +14,18 @@ import { siteConfig } from '../data/site';
     <p class="vs-hero__overline vs-reveal">Dra. Vanessa Silveira</p>
 
     <h1 class="vs-hero__title vs-reveal" data-delay="1">
-      Já te disseram que seu caso <em>não tem solução?</em><br>
+      Dor na mandíbula que ninguém explica? <em>Tem causa e tem tratamento.</em>
     </h1>
 
-    <h2 class="vs-hero__subtitle vs-reveal" data-delay="2">Você não está sozinha.</h2>
+    <h2 class="vs-hero__subtitle vs-reveal" data-delay="2">
+      Você não precisa conviver com estalos, dor de cabeça, mandíbula travada ou dente doendo sem cárie. A Dra. Vanessa Silveira, cirurgiã bucomaxilofacial, investiga a causa real da sua dor.
+    </h2>
 
-    <p class="vs-hero__subtitle vs-reveal" data-delay="2">
-      Aqui a dor que persiste há anos finalmente recebe o diagnóstico e você, o acolhimento e tratamento que precisa.
+    <p class="vs-hero__locations vs-reveal" data-delay="2">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" /><circle cx="12" cy="10" r="3" />
+      </svg>
+      <span>Atendimento em <strong>Juiz de Fora</strong> e na <strong>Barra da Tijuca (RJ)</strong>.</span>
     </p>
 
     <div class="vs-hero__actions vs-reveal" data-delay="3">
@@ -31,7 +36,7 @@ import { siteConfig } from '../data/site';
         Agende sua consulta
       </a>
       <a href="/diagnosticos/auto-diagnostico#sinais" class="vs-btn vs-btn--secondary">
-        Sintomas comuns
+        Fazer o teste de sintomas
       </a>
     </div>
     <p class="vs-hero__note vs-reveal" data-delay="3">Atendimento particular</p>
@@ -128,7 +133,7 @@ import { siteConfig } from '../data/site';
     z-index: 2;
     text-align: center;
     padding: var(--space-20) var(--side-padding) var(--space-16);
-    max-width: 900px;
+    max-width: 1100px;
   }
 
   .vs-hero__overline {
@@ -155,12 +160,13 @@ import { siteConfig } from '../data/site';
 
   .vs-hero__title {
     font-family: var(--font-display);
-    font-size: var(--text-hero);
+    font-size: clamp(3rem, 4.6vw, 4.25rem);
     font-weight: 700;
     line-height: var(--leading-tight);
     letter-spacing: var(--tracking-tight);
     color: var(--color-text-primary);
     margin-bottom: var(--space-6);
+    text-wrap: balance;
   }
 
   .vs-hero__title em {
@@ -177,8 +183,34 @@ import { siteConfig } from '../data/site';
     font-style: italic;
     line-height: var(--leading-normal);
     color: var(--color-text-secondary);
-    max-width: 560px;
+    max-width: 760px;
+    margin: 0 auto var(--space-5);
+  }
+
+  .vs-hero__locations {
+    display: inline-flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-2);
     margin: 0 auto var(--space-8);
+    padding: 8px 18px;
+    background: var(--color-amber-subtle);
+    border: 1px solid rgba(232, 122, 47, 0.25);
+    border-radius: var(--radius-full);
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+  }
+
+  .vs-hero__locations svg {
+    color: var(--color-amber);
+    flex-shrink: 0;
+  }
+
+  .vs-hero__locations strong {
+    color: var(--color-text-primary);
+    font-weight: 600;
   }
 
   .vs-hero__actions {

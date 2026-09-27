@@ -275,7 +275,7 @@
   /* 2x2 grid */
   .vs-trats-sub__grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     gap: var(--space-4);
   }
 
@@ -385,7 +385,7 @@
     }
 
     .vs-trats-sub__grid {
-      grid-template-columns: 1fr;
+      grid-template-columns: minmax(0, 1fr);
     }
 
     .vs-proc-card__desc,

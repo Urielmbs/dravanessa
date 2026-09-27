@@ -42,7 +42,7 @@ import dorMandibula from '../assets/images/dor-mandibula.jpg';
     margin: 0 auto;
     padding: 0 var(--side-padding);
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     gap: var(--space-10);
     align-items: center;
   }
@@ -109,7 +109,7 @@ import dorMandibula from '../assets/images/dor-mandibula.jpg';
 
   @media (max-width: 768px) {
     .vs-praquem__inner {
-      grid-template-columns: 1fr;
+      grid-template-columns: minmax(0, 1fr);
     }
 
     .vs-praquem__image-wrap {

@@ -199,7 +199,7 @@ const whatsappCtaHref = whatsappMessage
   /* Grid: info + map */
   .vs-contato__grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     gap: var(--space-8);
     align-items: start;
   }
@@ -257,7 +257,12 @@ const whatsappCtaHref = whatsappMessage
     margin-bottom: 4px;
   }
 
+  .vs-contato__item > div:last-child {
+    min-width: 0;
+  }
+
   .vs-contato__item-value {
+    overflow-wrap: anywhere;
     font-family: var(--font-body);
     font-size: var(--text-base);
     font-weight: 400;
@@ -322,7 +327,7 @@ const whatsappCtaHref = whatsappMessage
     }
 
     .vs-contato__grid {
-      grid-template-columns: 1fr;
+      grid-template-columns: minmax(0, 1fr);
     }
 
     .vs-contato__map-wrap {

@@ -199,7 +199,7 @@
   /* Steps / Process */
   .vs-metodo__steps {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: var(--space-6);
     margin-top: var(--space-8);
   }
@@ -306,7 +306,7 @@
     }
 
     .vs-metodo__steps {
-      grid-template-columns: 1fr;
+      grid-template-columns: minmax(0, 1fr);
       gap: var(--space-4);
     }
   }

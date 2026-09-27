@@ -45,12 +45,12 @@
 }
 .proc-grid {
   display: grid;
-  grid-template-columns: 1fr 320px;
+  grid-template-columns: minmax(0, 1fr) 320px;
   gap: var(--space-8);
 }
 @media (max-width: 992px) {
   .proc-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 }
 .proc-main {
@@ -119,7 +119,7 @@
 }
 .benefits-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, minmax(0, 1fr)));
   gap: var(--space-4);
   margin-top: var(--space-4);
 }

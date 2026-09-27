@@ -120,7 +120,7 @@ import { waLink } from '../data/site';
 
       <div class="vs-dtm-alert" id="vs-dtm-alert">
         <p class="vs-dtm-alert__text">
-          Se você marcou <strong>2 ou mais</strong>, sua ATM pode estar mandando um alerta há muito tempo.
+          Se você marcou <strong>pelo menos 1</strong>, sua ATM pode estar mandando um alerta há muito tempo.
           A boa notícia: <strong>isso tem diagnóstico e tratamento.</strong>
         </p>
         <a href={waLink('Olá, marquei sintomas no site e gostaria de ser avaliada(o).')} id="vs-dtm-wa" target="_blank" rel="noopener" class="vs-btn vs-btn--primary">
@@ -188,7 +188,7 @@ import { waLink } from '../data/site';
         waBtn.href = waBtn.href.split('?')[0] + '?text=' + encodeURIComponent(msg);
       }
 
-      if (count >= 2) { alertEl.classList.add('is-visible'); }
+      if (count >= 1) { alertEl.classList.add('is-visible'); }
       else { alertEl.classList.remove('is-visible'); }
     }
   }
@@ -233,7 +233,7 @@ import { waLink } from '../data/site';
 
   .vs-dores__grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: var(--space-4);
   }
 
@@ -465,7 +465,7 @@ import { waLink } from '../data/site';
 
   @media (max-width: 900px) {
     .vs-dores__grid {
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
     .vs-dtm-gauge__levels {
@@ -475,7 +475,7 @@ import { waLink } from '../data/site';
 
   @media (max-width: 600px) {
     .vs-dores__grid {
-      grid-template-columns: 1fr;
+      grid-template-columns: minmax(0, 1fr);
     }
 
     .vs-dores__title {

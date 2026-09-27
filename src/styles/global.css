@@ -141,6 +141,14 @@
 }
 
 /* === RESET & BASE === */
+/* border-box em todo o site (Nav, Footer e páginas ficam fora de .vs-section):
+   evita que width:100% + padding ultrapasse a largura da tela. */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 .vs-section *,
 .vs-section *::before,
 .vs-section *::after {
@@ -354,6 +362,19 @@ body {
   margin: 0;
   padding: 0;
   background: var(--color-cream);
+  /* Palavras longas (ex: "Viscossuplementação", e-mails) quebram em vez de
+     alargar a página no celular. Propriedade herdada por todo o conteúdo. */
+  overflow-wrap: break-word;
+}
+
+@media (max-width: 600px) {
+  :root {
+    --text-4xl: 2.369rem;
+  }
+
+  h1 {
+    hyphens: auto;
+  }
 }
 
 /* === ACESSIBILIDADE === */
