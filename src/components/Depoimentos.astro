@@ -6,16 +6,23 @@ import { depoimentos, type Depoimento } from '../data/depoimentos';
 interface Props {
   items?: Depoimento[];
   showBadges?: boolean;
+  overline?: string;
+  title?: string;
 }
 
-const { items = depoimentos, showBadges = true } = Astro.props;
+const {
+  items = depoimentos,
+  showBadges = true,
+  overline = 'Eles também achavam que teriam que conviver com a dor',
+  title = 'Histórias reais de transformação',
+} = Astro.props;
 const { google, doctoralia } = siteConfig.reviews;
 ---
 <section class="vs-section vs-depoimentos" aria-label="Depoimentos de pacientes">
   <div class="vs-depoimentos__inner">
     <div class="vs-depoimentos__header">
-      <p class="vs-depoimentos__overline vs-reveal">Eles também achavam que teriam que conviver com a dor</p>
-      <h2 class="vs-depoimentos__title vs-reveal" data-delay="1">Histórias reais de transformação</h2>
+      <p class="vs-depoimentos__overline vs-reveal">{overline}</p>
+      <h2 class="vs-depoimentos__title vs-reveal" data-delay="1">{title}</h2>
     </div>
 
     <div class="vs-depoimentos__grid" style={`--dep-cols: ${Math.min(items.length, 3)}`}>

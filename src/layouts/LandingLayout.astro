@@ -1,0 +1,87 @@
+---
+// src/layouts/LandingLayout.astro
+// Estrutura comum das landing pages de campanha (Google Ads): página isolada,
+// fora do menu e do sitemap, com noindex e sem navegação que tire o visitante
+// da página. Conversão única: clique no WhatsApp com a mensagem da campanha.
+// Cada página passa só o conteúdo das seções (slot) — estilos em landing.css.
+import Layout from './Layout.astro';
+import WhatsAppFloat from '../components/WhatsAppFloat.astro';
+import { siteConfig } from '../data/site';
+import '../styles/landing.css';
+
+interface Props {
+  title: string;
+  description: string;
+  /** Identifica a LP nos eventos de conversão (lp_name). */
+  lpName: string;
+  /** Link do WhatsApp com a mensagem pré-preenchida da campanha. */
+  whatsappHref: string;
+  /** Endereço do rodapé (padrão: Juiz de Fora). */
+  local?: { clinic: string; street: string; cityLine: string };
+}
+
+const { title, description, lpName, whatsappHref, local = siteConfig.address } = Astro.props;
+---
+
+<Layout title={title} description={description} noindex showWhatsAppFloat={false}>
+  <div class="vs-section lp" data-lp-name={lpName}>
+    <!-- Cabeçalho mínimo: só a marca, sem menu nem links -->
+    <header class="lp-header">
+      <div class="lp-wrap lp-header__inner">
+        <p class="lp-header__logo">Dra. Vanessa <span>Silveira</span></p>
+        <p class="lp-header__cro">{siteConfig.cro}</p>
+      </div>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <!-- Rodapé mínimo: identificação profissional, sem navegação -->
+    <footer class="lp-footer">
+      <div class="lp-wrap">
+        <p class="lp-footer__name">Dra. Vanessa Zaidan Silveira</p>
+        <p>Cirurgiã e Traumatologista Bucomaxilofacial · {siteConfig.cro}</p>
+        <p>{local.clinic} · {local.street} · {local.cityLine}</p>
+        <p class="lp-footer__legal">
+          © {new Date().getFullYear()} Dra. Vanessa Silveira ·
+          <a href="/politica-de-privacidade" target="_blank" rel="noopener">Política de Privacidade</a>
+        </p>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Botão fixo de WhatsApp só no celular, com o mesmo link da campanha -->
+  <WhatsAppFloat href={whatsappHref} lpCta="fixo" mobileOnly />
+</Layout>
+
+<script>
+  // Conversão da campanha: cada clique num CTA de WhatsApp (data-lp-cta) envia
+  // o evento "lp_whatsapp_click" para o GTM (dataLayer) — e para o gtag, se
+  // estiver carregado — com a LP e a posição do botão. O listener global do
+  // Layout continua enviando o evento genérico "whatsapp_click" em paralelo.
+  type TrackingWindow = Window & {
+    dataLayer?: Record<string, unknown>[];
+    gtag?: (...args: unknown[]) => void;
+  };
+
+  const w = window as TrackingWindow;
+  const lpName = document.querySelector<HTMLElement>('.lp[data-lp-name]')?.dataset.lpName;
+
+  document.querySelectorAll<HTMLAnchorElement>('a[data-lp-cta]').forEach((link) => {
+    link.addEventListener('click', () => {
+      const params = {
+        lp_name: lpName,
+        cta_position: link.dataset.lpCta,
+        cta_text: link.textContent?.trim() || link.getAttribute('aria-label'),
+      };
+
+      w.dataLayer = w.dataLayer || [];
+      w.dataLayer.push({ event: 'lp_whatsapp_click', ...params });
+
+      if (typeof w.gtag === 'function') {
+        w.gtag('event', 'lp_whatsapp_click', params);
+      }
+    });
+  });
+</script>

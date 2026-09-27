@@ -4,6 +4,9 @@ export interface Depoimento {
   nome: string;
   iniciais: string;
   meta: string;
+  // Assunto do relato, para cada landing page exibir só os pertinentes
+  // (ex.: a LP de cirurgia não mostra relatos de DTM).
+  tema: 'dtm' | 'cirurgia' | 'geral';
   // Cita o Método Rearticular™, que está oculto do site (ver nota em Sobre.astro):
   // landing pages não exibem esses depoimentos, pois não há contexto para o método.
   citaMetodo?: boolean;
@@ -16,6 +19,7 @@ export const depoimentos: Depoimento[] = [
     nome: 'Maria C.',
     iniciais: 'MC',
     meta: 'Paciente há 2 anos',
+    tema: 'dtm',
   },
   {
     texto:
@@ -23,6 +27,7 @@ export const depoimentos: Depoimento[] = [
     nome: 'José A.',
     iniciais: 'JA',
     meta: 'Paciente há 1 ano',
+    tema: 'geral',
   },
   {
     texto:
@@ -30,6 +35,7 @@ export const depoimentos: Depoimento[] = [
     nome: 'Lucia S.',
     iniciais: 'LS',
     meta: 'Paciente há 3 anos',
+    tema: 'dtm',
     citaMetodo: true,
   },
 ];

@@ -1,9 +1,21 @@
 ---
 // src/components/WhatsAppFloat.astro
 // Botão fixo de WhatsApp — visível durante toda a rolagem, em todas as páginas.
+// Nas landing pages recebe `href` com a mensagem fixa da campanha (sem a
+// mensagem dinâmica de data-wa-origin), `lpCta` para o rastreamento e
+// `mobileOnly` para aparecer só no celular.
 import { siteConfig } from '../data/site';
+
+interface Props {
+  href?: string;
+  lpCta?: string;
+  mobileOnly?: boolean;
+}
+
+const { href, lpCta, mobileOnly = false } = Astro.props;
 ---
-<a href={siteConfig.whatsapp.href} data-wa-origin="whatsapp" target="_blank" rel="noopener" class="vs-wa-float" id="vs-wa-float"
+<a href={href ?? siteConfig.whatsapp.href} data-wa-origin={href ? undefined : 'whatsapp'} data-lp-cta={lpCta}
+  target="_blank" rel="noopener" class:list={['vs-wa-float', { 'vs-wa-float--mobile-only': mobileOnly }]} id="vs-wa-float"
   aria-label="Falar com a Dra. Vanessa Silveira pelo WhatsApp">
   <svg class="vs-wa-float__icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
     <use href="#icon-whatsapp" />
@@ -75,6 +87,12 @@ import { siteConfig } from '../data/site';
   .vs-wa-float__icon {
     width: 28px;
     height: 28px;
+  }
+
+  @media (min-width: 768px) {
+    .vs-wa-float--mobile-only {
+      display: none;
+    }
   }
 
   @media (prefers-reduced-motion: reduce) {
