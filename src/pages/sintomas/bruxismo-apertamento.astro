@@ -4,6 +4,8 @@ import Layout from '../../layouts/Layout.astro';
 import Nav from '../../components/Nav.astro';
 import Contato from '../../components/Contato.astro';
 import Footer from '../../components/Footer.astro';
+import { waLink } from '../../data/site';
+import DiagnosticoCTA from '../../components/DiagnosticoCTA.astro';
 ---
 
 <Layout
@@ -25,6 +27,8 @@ import Footer from '../../components/Footer.astro';
         </p>
       </div>
       
+      <DiagnosticoCTA />
+
       <div class="pas-content vs-reveal" data-delay="1">
         <div class="pas-block pas-block--problem">
           <h2>O Problema: Acordar cansado(a) e com dor na face</h2>
@@ -56,8 +60,9 @@ import Footer from '../../components/Footer.astro';
             <p>Faça o auto-diagnóstico em 1 minuto ou agende um atendimento direto com a Dra. Vanessa.</p>
             <div class="cta-actions">
               <a href="/diagnosticos/auto-diagnostico" class="vs-btn vs-btn--secondary">Iniciar Teste Gratuito</a>
-              <a href="/contato" class="vs-btn vs-btn--primary">Fale conosco</a>
+              <a href={waLink('Olá, vim da página sobre bruxismo e dor de cabeça e gostaria de ser avaliada(o).')} target="_blank" rel="noopener" class="vs-btn vs-btn--primary"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><use href="#icon-whatsapp" /></svg>Fale conosco</a>
             </div>
+            <p class="vs-cta-note">Atendimento particular</p>
           </div>
         </div>
       </div>

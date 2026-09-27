@@ -3,7 +3,7 @@
 // Botão fixo de WhatsApp — visível durante toda a rolagem, em todas as páginas.
 import { siteConfig } from '../data/site';
 ---
-<a href={siteConfig.whatsapp.href} target="_blank" rel="noopener" class="vs-wa-float" id="vs-wa-float"
+<a href={siteConfig.whatsapp.href} data-wa-dynamic target="_blank" rel="noopener" class="vs-wa-float" id="vs-wa-float"
   aria-label="Falar com a Dra. Vanessa Silveira pelo WhatsApp">
   <svg class="vs-wa-float__icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
     <use href="#icon-whatsapp" />
@@ -11,7 +11,18 @@ import { siteConfig } from '../data/site';
 </a>
 
 <script>
+  // Links marcados com data-wa-dynamic recebem mensagem com o nome da página atual.
+  const applyDynamicWhatsAppMessage = () => {
+    const pageName = document.title.split('|')[0].trim();
+    const message = `Olá, estava na página ${pageName} no site da Dra. Vanessa e entrei em contato pelo botão whatsapp.`;
+    document.querySelectorAll<HTMLAnchorElement>('a[data-wa-dynamic]').forEach((a) => {
+      const base = a.href.split('?')[0];
+      a.href = `${base}?text=${encodeURIComponent(message)}`;
+    });
+  };
+
   const initWhatsAppFloat = () => {
+    applyDynamicWhatsAppMessage();
     const btn = document.getElementById('vs-wa-float');
     if (!btn) return;
 

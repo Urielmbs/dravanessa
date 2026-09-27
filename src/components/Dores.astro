@@ -1,5 +1,6 @@
 ---
 // src/components/Dores.astro
+import { waLink } from '../data/site';
 ---
 <section id="sinais" class="vs-section vs-dores" aria-label="Sintomas e Dores">
   <div class="vs-dores__inner">
@@ -122,7 +123,7 @@
           Se você marcou <strong>2 ou mais</strong>, sua ATM pode estar mandando um alerta há muito tempo.
           A boa notícia: <strong>isso tem diagnóstico e tratamento.</strong>
         </p>
-        <a href="https://wa.me/5532998513101?text=Ol%C3%A1%2C%20marquei%20sintomas%20no%20site%20e%20gostaria%20de%20ser%20avaliada(o)." target="_blank" rel="noopener" class="vs-btn vs-btn--primary">
+        <a href={waLink('Olá, marquei sintomas no site e gostaria de ser avaliada(o).')} target="_blank" rel="noopener" class="vs-btn vs-btn--primary">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
             <use href="#icon-whatsapp" />
           </svg>

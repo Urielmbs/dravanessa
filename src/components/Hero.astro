@@ -1,5 +1,6 @@
 ---
 // src/components/Hero.astro
+import { siteConfig } from '../data/site';
 ---
 <section class="vs-section vs-hero" aria-label="Apresentação principal">
   <!-- Background accents -->
@@ -23,7 +24,7 @@
     </p>
 
     <div class="vs-hero__actions vs-reveal" data-delay="3">
-      <a href="https://wa.me/5532998513101" target="_blank" rel="noopener" class="vs-btn vs-btn--primary">
+      <a href={siteConfig.whatsapp.href} target="_blank" rel="noopener" class="vs-btn vs-btn--primary">
         <svg class="vs-hero__whatsapp-icon" viewBox="0 0 24 24" fill="currentColor">
           <use href="#icon-whatsapp" />
         </svg>
@@ -33,6 +34,7 @@
         Sintomas comuns
       </a>
     </div>
+    <p class="vs-hero__note vs-reveal" data-delay="3">Atendimento particular</p>
   </div>
 
   <!-- Scroll indicator -->
@@ -185,6 +187,12 @@
     justify-content: center;
     gap: var(--space-4);
     flex-wrap: wrap;
+  }
+
+  .vs-hero__note {
+    margin-top: var(--space-4);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
   }
 
   /* WhatsApp icon in button */

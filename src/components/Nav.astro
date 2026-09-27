@@ -4,7 +4,7 @@ const pathname = Astro.url.pathname.replace(/\/+$/, '') || '/';
 const isActive = (href: string) => pathname === href.replace(/\/+$/, '');
 const isGroupActive = (hrefs: string[]) => hrefs.some(isActive);
 
-const draVanessaGroup = ['/dra-vanessa', '/treinamentos', '/eventos'];
+const draVanessaGroup = ['/dra-vanessa', '/barra-da-tijuca', '/treinamentos', '/eventos'];
 const sintomasGroup = [
   '/sintomas/dor-atm-estalos',
   '/sintomas/bruxismo-apertamento',
@@ -44,6 +44,7 @@ const procedimentosGroup = [
         </div>
         <div class="vs-nav__dropdown-menu vs-dropdown-menu">
           <a href="/dra-vanessa" class="vs-nav__dropdown-item" class:list={{ 'is-active': isActive('/dra-vanessa') }} aria-current={isActive('/dra-vanessa') ? 'page' : undefined}>Sobre a Dra. Vanessa</a>
+          <a href="/barra-da-tijuca" class="vs-nav__dropdown-item" class:list={{ 'is-active': isActive('/barra-da-tijuca') }} aria-current={isActive('/barra-da-tijuca') ? 'page' : undefined}>Unidade Barra da Tijuca (RJ)</a>
           <a href="/treinamentos" class="vs-nav__dropdown-item" class:list={{ 'is-active': isActive('/treinamentos') }} aria-current={isActive('/treinamentos') ? 'page' : undefined}>Treinamentos & Cursos</a>
           <a href="/eventos" class="vs-nav__dropdown-item" class:list={{ 'is-active': isActive('/eventos') }} aria-current={isActive('/eventos') ? 'page' : undefined}>Eventos & Palestras</a>
         </div>

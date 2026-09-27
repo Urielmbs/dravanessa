@@ -4,6 +4,8 @@ import Layout from '../../layouts/Layout.astro';
 import Nav from '../../components/Nav.astro';
 import Contato from '../../components/Contato.astro';
 import Footer from '../../components/Footer.astro';
+import { waLink } from '../../data/site';
+import DiagnosticoCTA from '../../components/DiagnosticoCTA.astro';
 ---
 
 <Layout
@@ -25,6 +27,8 @@ import Footer from '../../components/Footer.astro';
         </p>
       </div>
       
+      <DiagnosticoCTA />
+
       <div class="pas-content vs-reveal" data-delay="1">
         <div class="pas-block pas-block--problem">
           <h2>O Problema: Sisos inflamados e lesões bucais atípicas</h2>
@@ -57,8 +61,9 @@ import Footer from '../../components/Footer.astro';
             <div class="cta-actions">
               <a href="/procedimentos/remocao-sisos" class="vs-btn vs-btn--secondary">Remoção de Sisos</a>
               <a href="/procedimentos/biopsias" class="vs-btn vs-btn--secondary">Biópsias & Diagnóstico</a>
-              <a href="/contato" class="vs-btn vs-btn--primary">Fale conosco</a>
+              <a href={waLink('Olá, vim da página sobre dor nos sisos e lesões bucais e gostaria de ser avaliada(o).')} target="_blank" rel="noopener" class="vs-btn vs-btn--primary"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><use href="#icon-whatsapp" /></svg>Fale conosco</a>
             </div>
+            <p class="vs-cta-note">Atendimento particular</p>
           </div>
         </div>
       </div>

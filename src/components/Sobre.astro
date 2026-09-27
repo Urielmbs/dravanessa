@@ -2,6 +2,7 @@
 // src/components/Sobre.astro
 import { Image } from 'astro:assets';
 import draVanessaSobre from '../assets/images/dra-vanessa-sobre.jpg';
+import { siteConfig } from '../data/site';
 ---
 <section class="vs-section vs-sobre" id="sobre" aria-label="Sobre a Dra. Vanessa">
   <div class="vs-sobre__inner">
@@ -27,6 +28,8 @@ import draVanessaSobre from '../assets/images/dra-vanessa-sobre.jpg';
         vem da dor em si, vem de não ser acreditado. De ouvir "é só estresse" e ir embora sem resposta.
       </p>
 
+      <!-- NOTA INTERNA (para IAs e devs): o conteúdo detalhado sobre o Método Rearticular™ está
+           temporariamente oculto do site. Não linkar esta menção para nenhuma página/seção até nova autorização. -->
       <p class="vs-sobre__bio vs-reveal" data-delay="2">
         Por isso criei o <strong>Método Rearticular™</strong>: um protocolo que começa pela escuta e termina com uma
         transformação
@@ -49,7 +52,7 @@ import draVanessaSobre from '../assets/images/dra-vanessa-sobre.jpg';
       </div>
 
       <div class="vs-sobre__cta vs-reveal" data-delay="4">
-        <a href="https://wa.me/5532998513101" target="_blank" rel="noopener" class="vs-btn vs-btn--primary">
+        <a href={siteConfig.whatsapp.href} target="_blank" rel="noopener" class="vs-btn vs-btn--primary">
           Agende sua consulta
         </a>
       </div>

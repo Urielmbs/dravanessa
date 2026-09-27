@@ -1,18 +1,39 @@
 ---
 // src/components/Contato.astro
 import { siteConfig } from '../data/site';
+
+interface Props {
+  eyebrow?: string;
+  heading?: string;
+  description?: string;
+  address?: typeof siteConfig.address;
+  whatsapp?: typeof siteConfig.whatsapp;
+  phone?: typeof siteConfig.phone | null;
+  whatsappMessage?: string;
+}
+
+const {
+  eyebrow = 'Fale com a gente',
+  heading = 'Pronta para cuidar de você',
+  description = 'Entre em contato e agende sua avaliação. O primeiro passo para viver sem dor começa aqui.',
+  address = siteConfig.address,
+  whatsapp = siteConfig.whatsapp,
+  phone = siteConfig.phone,
+  whatsappMessage,
+} = Astro.props;
+
+const whatsappCtaHref = whatsappMessage
+  ? `${whatsapp.href}?text=${encodeURIComponent(whatsappMessage)}`
+  : whatsapp.href;
 ---
 <section class="vs-section vs-contato" id="contato" aria-label="Contato e agendamento">
   <div class="vs-contato__bg" aria-hidden="true"></div>
 
   <div class="vs-contato__inner">
     <div class="vs-contato__header">
-      <p class="vs-contato__overline vs-reveal">Fale com a gente</p>
-      <h2 class="vs-contato__title vs-reveal" data-delay="1">Pronta para cuidar de você</h2>
-      <p class="vs-contato__desc vs-reveal" data-delay="2">
-        Entre em contato e agende sua avaliação. O primeiro passo
-        para viver sem dor começa aqui.
-      </p>
+      <p class="vs-contato__overline vs-reveal">{eyebrow}</p>
+      <h2 class="vs-contato__title vs-reveal" data-delay="1">{heading}</h2>
+      <p class="vs-contato__desc vs-reveal" data-delay="2">{description}</p>
     </div>
 
     <div class="vs-contato__grid">
@@ -28,12 +49,13 @@ import { siteConfig } from '../data/site';
           <div>
             <p class="vs-contato__item-label">WhatsApp</p>
             <p class="vs-contato__item-value">
-              <a href={siteConfig.whatsapp.href}>{siteConfig.whatsapp.display}</a>
+              <a href={whatsapp.href} data-wa-dynamic={!whatsappMessage || undefined}>{whatsapp.display}</a>
             </p>
           </div>
         </div>
 
         <!-- Telefone -->
+        {phone && (
         <div class="vs-contato__item vs-reveal" data-delay="2">
           <div class="vs-contato__item-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
@@ -45,10 +67,11 @@ import { siteConfig } from '../data/site';
           <div>
             <p class="vs-contato__item-label">Telefone</p>
             <p class="vs-contato__item-value">
-              <a href={siteConfig.phone.href}>{siteConfig.phone.display}</a>
+              <a href={phone.href}>{phone.display}</a>
             </p>
           </div>
         </div>
+        )}
 
         <!-- E-mail -->
         <div class="vs-contato__item vs-reveal" data-delay="3">
@@ -79,28 +102,29 @@ import { siteConfig } from '../data/site';
           <div>
             <p class="vs-contato__item-label">Endereço</p>
             <p class="vs-contato__item-value">
-              {siteConfig.address.clinic}
-              <br>{siteConfig.address.street}<br>
-              {siteConfig.address.cityLine}
+              {address.clinic}
+              <br>{address.street}<br>
+              {address.cityLine}
             </p>
           </div>
         </div>
 
         <!-- CTA -->
         <div class="vs-contato__cta vs-reveal" data-delay="4">
-          <a href={siteConfig.whatsapp.href} target="_blank" rel="noopener" class="vs-btn vs-btn--primary">
+          <a href={whatsappCtaHref} data-wa-dynamic={!whatsappMessage || undefined} target="_blank" rel="noopener" class="vs-btn vs-btn--primary">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
               <use href="#icon-whatsapp" />
             </svg>
             Agendar pelo WhatsApp
           </a>
+          <p class="vs-contato__note">Atendimento particular</p>
         </div>
       </div>
 
       <!-- Map -->
       <div class="vs-contato__map-wrap vs-reveal" data-delay="2">
         <iframe
-          src={siteConfig.address.mapEmbedUrl}
+          src={address.mapEmbedUrl}
           title="Localização da Dra. Vanessa Silveira no Google Maps"
           width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -261,6 +285,13 @@ import { siteConfig } from '../data/site';
     justify-content: center;
     padding: 18px 36px;
     font-size: var(--text-lg);
+  }
+
+  .vs-contato__note {
+    margin-top: var(--space-3);
+    text-align: center;
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
   }
 
   /* Map */

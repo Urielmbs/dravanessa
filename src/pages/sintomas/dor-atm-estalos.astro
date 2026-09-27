@@ -4,6 +4,8 @@ import Layout from '../../layouts/Layout.astro';
 import Nav from '../../components/Nav.astro';
 import Contato from '../../components/Contato.astro';
 import Footer from '../../components/Footer.astro';
+import { waLink } from '../../data/site';
+import DiagnosticoCTA from '../../components/DiagnosticoCTA.astro';
 ---
 
 <Layout
@@ -28,6 +30,8 @@ import Footer from '../../components/Footer.astro';
       </div>
       
       <!-- PAS Copy Content -->
+      <DiagnosticoCTA />
+
       <div class="pas-content vs-reveal" data-delay="1">
         <!-- Problem -->
         <div class="pas-block pas-block--problem">
@@ -62,8 +66,9 @@ import Footer from '../../components/Footer.astro';
             <p>Faça nosso teste online gratuito ou agende uma avaliação individualizada.</p>
             <div class="cta-actions">
               <a href="/diagnosticos/auto-diagnostico" class="vs-btn vs-btn--secondary">Fazer Auto-Diagnóstico Online</a>
-              <a href="/contato" class="vs-btn vs-btn--primary">Fale conosco</a>
+              <a href={waLink('Olá, vim da página sobre dores na ATM e estalos e gostaria de ser avaliada(o).')} target="_blank" rel="noopener" class="vs-btn vs-btn--primary"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><use href="#icon-whatsapp" /></svg>Fale conosco</a>
             </div>
+            <p class="vs-cta-note">Atendimento particular</p>
           </div>
         </div>
       </div>

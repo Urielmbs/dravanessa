@@ -4,6 +4,7 @@ import Layout from '../../layouts/Layout.astro';
 import Nav from '../../components/Nav.astro';
 import Contato from '../../components/Contato.astro';
 import Footer from '../../components/Footer.astro';
+import { waLink } from '../../data/site';
 ---
 
 <Layout
@@ -56,8 +57,9 @@ import Footer from '../../components/Footer.astro';
             <p>Agende uma avaliação muscular individualizada com a Dra. Vanessa.</p>
             <div class="cta-actions">
               <a href="/diagnosticos/auto-diagnostico" class="vs-btn vs-btn--secondary">Fazer Auto-Diagnóstico DTM</a>
-              <a href="/contato" class="vs-btn vs-btn--primary">Fale conosco</a>
+              <a href={waLink('Olá, vim da página sobre Liberação Miofascial e gostaria de ser avaliada(o).')} target="_blank" rel="noopener" class="vs-btn vs-btn--primary"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><use href="#icon-whatsapp" /></svg>Fale conosco</a>
             </div>
+            <p class="vs-cta-note">Atendimento particular</p>
           </div>
         </div>
       </div>

@@ -4,6 +4,7 @@ import Layout from '../../layouts/Layout.astro';
 import Nav from '../../components/Nav.astro';
 import Contato from '../../components/Contato.astro';
 import Footer from '../../components/Footer.astro';
+import { waLink } from '../../data/site';
 import '../../styles/procedimentos.css';
 ---
 
@@ -113,7 +114,8 @@ import '../../styles/procedimentos.css';
               <p>🖥️ <strong>Tecnologia:</strong> Simulação Virtual 3D</p>
               <p>🏥 <strong>Internação:</strong> 24h a 48h</p>
             </div>
-            <a href="/contato" class="vs-btn vs-btn--primary w-full">Fale conosco para avaliação 3D</a>
+            <a href={waLink('Olá, vim da página sobre Cirurgia Ortognática e gostaria de ser avaliada(o).')} target="_blank" rel="noopener" class="vs-btn vs-btn--primary w-full"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><use href="#icon-whatsapp" /></svg>Fale conosco para avaliação 3D</a>
+            <p class="vs-cta-note">Atendimento particular</p>
           </div>
         </aside>
       </div>

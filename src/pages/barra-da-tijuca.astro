@@ -1,0 +1,173 @@
+---
+// src/pages/barra-da-tijuca.astro
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Contato from '../components/Contato.astro';
+import Footer from '../components/Footer.astro';
+import { siteConfig, waLink } from '../data/site';
+
+const unit = siteConfig.barraDaTijuca;
+const whatsappMessage = 'Olá, vi o site e gostaria de agendar uma avaliação na unidade da Barra da Tijuca (RJ).';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'MedicalClinic',
+  name: unit.clinic,
+  url: `${siteConfig.url}/barra-da-tijuca`,
+  medicalSpecialty: 'Cirurgia Bucomaxilofacial',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: unit.street,
+    addressLocality: 'Rio de Janeiro',
+    addressRegion: 'RJ',
+    postalCode: '22631-003',
+    addressCountry: 'BR',
+  },
+};
+---
+
+<Layout
+  title="Atendimento na Barra da Tijuca (RJ) | Dra. Vanessa Silveira"
+  description="Dra. Vanessa Silveira, cirurgiã bucomaxilofacial, atende na Barra da Tijuca, Rio de Janeiro. Avaliação de DTM, dor orofacial e bruxismo na Av. das Américas, 3333."
+>
+  <Nav />
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} is:inline />
+  <main class="vs-section page-container">
+    <div class="vs-container">
+      <nav class="vs-breadcrumb">
+        <a href="/">Home</a> / <span>Unidade Barra da Tijuca (RJ)</span>
+      </nav>
+
+      <div class="page-header vs-reveal">
+        <span class="vs-badge">Nova unidade · Rio de Janeiro</span>
+        <h1 class="vs-font-display">Atendimento na Barra da Tijuca, Rio de Janeiro</h1>
+        <p class="page-lead">
+          A Dra. Vanessa Silveira agora atende também na Barra da Tijuca, com o mesmo cuidado especializado em DTM, dor orofacial e cirurgia bucomaxilofacial oferecido em Juiz de Fora. Atendimento a partir de 10 de outubro.
+        </p>
+      </div>
+
+      <div class="rj-content vs-reveal" data-delay="1">
+        <div class="rj-block">
+          <h2>O que você encontra na unidade</h2>
+          <p>
+            Se você mora no Rio de Janeiro e convive há anos com dor na mandíbula, estalos, dor de cabeça ou bruxismo, agora não precisa viajar para ter um diagnóstico preciso e um plano de tratamento individualizado.
+          </p>
+          <ul class="rj-checklist">
+            <li>✔️ Avaliação de DTM, dor orofacial, bruxismo e dores de cabeça de origem articular ou muscular.</li>
+            <li>✔️ Tratamentos conservadores e minimamente invasivos da ATM.</li>
+            <li>✔️ Avaliação de sisos, lesões bucais e deformidades faciais.</li>
+            <li>✔️ Escuta atenta e acolhimento, sem o "é só estresse".</li>
+          </ul>
+        </div>
+
+        <div class="rj-block rj-block--address">
+          <h2>Endereço</h2>
+          <p class="rj-address">
+            <strong>Av. das Américas, 3333 - Sl 503</strong><br />
+            Barra da Tijuca, Rio de Janeiro - RJ<br />
+            CEP 22631-003
+          </p>
+          <a href={waLink(whatsappMessage, unit.whatsapp)} target="_blank" rel="noopener" class="vs-btn vs-btn--primary">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><use href="#icon-whatsapp" /></svg>
+            Agendar na Barra da Tijuca
+          </a>
+          <p class="vs-cta-note">Atendimento particular</p>
+        </div>
+      </div>
+    </div>
+  </main>
+  <Contato
+    eyebrow="Unidade Barra da Tijuca"
+    heading="Agende sua avaliação no Rio de Janeiro"
+    description="Fale com a nossa equipe pelo WhatsApp e escolha o melhor horário para você."
+    address={unit}
+    whatsapp={unit.whatsapp}
+    phone={null}
+    whatsappMessage={whatsappMessage}
+  />
+  <Footer />
+</Layout>
+
+<style>
+  .page-container {
+    padding: calc(var(--space-20) + 2rem) 0 var(--space-16);
+    background: var(--color-cream);
+    min-height: 80vh;
+  }
+  .vs-breadcrumb {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-4);
+  }
+  .vs-breadcrumb a {
+    color: var(--color-amber);
+    text-decoration: none;
+  }
+  .vs-badge {
+    display: inline-block;
+    padding: 6px 14px;
+    background: var(--color-amber-subtle);
+    color: var(--color-amber);
+    border-radius: var(--radius-full);
+    font-size: var(--text-xs);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: var(--space-3);
+  }
+  .page-header h1 {
+    font-size: var(--text-4xl);
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-4);
+  }
+  .page-lead {
+    font-size: var(--text-lg);
+    color: var(--color-text-secondary);
+    line-height: var(--leading-relaxed);
+    max-width: 800px;
+    margin-bottom: var(--space-8);
+  }
+  .rj-content {
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-8);
+  }
+  .rj-block {
+    background: white;
+    padding: var(--space-8);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--color-warm-gray);
+  }
+  .rj-block h2 {
+    font-size: var(--text-2xl);
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-4);
+  }
+  .rj-block p {
+    font-size: var(--text-base);
+    color: var(--color-text-secondary);
+    line-height: var(--leading-relaxed);
+    margin-bottom: var(--space-4);
+  }
+  .rj-checklist {
+    list-style: none;
+    padding: 0;
+    margin: var(--space-4) 0 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+  .rj-checklist li {
+    font-size: var(--text-base);
+    color: var(--color-text-primary);
+    font-weight: 500;
+  }
+  .rj-block--address {
+    border-left: 4px solid var(--color-amber);
+  }
+  .rj-address {
+    color: var(--color-text-primary) !important;
+  }
+</style>

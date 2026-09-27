@@ -266,6 +266,17 @@ a.vs-btn--secondary:hover,
   color: var(--color-text-on-dark) !important;
 }
 
+/* Linha curta de filtro ("Atendimento particular") junto aos CTAs de agendamento */
+.vs-cta-note {
+  margin-top: var(--space-3);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+.w-full + .vs-cta-note {
+  text-align: center;
+}
+
 .vs-btn--small {
   font-size: var(--text-sm);
   padding: 10px 24px;
