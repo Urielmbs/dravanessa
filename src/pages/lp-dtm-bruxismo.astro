@@ -5,8 +5,10 @@
 // tire o visitante da página. Conversão única: clique no botão de WhatsApp.
 import { Image } from 'astro:assets';
 import Layout from '../layouts/Layout.astro';
+import Depoimentos from '../components/Depoimentos.astro';
 import draVanessaFoto from '../assets/images/dra-vanessa-sobre.jpg';
 import { siteConfig } from '../data/site';
+import { depoimentos } from '../data/depoimentos';
 
 // Link exato definido no roteiro da campanha — não trocar por waLink(), para a
 // mensagem pré-preenchida identificar o lead como vindo do anúncio.
@@ -16,6 +18,18 @@ const whatsappHref =
 // Bloco 8 (CTA final). Para a campanha da Barra da Tijuca (a partir de
 // 10/10/2026), trocar por siteConfig.barraDaTijuca conforme a variante do roteiro.
 const local = siteConfig.address;
+
+const { google, doctoralia } = siteConfig.reviews;
+
+// Prova social: mesmos números e depoimentos da home. Os que citam o Método
+// Rearticular™ ficam de fora, pois o método não é apresentado nesta página.
+const numeros = [
+  { valor: siteConfig.stats.years, rotulo: 'anos de experiência' },
+  { valor: siteConfig.stats.patients, rotulo: 'pacientes atendidos' },
+  { valor: google.rating, rotulo: `no Google · ${google.count} avaliações` },
+  { valor: doctoralia.rating, rotulo: `no Doctoralia · ${doctoralia.count} avaliações` },
+];
+const depoimentosLp = depoimentos.filter((d) => !d.citaMetodo);
 
 const sintomas = [
   'Dor ou sensação de cansaço na mandíbula, principalmente ao acordar',
@@ -95,6 +109,17 @@ const faq = [
             Falar com a Dra. Vanessa no WhatsApp
           </a>
           <p class="vs-cta-note">Atendimento particular</p>
+          <ul class="lp-proof" aria-label="Avaliações de pacientes">
+            <li>
+              <span class="lp-proof__stars" aria-hidden="true">
+                {Array.from({ length: 5 }, () => <svg viewBox="0 0 20 20" fill="currentColor"><use href="#icon-star" /></svg>)}
+              </span>
+              <span><strong>{google.rating}</strong> no Google ({google.count} avaliações)</span>
+            </li>
+            <li>
+              <span><strong>{doctoralia.rating}</strong> no Doctoralia ({doctoralia.count} avaliações)</span>
+            </li>
+          </ul>
         </div>
       </section>
 
@@ -187,9 +212,20 @@ const faq = [
               articulação e dos nervos envolvidos — o que se reflete em um diagnóstico mais completo, e não apenas no alívio
               pontual do sintoma.
             </p>
+            <ul class="lp-stats vs-reveal" aria-label="Experiência e avaliações">
+              {numeros.map((n) => (
+                <li>
+                  <strong>{n.valor}</strong>
+                  <span>{n.rotulo}</span>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </section>
+
+      <!-- 5b. PROVA SOCIAL — depoimentos da home (componente compartilhado) -->
+      <Depoimentos items={depoimentosLp} showBadges={false} />
 
       <!-- 6. COMO FUNCIONA -->
       <section class="lp-block lp-passos" aria-labelledby="lp-passos-title">
@@ -463,6 +499,40 @@ const faq = [
     margin-bottom: var(--space-1);
   }
 
+  /* Selo de avaliações logo abaixo do CTA principal */
+  /* Empilhado no celular; em linha, com separador, a partir de 640px */
+  .lp-proof {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    margin-top: var(--space-5);
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+  }
+
+  .lp-proof li {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+  }
+
+  .lp-proof strong {
+    font-weight: 700;
+    color: var(--color-text-primary);
+  }
+
+  .lp-proof__stars {
+    display: inline-flex;
+    gap: 1px;
+    color: var(--color-amber-light);
+  }
+
+  .lp-proof__stars svg {
+    width: 14px;
+    height: 14px;
+  }
+
   /* === 2. SINTOMAS === */
   .lp-sintomas {
     background: var(--color-cream-dark);
@@ -627,7 +697,45 @@ const faq = [
     color: var(--color-text-secondary);
   }
 
+  /* Números (mesmo padrão dos stats de "Sobre" na home) */
+  .lp-stats {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-5) var(--space-4);
+    margin-top: var(--space-7);
+    padding-top: var(--space-6);
+    border-top: 1px solid rgba(232, 122, 47, 0.15);
+  }
+
+  .lp-stats li {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+  }
+
+  .lp-stats strong {
+    font-family: var(--font-display);
+    font-size: var(--text-3xl);
+    font-weight: 700;
+    line-height: 1;
+    color: var(--color-amber);
+  }
+
+  .lp-stats span {
+    font-size: var(--text-xs);
+    font-weight: 500;
+    letter-spacing: var(--tracking-wide);
+    line-height: var(--leading-snug);
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+  }
+
   /* === 6. COMO FUNCIONA === */
+  .lp-passos {
+    background: var(--color-ice);
+  }
+
   .lp-passos__list {
     list-style: none;
     display: grid;
@@ -790,6 +898,18 @@ const faq = [
      TELAS MAIORES
      ============================================================ */
   @media (min-width: 640px) {
+    .lp-proof {
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: var(--space-2);
+    }
+
+    .lp-proof li + li::before {
+      content: '·';
+      margin-right: var(--space-2);
+      color: var(--color-text-muted);
+    }
+
     .lp-cta {
       width: auto;
       padding: 18px 40px;
@@ -833,6 +953,10 @@ const faq = [
       background: var(--color-amber);
     }
 
+    .lp-proof {
+      justify-content: center;
+    }
+
     .lp-hero__subtitle {
       font-size: var(--text-xl);
       max-width: 720px;
@@ -855,6 +979,10 @@ const faq = [
   }
 
   @media (min-width: 1024px) {
+    .lp-stats {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
     .lp-passos__list {
       grid-template-columns: repeat(4, minmax(0, 1fr));
     }

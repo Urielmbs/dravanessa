@@ -43,6 +43,12 @@ export const siteConfig = {
     },
   },
 
+  // Números exibidos em "Sobre" (home) e nas landing pages
+  stats: {
+    years: '8+',
+    patients: '2.000+',
+  },
+
   reviews: {
     google: {
       url: 'https://share.google/b7YaoFE5ZBsY1rLTI',

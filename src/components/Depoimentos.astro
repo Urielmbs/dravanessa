@@ -1,6 +1,14 @@
 ---
 // src/components/Depoimentos.astro
 import { siteConfig } from '../data/site';
+import { depoimentos, type Depoimento } from '../data/depoimentos';
+
+interface Props {
+  items?: Depoimento[];
+  showBadges?: boolean;
+}
+
+const { items = depoimentos, showBadges = true } = Astro.props;
 const { google, doctoralia } = siteConfig.reviews;
 ---
 <section class="vs-section vs-depoimentos" aria-label="Depoimentos de pacientes">
@@ -10,111 +18,31 @@ const { google, doctoralia } = siteConfig.reviews;
       <h2 class="vs-depoimentos__title vs-reveal" data-delay="1">Histórias reais de transformação</h2>
     </div>
 
-    <div class="vs-depoimentos__grid">
-      <!-- Depoimento 1 -->
-      <div class="vs-dep-card vs-reveal" data-delay="1">
-        <span class="vs-dep-card__quote" aria-hidden="true">"</span>
-        <div class="vs-dep-card__stars" aria-label="5 estrelas">
-          <svg class="vs-dep-card__star" viewBox="0 0 20 20" fill="currentColor">
-            <use href="#icon-star" />
-          </svg>
-          <svg class="vs-dep-card__star" viewBox="0 0 20 20" fill="currentColor">
-            <use href="#icon-star" />
-          </svg>
-          <svg class="vs-dep-card__star" viewBox="0 0 20 20" fill="currentColor">
-            <use href="#icon-star" />
-          </svg>
-          <svg class="vs-dep-card__star" viewBox="0 0 20 20" fill="currentColor">
-            <use href="#icon-star" />
-          </svg>
-          <svg class="vs-dep-card__star" viewBox="0 0 20 20" fill="currentColor">
-            <use href="#icon-star" />
-          </svg>
-        </div>
-        <p class="vs-dep-card__text">
-          "Sofri com dores na mandíbula por anos. A Dra. Vanessa foi a primeira
-          profissional que realmente descobriu a causa e me tratou de forma completa.
-          Hoje vivo sem dor."
-        </p>
-        <div class="vs-dep-card__author">
-          <div class="vs-dep-card__avatar">MC</div>
-          <div>
-            <p class="vs-dep-card__name">Maria C.</p>
-            <p class="vs-dep-card__meta">Paciente há 2 anos</p>
+    <div class="vs-depoimentos__grid" style={`--dep-cols: ${Math.min(items.length, 3)}`}>
+      {items.map((dep, i) => (
+        <div class="vs-dep-card vs-reveal" data-delay={String(i + 1)}>
+          <span class="vs-dep-card__quote" aria-hidden="true">"</span>
+          <div class="vs-dep-card__stars" aria-label="5 estrelas">
+            {Array.from({ length: 5 }, () => (
+              <svg class="vs-dep-card__star" viewBox="0 0 20 20" fill="currentColor">
+                <use href="#icon-star" />
+              </svg>
+            ))}
+          </div>
+          <p class="vs-dep-card__text">"{dep.texto}"</p>
+          <div class="vs-dep-card__author">
+            <div class="vs-dep-card__avatar">{dep.iniciais}</div>
+            <div>
+              <p class="vs-dep-card__name">{dep.nome}</p>
+              <p class="vs-dep-card__meta">{dep.meta}</p>
+            </div>
           </div>
         </div>
-      </div>
-
-      <!-- Depoimento 2 -->
-      <div class="vs-dep-card vs-reveal" data-delay="2">
-        <span class="vs-dep-card__quote" aria-hidden="true">"</span>
-        <div class="vs-dep-card__stars" aria-label="5 estrelas">
-          <svg class="vs-dep-card__star" viewBox="0 0 20 20" fill="currentColor">
-            <use href="#icon-star" />
-          </svg>
-          <svg class="vs-dep-card__star" viewBox="0 0 20 20" fill="currentColor">
-            <use href="#icon-star" />
-          </svg>
-          <svg class="vs-dep-card__star" viewBox="0 0 20 20" fill="currentColor">
-            <use href="#icon-star" />
-          </svg>
-          <svg class="vs-dep-card__star" viewBox="0 0 20 20" fill="currentColor">
-            <use href="#icon-star" />
-          </svg>
-          <svg class="vs-dep-card__star" viewBox="0 0 20 20" fill="currentColor">
-            <use href="#icon-star" />
-          </svg>
-        </div>
-        <p class="vs-dep-card__text">
-          "Profissionalismo e humanidade. A Dra. Vanessa escuta de verdade.
-          Me senti acolhido desde a primeira consulta, e o tratamento mudou
-          completamente a minha qualidade de vida."
-        </p>
-        <div class="vs-dep-card__author">
-          <div class="vs-dep-card__avatar">JA</div>
-          <div>
-            <p class="vs-dep-card__name">José A.</p>
-            <p class="vs-dep-card__meta">Paciente há 1 ano</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Depoimento 3 -->
-      <div class="vs-dep-card vs-reveal" data-delay="3">
-        <span class="vs-dep-card__quote" aria-hidden="true">"</span>
-        <div class="vs-dep-card__stars" aria-label="5 estrelas">
-          <svg class="vs-dep-card__star" viewBox="0 0 20 20" fill="currentColor">
-            <use href="#icon-star" />
-          </svg>
-          <svg class="vs-dep-card__star" viewBox="0 0 20 20" fill="currentColor">
-            <use href="#icon-star" />
-          </svg>
-          <svg class="vs-dep-card__star" viewBox="0 0 20 20" fill="currentColor">
-            <use href="#icon-star" />
-          </svg>
-          <svg class="vs-dep-card__star" viewBox="0 0 20 20" fill="currentColor">
-            <use href="#icon-star" />
-          </svg>
-          <svg class="vs-dep-card__star" viewBox="0 0 20 20" fill="currentColor">
-            <use href="#icon-star" />
-          </svg>
-        </div>
-        <p class="vs-dep-card__text">
-          "Depois de passar por vários especialistas sem resultado, encontrei
-          a Dra. Vanessa. O Método Rearticular™ fez toda a diferença — finalmente
-          consigo dormir sem dor."
-        </p>
-        <div class="vs-dep-card__author">
-          <div class="vs-dep-card__avatar">LS</div>
-          <div>
-            <p class="vs-dep-card__name">Lucia S.</p>
-            <p class="vs-dep-card__meta">Paciente há 3 anos</p>
-          </div>
-        </div>
-      </div>
+      ))}
     </div>
 
     <!-- Trust badges -->
+    {showBadges && (
     <div class="vs-depoimentos__badges vs-reveal" data-delay="4">
       <a href={google.url} target="_blank" rel="noopener" class="vs-trust-badge">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
@@ -134,6 +62,7 @@ const { google, doctoralia } = siteConfig.reviews;
         <span>Avaliação <strong>{doctoralia.rating}</strong> no Doctoralia • {doctoralia.count} avaliações</span>
       </a>
     </div>
+    )}
   </div>
 </section>
 
@@ -174,10 +103,14 @@ const { google, doctoralia } = siteConfig.reviews;
   }
 
   /* Card grid */
+  /* --dep-cols acompanha a quantidade de depoimentos (até 3), para 2 cards
+     não deixarem uma coluna vazia */
   .vs-depoimentos__grid {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(var(--dep-cols, 3), minmax(0, 1fr));
     gap: var(--space-5);
+    max-width: calc(var(--dep-cols, 3) * 400px);
+    margin: 0 auto;
   }
 
   .vs-dep-card {
