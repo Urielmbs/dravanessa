@@ -1,0 +1,540 @@
+---
+// src/pages/links.astro
+// Página de "link na bio" do Instagram. Fora do menu, do sitemap e com noindex.
+import { Image } from 'astro:assets';
+import Layout from '../layouts/Layout.astro';
+import draVanessaFoto from '../assets/images/dra-vanessa-sobre.jpg';
+import { siteConfig, waLink } from '../data/site';
+
+const { google, doctoralia } = siteConfig.reviews;
+const whatsappHref = waLink('Olá, vim pelo link da bio do Instagram e gostaria de agendar uma consulta.');
+---
+
+<Layout
+  title="Dra. Vanessa Silveira | Links"
+  description="Agende sua consulta com a Dra. Vanessa Silveira, cirurgiã bucomaxilofacial em Juiz de Fora (MG) e na Barra da Tijuca (RJ)."
+  noindex
+  showWhatsAppFloat={false}
+>
+  <main class="bio">
+    <div class="bio__glow bio__glow--1" aria-hidden="true"></div>
+    <div class="bio__glow bio__glow--2" aria-hidden="true"></div>
+
+    <div class="bio__inner">
+      <header class="bio__cover">
+        <div class="bio__avatar">
+          <Image src={draVanessaFoto} alt="Dra. Vanessa Silveira" width={320} format="webp" quality={80} loading="eager" />
+        </div>
+        <h1 class="bio__name">Dra. Vanessa <em>Silveira</em></h1>
+        <p class="bio__role">Cirurgiã Bucomaxilofacial · DTM &amp; Dor Orofacial</p>
+        <ul class="bio__places" aria-label="Locais de atendimento">
+          <li>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" /><circle cx="12" cy="10" r="3" /></svg>
+            Juiz de Fora · MG
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" /><circle cx="12" cy="10" r="3" /></svg>
+            Barra da Tijuca · RJ
+          </li>
+        </ul>
+      </header>
+
+      <nav class="bio__links" aria-label="Links">
+        <a class="bio-link bio-link--primary" href={whatsappHref} target="_blank" rel="noopener">
+          <span class="bio-link__icon">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><use href="#icon-whatsapp" /></svg>
+          </span>
+          <span class="bio-link__text">
+            <span class="bio-link__label">Agendar consulta</span>
+            <span class="bio-link__sub">Pelo WhatsApp · Atendimento particular</span>
+          </span>
+          <svg class="bio-link__arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6" /></svg>
+        </a>
+
+        <a class="bio-link bio-link--featured" href="/diagnosticos/auto-diagnostico">
+          <span class="bio-link__icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 11l3 3L22 4" /><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11" /></svg>
+          </span>
+          <span class="bio-link__text">
+            <span class="bio-link__label">Faça seu teste de DTM</span>
+            <span class="bio-link__sub">Gratuito · leva 1 minuto</span>
+          </span>
+          <svg class="bio-link__arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6" /></svg>
+        </a>
+
+        <a class="bio-link" href="/">
+          <span class="bio-link__icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" /><path d="M2 12h20" /><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z" /></svg>
+          </span>
+          <span class="bio-link__text">
+            <span class="bio-link__label">Site institucional</span>
+            <span class="bio-link__sub">Tratamentos, sintomas e a Dra. Vanessa</span>
+          </span>
+          <svg class="bio-link__arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6" /></svg>
+        </a>
+
+        <a class="bio-link" href={google.url} target="_blank" rel="noopener">
+          <span class="bio-link__icon bio-link__icon--plain">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4" />
+              <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853" />
+              <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05" />
+              <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335" />
+            </svg>
+          </span>
+          <span class="bio-link__text">
+            <span class="bio-link__label">Avaliações no Google</span>
+            <span class="bio-link__sub"><span class="bio-link__stars" aria-hidden="true">★★★★★</span> {google.rating} · {google.count} avaliações</span>
+          </span>
+          <svg class="bio-link__arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6" /></svg>
+        </a>
+
+        <a class="bio-link" href={doctoralia.url} target="_blank" rel="noopener">
+          <span class="bio-link__icon bio-link__icon--plain">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="10" fill="#00C3A5" />
+              <path d="M12 7v10M7 12h10" stroke="white" stroke-width="2.5" stroke-linecap="round" />
+            </svg>
+          </span>
+          <span class="bio-link__text">
+            <span class="bio-link__label">Avaliações no Doctoralia</span>
+            <span class="bio-link__sub"><span class="bio-link__stars" aria-hidden="true">★★★★★</span> {doctoralia.rating} · {doctoralia.count} avaliações</span>
+          </span>
+          <svg class="bio-link__arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6" /></svg>
+        </a>
+
+        <a class="bio-link" href={siteConfig.lattes} target="_blank" rel="noopener">
+          <span class="bio-link__icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 10 12 5 2 10l10 5 10-5z" /><path d="M6 12v5c3 2 9 2 12 0v-5" /></svg>
+          </span>
+          <span class="bio-link__text">
+            <span class="bio-link__label">Currículo Lattes</span>
+            <span class="bio-link__sub">Formação e produção acadêmica</span>
+          </span>
+          <svg class="bio-link__arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6" /></svg>
+        </a>
+      </nav>
+
+      <ul class="bio__social" aria-label="Redes sociais">
+        <li>
+          <a href={siteConfig.social.instagram} target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" /><circle cx="12" cy="12" r="5" /><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none" /></svg>
+          </a>
+        </li>
+        <li>
+          <a href={siteConfig.social.linkedin} target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" aria-hidden="true" class="is-filled"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452z" /></svg>
+          </a>
+        </li>
+        <li>
+          <a href={siteConfig.social.youtube} target="_blank" rel="noopener" aria-label="YouTube">
+            <svg viewBox="0 0 24 24" aria-hidden="true" class="is-filled"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" /></svg>
+          </a>
+        </li>
+      </ul>
+
+      <footer class="bio__footer">
+        <p class="bio__cro">{siteConfig.cro} · {siteConfig.role}</p>
+        <div class="bio__addresses">
+          <address>
+            <strong>Juiz de Fora · MG</strong>
+            {siteConfig.address.clinic}<br />
+            {siteConfig.address.street}<br />
+            {siteConfig.address.cityLine}
+          </address>
+          <address>
+            <strong>Barra da Tijuca · RJ</strong>
+            {siteConfig.barraDaTijuca.street}<br />
+            {siteConfig.barraDaTijuca.cityLine}
+          </address>
+        </div>
+      </footer>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .bio {
+    --bio-navy: #0f172a;
+    --bio-ink: #334155;
+    --bio-blue: #2a6f8e;
+    --bio-line: rgba(42, 111, 142, 0.16);
+
+    position: relative;
+    min-height: 100vh;
+    min-height: 100dvh;
+    overflow: hidden;
+    padding: 40px 16px calc(32px + env(safe-area-inset-bottom));
+    background: linear-gradient(180deg, var(--color-sky-light) 0%, var(--color-ice) 45%, #c5d7e5 100%);
+    font-family: var(--font-body);
+    color: var(--bio-navy);
+  }
+
+  .bio__glow {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(70px);
+    pointer-events: none;
+  }
+
+  .bio__glow--1 {
+    width: 320px;
+    height: 320px;
+    top: -120px;
+    right: -120px;
+    background: var(--color-sky);
+    opacity: 0.6;
+  }
+
+  .bio__glow--2 {
+    width: 260px;
+    height: 260px;
+    top: 38%;
+    left: -140px;
+    background: var(--color-sky-deep);
+    opacity: 0.35;
+  }
+
+  .bio__inner {
+    position: relative;
+    z-index: 1;
+    max-width: 440px;
+    margin: 0 auto;
+  }
+
+  /* === CAPA === */
+  .bio__cover {
+    text-align: center;
+    margin-bottom: 28px;
+  }
+
+  .bio__avatar {
+    width: 128px;
+    height: 128px;
+    margin: 0 auto 18px;
+    border-radius: 50%;
+    padding: 4px;
+    background: linear-gradient(135deg, #fff 0%, var(--color-sky) 100%);
+    box-shadow: 0 12px 32px rgba(42, 111, 142, 0.25);
+  }
+
+  .bio__avatar img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center 18%;
+  }
+
+  .bio__name {
+    margin: 0 0 6px;
+    font-family: var(--font-display);
+    font-size: 1.75rem;
+    font-weight: 700;
+    letter-spacing: var(--tracking-tight);
+    line-height: 1.15;
+  }
+
+  .bio__name em {
+    font-family: var(--font-accent);
+    font-weight: 400;
+    color: var(--bio-blue);
+  }
+
+  .bio__role {
+    margin: 0 0 16px;
+    font-size: 0.95rem;
+    color: var(--bio-ink);
+  }
+
+  .bio__places {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .bio__places li {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border-radius: var(--radius-full);
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid var(--bio-line);
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--bio-navy);
+  }
+
+  .bio__places svg {
+    width: 14px;
+    height: 14px;
+    fill: none;
+    stroke: var(--bio-blue);
+    stroke-width: 2;
+  }
+
+  /* === BOTÕES === */
+  .bio__links {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .bio-link {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    min-height: 64px;
+    padding: 12px 14px;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.82);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    box-shadow: 0 4px 14px rgba(15, 23, 42, 0.06);
+    color: var(--bio-navy);
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
+    transition: transform var(--duration-fast) var(--ease-out), box-shadow var(--duration-fast) var(--ease-out);
+  }
+
+  .bio-link:active {
+    transform: scale(0.98);
+  }
+
+  @media (hover: hover) {
+    .bio-link:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.1);
+    }
+  }
+
+  .bio-link__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    background: var(--color-sky-light);
+    color: var(--bio-blue);
+  }
+
+  .bio-link__icon svg {
+    width: 22px;
+    height: 22px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .bio-link__icon--plain {
+    background: #fff;
+    border: 1px solid var(--bio-line);
+  }
+
+  .bio-link__icon--plain svg {
+    stroke: none;
+  }
+
+  .bio-link__text {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 0;
+    gap: 2px;
+    text-align: left;
+  }
+
+  .bio-link__label {
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.25;
+  }
+
+  .bio-link__sub {
+    font-size: 0.8rem;
+    color: var(--bio-ink);
+    line-height: 1.3;
+  }
+
+  .bio-link__stars {
+    color: #f5a623;
+    letter-spacing: 1px;
+  }
+
+  .bio-link__arrow {
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    opacity: 0.45;
+  }
+
+  /* CTA principal: âmbar da marca, igual aos botões de agendamento do site */
+  .bio-link--primary {
+    min-height: 72px;
+    background: var(--color-amber);
+    border-color: var(--color-amber);
+    color: #fff;
+    box-shadow: 0 10px 24px rgba(232, 122, 47, 0.35);
+  }
+
+  .bio-link--primary .bio-link__icon {
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+  }
+
+  .bio-link--primary .bio-link__icon svg {
+    fill: currentColor;
+    stroke: none;
+  }
+
+  .bio-link--primary .bio-link__label {
+    font-size: 1.1rem;
+  }
+
+  .bio-link--primary .bio-link__sub {
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .bio-link--primary .bio-link__arrow {
+    opacity: 0.85;
+  }
+
+  .bio-link--featured {
+    background: var(--gradient-sky);
+    background-origin: border-box;
+    border-color: transparent;
+  }
+
+  .bio-link--featured .bio-link__icon {
+    background: rgba(255, 255, 255, 0.65);
+    color: var(--bio-navy);
+  }
+
+  .bio-link--featured .bio-link__sub {
+    color: var(--bio-navy);
+  }
+
+  /* === REDES SOCIAIS === */
+  .bio__social {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    margin: 28px 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .bio__social a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.75);
+    border: 1px solid var(--bio-line);
+    color: var(--bio-navy);
+    transition: background var(--duration-fast), color var(--duration-fast);
+  }
+
+  .bio__social a:hover,
+  .bio__social a:active {
+    background: var(--bio-navy);
+    color: #fff;
+  }
+
+  .bio__social svg {
+    width: 22px;
+    height: 22px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.6;
+  }
+
+  .bio__social svg.is-filled {
+    fill: currentColor;
+    stroke: none;
+  }
+
+  /* === RODAPÉ === */
+  .bio__footer {
+    margin-top: 32px;
+    padding-top: 20px;
+    border-top: 1px solid var(--bio-line);
+    text-align: center;
+    font-size: 0.78rem;
+    line-height: 1.5;
+    color: var(--bio-ink);
+  }
+
+  .bio__cro {
+    margin: 0 0 14px;
+    font-weight: 600;
+    color: var(--bio-navy);
+  }
+
+  .bio__addresses {
+    display: grid;
+    gap: 12px;
+  }
+
+  .bio__addresses address {
+    font-style: normal;
+  }
+
+  .bio__addresses strong {
+    display: block;
+    color: var(--bio-blue);
+    font-weight: 600;
+  }
+
+  @media (min-width: 480px) {
+    .bio__addresses {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  /* Entrada suave em cascata */
+  @media (prefers-reduced-motion: no-preference) {
+    .bio__cover,
+    .bio-link,
+    .bio__social,
+    .bio__footer {
+      animation: bio-in 0.5s var(--ease-out) both;
+    }
+
+    .bio-link:nth-child(1) { animation-delay: 0.08s; }
+    .bio-link:nth-child(2) { animation-delay: 0.14s; }
+    .bio-link:nth-child(3) { animation-delay: 0.2s; }
+    .bio-link:nth-child(4) { animation-delay: 0.26s; }
+    .bio-link:nth-child(5) { animation-delay: 0.32s; }
+    .bio-link:nth-child(6) { animation-delay: 0.38s; }
+    .bio__social { animation-delay: 0.44s; }
+    .bio__footer { animation-delay: 0.5s; }
+  }
+
+  @keyframes bio-in {
+    from {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+</style>

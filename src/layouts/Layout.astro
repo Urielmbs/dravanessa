@@ -8,12 +8,16 @@ interface Props {
   title: string;
   description?: string;
   ogImage?: string;
+  noindex?: boolean;
+  showWhatsAppFloat?: boolean;
 }
 
 const {
   title,
   description = "Dra. Vanessa Silveira | Cirurgiã Bucomaxilofacial em Juiz de Fora",
   ogImage = "/images/dra-vanessa-sobre.jpg",
+  noindex = false,
+  showWhatsAppFloat = true,
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
@@ -82,6 +86,7 @@ const jsonLd = {
   <link rel="manifest" href="/site.webmanifest" />
   <meta name="theme-color" content="#E87A2F" />
   <link rel="canonical" href={canonicalURL} />
+  {noindex && <meta name="robots" content="noindex, nofollow" />}
 
   <!-- Pré-carrega a fonte principal usada em títulos e corpo de texto -->
   <link rel="preload" as="font" type="font/woff2" href="/fonts/outfit-variable-latin.woff2" crossorigin />
@@ -212,7 +217,7 @@ const jsonLd = {
   <slot />
 
   <!-- Botão fixo de WhatsApp -->
-  <WhatsAppFloat />
+  {showWhatsAppFloat && <WhatsAppFloat />}
 
   <!-- SCRIPT GLOBAL DE REVEAL (INTERSECTION OBSERVER) -->
   <script is:inline>

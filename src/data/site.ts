@@ -43,6 +43,21 @@ export const siteConfig = {
     },
   },
 
+  reviews: {
+    google: {
+      url: 'https://share.google/b7YaoFE5ZBsY1rLTI',
+      rating: '5.0',
+      count: 76,
+    },
+    doctoralia: {
+      url: 'https://www.doctoralia.com.br/vanessa-zaidan-silveira/cirurgiao-buco-maxilo-facial/juiz-de-fora',
+      rating: '5.0',
+      count: 44,
+    },
+  },
+
+  lattes: 'http://lattes.cnpq.br/7604292937964480',
+
   social: {
     instagram: 'https://www.instagram.com/dra.vanessasilveira/',
     linkedin: 'https://www.linkedin.com/in/vanessa-silveira/',
