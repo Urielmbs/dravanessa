@@ -1,10 +1,12 @@
 ---
 // src/pages/barra-da-tijuca.astro
+import { Image } from 'astro:assets';
 import Layout from '../layouts/Layout.astro';
 import Nav from '../components/Nav.astro';
 import Contato from '../components/Contato.astro';
 import Footer from '../components/Footer.astro';
 import { siteConfig, waLink } from '../data/site';
+import blueChipFoto from '../assets/images/blue-chip-barra-rj.jpeg';
 
 const unit = siteConfig.barraDaTijuca;
 const whatsappMessage = 'Olá, vi o site e gostaria de agendar uma avaliação na unidade da Barra da Tijuca (RJ).';
@@ -45,6 +47,19 @@ const jsonLd = {
           A Dra. Vanessa Silveira agora atende também na Barra da Tijuca, com o mesmo cuidado especializado em DTM, dor orofacial e cirurgia bucomaxilofacial oferecido em Juiz de Fora. Atendimento a partir de 10 de outubro.
         </p>
       </div>
+
+      <figure class="rj-photo vs-reveal">
+        <Image
+          src={blueChipFoto}
+          alt="Fachada do Edifício Blue Chip, na Av. das Américas, 3333, Barra da Tijuca — onde fica o consultório da Dra. Vanessa Silveira"
+          width={900}
+          format="webp"
+          quality={75}
+          loading="eager"
+          fetchpriority="high"
+        />
+        <figcaption>Edifício Blue Chip — Av. das Américas, 3333, Barra da Tijuca</figcaption>
+      </figure>
 
       <div class="rj-content vs-reveal" data-delay="1">
         <div class="rj-block">
@@ -126,6 +141,22 @@ const jsonLd = {
     line-height: var(--leading-relaxed);
     max-width: 800px;
     margin-bottom: var(--space-8);
+  }
+  .rj-photo {
+    max-width: 800px;
+    margin: 0 0 var(--space-8);
+  }
+  .rj-photo img {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+  }
+  .rj-photo figcaption {
+    margin-top: var(--space-3);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
   }
   .rj-content {
     max-width: 800px;
