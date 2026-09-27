@@ -49,7 +49,7 @@ const whatsappCtaHref = whatsappMessage
           <div>
             <p class="vs-contato__item-label">WhatsApp</p>
             <p class="vs-contato__item-value">
-              <a href={whatsapp.href} data-wa-dynamic={!whatsappMessage || undefined}>{whatsapp.display}</a>
+              <a href={whatsapp.href} data-wa-origin={whatsappMessage ? undefined : 'número de WhatsApp (seção Contato)'}>{whatsapp.display}</a>
             </p>
           </div>
         </div>
@@ -111,7 +111,7 @@ const whatsappCtaHref = whatsappMessage
 
         <!-- CTA -->
         <div class="vs-contato__cta vs-reveal" data-delay="4">
-          <a href={whatsappCtaHref} data-wa-dynamic={!whatsappMessage || undefined} target="_blank" rel="noopener" class="vs-btn vs-btn--primary">
+          <a href={whatsappCtaHref} data-wa-origin={whatsappMessage ? undefined : 'Agendar pelo WhatsApp (seção Contato)'} target="_blank" rel="noopener" class="vs-btn vs-btn--primary">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
               <use href="#icon-whatsapp" />
             </svg>
