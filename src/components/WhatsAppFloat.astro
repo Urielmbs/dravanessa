@@ -23,33 +23,35 @@ const { href, lpCta, mobileOnly = false } = Astro.props;
 </a>
 
 <script>
-  // Links com data-wa-origin recebem mensagem com o nome da página atual e o botão de origem.
-  const applyDynamicWhatsAppMessage = () => {
-    const pageName = document.title.split('|')[0].trim();
-    document.querySelectorAll<HTMLAnchorElement>('a[data-wa-origin]').forEach((a) => {
-      const origin = a.dataset.waOrigin;
-      const button = origin === 'whatsapp' ? origin : `"${origin}"`;
-      const message = `Olá, estava na página ${pageName} no site da Dra. Vanessa e entrei em contato pelo botão ${button}.`;
-      const base = a.href.split('?')[0];
-      a.href = `${base}?text=${encodeURIComponent(message)}`;
-    });
-  };
-
-  const initWhatsAppFloat = () => {
-    applyDynamicWhatsAppMessage();
-    const btn = document.getElementById('vs-wa-float');
-    if (!btn) return;
-
-    const toggleVisibility = () => {
-      btn.classList.toggle('is-visible', window.scrollY > 400);
+  (() => {
+    // Links com data-wa-origin recebem mensagem com o nome da página atual e o botão de origem.
+    const applyDynamicWhatsAppMessage = () => {
+      const pageName = document.title.split('|')[0].trim();
+      document.querySelectorAll<HTMLAnchorElement>('a[data-wa-origin]').forEach((a) => {
+        const origin = a.dataset.waOrigin;
+        const button = origin === 'whatsapp' ? origin : `"${origin}"`;
+        const message = `Olá, estava na página ${pageName} no site da Dra. Vanessa e entrei em contato pelo botão ${button}.`;
+        const base = a.href.split('?')[0];
+        a.href = `${base}?text=${encodeURIComponent(message)}`;
+      });
     };
 
-    toggleVisibility();
-    window.addEventListener('scroll', toggleVisibility, { passive: true });
-  };
+    const initWhatsAppFloat = () => {
+      applyDynamicWhatsAppMessage();
+      const btn = document.getElementById('vs-wa-float');
+      if (!btn) return;
 
-  initWhatsAppFloat();
-  document.addEventListener('astro:after-swap', initWhatsAppFloat);
+      const toggleVisibility = () => {
+        btn.classList.toggle('is-visible', window.scrollY > 400);
+      };
+
+      toggleVisibility();
+      window.addEventListener('scroll', toggleVisibility, { passive: true });
+    };
+
+    initWhatsAppFloat();
+    document.addEventListener('astro:after-swap', initWhatsAppFloat);
+  })();
 </script>
 
 <style>

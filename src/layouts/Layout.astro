@@ -50,31 +50,15 @@ const jsonLd = {
 <head>
   <meta charset="UTF-8">
 
-  <!-- Google Tag Manager -->
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PC10P30GLY" is:inline></script>
   <script is:inline>
-  (function(w,d,s,l,i){
-    w[l]=w[l]||[];
-    w[l].push({
-      'gtm.start': new Date().getTime(),
-      event:'gtm.js'
-    });
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
-
-    var f=d.getElementsByTagName(s)[0],
-        j=d.createElement(s),
-        dl=l!='dataLayer'?'&l='+l:'';
-
-
-    j.async=true;
-    j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
-
-
-    f.parentNode.insertBefore(j,f);
-
-
-  })(window,document,'script','dataLayer','GTM-KTXGZ998');
+    gtag('config', 'G-PC10P30GLY');
   </script>
-  <!-- End Google Tag Manager -->
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{title}</title>
@@ -109,11 +93,11 @@ const jsonLd = {
   <!-- Dados estruturados: Physician / negócio local -->
   <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} is:inline />
 
-  <!-- OPTIMIZATION: DNS Prefetch para o GTM, que carrega de forma adiada -->
+  <!-- DNS Prefetch para serviços de rastreamento Google -->
   <link rel="dns-prefetch" href="https://www.googletagmanager.com">
   <link rel="dns-prefetch" href="https://www.google-analytics.com">
 
-  <!-- Rastreamento de Leads WhatsApp - Google Tag Manager -->
+  <!-- Rastreamento de Leads WhatsApp -->
   <script is:inline>
   (function () {
 
@@ -163,20 +147,20 @@ const jsonLd = {
           .trim()
           .substring(0, 150);
 
-        /* Envia o evento para o Google Tag Manager */
-        window.dataLayer.push({
+        const leadParams = {
           event: 'whatsapp_click',
-
           whatsapp_url: url,
-
           whatsapp_button_text: texto,
-
           page_location: window.location.href,
-
           page_path: window.location.pathname,
-
           page_title: document.title
-        });
+        };
+
+        window.dataLayer.push(leadParams);
+
+        if (typeof window.gtag === 'function') {
+          window.gtag('event', 'whatsapp_click', leadParams);
+        }
 
       },
       true
@@ -187,16 +171,6 @@ const jsonLd = {
   <!-- Fim Rastreamento WhatsApp -->
 </head>
 <body>
-  <!-- Google Tag Manager (noscript) -->
-  <noscript>
-    <iframe
-      src="https://www.googletagmanager.com/ns.html?id=GTM-KTXGZ998"
-      height="0"
-      width="0"
-      style="display:none;visibility:hidden">
-    </iframe>
-  </noscript>
-  <!-- End Google Tag Manager (noscript) -->
   <!-- SVG Sprite — ícones reutilizáveis -->
   <svg xmlns="http://www.w3.org/2000/svg" style="display:none">
     <symbol id="icon-whatsapp" viewBox="0 0 24 24">

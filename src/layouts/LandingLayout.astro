@@ -53,35 +53,37 @@ const { title, description, lpName, whatsappHref, local = siteConfig.address } =
 
   <!-- Botão fixo de WhatsApp só no celular, com o mesmo link da campanha -->
   <WhatsAppFloat href={whatsappHref} lpCta="fixo" mobileOnly />
-</Layout>
 
-<script>
-  // Conversão da campanha: cada clique num CTA de WhatsApp (data-lp-cta) envia
-  // o evento "lp_whatsapp_click" para o GTM (dataLayer) — e para o gtag, se
-  // estiver carregado — com a LP e a posição do botão. O listener global do
-  // Layout continua enviando o evento genérico "whatsapp_click" em paralelo.
-  type TrackingWindow = Window & {
-    dataLayer?: Record<string, unknown>[];
-    gtag?: (...args: unknown[]) => void;
-  };
-
-  const w = window as TrackingWindow;
-  const lpName = document.querySelector<HTMLElement>('.lp[data-lp-name]')?.dataset.lpName;
-
-  document.querySelectorAll<HTMLAnchorElement>('a[data-lp-cta]').forEach((link) => {
-    link.addEventListener('click', () => {
-      const params = {
-        lp_name: lpName,
-        cta_position: link.dataset.lpCta,
-        cta_text: link.textContent?.trim() || link.getAttribute('aria-label'),
+  <script>
+    (() => {
+      // Conversão da campanha: cada clique num CTA de WhatsApp (data-lp-cta) envia
+      // o evento "lp_whatsapp_click" para o GTM (dataLayer) — e para o gtag, se
+      // estiver carregado — com a LP e a posição do botão. O listener global do
+      // Layout continua enviando o evento genérico "whatsapp_click" em paralelo.
+      type TrackingWindow = Window & {
+        dataLayer?: Record<string, unknown>[];
+        gtag?: (...args: unknown[]) => void;
       };
 
-      w.dataLayer = w.dataLayer || [];
-      w.dataLayer.push({ event: 'lp_whatsapp_click', ...params });
+      const w = window as TrackingWindow;
+      const lpName = document.querySelector<HTMLElement>('.lp[data-lp-name]')?.dataset.lpName;
 
-      if (typeof w.gtag === 'function') {
-        w.gtag('event', 'lp_whatsapp_click', params);
-      }
-    });
-  });
-</script>
+      document.querySelectorAll<HTMLAnchorElement>('a[data-lp-cta]').forEach((link) => {
+        link.addEventListener('click', () => {
+          const params = {
+            lp_name: lpName,
+            cta_position: link.dataset.lpCta,
+            cta_text: link.textContent?.trim() || link.getAttribute('aria-label'),
+          };
+
+          w.dataLayer = w.dataLayer || [];
+          w.dataLayer.push({ event: 'lp_whatsapp_click', ...params });
+
+          if (typeof w.gtag === 'function') {
+            w.gtag('event', 'lp_whatsapp_click', params);
+          }
+        });
+      });
+    })();
+  </script>
+</Layout>
