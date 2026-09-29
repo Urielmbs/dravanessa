@@ -1,0 +1,317 @@
+---
+// src/pages/lp-bucomaxilo-sisos.astro
+// Landing page da campanha 2 de Google Ads (Juiz de Fora): cirurgiã
+// bucomaxilofacial com ênfase em extração de sisos complexos — pilar
+// secundário da marca (o principal é DTM/bruxismo, /lp-dtm-bruxismo).
+// Estrutura, rastreamento e estilos comuns em LandingLayout / landing.css.
+import { Image } from 'astro:assets';
+import LandingLayout from '../layouts/LandingLayout.astro';
+import Depoimentos from '../components/Depoimentos.astro';
+import draVanessaFoto from '../assets/images/dra-vanessa-sobre.jpg';
+import { siteConfig } from '../data/site';
+import { depoimentos } from '../data/depoimentos';
+
+// Mensagem fixa da campanha, codificada do mesmo jeito que a da LP de DTM —
+// não trocar por waLink(), para o lead chegar identificado como do anúncio.
+const whatsappHref =
+  'https://wa.me/5532998513101?text=Ol%C3%A1%2C%20vi%20o%20an%C3%BAncio%20sobre%20extra%C3%A7%C3%A3o%20de%20siso%20e%20gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o.';
+
+const local = siteConfig.address;
+
+const { google, doctoralia } = siteConfig.reviews;
+
+const numeros = [
+  { valor: siteConfig.stats.years, rotulo: 'anos de experiência' },
+  { valor: siteConfig.stats.patients, rotulo: 'pacientes atendidos' },
+  { valor: google.rating, rotulo: `no Google · ${google.count} avaliações` },
+  { valor: doctoralia.rating, rotulo: `no Doctoralia · ${doctoralia.count} avaliações` },
+];
+
+// Avaliações reais do Google de pacientes de extração de sisos (depoimentos.ts).
+const depoimentosLp = depoimentos.filter((d) => d.tema === 'sisos');
+
+const casos = [
+  'Seu dentista disse que o siso está incluso (preso no osso ou na gengiva) ou impactado',
+  'O raio-X mostrou um siso deitado, nascendo torto ou encostado no dente vizinho',
+  'O siso inflama com frequência: a gengiva do fundo da boca incha ou dói ao abrir a boca',
+  'Você precisa tirar mais de um siso — ou os quatro — e prefere resolver de uma vez',
+  'Seu dentista ou ortodontista encaminhou você para um cirurgião bucomaxilofacial',
+  'Você vem adiando a extração por medo, talvez por uma experiência ruim antes',
+];
+
+const motivos = [
+  'O siso incluso ou semi-incluso pode inflamar e infeccionar a gengiva ao redor, com dor e inchaço — muitas vezes na hora menos oportuna',
+  'Por ser difícil de limpar, ele favorece cáries e problemas no dente vizinho',
+  'Sisos inclusos podem, em alguns casos, dar origem a cistos no osso ao redor',
+  'Com os anos, as raízes se completam e o osso fica mais denso, o que tende a tornar a cirurgia e a recuperação mais trabalhosas',
+];
+
+const passos = [
+  { titulo: 'Contato', texto: 'você fala com a equipe pelo WhatsApp e agenda sua avaliação.' },
+  {
+    titulo: 'Avaliação e planejamento',
+    texto:
+      'exame clínico e análise do raio-X ou da tomografia (se você ainda não tiver, orientamos qual pedir), com explicação do caso, da técnica e dos cuidados antes e depois.',
+  },
+  {
+    titulo: 'Cirurgia',
+    texto:
+      'feita no consultório, com anestesia local, técnica delicada e laserterapia ao final para ajudar a reduzir o inchaço e acelerar a cicatrização.',
+  },
+  {
+    titulo: 'Pós-operatório acompanhado',
+    texto:
+      'você recebe por escrito as orientações de medicação, alimentação e cuidados em casa, e tem um canal direto para tirar dúvidas durante a recuperação.',
+  },
+];
+
+// TODO: revisar com a Dra. Vanessa antes de ligar a campanha — rascunhos no
+// mesmo tom da LP de DTM (sem prometer resultado), baseados no que a página
+// /procedimentos/remocao-sisos já publica.
+const faq = [
+  {
+    pergunta: 'Todo siso precisa ser tirado?',
+    resposta:
+      'Não. Um siso que nasceu bem posicionado, é fácil de limpar e não causa problemas pode ser mantido e apenas acompanhado. A extração é indicada quando ele está incluso ou impactado, inflama com frequência, prejudica o dente vizinho ou tem indicação ortodôntica — e isso é avaliado com exame de imagem.',
+  },
+  {
+    pergunta: 'A extração de siso dói?',
+    resposta:
+      'A cirurgia é feita com anestesia local, então durante o procedimento você sente apenas pressão, não dor. Nos dias seguintes, algum desconforto e inchaço são esperados — e são controlados com a medicação, a laserterapia e os cuidados orientados.',
+  },
+  {
+    pergunta: 'Dá para tirar os quatro sisos de uma vez?',
+    resposta:
+      'Em muitos casos, sim. A possibilidade de remover dois ou até os quatro sisos de uma vez é avaliada no planejamento, conforme a posição dos dentes e a sua saúde geral.',
+  },
+  {
+    pergunta: 'Preciso fazer algum exame antes?',
+    resposta:
+      'Sim. A radiografia panorâmica é o ponto de partida; em sisos inclusos ou próximos do nervo, a tomografia ajuda a planejar com mais segurança. Se você ainda não tem, recebe a orientação de qual exame fazer.',
+  },
+  {
+    pergunta: 'Quanto tempo leva a recuperação?',
+    resposta:
+      'Varia conforme a complexidade da extração e a resposta de cada pessoa. Os primeiros dias pedem mais repouso e alimentação leve e fria, e a volta à rotina é gradual. Tudo é explicado com clareza antes da cirurgia.',
+  },
+  {
+    pergunta: 'Tenho muito medo de dentista. E agora?',
+    resposta:
+      'Você não está só — muitos pacientes chegam assim. Cada etapa é explicada com calma antes da cirurgia, sem pressa, e o atendimento respeita o seu tempo.',
+  },
+  { pergunta: 'O atendimento aceita convênio?', resposta: 'O atendimento é particular.' },
+  {
+    pergunta: 'Qual o valor da cirurgia?',
+    resposta: 'O valor depende da complexidade de cada caso e é informado após a avaliação.',
+  },
+];
+---
+
+<LandingLayout
+  title="Cirurgia de Siso Incluso em Juiz de Fora | Dra. Vanessa Zaidan Silveira"
+  description="Siso incluso, impactado ou deitado? Avaliação e cirurgia com cirurgiã bucomaxilofacial em Juiz de Fora, com atendimento humano e pós-operatório orientado. Agende pelo WhatsApp."
+  lpName="bucomaxilo-sisos"
+  whatsappHref={whatsappHref}
+  local={local}
+>
+  <!-- 1. HERO -->
+  <section class="lp-hero" aria-labelledby="lp-hero-title">
+    <div class="lp-wrap lp-hero__inner">
+      <p class="lp-overline">Extração de sisos · Cirurgia bucomaxilofacial · Juiz de Fora</p>
+      <h1 id="lp-hero-title" class="lp-hero__title">
+        Precisa tirar o siso, mas tem <em>receio da cirurgia?</em>
+      </h1>
+      <p class="lp-hero__subtitle">
+        <strong>Cirurgia de sisos inclusos, impactados e deitados com cirurgiã bucomaxilofacial.</strong>
+        Atendimento humano, planejamento seguro e orientação completa para um pós-operatório tranquilo, com a Dra.
+        Vanessa Zaidan Silveira, em Juiz de Fora.
+      </p>
+      <a href={whatsappHref} target="_blank" rel="noopener" class="vs-btn vs-btn--primary lp-cta" data-lp-cta="hero">
+        <svg class="lp-cta__icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><use href="#icon-whatsapp" /></svg>
+        Falar com a Dra. Vanessa no WhatsApp
+      </a>
+      <p class="vs-cta-note">Atendimento particular</p>
+      <ul class="lp-proof" aria-label="Avaliações de pacientes">
+        <li>
+          <span class="lp-proof__stars" aria-hidden="true">
+            {Array.from({ length: 5 }, () => <svg viewBox="0 0 20 20" fill="currentColor"><use href="#icon-star" /></svg>)}
+          </span>
+          <span><strong>{google.rating}</strong> no Google ({google.count} avaliações)</span>
+        </li>
+        <li>
+          <span><strong>{doctoralia.rating}</strong> no Doctoralia ({doctoralia.count} avaliações)</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 2. CASOS -->
+  <section class="lp-block lp-sintomas" aria-labelledby="lp-casos-title">
+    <div class="lp-wrap">
+      <h2 id="lp-casos-title" class="lp-title vs-reveal">Você se encaixa em algum desses casos?</h2>
+      <ul class="lp-checklist">
+        {casos.map((item) => (
+          <li class="lp-checklist__item vs-reveal">
+            <span class="lp-checklist__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><use href="#icon-check" /></svg>
+            </span>
+            <span>{item}</span>
+          </li>
+        ))}
+      </ul>
+      <p class="lp-support vs-reveal">
+        Se você se identificou com algum desses pontos, o primeiro passo é uma avaliação com exame de imagem.
+      </p>
+      <div class="lp-actions vs-reveal">
+        <a href={whatsappHref} target="_blank" rel="noopener" class="vs-btn vs-btn--primary lp-cta" data-lp-cta="casos">
+          <svg class="lp-cta__icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><use href="#icon-whatsapp" /></svg>
+          Quero agendar minha avaliação
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. EDUCAÇÃO -->
+  <section class="lp-block lp-educacao" aria-labelledby="lp-educacao-title">
+    <div class="lp-wrap lp-wrap--text">
+      <h2 id="lp-educacao-title" class="lp-title vs-reveal">Quando a extração do siso é considerada complexa?</h2>
+      <div class="lp-prose vs-reveal">
+        <p>
+          O <strong>siso</strong> (terceiro molar) é o último dente a nascer. Muitas vezes não há espaço suficiente na
+          arcada, e ele fica <strong>incluso</strong> — preso no osso ou na gengiva —, deitado ou nascendo inclinado.
+        </p>
+        <p>
+          A extração é considerada <strong>complexa</strong> quando o dente está incluso, tem raízes curvas ou longas, ou
+          fica próximo de estruturas delicadas, como o nervo que dá sensibilidade ao lábio e ao queixo. Nesses casos, a
+          remoção é uma cirurgia de fato — e faz diferença estar nas mãos de uma cirurgiã bucomaxilofacial, especialista
+          em cirurgias da boca e da face.
+        </p>
+        <p class="lp-prose__highlight">
+          Por isso, tudo começa com um planejamento: exame clínico e de imagem para avaliar a posição do dente, as raízes
+          e a proximidade do nervo, e definir a técnica mais segura para o seu caso.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. POR QUE NÃO ADIAR -->
+  <section class="lp-block lp-riscos" aria-labelledby="lp-motivos-title">
+    <div class="lp-wrap">
+      <h2 id="lp-motivos-title" class="lp-title vs-reveal">Por que não vale adiar a extração</h2>
+      <ul class="lp-riscos__list">
+        {motivos.map((item) => (
+          <li class="lp-riscos__item vs-reveal">{item}</li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <!-- 5. AUTORIDADE -->
+  <section class="lp-block lp-autoridade" aria-labelledby="lp-autoridade-title">
+    <div class="lp-wrap lp-autoridade__inner">
+      <div class="lp-autoridade__photo vs-reveal">
+        <!-- TODO: foto — usando por enquanto a foto de "Sobre" do banco do site; substituir pela foto profissional escolhida para a campanha -->
+        <Image
+          src={draVanessaFoto}
+          alt="Dra. Vanessa Zaidan Silveira, cirurgiã bucomaxilofacial"
+          widths={[360, 560]}
+          sizes="(min-width: 768px) 400px, 80vw"
+          format="webp"
+          quality={70}
+          loading="lazy"
+          decoding="async"
+        />
+      </div>
+      <div class="lp-autoridade__content">
+        <h2 id="lp-autoridade-title" class="lp-title vs-reveal">Quem vai cuidar da sua cirurgia</h2>
+        <p class="lp-autoridade__cro vs-reveal">
+          <span>{siteConfig.cro}</span> Cirurgiã e Traumatologista Bucomaxilofacial
+        </p>
+        <p class="lp-autoridade__bio vs-reveal">
+          A Dra. Vanessa Zaidan Silveira é Cirurgiã e Traumatologista Bucomaxilofacial ({siteConfig.cro}), a especialidade
+          da odontologia dedicada às cirurgias da boca e da face — de sisos inclusos e extrações complexas a cistos,
+          lesões e traumas faciais —, com experiência em cirurgias hospitalares. Na extração de sisos, isso se traduz em
+          planejamento criterioso, técnica delicada e atenção à anatomia do osso e dos nervos da mandíbula.
+        </p>
+        <p class="lp-autoridade__bio vs-reveal">
+          O atendimento é pensado para quem tem receio: cada etapa é explicada antes de acontecer — o que o exame mostrou,
+          como será a cirurgia e o que esperar da recuperação. Você sai da avaliação sabendo exatamente o que vai
+          acontecer. Também é mestranda em Inovação e Tecnologia em
+          Saúde pela UFJF, com pesquisa voltada ao mapeamento de nervos periféricos — tema diretamente ligado à segurança
+          em cirurgias da face.
+        </p>
+        <ul class="lp-stats vs-reveal" aria-label="Experiência e avaliações">
+          {numeros.map((n) => (
+            <li>
+              <strong>{n.valor}</strong>
+              <span>{n.rotulo}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. DEPOIMENTOS — avaliações reais do Google (tema 'sisos' em depoimentos.ts) -->
+  {depoimentosLp.length > 0 && (
+    <Depoimentos
+      items={depoimentosLp}
+      showBadges={false}
+      overline="Avaliações reais no Google"
+      title="Quem tinha medo conta como foi"
+    />
+  )}
+
+  <!-- 7. COMO FUNCIONA -->
+  <section class="lp-block lp-passos" aria-labelledby="lp-passos-title">
+    <div class="lp-wrap">
+      <h2 id="lp-passos-title" class="lp-title vs-reveal">Como funciona, do primeiro contato à recuperação</h2>
+      <ol class="lp-passos__list">
+        {passos.map((passo, i) => (
+          <li class="lp-passos__item vs-reveal" data-delay={String(i + 1)}>
+            <span class="lp-passos__num" aria-hidden="true">{i + 1}</span>
+            <p><strong>{passo.titulo}:</strong> {passo.texto}</p>
+          </li>
+        ))}
+      </ol>
+      <p class="lp-support vs-reveal">
+        Na maioria dos casos, são só dois encontros: a avaliação e a cirurgia.
+      </p>
+    </div>
+  </section>
+
+  <!-- 8. FAQ -->
+  <section class="lp-block lp-faq" aria-labelledby="lp-faq-title">
+    <div class="lp-wrap lp-wrap--text">
+      <h2 id="lp-faq-title" class="lp-title vs-reveal">Perguntas frequentes</h2>
+      <div class="lp-faq__list">
+        {faq.map((item) => (
+          <details class="lp-faq__item">
+            <summary>{item.pergunta}</summary>
+            <p>{item.resposta}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. CTA FINAL + LOCALIZAÇÃO (mesmo bloco da LP de DTM) -->
+  <section class="lp-block lp-final" aria-labelledby="lp-final-title">
+    <div class="lp-wrap lp-wrap--text lp-final__inner">
+      <h2 id="lp-final-title" class="lp-title vs-reveal">Agende sua avaliação</h2>
+      <p class="lp-final__address vs-reveal">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" /><circle cx="12" cy="10" r="3" /></svg>
+        <span>
+          Atendimento em Juiz de Fora (MG), na {local.clinic} — {local.street}, {local.cityLine}.
+        </span>
+      </p>
+      <div class="lp-actions vs-reveal">
+        <a href={whatsappHref} target="_blank" rel="noopener" class="vs-btn vs-btn--primary lp-cta" data-lp-cta="cta-final">
+          <svg class="lp-cta__icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><use href="#icon-whatsapp" /></svg>
+          Agendar avaliação pelo WhatsApp
+        </a>
+        <p class="vs-cta-note">Atendimento particular</p>
+      </div>
+    </div>
+  </section>
+</LandingLayout>

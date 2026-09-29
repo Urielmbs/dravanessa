@@ -58,8 +58,7 @@ const { title, description, lpName, whatsappHref, local = siteConfig.address } =
     (() => {
       // Conversão da campanha: cada clique num CTA de WhatsApp (data-lp-cta) envia
       // o evento "lp_whatsapp_click" para o GTM (dataLayer) — e para o gtag, se
-      // estiver carregado — com a LP e a posição do botão. O listener global do
-      // Layout continua enviando o evento genérico "whatsapp_click" em paralelo.
+      // estiver carregado — com a LP e a posição do botão.
       type TrackingWindow = Window & {
         dataLayer?: Record<string, unknown>[];
         gtag?: (...args: unknown[]) => void;

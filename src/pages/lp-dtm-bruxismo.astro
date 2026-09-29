@@ -28,7 +28,7 @@ const numeros = [
   { valor: google.rating, rotulo: `no Google · ${google.count} avaliações` },
   { valor: doctoralia.rating, rotulo: `no Doctoralia · ${doctoralia.count} avaliações` },
 ];
-const depoimentosLp = depoimentos.filter((d) => !d.citaMetodo);
+const depoimentosLp = depoimentos.filter((d) => (d.tema === 'dtm' || d.tema === 'geral') && !d.citaMetodo);
 
 const sintomas = [
   'Dor ou sensação de cansaço na mandíbula, principalmente ao acordar',
