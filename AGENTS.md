@@ -10,6 +10,7 @@ _(Replace this with one or two sentences: what this workspace is and what it's f
 
 ## Recent Changes
 
+- **2026-09-28 (4)**: Remoção da tag antiga do Google tag (`gtag.js`, `G-PC10P30GLY`) do `<head>` em `Layout.astro`. Mantidas exclusivamente as novas tags do Google Tag Manager (`GTM-NW997NVS`): o script no `<head>` e o iframe `<noscript>` no `<body>`.
 - **2026-09-28 (3)**: Inserção do container do Google Tag Manager (`GTM-NW997NVS`) no `Layout.astro`: script no topo da seção `<head>` com diretiva `is:inline` (após o charset) e tag `<noscript>` com iframe imediatamente após a abertura da tag `<body>`, replicando o rastreamento em todas as páginas e landing pages do site.
 - **2026-09-28 (2)**: Migração do script de rastreamento no `<head>` de `Layout.astro` para a Google tag padrão (`gtag.js`, ID `G-PC10P30GLY`), presente em todas as páginas do site. Removidos scripts e referências antigas ao container GTM (`GTM-KTXGZ998`), comentários de atraso/adiamento e o iframe `<noscript>`. O disparador de leads de WhatsApp agora integra nativamente com `gtag('event', 'whatsapp_click', ...)` e `dataLayer`.
 - **2026-09-28**: Correção de escopo de scripts cliente nas landing pages (`LandingLayout.astro` e `WhatsAppFloat.astro`): os blocos `<script>` foram encapsulados em IIFEs (`(() => { ... })()`) e o script de rastreamento de LP foi movido para dentro de `<Layout>`. Isso evitou que variáveis minificadas (`const c`) colidissem no analisador de HTML/TS da IDE em arquivos gerados na `dist/` e garantiu que o script fique dentro do `<body>`.
