@@ -1,0 +1,265 @@
+---
+// src/pages/lp-dtm-bruxismo-barra.astro
+// Landing page da campanha de Google Ads (DTM e bruxismo — Barra da Tijuca, RJ).
+// Variante da /lp-dtm-bruxismo com o teste de autodiagnóstico (Dores) no lugar
+// da lista de sinais. Nenhuma menção visível a Juiz de Fora nesta página.
+// Endereço e WhatsApp vêm de siteConfig.barraDaTijuca (corrigir só lá).
+import { Image } from 'astro:assets';
+import LandingLayout from '../layouts/LandingLayout.astro';
+import Depoimentos from '../components/Depoimentos.astro';
+import Dores from '../components/Dores.astro';
+import draVanessaFoto from '../assets/images/dra-vanessa-sobre.jpg';
+import blueChipFoto from '../assets/images/blue-chip-barra-rj.jpeg';
+import { siteConfig, waLink } from '../data/site';
+import { depoimentos } from '../data/depoimentos';
+
+// Agenda da unidade: ao definir novas datas, alterar só aqui (aviso e FAQ usam estas constantes).
+const inicioAtendimento = '10/10'; // única data confirmada
+const aviso = `Nova unidade no Rio · atendimento a partir de ${inicioAtendimento} · vagas limitadas`;
+// O número é o mesmo das duas unidades: a mensagem citando a Barra é o que separa a origem dos contatos.
+const waMessage = 'Olá, vi a página sobre DTM e bruxismo na Barra da Tijuca e gostaria de agendar uma avaliação com a Dra. Vanessa.';
+const whatsappHref = waLink(waMessage, siteConfig.barraDaTijuca.whatsapp);
+const local = siteConfig.barraDaTijuca;
+
+// Rodapé do LandingLayout: "clinic" da unidade repete o nome da Dra. logo abaixo
+// de "Dra. Vanessa Zaidan Silveira"; aqui basta identificar a unidade.
+const localRodape = { ...local, clinic: 'Unidade Barra da Tijuca' };
+
+const { google, doctoralia } = siteConfig.reviews;
+
+// Prova social: mesmos números e depoimentos da LP de Juiz de Fora (sem os que
+// citam o Método Rearticular™). TODO: revisar quando houver relatos do Rio.
+const numeros = [
+  { valor: siteConfig.stats.years, rotulo: 'anos de experiência' },
+  { valor: siteConfig.stats.patients, rotulo: 'pacientes atendidos' },
+  { valor: google.rating, rotulo: `no Google · ${google.count} avaliações` },
+  { valor: doctoralia.rating, rotulo: `no Doctoralia · ${doctoralia.count} avaliações` },
+];
+const depoimentosLp = depoimentos.filter((d) => (d.tema === 'dtm' || d.tema === 'geral') && !d.citaMetodo);
+
+const riscos = [
+  'A dor tende a se tornar crônica quando não tratada',
+  'O desgaste nos dentes pode evoluir para fraturas e a necessidade de tratamentos restauradores mais complexos',
+  'A qualidade do sono pode piorar, afetando também a rotina e o bem-estar geral',
+  'A condição da articulação tende a se agravar progressivamente sem acompanhamento',
+];
+
+const passos = [
+  { titulo: 'Contato', texto: 'você entra em contato pelo WhatsApp e consulta a disponibilidade de horários na Barra.' },
+  { titulo: 'Avaliação inicial', texto: 'anamnese detalhada e exame funcional da articulação e dos músculos mastigatórios.' },
+  { titulo: 'Diagnóstico', texto: 'identificação das causas do quadro, não apenas do sintoma isolado.' },
+  {
+    titulo: 'Plano de tratamento personalizado',
+    texto: 'pode incluir placas oclusais, orientações comportamentais, terapia miofuncional e acompanhamento contínuo, conforme cada caso.',
+  },
+];
+
+const faq = [
+  {
+    pergunta: 'Quando começam os atendimentos na Barra da Tijuca?',
+    resposta: `Os atendimentos na Barra da Tijuca começam no dia ${inicioAtendimento}. Com atendimentos particulares e agenda semanal ou quinzenal conforme a demanda; pelo WhatsApp você consulta a disponibilidade.`,
+  },
+  {
+    pergunta: 'DTM e bruxismo têm cura?',
+    resposta:
+      'A resposta varia conforme a causa e o tempo de evolução de cada caso. Muitos pacientes alcançam controle significativo da dor e dos sintomas com o tratamento adequado e acompanhamento contínuo.',
+  },
+  {
+    pergunta: 'Vou precisar usar placa de mordida para sempre?',
+    resposta:
+      'Depende do caso. Em alguns pacientes o uso é temporário, em outros faz parte do controle a longo prazo. Isso é definido após a avaliação individual.',
+  },
+  { pergunta: 'O atendimento aceita convênio?', resposta: 'O atendimento é particular.' },
+  {
+    pergunta: 'Quanto tempo dura o tratamento?',
+    resposta:
+      'Varia de pessoa para pessoa, de acordo com a causa identificada e a resposta ao tratamento. Isso é explicado com clareza logo após o diagnóstico.',
+  },
+];
+---
+
+<LandingLayout
+  title="Tratamento de DTM e Bruxismo na Barra da Tijuca | Dra. Vanessa Zaidan Silveira"
+  description="Dor na mandíbula, estalos ou dor de cabeça que não passa? Avaliação em DTM e bruxismo com cirurgiã bucomaxilofacial na Barra da Tijuca (RJ). Agende pelo WhatsApp."
+  lpName="dtm-bruxismo-barra"
+  whatsappHref={whatsappHref}
+  local={localRodape}
+>
+  <!-- 1. HERO -->
+  <section class="lp-hero" aria-labelledby="lp-hero-title">
+    <div class="lp-wrap lp-hero__inner">
+      <p class="lp-overline">DTM e bruxismo · Barra da Tijuca, RJ</p>
+      <h1 id="lp-hero-title" class="lp-hero__title">
+        Dor na mandíbula, estalos ao mastigar ou <em>dor de cabeça ao acordar?</em>
+      </h1>
+      <p class="lp-hero__subtitle">
+        <strong>Pode ser DTM ou bruxismo — e tem tratamento.</strong>
+        Avaliação especializada com a Dra. Vanessa Zaidan Silveira, cirurgiã bucomaxilofacial, na Barra da Tijuca.
+      </p>
+      <a href={whatsappHref} target="_blank" rel="noopener" class="vs-btn vs-btn--primary lp-cta" data-lp-cta="hero">
+        <svg class="lp-cta__icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><use href="#icon-whatsapp" /></svg>
+        Falar com a Dra. Vanessa no WhatsApp
+      </a>
+      <p class="vs-cta-note">Atendimento particular</p>
+      <p class="lp-notice">{aviso}</p>
+      <ul class="lp-proof" aria-label="Avaliações de pacientes">
+        <li>
+          <span class="lp-proof__stars" aria-hidden="true">
+            {Array.from({ length: 5 }, () => <svg viewBox="0 0 20 20" fill="currentColor"><use href="#icon-star" /></svg>)}
+          </span>
+          <span><strong>{google.rating}</strong> no Google ({google.count} avaliações)</span>
+        </li>
+        <li>
+          <span><strong>{doctoralia.rating}</strong> no Doctoralia ({doctoralia.count} avaliações)</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 2. AUTODIAGNÓSTICO (no lugar da lista "Você reconhece algum desses sinais?") -->
+  <Dores
+    whatsapp={siteConfig.barraDaTijuca.whatsapp}
+    messageIntro="Olá, vi a página sobre DTM e bruxismo na Barra da Tijuca e fiz o teste de auto-diagnóstico."
+    lpCta="autodiagnostico"
+    showMoreLink={false}
+  />
+
+  <!-- 3. EDUCAÇÃO -->
+  <section class="lp-block lp-educacao" aria-labelledby="lp-educacao-title">
+    <div class="lp-wrap lp-wrap--text">
+      <h2 id="lp-educacao-title" class="lp-title vs-reveal">O que são DTM e bruxismo, afinal?</h2>
+      <div class="lp-prose vs-reveal">
+        <p>
+          <strong>DTM (Disfunção Temporomandibular)</strong> é o nome dado a um conjunto de problemas que afetam a
+          articulação da mandíbula e os músculos responsáveis pela mastigação. Pode causar dor, estalos, limitação de
+          movimento e até dores de cabeça e no ouvido.
+        </p>
+        <p>
+          O <strong>bruxismo</strong> — hábito involuntário de ranger ou apertar os dentes, geralmente durante o sono — é
+          um dos principais fatores que agravam a DTM, aumentando a sobrecarga na articulação e nos músculos.
+        </p>
+        <p class="lp-prose__highlight">
+          Cada caso tem uma origem diferente: postura, qualidade do sono, estresse, oclusão dos dentes. Por isso, uma
+          placa de mordida sozinha nem sempre resolve — o primeiro passo é um diagnóstico funcional completo, que
+          identifique a causa e não apenas o sintoma.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. CONSEQUÊNCIAS -->
+  <section class="lp-block lp-riscos" aria-labelledby="lp-riscos-title">
+    <div class="lp-wrap">
+      <h2 id="lp-riscos-title" class="lp-title vs-reveal">Por que não é bom deixar para depois</h2>
+      <ul class="lp-riscos__list">
+        {riscos.map((item) => (
+          <li class="lp-riscos__item vs-reveal">{item}</li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <!-- 5. AUTORIDADE -->
+  <section class="lp-block lp-autoridade" aria-labelledby="lp-autoridade-title">
+    <div class="lp-wrap lp-autoridade__inner">
+      <div class="lp-autoridade__photo vs-reveal">
+        <!-- TODO: foto — usando por enquanto a foto de "Sobre" do banco do site; substituir pela foto profissional escolhida para a campanha -->
+        <Image
+          src={draVanessaFoto}
+          alt="Dra. Vanessa Zaidan Silveira, cirurgiã bucomaxilofacial"
+          widths={[360, 560]}
+          sizes="(min-width: 768px) 400px, 80vw"
+          format="webp"
+          quality={70}
+          loading="lazy"
+          decoding="async"
+        />
+      </div>
+      <div class="lp-autoridade__content">
+        <h2 id="lp-autoridade-title" class="lp-title vs-reveal">Quem vai cuidar do seu diagnóstico</h2>
+        <p class="lp-autoridade__cro vs-reveal">
+          <span>{siteConfig.cro}</span> Cirurgiã e Traumatologista Bucomaxilofacial
+        </p>
+        <p class="lp-autoridade__bio vs-reveal">
+          A Dra. Vanessa Zaidan Silveira é Cirurgiã e Traumatologista Bucomaxilofacial ({siteConfig.cro}), com atuação
+          especializada em DTM, dor de cabeça, bruxismo e cirurgias. Também é mestranda em Inovação e Tecnologia em
+          Saúde. Sua formação em cirurgia bucomaxilofacial permite um olhar aprofundado sobre a anatomia da face, da
+          articulação e dos nervos envolvidos — o que se reflete em um diagnóstico mais completo, e não apenas no alívio
+          pontual do sintoma.
+        </p>
+        <ul class="lp-stats vs-reveal" aria-label="Experiência e avaliações">
+          {numeros.map((n) => (
+            <li>
+              <strong>{n.valor}</strong>
+              <span>{n.rotulo}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5b. PROVA SOCIAL — depoimentos (componente compartilhado) -->
+  <Depoimentos items={depoimentosLp} showBadges={false} />
+
+  <!-- 6. COMO FUNCIONA -->
+  <section class="lp-block lp-passos" aria-labelledby="lp-passos-title">
+    <div class="lp-wrap">
+      <h2 id="lp-passos-title" class="lp-title vs-reveal">Como funciona a primeira consulta</h2>
+      <ol class="lp-passos__list">
+        {passos.map((passo, i) => (
+          <li class="lp-passos__item vs-reveal" data-delay={String(i + 1)}>
+            <span class="lp-passos__num" aria-hidden="true">{i + 1}</span>
+            <p><strong>{passo.titulo}:</strong> {passo.texto}</p>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <!-- 7. FAQ -->
+  <section class="lp-block lp-faq" aria-labelledby="lp-faq-title">
+    <div class="lp-wrap lp-wrap--text">
+      <h2 id="lp-faq-title" class="lp-title vs-reveal">Perguntas frequentes</h2>
+      <div class="lp-faq__list">
+        {faq.map((item) => (
+          <details class="lp-faq__item">
+            <summary>{item.pergunta}</summary>
+            <p>{item.resposta}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. CTA FINAL + LOCALIZAÇÃO -->
+  <section class="lp-block lp-final" aria-labelledby="lp-final-title">
+    <div class="lp-wrap lp-wrap--text lp-final__inner">
+      <h2 id="lp-final-title" class="lp-title vs-reveal">Agende sua avaliação</h2>
+      <p class="lp-final__address vs-reveal">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" /><circle cx="12" cy="10" r="3" /></svg>
+        <span>Atendimento na Barra da Tijuca (RJ): {local.street} · {local.cityLine}.</span>
+      </p>
+      <p class="lp-notice vs-reveal">{aviso}</p>
+      <div class="lp-actions vs-reveal">
+        <a href={whatsappHref} target="_blank" rel="noopener" class="vs-btn vs-btn--primary lp-cta" data-lp-cta="cta-final">
+          <svg class="lp-cta__icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><use href="#icon-whatsapp" /></svg>
+          Agendar avaliação pelo WhatsApp
+        </a>
+        <p class="vs-cta-note">Atendimento particular</p>
+      </div>
+      <div class="lp-final__photo vs-reveal">
+        <Image
+          src={blueChipFoto}
+          alt={`Fachada do prédio do consultório na Barra da Tijuca — ${local.street}`}
+          widths={[360, 720]}
+          sizes="(min-width: 768px) 720px, 92vw"
+          format="webp"
+          quality={70}
+          loading="lazy"
+          decoding="async"
+        />
+      </div>
+    </div>
+  </section>
+</LandingLayout>

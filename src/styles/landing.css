@@ -211,6 +211,20 @@
   height: 14px;
 }
 
+/* Aviso discreto (ex.: data de início de uma unidade nova) */
+.lp-notice {
+  display: inline-block;
+  margin-top: var(--space-4);
+  padding: var(--space-2) var(--space-4);
+  border: 1px solid rgba(232, 122, 47, 0.25);
+  border-radius: var(--radius-md);
+  background: var(--color-amber-subtle);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  line-height: var(--leading-normal);
+  color: var(--color-text-secondary);
+}
+
 /* === 2. SINTOMAS === */
 .lp-sintomas {
   background: var(--color-cream-dark);
@@ -544,6 +558,17 @@
   stroke-width: 2;
   stroke-linecap: round;
   stroke-linejoin: round;
+}
+
+/* Foto opcional do local, abaixo do CTA final */
+.lp-final__photo {
+  margin-top: var(--space-8);
+}
+
+.lp-final__photo img {
+  width: 100%;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
 }
 
 /* === RODAPÉ === */
